@@ -1,5 +1,3 @@
-> HTML Page: [[HTML Pages/Premium Notes and Courses/Browse.html|Open HTML Page]]
-
 # 📦 The MasterMinds Notes 
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All products available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
