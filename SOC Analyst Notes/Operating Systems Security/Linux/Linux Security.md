@@ -6,30 +6,6 @@
 
 **The full macOS security guide can be unlocked by subscribing to the membership**
 
-**Table of Contents**
-- [[#Encryption|Encryption]]
-		- [[#Encrypting Entire Drive/Partition with LUKS|Encrypting Entire Drive/Partition with LUKS]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Installation|Installation]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Encrypting a new partition with without format|Encrypting a new partition with without format]]
-				- [[#Encrypting a new partition with without format#Set up the partition for LUKS encryption|Set up the partition for LUKS encryption]]
-				- [[#Encrypting a new partition with without format#Create a mapping to access the partition|Create a mapping to access the partition]]
-				- [[#Encrypting a new partition with without format#Accessing the encrypted value|Accessing the encrypted value]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Encrypting a new partition with with format|Encrypting a new partition with with format]]
-				- [[#Encrypting a new partition with with format#Overwrite existing data with zero|Overwrite existing data with zero]]
-				- [[#Encrypting a new partition with with format#Format the partition|Format the partition]]
-				- [[#Encrypting a new partition with with format#Mount it and start using it like a usual partition|Mount it and start using it like a usual partition]]
-				- [[#Encrypting a new partition with with format#Unmounting the encrypted partition|Unmounting the encrypted partition]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Check the LUKS setting|Check the LUKS setting]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Changing the passphrase of an encrypted drive/partition|Changing the passphrase of an encrypted drive/partition]]
-- [[#Remote Access|Remote Access]]
-	- [[#Remote Access#SSH|SSH]]
-- [[#Software and Services|Software and Services]]
-	- [[#Software and Services#Disable Unnecessary Services|Disable Unnecessary Services]]
-	- [[#Software and Services#Block Unneeded Network Ports|Block Unneeded Network Ports]]
-	- [[#Software and Services#Avoid Legacy Protocols|Avoid Legacy Protocols]]
-	- [[#Software and Services#Remove Identification Strings|Remove Identification Strings]]
-- [[#Patch Management|Patch Management]]
-
 ## Encryption
 #### Encrypting Entire Drive/Partition with LUKS
 Many modern Linux distributions ship with LUKS (Linux Unified Key Setup)

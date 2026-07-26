@@ -143,14 +143,14 @@ Each edition distills complex security, tech, and risk developments into clear i
 ---
 
 ## Reviews
-![](Premium%20Notes%20and%20Courses/2.png)
-![](Premium%20Notes%20and%20Courses/3%20.png)
-![](Premium%20Notes%20and%20Courses/4.png)
-![](Premium%20Notes%20and%20Courses/5.png)
-![](Premium%20Notes%20and%20Courses/6.png)
-![](Premium%20Notes%20and%20Courses/7.png)
-![](Premium%20Notes%20and%20Courses/8.png)
-![](Premium%20Notes%20and%20Courses/9.png)
+![](Premium%20Notes%20and%20Courses/images/2.png)
+![](Premium%20Notes%20and%20Courses/images/3%20.png)
+![](Premium%20Notes%20and%20Courses/images/4.png)
+![](Premium%20Notes%20and%20Courses/images/5.png)
+![](Premium%20Notes%20and%20Courses/images/6.png)
+![](Premium%20Notes%20and%20Courses/images/7.png)
+![](Premium%20Notes%20and%20Courses/images/8.png)
+![](Premium%20Notes%20and%20Courses/images/9.png)
 ## FAQ
 
 <details> <summary><strong>Are the notes beginner-friendly?</strong></summary>
