@@ -1,3 +1,8 @@
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
+
+
 Before you touch a single command in this room, there's one mental model you need to lock in: Dirty Frag is not a new idea. It's the third vulnerability in a bug class that's been quietly recurring across the Linux kernel for years. Dirty Pipe abused pipe buffers. Copy Fail abused AF_ALG. Dirty Frag abuses network socket buffer fragments. Same underlying trick, different plumbing. If you've done the Copy Fail room, the moment you read the word "page cache write" you already know what's coming.
 
 **The setup**

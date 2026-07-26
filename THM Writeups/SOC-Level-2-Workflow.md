@@ -1,4 +1,6 @@
-> HTML Page: [[SOC-Level-2-Workflow-Editorial.html|Open HTML Page]]
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 # SOC Level 2 Workflow: From Escalated Alert to Complete Incident Resolution
 

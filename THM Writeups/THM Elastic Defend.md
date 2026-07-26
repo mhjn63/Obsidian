@@ -1,4 +1,6 @@
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 ## Elastic Defend Deep Dive: Turning the Elastic Stack into a Full EDR and Hunting Real Activity
 
 The moment most teams start comparing endpoint security tools, the conversation usually shifts from brand names to capabilities; visibility, prevention, detection logic, and how fast analysts can reconstruct what actually happened on a compromised system.
