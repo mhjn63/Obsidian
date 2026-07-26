@@ -1,5 +1,3 @@
-> HTML Page: [[HTML Pages/Welcome.html|Open HTML Page]]
-
 # The Mastermind Notes
 
 ### Cybersecurity · Offensive & Defensive · Practitioner-First
@@ -182,4 +180,8 @@ Definitely. Head to [@MotasemHamdan](https://www.youtube.com/@MotasemHamdan) on 
 
 _Practitioner-grade cybersecurity notes & resources._
 
+<<<<<<< HEAD
 [Site](https://motasem-notes.net/) · [Store](https://shop.motasem-notes.net/) · [YouTube](https://www.youtube.com/@MotasemHamdan) · [Membership](https://buymeacoffee.com/notescatalog/membership)
+=======
+[Site](https://motasem-notes.net/) · [Store](https://shop.motasem-notes.net/) · [YouTube](https://www.youtube.com/@MotasemHamdan) · [Membership](https://buymeacoffee.com/notescatalog/membership)
+>>>>>>> origin/main
