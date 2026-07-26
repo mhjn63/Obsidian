@@ -1,1 +1,29 @@
-
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "My Project Docs",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0D9488",
+    "light": "#14B8A6",
+    "dark": "#115E59"
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
+    },
+    {
+      "group": "Settings",
+      "pages": [
+        "customization"
+      ]
+    }
+  ]
+}
