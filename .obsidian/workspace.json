@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC Analyst Notes/Blue Team Notes.md",
+                "file": "Tech/Operating Systems/Linux OS/Linux Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Blue Team Notes"
+              "title": "Linux Notes"
             }
           }
         ]
@@ -189,6 +189,17 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Tech/Operating Systems/Linux OS/Tools/Vim.md",
+    "Tech/Operating Systems/Linux OS/Tools/cURL.md",
+    "Tech/Operating Systems/Linux OS/Setup Guides/Postfix Incoming Mail Setup.md",
+    "Tech/Hosting/Apache Tomcat.md",
+    "Tech/Hosting/LAMP Stack.md",
+    "Tech/Databases/MySQL Server Deployment with Docker.md",
+    "Tech/Databases/Basics and Foundations.md",
+    "Tech/AI/ChatGPT Cheatsheet.md",
+    "Tech/AI/AI and LLMs.md",
+    "SOC Analyst Notes/Phishing Detection.md",
+    "SOC Analyst Notes/Blue Team Notes.md",
     "SOC Analyst Notes/Azure Security Center.md",
     "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
     "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
@@ -205,19 +216,8 @@
     "Cyber Security 101/Cyber Security Notes 101.md",
     "Certifications/THM SAL2 vs BTL2 vs HTB CDSA.md",
     "Certifications/thm sal2 vs btl2 vs cdsa.html",
-    "Certifications/Podcast Episode I Passed CPTS in 24 Hour - Lessons From a Real Candidate Who's Been There.md",
-    "Certifications/OSCP Certification Cheat Sheet 2026.md",
-    "Certifications/Am I Ready for the OSCP Here iss the Answer Nobody Wants to Hear.md",
-    "Career Guidance/Cyber Security Career Notes.md",
-    "Career Guidance/Becoming a Pentester.md",
-    "Career Guidance/Templates/SOC Analyst Interview Templates.md",
-    "Bug Bounty/Bug Bounty Tools.md",
-    "Bug Bounty/Bug Bounty Methodology.md",
-    "Bug Bounty/Bug Bounty Cheat Sheet.md",
-    "README.md",
     "Certifications",
     "THM Writeups/TryHackMe Eradication & Remediation Walkthrough.html",
-    "THM Writeups/THM Wazuh CVE-2026-25769.md",
     "THM Writeups/THM Wazuh CVE-2026-25769 .html",
     "THM Writeups/THM Spring AI CVE.html",
     "THM Writeups/thm extending your network .html",
