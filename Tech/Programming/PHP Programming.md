@@ -7,48 +7,6 @@
 > **Domain:** Server-Side Web Development | PHP Language Fundamentals | OOP | Regex  
 > **Relevance:** Web Development, WordPress/Laravel/Symfony, Security Research (PHP is the most common backend language in pentesting targets), OSCP Web Modules, Bug Bounty
 
-**Table of Contents**
-- [[#1. PROGRAM STRUCTURE & OUTPUT|1. PROGRAM STRUCTURE & OUTPUT]]
-	- [[#1. PROGRAM STRUCTURE & OUTPUT#1.1 PHP Tags and Script Termination|1.1 PHP Tags and Script Termination]]
-	- [[#1. PROGRAM STRUCTURE & OUTPUT#1.2 Output Functions|1.2 Output Functions]]
-- [[#2. STRING MANIPULATION|2. STRING MANIPULATION]]
-	- [[#2. STRING MANIPULATION#2.1 Core String Functions|2.1 Core String Functions]]
-- [[#3. ARRAYS|3. ARRAYS]]
-	- [[#3. ARRAYS#3.1 Declaring Arrays|3.1 Declaring Arrays]]
-	- [[#3. ARRAYS#3.2 Array Operations|3.2 Array Operations]]
-- [[#4. VARIABLES & CONSTANTS|4. VARIABLES & CONSTANTS]]
-- [[#5. OPERATORS|5. OPERATORS]]
-- [[#6. CONDITIONAL STATEMENTS|6. CONDITIONAL STATEMENTS]]
-	- [[#6. CONDITIONAL STATEMENTS#6.1 `if` / `elseif` / `else`|6.1 `if` / `elseif` / `else`]]
-	- [[#6. CONDITIONAL STATEMENTS#6.2 Ternary and Null Coalescing|6.2 Ternary and Null Coalescing]]
-	- [[#6. CONDITIONAL STATEMENTS#6.3 `switch` Statement|6.3 `switch` Statement]]
-	- [[#6. CONDITIONAL STATEMENTS#6.4 `match` Expression (PHP 8.0+)|6.4 `match` Expression (PHP 8.0+)]]
-- [[#7. LOOPS|7. LOOPS]]
-- [[#8. SUPERGLOBALS & GLOBAL VARIABLES|8. SUPERGLOBALS & GLOBAL VARIABLES]]
-- [[#9. FUNCTIONS|9. FUNCTIONS]]
-	- [[#9. FUNCTIONS#9.1 Function Declaration and Types|9.1 Function Declaration and Types]]
-	- [[#9. FUNCTIONS#9.2 Anonymous Functions (Closures) and Arrow Functions|9.2 Anonymous Functions (Closures) and Arrow Functions]]
-	- [[#9. FUNCTIONS#9.3 Null-Safe Operator (PHP 8.0+)|9.3 Null-Safe Operator (PHP 8.0+)]]
-- [[#10. OBJECT-ORIENTED PROGRAMMING|10. OBJECT-ORIENTED PROGRAMMING]]
-	- [[#10. OBJECT-ORIENTED PROGRAMMING#10.1 Class Declaration|10.1 Class Declaration]]
-	- [[#10. OBJECT-ORIENTED PROGRAMMING#10.2 Method Types|10.2 Method Types]]
-	- [[#10. OBJECT-ORIENTED PROGRAMMING#10.3 Magic Methods|10.3 Magic Methods]]
-	- [[#10. OBJECT-ORIENTED PROGRAMMING#10.4 Interfaces, Abstract Classes, and Traits|10.4 Interfaces, Abstract Classes, and Traits]]
-- [[#11. ENUMS (PHP 8.1+)|11. ENUMS (PHP 8.1+)]]
-- [[#12. REGULAR EXPRESSIONS|12. REGULAR EXPRESSIONS]]
-	- [[#12. REGULAR EXPRESSIONS#12.1 Regex Meta Characters|12.1 Regex Meta Characters]]
-	- [[#12. REGULAR EXPRESSIONS#12.2 Pattern Modifiers|12.2 Pattern Modifiers]]
-	- [[#12. REGULAR EXPRESSIONS#12.3 Subpattern Modifiers and Assertions|12.3 Subpattern Modifiers and Assertions]]
-	- [[#12. REGULAR EXPRESSIONS#12.4 Character Classes|12.4 Character Classes]]
-	- [[#12. REGULAR EXPRESSIONS#12.5 Quantifiers|12.5 Quantifiers]]
-	- [[#12. REGULAR EXPRESSIONS#12.6 PHP Regex Functions|12.6 PHP Regex Functions]]
-	- [[#12. REGULAR EXPRESSIONS#12.7 Practical Regex Code Snippets|12.7 Practical Regex Code Snippets]]
-- [[#13. KEY CONCEPTS & LEARNER TAKEAWAYS|13. KEY CONCEPTS & LEARNER TAKEAWAYS]]
-	- [[#13. KEY CONCEPTS & LEARNER TAKEAWAYS#13.1 PHP-Specific Concepts to Master|13.1 PHP-Specific Concepts to Master]]
-	- [[#13. KEY CONCEPTS & LEARNER TAKEAWAYS#13.2 Common Pitfalls|13.2 Common Pitfalls]]
-	- [[#13. KEY CONCEPTS & LEARNER TAKEAWAYS#13.3 Quick Reference — Essential Snippets|13.3 Quick Reference — Essential Snippets]]
-	- [[#13. KEY CONCEPTS & LEARNER TAKEAWAYS#13.4 Key Standard Functions Quick Reference|13.4 Key Standard Functions Quick Reference]]
-
 ## 1. PROGRAM STRUCTURE & OUTPUT
 
 ### 1.1 PHP Tags and Script Termination

@@ -3,49 +3,6 @@
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
-
-
-**Table of Contents**
-- [[#Basics|Basics]]
-- [[#Math Operators|Math Operators]]
-	- [[#Math Operators#Example:|Example:]]
-- [[#Comparison Operators|Comparison Operators]]
-	- [[#Comparison Operators#Common Comparison Operators in Python|Common Comparison Operators in Python]]
-- [[#Variables and Data Types|Variables and Data Types]]
-- [[#Boolean Operators|Boolean Operators]]
-	- [[#Boolean Operators#1. Comparison Operators|1. Comparison Operators]]
-	- [[#Boolean Operators#2. Logical Operators|2. Logical Operators]]
-	- [[#Boolean Operators#3. Membership Operators|3. Membership Operators]]
-- [[#If Statements|If Statements]]
-- [[#Loops|Loops]]
-	- [[#Loops#1. For Loop|1. For Loop]]
-	- [[#Loops#2. While Loop|2. While Loop]]
-	- [[#Loops#Key Differences:|Key Differences:]]
-- [[#Functions|Functions]]
-	- [[#Functions#Example Use Cases:|Example Use Cases:]]
-	- [[#Functions#Calling the Function:|Calling the Function:]]
-- [[#File Operations in Python|File Operations in Python]]
-	- [[#File Operations in Python#Reading from a File|Reading from a File]]
-	- [[#File Operations in Python#Writing to a File|Writing to a File]]
-	- [[#File Operations in Python#Appending to a File|Appending to a File]]
-	- [[#File Operations in Python#Reading and Writing Binary Files|Reading and Writing Binary Files]]
-- [[#Imports|Imports]]
-	- [[#Imports#How to Import a Library|How to Import a Library]]
-	- [[#Imports#Import Specific Functions or Classes|Import Specific Functions or Classes]]
-	- [[#Imports#Using an Alias for Convenience|Using an Alias for Convenience]]
-	- [[#Imports#Example Libraries|Example Libraries]]
-- [[#File Downloading|File Downloading]]
-- [[#Security & Pentesting|Security & Pentesting]]
-	- [[#Security & Pentesting#Subdomain Enumeration|Subdomain Enumeration]]
-	- [[#Security & Pentesting#Directory Enumeration|Directory Enumeration]]
-	- [[#Security & Pentesting#Network Scanning|Network Scanning]]
-	- [[#Security & Pentesting#Port Scanning|Port Scanning]]
-	- [[#Security & Pentesting#Hash Cracking|Hash Cracking]]
-		- [[#Hash Cracking#Variation 1|Variation 1]]
-		- [[#Hash Cracking#Variation 2|Variation 2]]
-	- [[#Security & Pentesting#Keylogging|Keylogging]]
-
-
 ## Basics
 The example code block below demonstrates a single line of code (on line 2) that, when executed, outputs the text _Hello World_. 
 ```python
