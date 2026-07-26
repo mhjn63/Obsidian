@@ -12,7 +12,7 @@
 - [[#4. TODO — Incomplete Code Reminders|4. TODO — Incomplete Code Reminders]]
 - [[#Quick Reference Summary|Quick Reference Summary]]
 - [[#Swift Data Types & Type Casting|Swift Data Types & Type Casting]]
-- [[32-bit vs 64-bit)](#1. Data Type Sizing (32-bit vs 64-bit|1. Data Type Sizing (32-bit vs 64-bit)]])
+- [[#1. Data Type Sizing (32-bit vs 64-bit)|1. Data Type Sizing (32-bit vs 64-bit)]]
 - [[#2. C Primitives → Swift Aliases|2. C Primitives → Swift Aliases]]
 - [[#3. Integers|3. Integers]]
 - [[#4. Floating Point|4. Floating Point]]
@@ -39,19 +39,20 @@
 - [[#III. Property Observers: Automated Security Triggers|III. Property Observers: Automated Security Triggers]]
 - [[#IV. Computed Properties: Getters & Setters|IV. Computed Properties: Getters & Setters]]
 - [[#V. Access Levels & Scope Management|V. Access Levels & Scope Management]]
-- [[`let`) vs. Variable (`var`)](#VI. Constant (`let`|VI. Constant (`let`) vs. Variable (`var`)]]%20vs.%20Variable%20(`var`))
+- [[#VI. Constant (`let`) vs. Variable (`var`)|VI. Constant (`let`) vs. Variable (`var`)]]
 - [[#I. Naming Conventions & Code Auditability|I. Naming Conventions & Code Auditability]]
 - [[#II. Closures: Functional Sinks and Callbacks|II. Closures: Functional Sinks and Callbacks]]
 - [[#III. Value Capturing & Contextual Persistence|III. Value Capturing & Contextual Persistence]]
 - [[#IV. Memory Management: Avoiding Retain Cycles|IV. Memory Management: Avoiding Retain Cycles]]
 - [[#V. Summary for the Analyst|V. Summary for the Analyst]]
 - [[#I. Conditional Logic & Truthiness|I. Conditional Logic & Truthiness]]
-- [[`??`)](#II. The Nil Coalescing Operator (`??`|II. The Nil Coalescing Operator (`??`)]])
+- [[#II. The Nil Coalescing Operator (`??`)|II. The Nil Coalescing Operator (`??`)]]
 - [[#III. Advanced Iteration: For-In & Ranges|III. Advanced Iteration: For-In & Ranges]]
 - [[#IV. Safety-Enhanced Switch Statements|IV. Safety-Enhanced Switch Statements]]
 - [[#V. Loop Stability: While & Repeat-While|V. Loop Stability: While & Repeat-While]]
 - [[#VI. Exit Strategies: Return vs. Break|VI. Exit Strategies: Return vs. Break]]
 - [[#Summary Checklist for Analysts|Summary Checklist for Analysts]]
+
 
 ### Comments
 
