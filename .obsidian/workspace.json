@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "76134294b3bba727",
+    "type": "split",
+    "children": [
+      {
+        "id": "942b44dd3cfbad19",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "425de4328e145f90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "558f94a326761e71",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0fdeaf15c358b08",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21a2888db70fbef7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "bbca893cc7d8aaff",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bbea4ee5026563e0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6ef6d5954b374f80",
+    "type": "split",
+    "children": [
+      {
+        "id": "8346996f27a27c54",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "19b60f33a10e6f54",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Changelog.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Changelog"
+            }
+          },
+          {
+            "id": "4f1c6394871dab97",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Changelog.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Changelog"
+            }
+          },
+          {
+            "id": "0870b112abaa2994",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5f3884c637932aa4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "54ef5609bb7a5460",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Changelog.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Changelog"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "notes-to-html-pages:Export current note to HTML page": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "publish:Publish changes...": false
+    }
+  },
+  "active": "21a2888db70fbef7",
+  "lastOpenFiles": [
+    "test/README.md",
+    "test/Changelog.md",
+    "Welcome.md",
+    "wiki/Welcome.md",
+    "New Text Document.txt",
+    "wiki/SUMMARY.md",
+    "wiki/README.md",
+    "Untitled.md",
+    "wiki",
+    "Premium Notes and Courses/Browse.md",
+    "wiki/Changelog 1.md",
+    "2.png",
+    "Changelog.md",
+    "3 .png",
+    "test",
+    "Wiki",
+    "README.md",
+    "SUMMARY.md",
+    "malware-analysis-and-reverse-engineering/how-to-analyze-ransomware-with-any.run-and-ghidra.md",
+    "cyber-security-notes/windows-active-directory-study-notes-or-security-and-auditing.md",
+    "cyber-security-notes/the-shells-study-notes.md",
+    "cyber-security-notes/metasploit-framework-study-guide-and-notes-in-pdf.md",
+    "cyber-security-notes/cyber-security-study-notes-pdf.md",
+    "cyber-security-notes/burp-suite-practical-study-notes.md",
+    "cyber-security-notes/buffer-overflow-and-binary-exploitation-techniques-or-methodology-and-practical-notes.md",
+    "cyber-security-notes/blue-team-and-soc-analyst-study-notes-in-pdf.md",
+    "cyber-security-notes/antivirus-evasion-and-bypass-study-notes-in-pdf.md",
+    "cyber-security-and-it-certification-practice-tests/comptia-pentest+-practice-test-and-exam.md",
+    "cyber-security-and-it-certification-notes/comptia-pentest+-study-notes-pdf.md",
+    "cyber-security-and-it-certification-notes/cissp-study-notes-and-guide.md",
+    "cyber-security-and-it-certification-notes/certified-red-team-professional-crtp-study-notes-and-guide.md",
+    "malware-analysis-and-reverse-engineering",
+    "cyber-security-notes",
+    "cyber-security-and-it-certification-practice-tests",
+    "cyber-security-and-it-certification-notes",
+    "ctf-walkthroughs",
+    "computer-troubleshooting-tips",
+    "8.png",
+    "7.png",
+    "6.png",
+    "5.png",
+    "4.png",
+    "9.png",
+    "Free Notes/Cybersecurity/Management and Governance/4.png",
+    "Free Notes/Cybersecurity/Management and Governance/3.png"
+  ]
+}
