@@ -1,5 +1,3 @@
-> HTML Page: [[Welcome.html|Open HTML Page]]
-
 # The Mastermind Notes
 
 ### Cybersecurity · Offensive & Defensive · Practitioner-First
