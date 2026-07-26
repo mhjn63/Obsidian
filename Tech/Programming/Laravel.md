@@ -8,6 +8,10 @@
 > **Domain:** PHP Backend Framework | MVC Architecture | Eloquent ORM | REST API Development  
 > **Relevance:** Web Application Development, REST API Development, Laravel/PHP Security Testing (many enterprise targets run Laravel), OSCP Web Modules, Bug Bounty
 
+- [[#1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE|1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE]]
+	- [[#1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE#1.1 Core Application Commands|1.1 Core Application Commands]]
+	- [[#1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE#1.2 Code Generation — `make:*` Commands|1.2 Code Generation — `make:*` Commands]]
+	- [[#1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE#1.3 Database Commands|1.3 Database Commands]]
 
 ## 1. ARTISAN CLI : THE LARAVEL COMMAND-LINE INTERFACE
 

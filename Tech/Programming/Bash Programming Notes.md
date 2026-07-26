@@ -27,8 +27,9 @@
 - [[#PROCESS HANDLING|PROCESS HANDLING]]
 - [[#TIPS & TRICKS|TIPS & TRICKS]]
 - [[#set an alias|set an alias]]
-- [[#set an alias#set an alias#set an alias#set an alias#DEBUGGING SHELL PROGRAMS|DEBUGGING SHELL PROGRAMS]]
-- [[#set an alias#set an alias#set an alias#set an alias#COLORS AND BACKGROUNDS|COLORS AND BACKGROUNDS]]
+- [[#set an alias#DEBUGGING SHELL PROGRAMS|DEBUGGING SHELL PROGRAMS]]
+- [[#set an alias#COLORS AND BACKGROUNDS|COLORS AND BACKGROUNDS]]
+]]
 
 ### The Command Center of the Linux World
 Bash (Bourne Again SHell) is not merely a terminal interface; it is the beating heart of the GNU operating system and the default command interpreter for the vast majority of Linux distributions. 
