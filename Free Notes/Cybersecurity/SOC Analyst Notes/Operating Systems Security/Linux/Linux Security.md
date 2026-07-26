@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/SOC%20Analyst%20Notes/Operating%20Systems%20Security/Linux/Linux%20Security.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -7,28 +7,28 @@
 **The full macOS security guide can be unlocked by subscribing to the membership**
 
 **Table of Contents**
-- [[#Encryption|Encryption]]
-		- [[#Encrypting Entire Drive/Partition with LUKS|Encrypting Entire Drive/Partition with LUKS]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Installation|Installation]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Encrypting a new partition with without format|Encrypting a new partition with without format]]
-				- [[#Encrypting a new partition with without format#Set up the partition for LUKS encryption|Set up the partition for LUKS encryption]]
-				- [[#Encrypting a new partition with without format#Create a mapping to access the partition|Create a mapping to access the partition]]
-				- [[#Encrypting a new partition with without format#Accessing the encrypted value|Accessing the encrypted value]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Encrypting a new partition with with format|Encrypting a new partition with with format]]
-				- [[#Encrypting a new partition with with format#Overwrite existing data with zero|Overwrite existing data with zero]]
-				- [[#Encrypting a new partition with with format#Format the partition|Format the partition]]
-				- [[#Encrypting a new partition with with format#Mount it and start using it like a usual partition|Mount it and start using it like a usual partition]]
-				- [[#Encrypting a new partition with with format#Unmounting the encrypted partition|Unmounting the encrypted partition]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Check the LUKS setting|Check the LUKS setting]]
-			- [[#Encrypting Entire Drive/Partition with LUKS#Changing the passphrase of an encrypted drive/partition|Changing the passphrase of an encrypted drive/partition]]
-- [[#Remote Access|Remote Access]]
-	- [[#Remote Access#SSH|SSH]]
-- [[#Software and Services|Software and Services]]
-	- [[#Software and Services#Disable Unnecessary Services|Disable Unnecessary Services]]
-	- [[#Software and Services#Block Unneeded Network Ports|Block Unneeded Network Ports]]
-	- [[#Software and Services#Avoid Legacy Protocols|Avoid Legacy Protocols]]
-	- [[#Software and Services#Remove Identification Strings|Remove Identification Strings]]
-- [[#Patch Management|Patch Management]]
+- [Encryption](#Encryption)
+		- [Encrypting Entire Drive/Partition with LUKS](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS)
+			- [](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Installation|Installation)
+			- [](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20a%20new%20partition%20with%20without%20format|Encrypting%20a%20new%20partition%20with%20without%20format)
+				- [](#Encrypting%20a%20new%20partition%20with%20without%20format#Encrypting%20a%20new%20partition%20with%20without%20format#Set%20up%20the%20partition%20for%20LUKS%20encryption|Set%20up%20the%20partition%20for%20LUKS%20encryption)
+				- [](#Encrypting%20a%20new%20partition%20with%20without%20format#Encrypting%20a%20new%20partition%20with%20without%20format#Create%20a%20mapping%20to%20access%20the%20partition|Create%20a%20mapping%20to%20access%20the%20partition)
+				- [](#Encrypting%20a%20new%20partition%20with%20without%20format#Encrypting%20a%20new%20partition%20with%20without%20format#Accessing%20the%20encrypted%20value|Accessing%20the%20encrypted%20value)
+			- [](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20a%20new%20partition%20with%20with%20format|Encrypting%20a%20new%20partition%20with%20with%20format)
+				- [](#Encrypting%20a%20new%20partition%20with%20with%20format#Encrypting%20a%20new%20partition%20with%20with%20format#Overwrite%20existing%20data%20with%20zero|Overwrite%20existing%20data%20with%20zero)
+				- [](#Encrypting%20a%20new%20partition%20with%20with%20format#Encrypting%20a%20new%20partition%20with%20with%20format#Format%20the%20partition|Format%20the%20partition)
+				- [](#Encrypting%20a%20new%20partition%20with%20with%20format#Encrypting%20a%20new%20partition%20with%20with%20format#Mount%20it%20and%20start%20using%20it%20like%20a%20usual%20partition|Mount%20it%20and%20start%20using%20it%20like%20a%20usual%20partition)
+				- [](#Encrypting%20a%20new%20partition%20with%20with%20format#Encrypting%20a%20new%20partition%20with%20with%20format#Unmounting%20the%20encrypted%20partition|Unmounting%20the%20encrypted%20partition)
+			- [](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Check%20the%20LUKS%20setting|Check%20the%20LUKS%20setting)
+			- [](#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Encrypting%20Entire%20Drive/Partition%20with%20LUKS#Changing%20the%20passphrase%20of%20an%20encrypted%20drive/partition|Changing%20the%20passphrase%20of%20an%20encrypted%20drive/partition)
+- [Remote Access](#Remote%20Access)
+	- [](#Remote%20Access#Remote%20Access#SSH|SSH)
+- [Software and Services](#Software%20and%20Services)
+	- [](#Software%20and%20Services#Software%20and%20Services#Disable%20Unnecessary%20Services|Disable%20Unnecessary%20Services)
+	- [](#Software%20and%20Services#Software%20and%20Services#Block%20Unneeded%20Network%20Ports|Block%20Unneeded%20Network%20Ports)
+	- [](#Software%20and%20Services#Software%20and%20Services#Avoid%20Legacy%20Protocols|Avoid%20Legacy%20Protocols)
+	- [](#Software%20and%20Services#Software%20and%20Services#Remove%20Identification%20Strings|Remove%20Identification%20Strings)
+- [Patch Management](#Patch%20Management)
 
 ## Encryption
 #### Encrypting Entire Drive/Partition with LUKS

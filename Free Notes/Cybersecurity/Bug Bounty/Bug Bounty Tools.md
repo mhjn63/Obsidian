@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Bug Bounty/Bug Bounty Tools.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Bug%20Bounty/Bug%20Bounty%20Tools.html)
 
 # Bug Bounty Tools : Beginner Reference Notes
 

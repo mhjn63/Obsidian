@@ -1,39 +1,39 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Management and Governance/Cyber Security Management.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Management%20and%20Governance/Cyber%20Security%20Management.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-- [[#Why Security Is Far More Than Technology|Why Security Is Far More Than Technology]]
-- [[#The Real Goal of Cyber Security|The Real Goal of Cyber Security]]
-- [[#Understanding Risk Before Building Controls|Understanding Risk Before Building Controls]]
-- [[#Why Asset Ownership Matters|Why Asset Ownership Matters]]
-- [[#Security Management Is Never Finished|Security Management Is Never Finished]]
-- [[#Does Every Security Professional Need Deep Technical Expertise?|Does Every Security Professional Need Deep Technical Expertise?]]
-- [[#Standards|Standards]]
-- [[#The Documentation Debate|The Documentation Debate]]
-- [[#Understanding Threats, Risks, and Controls|Understanding Threats, Risks, and Controls]]
-- [[#Beyond the CIA Triad|Beyond the CIA Triad]]
-- [[#Security Culture Is the Hidden Control|Security Culture Is the Hidden Control]]
-- [[#Security Is Ultimately About People|Security Is Ultimately About People]]
-- [[#Security Management, Risk, and the Human Side of Cybersecurity|Security Management, Risk, and the Human Side of Cybersecurity]]
-- [[#Security Frameworks Are Different Tools for Different Organizations|Security Frameworks Are Different Tools for Different Organizations]]
-- [[#Security Policies Must Support Business Goals|Security Policies Must Support Business Goals]]
-- [[#Understanding ISO 27001 and ISO 27002|Understanding ISO 27001 and ISO 27002]]
-- [[#The Difference Between ISO and NIST Philosophies|The Difference Between ISO and NIST Philosophies]]
-- [[#Certification Is More Than Passing an Audit|Certification Is More Than Passing an Audit]]
-- [[#Risk Management Is the Foundation of Security|Risk Management Is the Foundation of Security]]
-- [[#The Organization Boundary No Longer Exists|The Organization Boundary No Longer Exists]]
-- [[#Risk Assessments Are About Consistency|Risk Assessments Are About Consistency]]
-- [[#Significant Changes Require New Risk Assessments|Significant Changes Require New Risk Assessments]]
-- [[#Risk Treatment Is More Complicated Than It Looks|Risk Treatment Is More Complicated Than It Looks]]
-- [[#The Problem With Numerical Risk Scores|The Problem With Numerical Risk Scores]]
-- [[#Security Is a Socio-Technical System|Security Is a Socio-Technical System]]
-- [[#Positive Security vs. Negative Security|Positive Security vs. Negative Security]]
-- [[#Security Controls Must Be Designed Around People|Security Controls Must Be Designed Around People]]
-- [[#Trust Is a Security Control|Trust Is a Security Control]]
-- [[#IT Governance|IT Governance]]
-- [[#Information Audit and Control|Information Audit and Control]]
+- [Why Security Is Far More Than Technology](#Why%20Security%20Is%20Far%20More%20Than%20Technology)
+- [The Real Goal of Cyber Security](#The%20Real%20Goal%20of%20Cyber%20Security)
+- [Understanding Risk Before Building Controls](#Understanding%20Risk%20Before%20Building%20Controls)
+- [Why Asset Ownership Matters](#Why%20Asset%20Ownership%20Matters)
+- [Security Management Is Never Finished](#Security%20Management%20Is%20Never%20Finished)
+- [Does Every Security Professional Need Deep Technical Expertise?](#Does%20Every%20Security%20Professional%20Need%20Deep%20Technical%20Expertise?)
+- [Standards](#Standards)
+- [The Documentation Debate](#The%20Documentation%20Debate)
+- [Understanding Threats, Risks, and Controls](#Understanding%20Threats,%20Risks,%20and%20Controls)
+- [Beyond the CIA Triad](#Beyond%20the%20CIA%20Triad)
+- [Security Culture Is the Hidden Control](#Security%20Culture%20Is%20the%20Hidden%20Control)
+- [Security Is Ultimately About People](#Security%20Is%20Ultimately%20About%20People)
+- [Security Management, Risk, and the Human Side of Cybersecurity](#Security%20Management,%20Risk,%20and%20the%20Human%20Side%20of%20Cybersecurity)
+- [Security Frameworks Are Different Tools for Different Organizations](#Security%20Frameworks%20Are%20Different%20Tools%20for%20Different%20Organizations)
+- [Security Policies Must Support Business Goals](#Security%20Policies%20Must%20Support%20Business%20Goals)
+- [Understanding ISO 27001 and ISO 27002](#Understanding%20ISO%2027001%20and%20ISO%2027002)
+- [The Difference Between ISO and NIST Philosophies](#The%20Difference%20Between%20ISO%20and%20NIST%20Philosophies)
+- [Certification Is More Than Passing an Audit](#Certification%20Is%20More%20Than%20Passing%20an%20Audit)
+- [Risk Management Is the Foundation of Security](#Risk%20Management%20Is%20the%20Foundation%20of%20Security)
+- [The Organization Boundary No Longer Exists](#The%20Organization%20Boundary%20No%20Longer%20Exists)
+- [Risk Assessments Are About Consistency](#Risk%20Assessments%20Are%20About%20Consistency)
+- [Significant Changes Require New Risk Assessments](#Significant%20Changes%20Require%20New%20Risk%20Assessments)
+- [Risk Treatment Is More Complicated Than It Looks](#Risk%20Treatment%20Is%20More%20Complicated%20Than%20It%20Looks)
+- [The Problem With Numerical Risk Scores](#The%20Problem%20With%20Numerical%20Risk%20Scores)
+- [Security Is a Socio-Technical System](#Security%20Is%20a%20Socio-Technical%20System)
+- [Positive Security vs. Negative Security](#Positive%20Security%20vs.%20Negative%20Security)
+- [Security Controls Must Be Designed Around People](#Security%20Controls%20Must%20Be%20Designed%20Around%20People)
+- [Trust Is a Security Control](#Trust%20Is%20a%20Security%20Control)
+- [IT Governance](#IT%20Governance)
+- [Information Audit and Control](#Information%20Audit%20and%20Control)
 
 ## Why Security Is Far More Than Technology
 When people first enter the cybersecurity field, they often imagine security as a technical discipline centered around firewalls, intrusion detection systems, encryption, and vulnerability management. Those technologies certainly matter, but they represent only one part of the picture.
@@ -608,7 +608,7 @@ It is a novel concept in the well-established world of enterprise governance, in
 However, with the increasing impact of cyber-crime and computers in general, and the overall reliance of business on effective IT functioning information governance, has taken its place as a separate but integral part of the strategic management process (Ponemon Institute Research Report, 2013). This presupposes that the information control function must meet the same expectations and criteria for quality, fiduciary, and operational integrity as every other aspect of the business. It also assumes that the business’s information and related technology processes must support its larger goals in an explicit and traceable way.
 Information technology governance accomplishes its aims by building a comprehensive structure of rational procedures and relationships, which can be employed to direct and control information assets. As a result, IT governance establishes a tangible link between the company’s IT resources and its information and business strategy. Ideally, it does this in such a way that it adds value to the enterprise’s purposes.
 
-![[1.png]]
+![1](1.png)
 
 It should be noted that information governance is not the same as enterprise governance. Enterprise governance assures stakeholders that the business will be profitable and productive. It embodies the strategic and tactical means to monitor that issues vital to business success will be effectively identified and dealt with. 
 
@@ -742,7 +742,7 @@ Depending on the information that is obtained, it is possible to target the rele
 17. 
 The first 10 items are primarily oriented toward process understanding and determining ownership. 
 
-![[3.png]]
+![3](3.png)
 
 The general principles of control can also supply additional insight on how to conduct a pepper audit. These principles are primarily focused on process and control responsibilities, control standards, and control information flows. Control, from a management point-of-view, is defined as determining what is being accomplished. That is, evaluating the performance and if necessary applying corrective measures so that the performance takes place according to plan.
 

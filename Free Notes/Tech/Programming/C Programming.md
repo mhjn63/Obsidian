@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/C Programming.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/C%20Programming.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 

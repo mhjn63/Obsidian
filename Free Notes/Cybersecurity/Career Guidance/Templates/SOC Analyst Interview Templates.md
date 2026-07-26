@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Career Guidance/Templates/SOC Analyst Interview Templates.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Career%20Guidance/Templates/SOC%20Analyst%20Interview%20Templates.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 

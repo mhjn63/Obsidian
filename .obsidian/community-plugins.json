@@ -3,5 +3,6 @@
   "obsidian-plugin-toc",
   "remove-newlines",
   "notes-to-html-pages",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-link-converter"
 ]

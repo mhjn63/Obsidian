@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/SOC Analyst Notes/Azure Security Center.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/SOC%20Analyst%20Notes/Azure%20Security%20Center.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 

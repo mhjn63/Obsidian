@@ -1,59 +1,59 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Bug Bounty/Bug Bounty Methodology.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Bug%20Bounty/Bug%20Bounty%20Methodology.html)
 
 🏠 [Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Get the full BUH BOUNTY PACK in PDF [here](https://buymeacoffee.com/notescatalog/e/528934)
 
 **Table of Contents**
-- [[#Your Path to Bug Bounty Hunting|Your Path to Bug Bounty Hunting]]
-	- [[#Your Path to Bug Bounty Hunting#How to Choose and Master Your First Vulnerability|How to Choose and Master Your First Vulnerability]]
-		- [[#How to Choose and Master Your First Vulnerability#Step 1|Step 1]]
-		- [[#How to Choose and Master Your First Vulnerability#Step 2|Step 2]]
-	- [[#Your Path to Bug Bounty Hunting#Sample Workflow|Sample Workflow]]
-	- [[#Your Path to Bug Bounty Hunting#How Do You Know You're on the Right Path?|How Do You Know You're on the Right Path?]]
-- [[#Report Writing|Report Writing]]
-	- [[#Report Writing#Structural Foundations of Effective Bug Reports|Structural Foundations of Effective Bug Reports]]
-	- [[#Report Writing#Respecting Scope : A Critical Operational Discipline|Respecting Scope : A Critical Operational Discipline]]
-	- [[#Report Writing#Impact : The Core of Reward Justification|Impact : The Core of Reward Justification]]
-	- [[#Report Writing#Supporting Evidence : Enhancing Reproducibility|Supporting Evidence : Enhancing Reproducibility]]
-		- [[#Supporting Evidence : Enhancing Reproducibility#HTTP Requests and Responses|HTTP Requests and Responses]]
-		- [[#Supporting Evidence : Enhancing Reproducibility#Screenshots|Screenshots]]
-		- [[#Supporting Evidence : Enhancing Reproducibility#Video Demonstrations|Video Demonstrations]]
-	- [[#Report Writing#Maintaining Professional Conduct|Maintaining Professional Conduct]]
-	- [[#Report Writing#The Standard Bug Bounty Report Template|The Standard Bug Bounty Report Template]]
-	- [[#Report Writing#Title|Title]]
-	- [[#Report Writing#Summary|Summary]]
-	- [[#Report Writing#Description|Description]]
-	- [[#Report Writing#Steps to Reproduce|Steps to Reproduce]]
-	- [[#Report Writing#Steps to Reproduce:|Steps to Reproduce:]]
-	- [[#Report Writing#Example script used during exploitation|Example script used during exploitation]]
-	- [[#Report Writing#Supporting Material|Supporting Material]]
-	- [[#Report Writing#Supporting Material:|Supporting Material:]]
-	- [[#Report Writing#Impact|Impact]]
-	- [[#Report Writing#Mitigation (Optional)|Mitigation (Optional)]]
-	- [[#Report Writing#Example Markdown Report Template|Example Markdown Report Template]]
-		- [[#Example Markdown Report Template#Summary:|Summary:]]
-		- [[#Example Markdown Report Template#Description:|Description:]]
-		- [[#Example Markdown Report Template#Steps to Reproduce:|Steps to Reproduce:]]
-		- [[#Example Markdown Report Template#Supporting Material:|Supporting Material:]]
-		- [[#Example Markdown Report Template#Impact:|Impact:]]
-		- [[#Example Markdown Report Template#Mitigation:|Mitigation:]]
-	- [[#Report Writing#Core Operational Insight|Core Operational Insight]]
-- [[#Bug Bounty Report Sample Template|Bug Bounty Report Sample Template]]
-- [[#Issue Description|Issue Description]]
-- [[#Affected URL/Area|Affected URL/Area]]
-- [[#Risk Rating|Risk Rating]]
-	- [[#Risk Rating#Impact|Impact]]
-	- [[#Risk Rating#Attack Scenario|Attack Scenario]]
-- [[#Steps to Reproduce/PoC|Steps to Reproduce/PoC]]
-	- [[#Steps to Reproduce/PoC#Request|Request]]
-	- [[#Steps to Reproduce/PoC#Response|Response]]
-	- [[#Steps to Reproduce/PoC#Screenshots|Screenshots]]
-- [[#Affected Demographic/User Base|Affected Demographic/User Base]]
-- [[#Recommended Fix|Recommended Fix]]
-- [[#References|References]]
-- [[#Bug Bounty Platforms|Bug Bounty Platforms]]
-	- [[#Bug Bounty Platforms#Bug Bounty Programs|Bug Bounty Programs]]
+- [Your Path to Bug Bounty Hunting](#Your%20Path%20to%20Bug%20Bounty%20Hunting)
+	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability|How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability)
+		- [](#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#Step%201|Step%201)
+		- [](#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#Step%202|Step%202)
+	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#Sample%20Workflow|Sample%20Workflow)
+	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#How%20Do%20You%20Know%20You're%20on%20the%20Right%20Path?|How%20Do%20You%20Know%20You're%20on%20the%20Right%20Path?)
+- [Report Writing](#Report%20Writing)
+	- [](#Report%20Writing#Report%20Writing#Structural%20Foundations%20of%20Effective%20Bug%20Reports|Structural%20Foundations%20of%20Effective%20Bug%20Reports)
+	- [](#Report%20Writing#Report%20Writing#Respecting%20Scope%20:%20A%20Critical%20Operational%20Discipline|Respecting%20Scope%20:%20A%20Critical%20Operational%20Discipline)
+	- [](#Report%20Writing#Report%20Writing#Impact%20:%20The%20Core%20of%20Reward%20Justification|Impact%20:%20The%20Core%20of%20Reward%20Justification)
+	- [](#Report%20Writing#Report%20Writing#Supporting%20Evidence%20:%20Enhancing%20Reproducibility|Supporting%20Evidence%20:%20Enhancing%20Reproducibility)
+		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#HTTP%20Requests%20and%20Responses|HTTP%20Requests%20and%20Responses)
+		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Screenshots|Screenshots)
+		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Video%20Demonstrations|Video%20Demonstrations)
+	- [](#Report%20Writing#Report%20Writing#Maintaining%20Professional%20Conduct|Maintaining%20Professional%20Conduct)
+	- [](#Report%20Writing#Report%20Writing#The%20Standard%20Bug%20Bounty%20Report%20Template|The%20Standard%20Bug%20Bounty%20Report%20Template)
+	- [](#Report%20Writing#Report%20Writing#Title|Title)
+	- [](#Report%20Writing#Report%20Writing#Summary|Summary)
+	- [](#Report%20Writing#Report%20Writing#Description|Description)
+	- [](#Report%20Writing#Report%20Writing#Steps%20to%20Reproduce|Steps%20to%20Reproduce)
+	- [](#Report%20Writing#Report%20Writing#Steps%20to%20Reproduce:|Steps%20to%20Reproduce:)
+	- [](#Report%20Writing#Report%20Writing#Example%20script%20used%20during%20exploitation|Example%20script%20used%20during%20exploitation)
+	- [](#Report%20Writing#Report%20Writing#Supporting%20Material|Supporting%20Material)
+	- [](#Report%20Writing#Report%20Writing#Supporting%20Material:|Supporting%20Material:)
+	- [](#Report%20Writing#Report%20Writing#Impact|Impact)
+	- [](#Report%20Writing#Report%20Writing#Mitigation%20(Optional)|Mitigation%20(Optional))
+	- [](#Report%20Writing#Report%20Writing#Example%20Markdown%20Report%20Template|Example%20Markdown%20Report%20Template)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Summary:|Summary:)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Description:|Description:)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Steps%20to%20Reproduce:|Steps%20to%20Reproduce:)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Supporting%20Material:|Supporting%20Material:)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Impact:|Impact:)
+		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Mitigation:|Mitigation:)
+	- [](#Report%20Writing#Report%20Writing#Core%20Operational%20Insight|Core%20Operational%20Insight)
+- [Bug Bounty Report Sample Template](#Bug%20Bounty%20Report%20Sample%20Template)
+- [Issue Description](#Issue%20Description)
+- [Affected URL/Area](#Affected%20URL/Area)
+- [Risk Rating](#Risk%20Rating)
+	- [](#Risk%20Rating#Risk%20Rating#Impact|Impact)
+	- [](#Risk%20Rating#Risk%20Rating#Attack%20Scenario|Attack%20Scenario)
+- [Steps to Reproduce/PoC](#Steps%20to%20Reproduce/PoC)
+	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Request|Request)
+	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Response|Response)
+	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Screenshots|Screenshots)
+- [Affected Demographic/User Base](#Affected%20Demographic/User%20Base)
+- [Recommended Fix](#Recommended%20Fix)
+- [References](#References)
+- [Bug Bounty Platforms](#Bug%20Bounty%20Platforms)
+	- [](#Bug%20Bounty%20Platforms#Bug%20Bounty%20Platforms#Bug%20Bounty%20Programs|Bug%20Bounty%20Programs)
 
 ## Your Path to Bug Bounty Hunting
 ### How to Choose and Master Your First Vulnerability

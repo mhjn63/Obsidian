@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/SOC Analyst Notes/Firewalls/Basics.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/SOC%20Analyst%20Notes/Firewalls/Basics.html)
 
 ### Definition
 A firewall is software or hardware that monitors the network traffic and compares it against a set of rules before passing or blocking it. The most basic firewall should be able to inspect at least the packet's protocol, source and destination port and IP addresses.

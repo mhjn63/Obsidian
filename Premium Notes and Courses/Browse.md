@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Premium Notes and Courses/Browse.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Premium%20Notes%20and%20Courses/Browse.html)
 
 # 📦 The MasterMinds Notes 
 
@@ -14,9 +14,9 @@
 
 ---
 
-![[2.png]]
-![[4.png]]
-![[8.png]]
+![2](2.png)
+![4](4.png)
+![8](8.png)
 
 ## 🗂️ Full Notes Catalogue
 

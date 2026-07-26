@@ -1,4 +1,4 @@
-> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Powershell.html|Open HTML Page]]
+> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/Powershell.html)
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -1923,7 +1923,7 @@ Alternatively, you can run the following command in the PowerShell console:
 ise
 ```
 The PowerShell ISE is an essential tool for anyone working with scripts, offering a balance of simplicity and advanced functionality.
-![[Notes Cataloge/IT & System Admin Notes/Powershell/1.png]]
+![Notes Cataloge/IT & System Admin Notes/Powershell/1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Powershell/1.png)
 The PowerShell Integrated Scripting Environment (ISE) includes a user-friendly interface with several key components to enhance the scripting experience:
 #### Menu Bar
 The **Menu Bar** provides drop-down menus with options for various tasks:
