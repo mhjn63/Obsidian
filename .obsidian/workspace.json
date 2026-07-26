@@ -202,8 +202,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21a2888db70fbef7",
+  "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "_config.yml",
     "CNAME",
     "Welcome.html",
     "HTML Pages",
@@ -241,7 +242,6 @@
     "test",
     "Wiki",
     "malware-analysis-and-reverse-engineering",
-    "cyber-security-notes",
     "8.png",
     "7.png",
     "6.png",
