@@ -1,3 +1,4 @@
+- 2026-07-26T2117 · [[Apache Tomcat]]
 - 2026-07-26T1639 · [[Swift]]
 - 2026-07-26T1639 · [[Python]]
 - 2026-07-26T1639 · [[Powershell]]
@@ -22,4 +23,3 @@
 - 2026-07-26T1636 · [[Cyber Security Notes 101]]
 - 2026-07-26T1635 · [[Cyber Security Career Notes]]
 - 2026-07-26T1635 · [[Becoming a Pentester]]
-- 2026-07-26T1635 · [[SOC Analyst Interview Templates]]

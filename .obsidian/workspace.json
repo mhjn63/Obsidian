@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tech/Hosting/Apache Tomcat.md",
+                "file": "Tech/Operating Systems/Linux OS/Linux Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Apache Tomcat"
+              "title": "Linux Notes"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Tech/Hosting/LAMP Stack.md",
+    "Tech/Hosting/Apache Tomcat.md",
     "Tech/Databases/MySQL Server Deployment with Docker.md",
     "Tech/Databases/Basics and Foundations.md",
     "Tech/Cloud/Terraform.md",
@@ -212,8 +214,6 @@
     "Penetration Testing/Kali Linux/Pentesting with Kali Linux.md",
     "Penetration Testing/Cloud/Azure Pentesting.md",
     "GRC/Cyber Security Management.md",
-    "Certifications/OSCP Certification Cheat Sheet 2026.md",
-    "Cyber Security 101/Cyber Security Notes 101.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
