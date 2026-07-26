@@ -187,8 +187,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7f51b4a8d3ca4804",
+  "active": "21a2888db70fbef7",
   "lastOpenFiles": [
+    "Certifications/THM SAL2 vs BTL2 vs HTB CDSA.md",
+    "Certifications/thm sal2 vs btl2 vs cdsa.html",
+    "Certifications/Podcast Episode I Passed CPTS in 24 Hour - Lessons From a Real Candidate Who's Been There.md",
+    "Certifications/Am I Ready for the OSCP Here iss the Answer Nobody Wants to Hear.md",
+    "Certifications",
     "THM Writeups/TryHackMe Eradication & Remediation Walkthrough.html",
     "THM Writeups/THM Wazuh CVE-2026-25769.md",
     "THM Writeups/THM Wazuh CVE-2026-25769 .html",
@@ -214,17 +219,12 @@
     "THM Writeups",
     "HTB Writeups (2)/TryHackMe Eradication & Remediation Walkthrough.html",
     "HTB Writeups (2)/THM Wazuh CVE-2026-25769.md",
-    "HTB Writeups (2)/THM Wazuh CVE-2026-25769 .html",
     "HTB Writeups (2)/THM Understanding Vulnerability Databases.md",
-    "HTB Writeups (2)/THM Spring AI CVE.html",
     "HTB Writeups (2)/THM Spring AI CVE-2026–22738.md",
     "HTB Writeups (2)/THM Simple CTF.md",
     "HTB Writeups (2)/THM Introduction to the World of OT-ICS.md",
     "HTB Writeups (2)/THM Extending Your Network.md",
-    "HTB Writeups (2)/thm extending your network .html",
     "HTB Writeups (2)/THM Eradication & Remediation.md",
-    "HTB Writeups (2)/THM Elastic Stack The Basics.md",
-    "HTB Writeups (2)/THM Elastic Defend.md",
     "2.png",
     "3 .png",
     "8.png",
@@ -233,7 +233,7 @@
     "5.png",
     "4.png",
     "9.png",
-    "Cybersecurity/Management and Governance/4.png",
-    "Cybersecurity/Management and Governance/3.png"
+    "GRC/4.png",
+    "GRC/3.png"
   ]
 }
