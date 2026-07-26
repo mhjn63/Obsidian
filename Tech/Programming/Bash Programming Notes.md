@@ -4,32 +4,6 @@
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-**Table of Contents**
-- [[#The Command Center of the Linux World|The Command Center of the Linux World]]
-- [[#Variables, Syntax, and the Nuance of Whitespace|Variables, Syntax, and the Nuance of Whitespace]]
-- [[#Arrays and Iteration|Arrays and Iteration]]
-- [[#Logic, Conditionals, and Built-ins|Logic, Conditionals, and Built-ins]]
-- [[#Navigating the Filesystem and Job Control|Navigating the Filesystem and Job Control]]
-- [[#Redirection, Pipes, and Streams|Redirection, Pipes, and Streams]]
-- [[#Functions and Text Processing Utilities|Functions and Text Processing Utilities]]
-- [[#SHORTCUTS and HISTORY|SHORTCUTS and HISTORY]]
-- [[#FILE COMMANDS|FILE COMMANDS]]
-- [[#DIRECTORY COMMANDS|DIRECTORY COMMANDS]]
-- [[#Sys Admin|Sys Admin]]
-- [[#VARIABLES|VARIABLES]]
-- [[#FUNCTIONS|FUNCTIONS]]
-- [[#FLOW CONTROLS|FLOW CONTROLS]]
-- [[#STRINGS|STRINGS]]
-- [[#FILES|FILES]]
-- [[#NUMBERS|NUMBERS]]
-- [[#COMMAND-LINE PROCESSING CYCLE|COMMAND-LINE PROCESSING CYCLE]]
-- [[#INPUT/OUTPUT REDIRECTORS|INPUT/OUTPUT REDIRECTORS]]
-- [[#PROCESS HANDLING|PROCESS HANDLING]]
-- [[#TIPS & TRICKS|TIPS & TRICKS]]
-- [[#set an alias|set an alias]]
-- [[#set an alias#DEBUGGING SHELL PROGRAMS|DEBUGGING SHELL PROGRAMS]]
-- [[#set an alias#COLORS AND BACKGROUNDS|COLORS AND BACKGROUNDS]]
-]]
 
 ### The Command Center of the Linux World
 Bash (Bourne Again SHell) is not merely a terminal interface; it is the beating heart of the GNU operating system and the default command interpreter for the vast majority of Linux distributions. 

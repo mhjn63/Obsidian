@@ -4,26 +4,6 @@
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-**Table of Contents**
-- [[#Definition|Definition]]
-- [[#Variables|Variables]]
-- [[#Data Types|Data Types]]
-- [[#Functions|Functions]]
-- [[#Loops|Loops]]
-- [[#Request-Response Cycle|Request-Response Cycle]]
-- [[#JS in HTML|JS in HTML]]
-- [[#Internal JavaScript|Internal JavaScript]]
-- [[#External JavaScript|External JavaScript]]
-- [[#Functions|Functions]]
-- [[#Alert|Alert]]
-- [[#Prompt|Prompt]]
-- [[#Confirm|Confirm]]
-- [[#Conditional Statements|Conditional Statements]]
-- [[#Minification|Minification]]
-- [[#Practical Example|Practical Example]]
-- [[#Obfuscation|Obfuscation]]
-- [[#Deobfuscating the Code|Deobfuscating the Code]]
-
 #### Definition
 JavaScript (JS) is one of the most widely used scripting languages in web development. While HTML provides the structure and CSS handles the styling, JavaScript is what brings a website to life. Once the basic elements are in place, JS can add interactivity , from form validation and button clicks to animations and dynamic content updates. That’s why learning JavaScript is just as essential as mastering HTML and CSS, since most JS code works hand in hand with HTML to create modern, interactive websites.
 
