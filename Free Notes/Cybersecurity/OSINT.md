@@ -1,10 +1,10 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/OSINT.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/OSINT.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-Full OSINT notes are available from here, heck out this [link]( [☕ Membership](https://buymeacoffee.com/notescatalog/membership))
+Full OSINT notes are available from here, heck out this [[ [☕ Membership](https://buymeacoffee.com/notescatalog/membership|link]])
 
 You can also access the FREE OSINT course from [here](https://buymeacoffee.com/notescatalog/e/285114)
 

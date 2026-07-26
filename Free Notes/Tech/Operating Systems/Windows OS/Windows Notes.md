@@ -1,123 +1,123 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Operating%20Systems/Windows%20OS/Windows%20Notes.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Operating Systems/Windows OS/Windows Notes.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Windows Internals and Components](#Windows%20Internals%20and%20Components)
-	- [Processes](#Processes)
-	- [DLLs](#DLLs)
-	- [Portable Executable Format](#Portable%20Executable%20Format)
-	- [Threads](#Threads)
-	- [Virtual Memory](#Virtual%20Memory)
-- [Description of Common Directories and Registry Keys in Windows](#Description%20of%20Common%20Directories%20and%20Registry%20Keys%20in%20Windows)
-	- [Directories](#Directories)
-	- [Registry](#Registry)
-- [Networking](#Networking)
-	- [Auditing Network Settings & Connections](#Auditing%20Network%20Settings%20&%20Connections)
-	- [Windows Port forwarding](#Windows%20Port%20forwarding)
-		- [With Netsh command](#With%20Netsh%20command)
-	- [Network Shares](#Network%20Shares)
-	- [Netsh Utility](#Netsh%20Utility)
-- [Management](#Management)
-	- [System Info](#System%20Info)
-	- [System Management Tools](#System%20Management%20Tools)
-		- [Troubleshooting Tool](#Troubleshooting%20Tool)
-		- [Manage UAC](#Manage%20UAC)
-		- [Computer Management Tool](#Computer%20Management%20Tool)
-		- [View Sys Info Tool](#View%20Sys%20Info%20Tool)
-		- [Resource Monitor Tool](#Resource%20Monitor%20Tool)
-		- [Group Policy Management](#Group%20Policy%20Management)
-		- [Regular Windows](#Regular%20Windows)
-		- [Managing users](#Managing%20users)
-			- [Windows Server without AD](#Windows%20Server%20without%20AD)
-		- [Netview Tool](#Netview%20Tool)
-		- [PSexec](#PSexec)
-	- [User Info and Management](#User%20Info%20and%20Management)
-- [Services and processes](#Services%20and%20processes)
-- [File and Directory Management](#File%20and%20Directory%20Management)
-		- [Directories](#Directories)
-		- [Viewing Files](#Viewing%20Files)
-		- [Searching Files](#Searching%20Files)
-		- [Prcoessing](#Prcoessing)
-		- [Permissions Management](#Permissions%20Management)
-- [Startup and Autorun Management](#Startup%20and%20Autorun%20Management)
-- [Windows Event Logs](#Windows%20Event%20Logs)
-	- [Definition](#Definition)
-	- [Elements of Event Logs](#Elements%20of%20Event%20Logs)
-	- [Tools](#Tools)
-- [Troubleshooting](#Troubleshooting)
-	- [Fixing corrupted system files](#Fixing%20corrupted%20system%20files)
-	- [Hard Disk not detected when installing windows from usb](#Hard%20Disk%20not%20detected%20when%20installing%20windows%20from%20usb)
-	- [Java Error 1603](#Java%20Error%201603)
-		- [Choose earlier version to install](#Choose%20earlier%20version%20to%20install)
-		- [Disable The current AV](#Disable%20The%20current%20AV)
-		- [Use Microsoft install/uninstall troubleshooter](#Use%20Microsoft%20install/uninstall%20troubleshooter)
-		- [Delete KB2918614 Update](#Delete%20KB2918614%20Update)
-	- [Fix System corrupted files](#Fix%20System%20corrupted%20files)
-	- [Fixing BSOD](#Fixing%20BSOD)
-		- [1. Download and Run BlueScreenView](#1.%20Download%20and%20Run%20BlueScreenView)
-		- [2. Scan for Crash Dumps](#2.%20Scan%20for%20Crash%20Dumps)
-		- [3. Analyze Crash Information](#3.%20Analyze%20Crash%20Information)
-		- [4. Identify the Faulty Driver or Module](#4.%20Identify%20the%20Faulty%20Driver%20or%20Module)
-		- [5. Apply the Fix](#5.%20Apply%20the%20Fix)
-		- [6. Reboot and Test](#6.%20Reboot%20and%20Test)
-	- [Fixing winload.exe is missing or corrupt issue on Windows 7 startup](#Fixing%20winload.exe%20is%20missing%20or%20corrupt%20issue%20on%20Windows%207%20startup)
-	- [Fixing Startup Issues](#Fixing%20Startup%20Issues)
-- [Windows Security and Hardening](#Windows%20Security%20and%20Hardening)
-	- [Disable Always Install Elevated](#Disable%20Always%20Install%20Elevated)
-	- [Anti-KeyLoggers](#Anti-KeyLoggers)
-	- [Windows Defender and Windows Firewall](#Windows%20Defender%20and%20Windows%20Firewall)
-		- [Windows Defender](#Windows%20Defender)
-		- [Network Profiles in Windows Firewall](#Network%20Profiles%20in%20Windows%20Firewall)
-		- [Managing Firewall Settings](#Managing%20Firewall%20Settings)
-		- [Creating a Custom Firewall Rule](#Creating%20a%20Custom%20Firewall%20Rule)
-		- [Firewall Operations](#Firewall%20Operations)
-		- [Windows Smart Screen](#Windows%20Smart%20Screen)
-	- [Disable Modifying Scheduled Tasks](#Disable%20Modifying%20Scheduled%20Tasks)
-	- [Disable RunOnce](#Disable%20RunOnce)
-	- [Enabling Credential Guard](#Enabling%20Credential%20Guard)
-	- [Enable UAC](#Enable%20UAC)
-	- [Setting a Password Policy](#Setting%20a%20Password%20Policy)
-	- [Setting a lockout policy](#Setting%20a%20lockout%20policy)
-	- [Disabling RDP and SMB](#Disabling%20RDP%20and%20SMB)
-	- [Application Security](#Application%20Security)
-		- [Installing apps only from Microsoft store](#Installing%20apps%20only%20from%20Microsoft%20store)
-		- [Running Applications from a sandbox](#Running%20Applications%20from%20a%20sandbox)
-		- [Control App Execution Rules Through AppLocker](#Control%20App%20Execution%20Rules%20Through%20AppLocker)
-	- [Enabling Microsoft Smartscreen](#Enabling%20Microsoft%20Smartscreen)
-	- [Boot Security](#Boot%20Security)
-	- [Virus and Malware Removal](#Virus%20and%20Malware%20Removal)
-		- [Automated Removal with Removal Tools](#Automated%20Removal%20with%20Removal%20Tools)
-	- [Disk Encryption](#Disk%20Encryption)
-- [Backup and Recovery](#Backup%20and%20Recovery)
-	- [Group Policy Update and Recovery](#Group%20Policy%20Update%20and%20Recovery)
-	- [Volume Shadow Service](#Volume%20Shadow%20Service)
-	- [Winlogon Password Recovery](#Winlogon%20Password%20Recovery)
-		- [The Offline NT Password & Registry Editor](#The%20Offline%20NT%20Password%20&%20Registry%20Editor)
-		- [Ophcrack](#Ophcrack)
-			- [Method 1: Using Ophcrack LiveCD (Simplest Approach)](#Method%201:%20Using%20Ophcrack%20LiveCD%20(Simplest%20Approach))
-			- [Method 2: Using the Ophcrack Windows Application (Advanced)](#Method%202:%20Using%20the%20Ophcrack%20Windows%20Application%20(Advanced))
-- [BIOS Management](#BIOS%20Management)
-	- [BIOS Update](#BIOS%20Update)
-- [Resources and Links](#Resources%20and%20Links)
-	- [Utilities and programs](#Utilities%20and%20programs)
-	- [Network Tools](#Network%20Tools)
-		- [Network Monitor](#Network%20Monitor)
-		- [Anonymous SMS Senders](#Anonymous%20SMS%20Senders)
-		- [Anonymous Email Senders](#Anonymous%20Email%20Senders)
-	- [Video Tools](#Video%20Tools)
-	- [File Processing Tools](#File%20Processing%20Tools)
-	- [Email Tools](#Email%20Tools)
-	- [Security Tools](#Security%20Tools)
-	- [Backup and Recovery Tools](#Backup%20and%20Recovery%20Tools)
-	- [AVs](#AVs)
-	- [Collaboration and Sharing Tools](#Collaboration%20and%20Sharing%20Tools)
-	- [FlashBoot](#FlashBoot)
-	- [Windows Repair Toolbox](#Windows%20Repair%20Toolbox)
-		- [Features](#Features)
-		- [How to Use](#How%20to%20Use)
+- [[#Windows Internals and Components|Windows Internals and Components]]
+	- [[#Processes|Processes]]
+	- [[#DLLs|DLLs]]
+	- [[#Portable Executable Format|Portable Executable Format]]
+	- [[#Threads|Threads]]
+	- [[#Virtual Memory|Virtual Memory]]
+- [[#Description of Common Directories and Registry Keys in Windows|Description of Common Directories and Registry Keys in Windows]]
+	- [[#Directories|Directories]]
+	- [[#Registry|Registry]]
+- [[#Networking|Networking]]
+	- [[#Auditing Network Settings & Connections|Auditing Network Settings & Connections]]
+	- [[#Windows Port forwarding|Windows Port forwarding]]
+		- [[#With Netsh command|With Netsh command]]
+	- [[#Network Shares|Network Shares]]
+	- [[#Netsh Utility|Netsh Utility]]
+- [[#Management|Management]]
+	- [[#System Info|System Info]]
+	- [[#System Management Tools|System Management Tools]]
+		- [[#Troubleshooting Tool|Troubleshooting Tool]]
+		- [[#Manage UAC|Manage UAC]]
+		- [[#Computer Management Tool|Computer Management Tool]]
+		- [[#View Sys Info Tool|View Sys Info Tool]]
+		- [[#Resource Monitor Tool|Resource Monitor Tool]]
+		- [[#Group Policy Management|Group Policy Management]]
+		- [[#Regular Windows|Regular Windows]]
+		- [[#Managing users|Managing users]]
+			- [[#Windows Server without AD|Windows Server without AD]]
+		- [[#Netview Tool|Netview Tool]]
+		- [[#PSexec|PSexec]]
+	- [[#User Info and Management|User Info and Management]]
+- [[#Services and processes|Services and processes]]
+- [[#File and Directory Management|File and Directory Management]]
+		- [[#Directories|Directories]]
+		- [[#Viewing Files|Viewing Files]]
+		- [[#Searching Files|Searching Files]]
+		- [[#Prcoessing|Prcoessing]]
+		- [[#Permissions Management|Permissions Management]]
+- [[#Startup and Autorun Management|Startup and Autorun Management]]
+- [[#Windows Event Logs|Windows Event Logs]]
+	- [[#Definition|Definition]]
+	- [[#Elements of Event Logs|Elements of Event Logs]]
+	- [[#Tools|Tools]]
+- [[#Troubleshooting|Troubleshooting]]
+	- [[#Fixing corrupted system files|Fixing corrupted system files]]
+	- [[#Hard Disk not detected when installing windows from usb|Hard Disk not detected when installing windows from usb]]
+	- [[#Java Error 1603|Java Error 1603]]
+		- [[#Choose earlier version to install|Choose earlier version to install]]
+		- [[#Disable The current AV|Disable The current AV]]
+		- [[#Use Microsoft install/uninstall troubleshooter|Use Microsoft install/uninstall troubleshooter]]
+		- [[#Delete KB2918614 Update|Delete KB2918614 Update]]
+	- [[#Fix System corrupted files|Fix System corrupted files]]
+	- [[#Fixing BSOD|Fixing BSOD]]
+		- [[#1. Download and Run BlueScreenView|1. Download and Run BlueScreenView]]
+		- [[#2. Scan for Crash Dumps|2. Scan for Crash Dumps]]
+		- [[#3. Analyze Crash Information|3. Analyze Crash Information]]
+		- [[#4. Identify the Faulty Driver or Module|4. Identify the Faulty Driver or Module]]
+		- [[#5. Apply the Fix|5. Apply the Fix]]
+		- [[#6. Reboot and Test|6. Reboot and Test]]
+	- [[#Fixing winload.exe is missing or corrupt issue on Windows 7 startup|Fixing winload.exe is missing or corrupt issue on Windows 7 startup]]
+	- [[#Fixing Startup Issues|Fixing Startup Issues]]
+- [[#Windows Security and Hardening|Windows Security and Hardening]]
+	- [[#Disable Always Install Elevated|Disable Always Install Elevated]]
+	- [[#Anti-KeyLoggers|Anti-KeyLoggers]]
+	- [[#Windows Defender and Windows Firewall|Windows Defender and Windows Firewall]]
+		- [[#Windows Defender|Windows Defender]]
+		- [[#Network Profiles in Windows Firewall|Network Profiles in Windows Firewall]]
+		- [[#Managing Firewall Settings|Managing Firewall Settings]]
+		- [[#Creating a Custom Firewall Rule|Creating a Custom Firewall Rule]]
+		- [[#Firewall Operations|Firewall Operations]]
+		- [[#Windows Smart Screen|Windows Smart Screen]]
+	- [[#Disable Modifying Scheduled Tasks|Disable Modifying Scheduled Tasks]]
+	- [[#Disable RunOnce|Disable RunOnce]]
+	- [[#Enabling Credential Guard|Enabling Credential Guard]]
+	- [[#Enable UAC|Enable UAC]]
+	- [[#Setting a Password Policy|Setting a Password Policy]]
+	- [[#Setting a lockout policy|Setting a lockout policy]]
+	- [[#Disabling RDP and SMB|Disabling RDP and SMB]]
+	- [[#Application Security|Application Security]]
+		- [[#Installing apps only from Microsoft store|Installing apps only from Microsoft store]]
+		- [[#Running Applications from a sandbox|Running Applications from a sandbox]]
+		- [[#Control App Execution Rules Through AppLocker|Control App Execution Rules Through AppLocker]]
+	- [[#Enabling Microsoft Smartscreen|Enabling Microsoft Smartscreen]]
+	- [[#Boot Security|Boot Security]]
+	- [[#Virus and Malware Removal|Virus and Malware Removal]]
+		- [[#Automated Removal with Removal Tools|Automated Removal with Removal Tools]]
+	- [[#Disk Encryption|Disk Encryption]]
+- [[#Backup and Recovery|Backup and Recovery]]
+	- [[#Group Policy Update and Recovery|Group Policy Update and Recovery]]
+	- [[#Volume Shadow Service|Volume Shadow Service]]
+	- [[#Winlogon Password Recovery|Winlogon Password Recovery]]
+		- [[#The Offline NT Password & Registry Editor|The Offline NT Password & Registry Editor]]
+		- [[#Ophcrack|Ophcrack]]
+			- [[Simplest Approach)](#Method 1: Using Ophcrack LiveCD (Simplest Approach|Method 1: Using Ophcrack LiveCD (Simplest Approach)]])
+			- [[Advanced)](#Method 2: Using the Ophcrack Windows Application (Advanced|Method 2: Using the Ophcrack Windows Application (Advanced)]])
+- [[#BIOS Management|BIOS Management]]
+	- [[#BIOS Update|BIOS Update]]
+- [[#Resources and Links|Resources and Links]]
+	- [[#Utilities and programs|Utilities and programs]]
+	- [[#Network Tools|Network Tools]]
+		- [[#Network Monitor|Network Monitor]]
+		- [[#Anonymous SMS Senders|Anonymous SMS Senders]]
+		- [[#Anonymous Email Senders|Anonymous Email Senders]]
+	- [[#Video Tools|Video Tools]]
+	- [[#File Processing Tools|File Processing Tools]]
+	- [[#Email Tools|Email Tools]]
+	- [[#Security Tools|Security Tools]]
+	- [[#Backup and Recovery Tools|Backup and Recovery Tools]]
+	- [[#AVs|AVs]]
+	- [[#Collaboration and Sharing Tools|Collaboration and Sharing Tools]]
+	- [[#FlashBoot|FlashBoot]]
+	- [[#Windows Repair Toolbox|Windows Repair Toolbox]]
+		- [[#Features|Features]]
+		- [[#How to Use|How to Use]]
 
 ## Windows Internals and Components
 ### Processes
@@ -310,7 +310,7 @@ C:\> nbtstat -s
 ```
 **TCP View**
 "TCPView is a Windows program that will show you detailed listings of all TCP and UDP endpoints on your system, including the local and remote addresses and state of TCP connections. On Windows Server 2008, Vista, and XP, TCPView also reports the name of the process that owns the endpoint. TCPView provides a more informative and conveniently presented subset of the Netstat program that ships with Windows. The TCPView download includes Tcpvcon, a command-line version with the same functionality." (official definition)
-![Notes Cataloge/IT & System Admin Notes/Windows OS/tcpview-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/tcpview-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/tcpview-1.png]]
 
 **View routing table**
 ```
@@ -552,9 +552,9 @@ Group policy editor is a windows administration tool that enables users to custo
 To access the GUI of group policy editor
 - Open Search in the Toolbar and type Run, or select Run from your Start Menu.
 - Type ‘gpedit.msc’ in the Run command and click OK.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/gpedit-1.webp](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/gpedit-1.webp)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/gpedit-1.webp]]
 You can edit the setting by double-clicking on the related entry:
-![Notes Cataloge/IT & System Admin Notes/Windows OS/gpedit-2.webp](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/gpedit-2.webp)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/gpedit-2.webp]]
 
 **Components**
 - ***Computer Configuration:*** These policies apply to the local computer, and do not change per user.
@@ -775,7 +775,7 @@ get-service
 **Description of common Windows processes**
 ***System***
 The System process (process ID 4) is the home for a special kind of thread that runs only in kernel mode a kernel-mode system thread. System threads have all the attributes and contexts of regular user-mode threads (such as a hardware context, priority, and so on) but are different in that they run only in kernel-mode executing code loaded in system space, whether that is in Ntoskrnl.exe or in any other loaded device driver. In addition, system threads don't have a user process address space and hence must allocate any dynamic storage from operating system memory heaps, such as a paged or nonpaged pool.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/system-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/system-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/system-1.png]]
 
 ***smss.exe***
 This process, also known as the **Windows Session Manager**, is responsible for creating new sessions. It is the first user-mode process started by the kernel.
@@ -784,16 +784,16 @@ Smss.exe starts csrss.exe (Windows subsystem) and wininit.exe in Session 0, an i
 Client Server Runtime Process is the user-mode side of the Windows subsystem. This process is always running and is critical to system operation. If this process is terminated by chance, it will result in system failure. This process is responsible for the Win32 console window and process thread creation and deletion. For each instance, csrsrv.dll, basesrv.dll, and winsrv.dll are loaded (along with others).
 ***wininit.exe***
 The **Windows Initialization Process**, **wininit.exe**, is responsible for launching services.exe (Service Control Manager), lsass.exe (Local Security Authority), and lsaiso.exe within Session 0. It is another critical Windows process that runs in the background, along with its child processes.
-![wininit-tree](wininit-tree.png)
+![[wininit-tree.png]]
 
 ***services.exe***
 Its primary responsibility is to handle system services: loading services, interacting with services and starting or ending services. It maintains a database that can be queried using a Windows built-in utility, `sc.exe`. Information regarding services is stored in the registry, `HKLM\System\CurrentControlSet\Services`
 This process is the parent to several other key processes: svchost.exe, spoolsv.exe, msmpeng.exe, and dllhost.exe, to name a few.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/services-tree.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/services-tree.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/services-tree.png]]
 
 ***Svchost***
 The **Service Host** (Host Process for Windows Services), or **svchost.exe**, is responsible for hosting and managing Windows services.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/dcomlaunch.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/dcomlaunch.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/dcomlaunch.png]]
 `Image Path`: %SystemRoot%\System32\svchost.exe
 `Parent Process`: services.exe
 `Number of Instances`: Many
@@ -805,7 +805,7 @@ Local Security Authority Subsystem Service (**LSASS**) is a process in Microsoft
 
 ***Winlogon.exe***
 This process is also responsible for loading the user profile. It loads the user's NTUSER.DAT into HKCU, and userinit.exe loads the user's shell.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/winlogon-tree.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/winlogon-tree.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/winlogon-tree.png]]
 
 ***Explorer.exe***
 This process gives the user access to their folders and files. It also provides functionality for other features, such as the Start Menu and Taskbar.
@@ -1140,14 +1140,14 @@ Event logs are records created by Windows OS for the purpose of troubleshooting 
 - **Custom Logs:** Events are logged by applications that require custom data storage. This allows applications to control the log size or attach other parameters, such as ACLs, for security purposes.
 ### Tools 
 1. **Event Viewer** (GUI-based application)
-![Notes Cataloge/IT & System Admin Notes/Windows OS/event-viewer-1.gif](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/event-viewer-1.gif)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/event-viewer-1.gif]]
 For example, in the below image there are 44 events logged. You might see a different number. Each column of the pane presents a particular type of information as described below:
 - ***Level:*** Highlights the log recorded type based on the identified event types specified earlier. In this case, the log is labeled as **Information**.
 - ***Date and Time:*** Highlights the time at which the event was logged.
 - ***Source:*** The name of the software that logs the event is identified. From the above image, the source is PowerShell.
 - ***Event ID:*** This is a predefined numerical value that maps to a specific operation or event based on the log source. This makes Event IDs not unique, so `Event ID 4103` in the above image is related to Executing Pipeline but will have an entirely different meaning in another event log.
 - ***Task Category:*** Highlights the Event Category. This entry will help you organize events so the Event Viewer can filter them. The event source defines this column.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/event-viewer-2.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/event-viewer-2.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/event-viewer-2.png]]
 
 2. **Wevtutil.exe** (command-line tool)
 ***Running it from the command line***
@@ -1220,7 +1220,7 @@ DISM /Online /Cleanup-Image /RestoreHealth
 sfc /scannow
 ```
 ### Hard Disk not detected when installing windows from usb 
-![windows-hdd-notfound-installinng-windows](windows-hdd-notfound-installinng-windows.jpg)
+![[windows-hdd-notfound-installinng-windows.jpg]]
 Press shift+F10 to start the command promopt.
 Execute the below command to start DISKPART
 ```
@@ -1372,7 +1372,7 @@ These two come pre-installed in nearly all new and modern Windows operating syst
 On server editions of Windows, make sure to block inbounds ports 135,137,138,139 if have file shares whether the PCs are on a workgroup or domain. You can simply do that by creating an inbound rule in Windows firewall and block the aforementioned ports.
 
 **Windows Security** is also available in **Settings**.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/windows-security-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/windows-security-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/windows-security-1.png]]
  - **Green** means your device is sufficiently protected, and there aren't any recommended actions.
 - **Yellow** means there is a safety recommendation for you to review.
 - **Red** is a warning that something needs your immediate attention.
@@ -1387,7 +1387,7 @@ Windows Firewall offers **two types of network profiles**. It determines your cu
 🔹 **Private Networks**: Used when connected to a trusted home network. This profile allows for **more relaxed** firewall settings, enabling secure device communication within the network.
 
 🔹 **Guest or Public Networks**: Applied when connected to an **untrusted** network, such as those in **coffee shops, restaurants, or public spaces**. This profile is configured for **higher security**, often **blocking all incoming connections** while permitting only essential outgoing connections. For example, when on a public Wi-Fi network, you might want to **restrict inbound traffic** while still allowing necessary outbound communication.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/net-profiles-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/net-profiles-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/net-profiles-1.png]]
 
 #### Managing Firewall Settings
 You can customize **which applications** are allowed or blocked in each network profile:
@@ -1405,16 +1405,16 @@ If you need to **reset** the firewall settings, you can select the **"Restore De
 
 1️⃣ **Open Advanced Settings**  
 From the main dashboard, select **"Advanced Settings."** This opens a new tab where you can manage rules.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/custom-rules-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-1.png]]
 2️⃣ **Choose Outbound Rules**  
 Click **"Outbound Rules"** on the left, then **"New Rule"** on the right. This starts the rule creation wizard.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-2.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/custom-rules-2.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-2.png]]
 3️⃣ **Select Custom Rule**  
 In the first step, choose **"Custom"** and click **Next.**
-![Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-3.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/custom-rules-3.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-3.png]]
 4️⃣ **Apply to All Programs**  
 In the next step, select **"All Programs"** and proceed.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-4.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/custom-rules-4.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/custom-rules-4.png]]
 5️⃣ **Set Protocol and Ports**
 
 - Choose **"TCP"** as the protocol.
@@ -1426,7 +1426,7 @@ Keep the **local and remote IP addresses** unchanged and proceed.
 
 7️⃣ **Block the Connection**  
 In the **Action tab**, select **"Block the connection"** and continue.
-![custom-rules-5](custom-rules-5.png)
+![[custom-rules-5.png]]
 8️⃣ **Apply to All Network Profiles**  
 Ensure all network profiles are checked.
 
@@ -1493,12 +1493,12 @@ PS C:\> Get-Content
 $env:systemroot\system32\LogFiles\Firewall\pfirewal.log
 ```
 Alternatively, you can control firewall settings using the GUI:
-![Notes Cataloge/IT & System Admin Notes/Windows OS/windows-firewall-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/windows-firewall-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/windows-firewall-1.png]]
 #### Windows Smart Screen
 Microsoft Defender SmartScreen protects against phishing or malware websites and applications, and the downloading of potentially malicious files.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/windows-app-control-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/windows-app-control-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/windows-app-control-1.png]]
 Additionally, exploit protection is built into Windows 11 to help protect your device against attacks.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/windows-exploit-protection-1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/windows-exploit-protection-1.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/windows-exploit-protection-1.png]]
 
 ### Disable Modifying Scheduled Tasks
 Useful if applied on non-admin endpoints
@@ -1549,15 +1549,15 @@ User Account Control (UAC) is a feature that enforces enhanced access control an
 To access UAC, go to `Control Panel -> User Accounts` and click on `Change User Account Control Setting`. Keep the notification level "**Always Notify**" in the User Account Control Settings.
 ### Setting a Password Policy
 Open group policy editor and Go to `Security settings > Account Policies > Password policy`
-![Notes Cataloge/IT & System Admin Notes/Windows OS/password-policy.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/password-policy.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/password-policy.png]]
 ### Setting a lockout policy
 To protect your system password from being guessed by an attacker, we can set out a lockout policy so the account will automatically lock after certain invalid attempts. To set a lockout policy, go to `Local Security Policy > Windows Settings > Account Policies > Account Lockout Policy` and configure values to lock out hackers after three invalid attempts.
-![Notes Cataloge/IT & System Admin Notes/Windows OS/lockout-policy.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Windows%20OS/lockout-policy.png)
+![[Notes Cataloge/IT & System Admin Notes/Windows OS/lockout-policy.png]]
 ### Disabling RDP and SMB
 if you don't need remote assistance through RDP protocol and you don't host file sharing server through SMB then it would be better from a security standpoint to disable them
 **Disabling RDP**
 In Windows, settings > Remote Desktop and tick the box `Don't allow remote connections to this computer`
-![rdp-disallow](rdp-disallow.png)
+![[rdp-disallow.png]]
 **Disabling SMB**
 Execute the below in Powershell
 ```
@@ -1570,13 +1570,13 @@ Go to `Setting > Select Apps and Features` and then select `The Microsoft Sto
 To run applications safely, we can use a temporary, isolated, lightweight desktop environment called Windows Sandbox. We can install software inside this safe environment, and this software will not be a part of our host machine, it will remain sandboxed. Once the Windows Sandbox is closed, everything, including files, software, and states will be deleted. We would require Virtualization enabled on our OS to run this feature.
 for enabling the Sandbox feature are as below:
 `Click Start > Search for 'Windows Features' and turn it on > Select Sandbox > Click OK to restart`
-![sandbox-1](sandbox-1.png)
+![[sandbox-1.png]]
 
 #### Control App Execution Rules Through AppLocker
 AppLocker is a recently introduced feature that allows users to block specific executables, scripts, and installers from execution through a set of rules. We can easily configure them on a single PC or network through a GUI by the following method:
-![applocker-1](applocker-1.png)
+![[applocker-1.png]]
 Below you can see how an app can be blocked based on publisher name
-![applocker-2](applocker-2.gif)
+![[applocker-2.gif]]
 ### Enabling Microsoft Smartscreen
 Microsoft SmartScreen helps to protect you from phishing/malware sites and software when using Microsoft Edge. It helps to make informed decisions for downloads and lets you browse safely in Microsoft Edge.
 To turn on the Smart Screen, go to `Settings > Windows Security > App and Browser Control > Reputation-based Protection`. Scroll down and turn on the `SmartScreen option`.
@@ -1612,7 +1612,7 @@ Performing an offline scan with windows security is another method of detecting 
 ### Disk Encryption
 Microsoft, for its business edition of Windows, utilises the encryption tools by BitLocker.
 Go to `Start > Control Panel > System and Security > BitLocker Drive Encryption`. You can easily see if the option to BitLocker Drive Encryption is enabled or not.
-![bitlocker-1](bitlocker-1.png)
+![[bitlocker-1.png]]
 ## Backup and Recovery
 ### Group Policy Update and Recovery
 Backup GPO Audit Policy to backup file
@@ -1771,9 +1771,9 @@ This utility is designed to reset or remove passwords for local user accounts on
 
 - **Launch the Tool**: Once booted, the Active@ Password Changer interface will appear.
 - **Select Search Option**: Choose to search all volumes for the Microsoft Security Account Manager (SAM) database or select the specific volume manually.
-![active-1](active-1.png)
+![[active-1.png]]
 - **Choose SAM Database**: If multiple SAM databases are found, select the appropriate one corresponding to your Windows installation.
-![active-2](active-2.png)
+![[active-2.png]]
 - **Select User Account**: From the list of local user accounts, select the one for which you want to reset the password.
 - **Reset Password**: Opt to clear (blank) the user's password. You can also modify other account attributes, such as unlocking the account or setting the password to never expire.
 - **Apply Changes**: Confirm and apply the changes.
@@ -1861,7 +1861,7 @@ These downloads are ISO files that will be used to create bootable media.
 - Set the boot priority to the USB or CD/DVD drive.
 - Save changes and exit the BIOS/UEFI.
 
-![oph-1](oph-1.png)
+![[oph-1.png]]
 
 **Step 4: Recover the Password**
 

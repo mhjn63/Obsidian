@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Bug%20Bounty/Bug%20Bounty%20Tools.html)
+
 
 # Bug Bounty Tools : Beginner Reference Notes
 
@@ -139,7 +139,7 @@ Mobile application security testing requires a different toolkit from web testin
 |[Ghidra](https://ghidra-sre.org/)|NSA's open-source software reverse engineering suite. A full decompiler and disassembler supporting dozens of processor architectures. Used for native binary analysis (`.so` files, stripped binaries) where jadx alone is insufficient.|Java|NSA|
 |[dex2jar](https://github.com/pxb1988/dex2jar)|Converts Android `.dex` files to `.jar` files so they can be opened in Java decompilers like jadx or JD-GUI. A common intermediate step in the Android decompilation workflow.|Java, Smali|Bob Pan|
 |[Andriller](https://github.com/den4uk/andriller)|A forensic acquisition tool for Android devices. Performs read-only, non-destructive data extraction without modifying the device. Useful for extracting databases, application data, and communications for analysis.|Python|Denis Sazonov|
-|[MobSF (Mobile Security Framework)](https://github.com/MobSF/Mobile-Security-Framework-MobSF/)|An all-in-one automated mobile application security testing platform. Supports static analysis of APK, IPA, and APPX files, as well as dynamic analysis (runtime testing) with an emulator or device. Provides a web UI, REST API for CI/CD integration, and detailed vulnerability reports.|Python|MobSF Team|
+|[[Mobile Security Framework)](https://github.com/MobSF/Mobile-Security-Framework-MobSF/|MobSF (Mobile Security Framework)]]|An all-in-one automated mobile application security testing platform. Supports static analysis of APK, IPA, and APPX files, as well as dynamic analysis (runtime testing) with an emulator or device. Provides a web UI, REST API for CI/CD integration, and detailed vulnerability reports.|Python|MobSF Team|
 |[objection](https://github.com/sensepost/objection)|A runtime mobile exploration toolkit built on top of Frida. Provides a command-line interface for common mobile security tasks — SSL pinning bypass, class and method listing, memory exploration, file system access — without needing to write Frida scripts manually. Works on both Android and iOS without requiring a jailbreak.|Python, TypeScript|sensepost|
 |[RMS - Runtime Mobile Security](https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security)|A web interface for Android runtime manipulation. Lets you enumerate, hook, and modify Java classes and methods on a running application through a browser UI rather than command line.|Python|@mobilesecurity_|
 

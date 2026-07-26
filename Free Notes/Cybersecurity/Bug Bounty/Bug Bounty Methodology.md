@@ -1,59 +1,59 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Bug%20Bounty/Bug%20Bounty%20Methodology.html)
+
 
 🏠 [Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Get the full BUH BOUNTY PACK in PDF [here](https://buymeacoffee.com/notescatalog/e/528934)
 
 **Table of Contents**
-- [Your Path to Bug Bounty Hunting](#Your%20Path%20to%20Bug%20Bounty%20Hunting)
-	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability|How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability)
-		- [](#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#Step%201|Step%201)
-		- [](#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#How%20to%20Choose%20and%20Master%20Your%20First%20Vulnerability#Step%202|Step%202)
-	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#Sample%20Workflow|Sample%20Workflow)
-	- [](#Your%20Path%20to%20Bug%20Bounty%20Hunting#Your%20Path%20to%20Bug%20Bounty%20Hunting#How%20Do%20You%20Know%20You're%20on%20the%20Right%20Path?|How%20Do%20You%20Know%20You're%20on%20the%20Right%20Path?)
-- [Report Writing](#Report%20Writing)
-	- [](#Report%20Writing#Report%20Writing#Structural%20Foundations%20of%20Effective%20Bug%20Reports|Structural%20Foundations%20of%20Effective%20Bug%20Reports)
-	- [](#Report%20Writing#Report%20Writing#Respecting%20Scope%20:%20A%20Critical%20Operational%20Discipline|Respecting%20Scope%20:%20A%20Critical%20Operational%20Discipline)
-	- [](#Report%20Writing#Report%20Writing#Impact%20:%20The%20Core%20of%20Reward%20Justification|Impact%20:%20The%20Core%20of%20Reward%20Justification)
-	- [](#Report%20Writing#Report%20Writing#Supporting%20Evidence%20:%20Enhancing%20Reproducibility|Supporting%20Evidence%20:%20Enhancing%20Reproducibility)
-		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#HTTP%20Requests%20and%20Responses|HTTP%20Requests%20and%20Responses)
-		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Screenshots|Screenshots)
-		- [](#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Supporting%20Evidence%20:%20Enhancing%20Reproducibility#Video%20Demonstrations|Video%20Demonstrations)
-	- [](#Report%20Writing#Report%20Writing#Maintaining%20Professional%20Conduct|Maintaining%20Professional%20Conduct)
-	- [](#Report%20Writing#Report%20Writing#The%20Standard%20Bug%20Bounty%20Report%20Template|The%20Standard%20Bug%20Bounty%20Report%20Template)
-	- [](#Report%20Writing#Report%20Writing#Title|Title)
-	- [](#Report%20Writing#Report%20Writing#Summary|Summary)
-	- [](#Report%20Writing#Report%20Writing#Description|Description)
-	- [](#Report%20Writing#Report%20Writing#Steps%20to%20Reproduce|Steps%20to%20Reproduce)
-	- [](#Report%20Writing#Report%20Writing#Steps%20to%20Reproduce:|Steps%20to%20Reproduce:)
-	- [](#Report%20Writing#Report%20Writing#Example%20script%20used%20during%20exploitation|Example%20script%20used%20during%20exploitation)
-	- [](#Report%20Writing#Report%20Writing#Supporting%20Material|Supporting%20Material)
-	- [](#Report%20Writing#Report%20Writing#Supporting%20Material:|Supporting%20Material:)
-	- [](#Report%20Writing#Report%20Writing#Impact|Impact)
-	- [](#Report%20Writing#Report%20Writing#Mitigation%20(Optional)|Mitigation%20(Optional))
-	- [](#Report%20Writing#Report%20Writing#Example%20Markdown%20Report%20Template|Example%20Markdown%20Report%20Template)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Summary:|Summary:)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Description:|Description:)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Steps%20to%20Reproduce:|Steps%20to%20Reproduce:)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Supporting%20Material:|Supporting%20Material:)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Impact:|Impact:)
-		- [](#Example%20Markdown%20Report%20Template#Example%20Markdown%20Report%20Template#Mitigation:|Mitigation:)
-	- [](#Report%20Writing#Report%20Writing#Core%20Operational%20Insight|Core%20Operational%20Insight)
-- [Bug Bounty Report Sample Template](#Bug%20Bounty%20Report%20Sample%20Template)
-- [Issue Description](#Issue%20Description)
-- [Affected URL/Area](#Affected%20URL/Area)
-- [Risk Rating](#Risk%20Rating)
-	- [](#Risk%20Rating#Risk%20Rating#Impact|Impact)
-	- [](#Risk%20Rating#Risk%20Rating#Attack%20Scenario|Attack%20Scenario)
-- [Steps to Reproduce/PoC](#Steps%20to%20Reproduce/PoC)
-	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Request|Request)
-	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Response|Response)
-	- [](#Steps%20to%20Reproduce/PoC#Steps%20to%20Reproduce/PoC#Screenshots|Screenshots)
-- [Affected Demographic/User Base](#Affected%20Demographic/User%20Base)
-- [Recommended Fix](#Recommended%20Fix)
-- [References](#References)
-- [Bug Bounty Platforms](#Bug%20Bounty%20Platforms)
-	- [](#Bug%20Bounty%20Platforms#Bug%20Bounty%20Platforms#Bug%20Bounty%20Programs|Bug%20Bounty%20Programs)
+- [[#Your Path to Bug Bounty Hunting|Your Path to Bug Bounty Hunting]]
+	- [[#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#How to Choose and Master Your First Vulnerability|How to Choose and Master Your First Vulnerability]]
+		- [[#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#Step 1|Step 1]]
+		- [[#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#How to Choose and Master Your First Vulnerability#Step 2|Step 2]]
+	- [[#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Sample Workflow|Sample Workflow]]
+	- [[#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#Your Path to Bug Bounty Hunting#How Do You Know You're on the Right Path?|How Do You Know You're on the Right Path?]]
+- [[#Report Writing|Report Writing]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Structural Foundations of Effective Bug Reports|Structural Foundations of Effective Bug Reports]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Respecting Scope : A Critical Operational Discipline|Respecting Scope : A Critical Operational Discipline]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Impact : The Core of Reward Justification|Impact : The Core of Reward Justification]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Supporting Evidence : Enhancing Reproducibility|Supporting Evidence : Enhancing Reproducibility]]
+		- [[#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#HTTP Requests and Responses|HTTP Requests and Responses]]
+		- [[#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Screenshots|Screenshots]]
+		- [[#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Supporting Evidence : Enhancing Reproducibility#Video Demonstrations|Video Demonstrations]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Maintaining Professional Conduct|Maintaining Professional Conduct]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#The Standard Bug Bounty Report Template|The Standard Bug Bounty Report Template]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Title|Title]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Summary|Summary]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Description|Description]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Steps to Reproduce|Steps to Reproduce]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Steps to Reproduce:|Steps to Reproduce:]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Example script used during exploitation|Example script used during exploitation]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Supporting Material|Supporting Material]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Supporting Material:|Supporting Material:]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Impact|Impact]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Mitigation (Optional]]|Mitigation%20(Optional))
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Example Markdown Report Template|Example Markdown Report Template]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Summary:|Summary:]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Description:|Description:]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Steps to Reproduce:|Steps to Reproduce:]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Supporting Material:|Supporting Material:]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Impact:|Impact:]]
+		- [[#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Example Markdown Report Template#Mitigation:|Mitigation:]]
+	- [[#Report Writing#Report Writing#Report Writing#Report Writing#Core Operational Insight|Core Operational Insight]]
+- [[#Bug Bounty Report Sample Template|Bug Bounty Report Sample Template]]
+- [[#Issue Description|Issue Description]]
+- [[#Affected URL/Area|Affected URL/Area]]
+- [[#Risk Rating|Risk Rating]]
+	- [[#Risk Rating#Risk Rating#Risk Rating#Risk Rating#Impact|Impact]]
+	- [[#Risk Rating#Risk Rating#Risk Rating#Risk Rating#Attack Scenario|Attack Scenario]]
+- [[#Steps to Reproduce/PoC|Steps to Reproduce/PoC]]
+	- [[#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Request|Request]]
+	- [[#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Response|Response]]
+	- [[#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Steps to Reproduce/PoC#Screenshots|Screenshots]]
+- [[#Affected Demographic/User Base|Affected Demographic/User Base]]
+- [[#Recommended Fix|Recommended Fix]]
+- [[#References|References]]
+- [[#Bug Bounty Platforms|Bug Bounty Platforms]]
+	- [[#Bug Bounty Platforms#Bug Bounty Platforms#Bug Bounty Platforms#Bug Bounty Platforms#Bug Bounty Programs|Bug Bounty Programs]]
 
 ## Your Path to Bug Bounty Hunting
 ### How to Choose and Master Your First Vulnerability
@@ -351,7 +351,7 @@ A generic overview of the issue, I usually use the default text from OWASP as it
 - Difficulty to Exploit: **Low / Medium / High**
 - Authentication Required: **Yes / No**
 - User Interaction Required: **Yes / No**
-- CVSS 3.1 Score: [X.X](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)
+- CVSS 3.1 Score: [[https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N]]
 
 ### Impact
 - What kind of attacker could exploit this? (external, authenticated user, admin)
@@ -433,51 +433,51 @@ Include additional reading for the client to further backup the issues explained
 - [123Contact Form](http://www.123contactform.com/security-acknowledgements.htm)
 - [99designs](https://hackerone.com/99designs)
 - [Abacus](https://bugcrowd.com/abacus)
-- [Acquia](mailto:security@acquia.com)
-- [ActiveCampaign](mailto:security@activecampaign.com)
-- [ActiveProspect](mailto:security@activeprospect.com)
+- [[mailto:security@acquia.com|Acquia]]
+- [[mailto:security@activecampaign.com|ActiveCampaign]]
+- [[mailto:security@activeprospect.com|ActiveProspect]]
 - [Adobe](https://hackerone.com/adobe)
-- [AeroFS](mailto:security@aerofs.com)
+- [[mailto:security@aerofs.com|AeroFS]]
 - [Airbitz](https://cobalt.io/airbitz)
 - [Airbnb](https://hackerone.com/airbnb)
 - [Algolia](https://hackerone.com/algolia)
 - [Altervista](http://en.altervista.org/feedback.php?who=feedback)
 - [Altroconsumo](https://go.intigriti.com/altroconsumo)
-- [Amara](mailto:security@amara.org)
-- [Amazon Web Services](mailto:aws-security@amazon.com)
-- [Amazon.com](mailto:security@amazon.com)
+- [[mailto:security@amara.org|Amara]]
+- [[mailto:aws-security@amazon.com|Amazon Web Services]]
+- [[mailto:security@amazon.com|Amazon.com]]
 - [ANCILE Solutions Inc.](https://bugcrowd.com/ancile)
 - [Anghami](https://hackerone.com/anghami)
 - [ANXBTC](https://cobalt.io/anxbtc)
 - [Apache httpd](https://hackerone.com/ibb-apache)
-- [Appcelerator](mailto:Infosec@appcelerator.com)
-- [Apple](mailto:product-security@apple.com)
+- [[mailto:Infosec@appcelerator.com|Appcelerator]]
+- [[mailto:product-security@apple.com|Apple]]
 - [Apptentive](https://www.apptentive.com/contact)
-- [Aptible](mailto:security@aptible.com)
+- [[mailto:security@aptible.com|Aptible]]
 - [Ardour](http://tracker.ardour.org/my_view_page.php)
 - [Arkane](https://go.intigriti.com/arkanenetwork)
-- [ARM mbed](mailto:whitehat@polarssl.org)
-- [Asana](mailto:security@asana.com)
-- [ASP4all](mailto:support@asp4all.nl)
+- [[mailto:whitehat@polarssl.org|ARM mbed]]
+- [[mailto:security@asana.com|Asana]]
+- [[mailto:support@asp4all.nl|ASP4all]]
 - [AT&T](https://bugbounty.att.com/bugform.php)
 - [Atlassian](https://securitysd.atlassian.net/servicedesk/customer/portal/2)
-- [Attack-Secure](mailto:admin@attack-secure.com)
-- [Authy](mailto:security@authy.com)
+- [[mailto:admin@attack-secure.com|Attack-Secure]]
+- [[mailto:security@authy.com|Authy]]
 - [Automattic](https://hackerone.com/automattic)
-- [Avast!](mailto:bugs@avast.com)
-- [Avira](mailto:vulnerabilities@avira.com)
+- [[mailto:bugs@avast.com|Avast!]]
+- [[mailto:vulnerabilities@avira.com|Avira]]
 - [AwardWallet](https://cobalt.io/awardwallet)
-- [Badoo](https://corp.badoo.com/en/security/#send_bid)
+- [[https://corp.badoo.com/en/security/#send_bid]]
 - [Barracuda](https://bugcrowd.com/barracuda)
 - [Base](https://go.intigriti.com/base)
-- [Basecamp](mailto:security@basecamp.com)
+- [[mailto:security@basecamp.com|Basecamp]]
 - [Beanstalk](https://wildbit.wufoo.com/forms/wildbit-security-response)
 - [BillGuard](https://cobalt.io/billguard)
 - [Billys Billing](https://cobalt.io/billys-billing)
 - [Binary.com](https://hackerone.com/binary)
 - [Binary.com Cashier](https://hackerone.com/binary_cashier)
 - [BitBandit.eu](https://cobalt.io/bitbandit-eu)
-- [Bitcasa](mailto:security@bitcasa.com)
+- [[mailto:security@bitcasa.com|Bitcasa]]
 - [BitCasino](https://cobalt.io/bitcasino)
 - [BitGo](https://cobalt.io/bitgo)
 - [BitHealth](https://cobalt.io/bithealth)
@@ -489,29 +489,29 @@ Include additional reading for the client to further backup the issues explained
 - [Bitreserve](https://cobalt.io/bitreserve)
 - [Bitspark](https://cobalt.io/bitspark)
 - [Bitwage](https://cobalt.io/bitwage)
-- [BitWall](mailto:request@bitwall.io)
+- [[mailto:request@bitwall.io|BitWall]]
 - [BitYes](https://cobalt.io/bityes)
 - [BlackBerry](https://global.blackberry.com/secure/report-an-issue/en.html)
-- [Blackboard](mailto:learnsecurity@blackboard.com)
+- [[mailto:learnsecurity@blackboard.com|Blackboard]]
 - [Blackphone](https://bugcrowd.com/blackphone)
-- [Blesta](mailto:security@blesta.com)
+- [[mailto:security@blesta.com|Blesta]]
 - [Block.io](https://hackerone.com/blockio)
 - [Block.io, Inc.](https://cobalt.io/block-io-inc)
 - [Blockchain.info](https://cobalt.io/blockchain-info)
 - [BlockScore](https://cobalt.io/blockscore)
 - [Bookfresh](https://hackerone.com/bookfresh)
-- [Box](mailto:security-reports@box.com)
-- [Braintree](mailto:security@braintreepayments.com)
+- [[mailto:security-reports@box.com|Box]]
+- [[mailto:security@braintreepayments.com|Braintree]]
 - [Brussels Airlines](https://go.intigriti.com/brusselsairlines)
 - [BTC_sx](https://cobalt.io/btc-sx)
-- [Buffer](mailto:security@bufferapp.com)
+- [[mailto:security@bufferapp.com|Buffer]]
 - [BX.in.th](https://cobalt.io/bx-in-th)
 - [C2FO](https://hackerone.com/c2fo)
 - [Campaign Monitor](https://help.campaignmonitor.com/contact)
 - [CARD.com](https://bugcrowd.com/card)
 - [Catchafire](https://cobalt.io/catchafire)
 - [Caviar](https://hackerone.com/caviar)
-- [CCBill](mailto:bugrewards@ccbill.com)
+- [[mailto:bugrewards@ccbill.com|CCBill]]
 - [CERT/CC](https://hackerone.com/cert)
 - [Certly](https://hackerone.com/certly)
 - [ChainPay](https://cobalt.io/chainpay)
@@ -519,13 +519,13 @@ Include additional reading for the client to further backup the issues explained
 - [Chargify](https://bugcrowd.com/chargify)
 - [Chromium Project](https://code.google.com/p/chromium/issues/entry?template=Security%20Bug)
 - [Circle](https://cobalt.io/circle)
-- [CircleCI](mailto:security@circleci.com)
-- [Cisco](http://www.cisco.com/web/about/security/psirt/security_vulnerability_policy.html#roosfassv)
+- [[mailto:security@circleci.com|CircleCI]]
+- [[http://www.cisco.com/web/about/security/psirt/security_vulnerability_policy.html#roosfassv]]
 - [ClickUp](https://clickup.com/bug-bounty)
-- [Clojars](mailto:contact@clojars.org)
+- [[mailto:contact@clojars.org|Clojars]]
 - [CloudFlare](https://hackerone.com/cloudflare)
 - [Cobalt](https://cobalt.io/cobalt)
-- [Code Climate](mailto:security@codeclimate.com)
+- [[mailto:security@codeclimate.com|Code Climate]]
 - [CodeIgniter](https://hackerone.com/codeigniter)
 - [CodePen](https://bugcrowd.com/codepen)
 - [Coin Republic](https://cobalt.io/coin-republic)
@@ -533,38 +533,38 @@ Include additional reading for the client to further backup the issues explained
 - [Coinage](https://cobalt.io/coinage)
 - [Coinbase](https://hackerone.com/coinbase)
 - [CoinDaddy](https://cobalt.io/coindaddy)
-- [Coinkite](mailto:feedback@coinkite.com?subject=%5BVulnerability%5D%20-%20)
+- [[mailto:feedback@coinkite.com?subject=[Vulnerability] - |Coinkite]]
 - [Coinport](https://cobalt.io/coinport)
 - [coins.ph](https://cobalt.io/coins-ph)
 - [Cointrader.net](https://cobalt.io/cointrader-net)
 - [Coinvoy](https://cobalt.io/coinvoy)
 - [Collishop](https://go.intigriti.com/collishop)
 - [Colruyt](https://go.intigriti.com/colruyt)
-- [Compose](mailto:security@compose.io)
+- [[mailto:security@compose.io|Compose]]
 - [concrete5](https://hackerone.com/concrete5)
-- [Constant Contact](mailto:vulnerability@constantcontact.com)
+- [[mailto:vulnerability@constantcontact.com|Constant Contact]]
 - [Counterparty](https://cobalt.io/counterparty)
-- [Coupa](mailto:security@coupa.com)
+- [[mailto:security@coupa.com|Coupa]]
 - [Coursera](https://hackerone.com/coursera)
-- [cPanel](mailto:security@cpanel.net)
-- [cPaperless](mailto:support@cPaperless.com)
+- [[mailto:security@cpanel.net|cPanel]]
+- [[mailto:support@cPaperless.com|cPaperless]]
 - [Crix.io](https://cobalt.io/crixio)
 - [Cross Border Fines](https://go.intigriti.com/crossborderfines)
 - [CrowdShield](https://crowdshield.com/bug-bounty-list.php?bug_bounty_program=crowdshield)
 - [Cryptocat](https://github.com/cryptocat/cryptocat/issues)
-- [Cupcake](mailto:security@cupcake.io)
-- [CustomerInsight](mailto:admin@customerinsight.ca)
+- [[mailto:security@cupcake.io|Cupcake]]
+- [[mailto:admin@customerinsight.ca|CustomerInsight]]
 - [Cylance](https://hackerone.com/cylance)
-- [Dato Capital](mailto:security%40datocapital.com)
-- [Detectify](mailto:disclosure@detectify.com)
+- [[mailto:security%40datocapital.com|Dato Capital]]
+- [[mailto:disclosure@detectify.com|Detectify]]
 - [De Volkskrant](https://go.intigriti.com/devolkskrant)
 - [Delen Private Bank](https://go.intigriti.com/delen)
-- [DigitalOcean](mailto:security@digitalocean.com)
+- [[mailto:security@digitalocean.com|DigitalOcean]]
 - [DigitalSellz](https://hackerone.com/digitalsellz)
 - [Django](https://hackerone.com/django)
-- [Doorkeeper](mailto:info@doorkeeper.jp)
+- [[mailto:info@doorkeeper.jp|Doorkeeper]]
 - [DoSomething](https://cobalt.io/dosomething)
-- [DPD](mailto:security@dpd.zendesk.com)
+- [[mailto:security@dpd.zendesk.com|DPD]]
 - [Dragon King](https://hackenproof.com/neverdie/dragon-king)
 - [Dreambaby](https://go.intigriti.com/dreamland)
 - [Dreamland](https://go.intigriti.com/dream)
@@ -572,21 +572,21 @@ Include additional reading for the client to further backup the issues explained
 - [Dropbox Acquisitions](https://hackerone.com/dropbox-acquisitions)
 - [Drupal](https://www.drupal.org/node/101494)
 - [eBay](http://pages.ebay.com/securitycenter/Researchers.html)
-- [Eclipse](mailto:security@eclipse.org)
+- [[mailto:security@eclipse.org|Eclipse]]
 - [eHealth Hub VZN KUL](https://go.intigriti.com/ehealthhubvznkul)
-- [EMC](mailto:security_alert@emc.com)
-- [Enano](mailto:security@enanocms.org)
-- [Engine Yard](mailto:security@engineyard.com)
+- [[mailto:security_alert@emc.com|EMC]]
+- [[mailto:security@enanocms.org|Enano]]
+- [[mailto:security@engineyard.com|Engine Yard]]
 - [Envoy](https://hackerone.com/envoy)
 - [Eobot](https://cobalt.io/eobot)
-- [EthnoHub](mailto:security@ethnohub.com)
+- [[mailto:security@ethnohub.com|EthnoHub]]
 - [Etsy](https://www.etsy.com/bounty)
-- [EVE](mailto:security@ccpgames.com)
+- [[mailto:security@ccpgames.com|EVE]]
 - [Event Espresso](http://eventespresso.com/report-a-security-vulnerability)
 - [Everitoken](https://hackenproof.com/everitoken/everitoken-blockchain)
-- [Evernote](mailto:security@evernote.com)
+- [[mailto:security@evernote.com|Evernote]]
 - [EURid](https://go.intigriti.com/eurid)
-- [Expatistan](mailto:gerardo@expatistan.com)
+- [[mailto:gerardo@expatistan.com|Expatistan]]
 - [ExpressionEngine](https://hackerone.com/expressionengine)
 - [Ezbob](https://cobalt.io/ezbob)
 - [Facebook](https://www.facebook.com/whitehat)
@@ -595,231 +595,231 @@ Include additional reading for the client to further backup the issues explained
 - [FanFootage](https://hackerone.com/fanfootage)
 - [FastSlots](https://cobalt.io/fastslots)
 - [Flash](https://hackerone.com/flash)
-- [Flood](mailto:support@flood.io)
-- [Flow Dock](mailto:security@flowdock.com)
+- [[mailto:support@flood.io|Flood]]
+- [[mailto:security@flowdock.com|Flow Dock]]
 - [Flox](https://hackerone.com/flox)
-- [Fluxiom](mailto:security@fluxiom.com)
+- [[mailto:security@fluxiom.com|Fluxiom]]
 - [Fog Creek](http://www.fogcreek.com/contact)
-- [FormAssembly](mailto:security@formassembly.com)
+- [[mailto:security@formassembly.com|FormAssembly]]
 - [Founder Bliss](https://cobalt.io/founder-bliss)
-- [Foursquare](mailto:security@foursquare.com)
-- [Freelancer](mailto:security-reporting@freelancer.com)
-- [Gallery](mailto:security@galleryproject.org)
-- [Gamma](mailto:security-alert@intergamma.nl)
-- [Gemfury](mailto:security@gemfury.com)
+- [[mailto:security@foursquare.com|Foursquare]]
+- [[mailto:security-reporting@freelancer.com|Freelancer]]
+- [[mailto:security@galleryproject.org|Gallery]]
+- [[mailto:security-alert@intergamma.nl|Gamma]]
+- [[mailto:security@gemfury.com|Gemfury]]
 - [General Motors](https://hackerone.com/gm)
 - [GhostMail](https://hackerone.com/gmguys)
 - [GitHub](https://bounty.github.com/submit-a-vulnerability.html)
 - [GitLab](https://hackerone.com/gitlab)
 - [GlassWire](https://hackerone.com/glasswire)
-- [Gliph](mailto:security@gli.ph)
+- [[mailto:security@gli.ph|Gliph]]
 - [GlobaLeaks](https://hackerone.com/globaleaks)
-- [Google PRP](mailto:security-patches@google.com)
+- [[mailto:security-patches@google.com|Google PRP]]
 - [Google VRP](https://www.google.com/about/appsecurity/reward-program/index.html)
 - [Grammarly](https://hackerone.com/grammarly)
 - [Gratipay](https://hackerone.com/gratipay)
 - [GreenAddress](https://cobalt.io/greenaddress)
 - [Greenhouse.io](https://hackerone.com/greenhouse)
-- [Grok Learning](mailto:security@groklearning.com)
+- [[mailto:security@groklearning.com|Grok Learning]]
 - [HackenProof](https://hackenproof.com/hacken/hackenproof)
 - [HackerOne](https://hackerone.com/security)
-- [Harmony](mailto:security@collectiveidea.com)
+- [[mailto:security@collectiveidea.com|Harmony]]
 - [Heroku](https://bugcrowd.com/heroku)
-- [Hex-Rays](mailto:bugbounty@hex-rays.com)
+- [[mailto:bugbounty@hex-rays.com|Hex-Rays]]
 - [Hive Wallet](https://cobalt.io/hive-wallet)
-- [Hootsuite](mailto:security@hootsuite.com)
-- [HTC](mailto:security@htc.com)
-- [Huawei](mailto:psirt@huawei.com)
+- [[mailto:security@hootsuite.com|Hootsuite]]
+- [[mailto:security@htc.com|HTC]]
+- [[mailto:psirt@huawei.com|Huawei]]
 - [Hubdia](https://hackerone.com/hubdia)
 - [Humble Bundle](https://bugcrowd.com/humblebundle)
 - [IAM KU Leuven](https://go.intigriti.com/kuleuvenlogin)
 - [Ian Dunn](https://hackerone.com/iandunn-projects)
 - [IBM](https://www.ibm.com/scripts/contact/contact/us/en/security_vulnerabilities)
 - [ICEcoder](https://bugcrowd.com/icecoder)
-- [Iconfinder](mailto:support@iconfinder.com)
-- [Ifixit](mailto:security@ifixit.com)
+- [[mailto:support@iconfinder.com|Iconfinder]]
+- [[mailto:security@ifixit.com|Ifixit]]
 - [Imgur](https://hackerone.com/imgur)
 - [ImpressPages](https://cobalt.io/impresspages)
 - [Indeed](https://bugcrowd.com/indeed)
 - [Independent Reserve](https://cobalt.io/independent-reserve)
 - [Informatica](https://hackerone.com/informatica)
 - [IntegraXor](http://www.integraxor.com/support.html)
-- [Internetwache](mailto:security@internetwache.org)
+- [[mailto:security@internetwache.org|Internetwache]]
 - [InVision](https://hackerone.com/invision)
 - [IRCCloud](https://hackerone.com/irccloud)
 - [itBit Exchange](https://hackerone.com/itbit)
-- [ITRP](mailto:security@itrp.com)
+- [[mailto:security@itrp.com|ITRP]]
 - [itsme](https://go.intigriti.com/itsme)
 - [joola.io](https://hackerone.com/joola-io)
 - [Joomla](http://vel.joomla.org/submit-vel)
-- [JRuby](mailto:security@jruby.org)
+- [[mailto:security@jruby.org|JRuby]]
 - [jsDelivr](https://hackerone.com/jsdelivr)
-- [Juniper](mailto:sirt@juniper.net)
+- [[mailto:sirt@juniper.net|Juniper]]
 - [Kadira](https://hackerone.com/kadira)
-- [Kaneva](mailto:security@kaneva.com)
+- [[mailto:security@kaneva.com|Kaneva]]
 - [Kayako](http://my.kayako.com/Tickets/Submit)
 - [Kenna](https://bugcrowd.com/riskio)
 - [Keybase](https://hackerone.com/keybase)
 - [Khan Academy](https://hackerone.com/khanacademy)
 - [SKB Kontur](https://kontur.ru/.well-known/security.txt)
-- [Kraken](mailto:bugbounty@kraken.com)
+- [[mailto:bugbounty@kraken.com|Kraken]]
 - [Kinepolis](https://go.intigriti.com/kinepolis)
 - [Kuna](https://hackenproof.com/kuna/kuna-crypto-exchange)
 - [Lancor Income](https://cobalt.io/lancor-income)
-- [LastPass](mailto:security@lastpass.com)
-- [LaunchKey](mailto:security@launchkey.com)
+- [[mailto:security@lastpass.com|LastPass]]
+- [[mailto:security@launchkey.com|LaunchKey]]
 - [Lean Testing](https://hackerone.com/leantesting)
-- [Librato](mailto:security@librato.com)
+- [[mailto:security@librato.com|Librato]]
 - [LibSass](https://hackerone.com/libsass)
-- [Liferay](mailto:security@liferay.com)
+- [[mailto:security@liferay.com|Liferay]]
 - [Line](https://bugbounty.linecorp.com/en/)
-- [LinkedIn](mailto:security@linkedin.com)
+- [[mailto:security@linkedin.com|LinkedIn]]
 - [LiveEnsure](http://www.liveensure.com/contact.php)
 - [LocalBitcoins](https://cobalt.io/localbitcoins)
 - [Localize](https://hackerone.com/localize)
-- [Logentries](mailto:security@logentries.com)
-- [Lookout](mailto:security@lookout.com)
-- [Magento](mailto:security@magento.com)
-- [MAGIX](mailto:security@magix.net)
-- [Mahara](mailto:security@mahara.org)
+- [[mailto:security@logentries.com|Logentries]]
+- [[mailto:security@lookout.com|Lookout]]
+- [[mailto:security@magento.com|Magento]]
+- [[mailto:security@magix.net|MAGIX]]
+- [[mailto:security@mahara.org|Mahara]]
 - [MaiCoin](https://cobalt.io/maicoin)
 - [Mail.Ru](https://hackerone.com/mailru)
 - [Mailbird](https://cobalt.io/mailbird)
 - [MailChimp](http://mailchimp.com/about/security-response/)
 - [ManageBGL](https://cobalt.io/managebgl)
-- [ManageWP](mailto:security@managewp.com)
+- [[mailto:security@managewp.com|ManageWP]]
 - [MapLogin](https://hackerone.com/maplogin)
 - [Marietje Schaake](https://go.intigriti.com/marietjeschaake)
 - [Marktplatts](https://hackerone.com/marktplaats)
 - [Mavenlink](https://hackerone.com/mavenlink)
 - [Maximum](https://hackerone.com/maximum)
 - [MCProHosting](https://bugcrowd.com/mcprohostings)
-- [MEGA](mailto:bugs@mega.co.nz)
+- [[mailto:bugs@mega.co.nz|MEGA]]
 - [Mercury](https://cobalt.io/mercury)
 - [Meteor](https://hackerone.com/meteor)
 - [meXBT](https://cobalt.io/mexbt)
-- [Microsoft](mailto:secure@microsoft.com)
-- [Mimecast](mailto:disclosure@mimecast.com)
+- [[mailto:secure@microsoft.com|Microsoft]]
+- [[mailto:disclosure@mimecast.com|Mimecast]]
 - [Mobile Vikings](https://go.intigriti.com/mobilevikings)
 - [Mobile Vikings](https://hackerone.com/mobilevikings)
-- [Modus CSR](mailto:security@moduscsr.com)
-- [MoneyBird](mailto:security@moneybird.com)
+- [[mailto:security@moduscsr.com|Modus CSR]]
+- [[mailto:security@moneybird.com|MoneyBird]]
 - [MoneyStream](https://hackerone.com/moneystream)
-- [Moodle](mailto:security@moodle.org)
-- [Motorola Solutions](mailto:security@motorolasolutions.com)
+- [[mailto:security@moodle.org|Moodle]]
+- [[mailto:security@motorolasolutions.com|Motorola Solutions]]
 - [Mozilla](https://www.mozilla.org/en-US/security/bug-bounty/)
 - [mynxt.info](https://cobalt.io/mynxt-info)
-- [NCSC](mailto:cert@ncsc.nl)
+- [[mailto:cert@ncsc.nl|NCSC]]
 - [Nearby Live](https://hackerone.com/nearby)
-- [Nest](mailto:security@nest.com)
-- [Netflix](mailto:security-report@netflix.com)
+- [[mailto:security@nest.com|Nest]]
+- [[mailto:security-report@netflix.com|Netflix]]
 - [Neverdie Smart Contract](https://hackenproof.com/neverdie/neverdie-smart-contract)
 - [Neverdie Web](https://hackenproof.com/neverdie/neverdie-web)
 - [Nexmo](https://cobalt.io/nexmo)
 - [Nexuzhealth](https://go.intigriti.com/nexushealth)
 - [Nexuzhealth Web PACS](https://go.intigriti.com/nexuzhealthwebpacs)
 - [Nginx](https://hackerone.com/ibb-nginx)
-- [Nitrous](mailto:security@nitrous.io)
-- [Nokia Networks](mailto:security-alert@nokia.com)
+- [[mailto:security@nitrous.io|Nitrous]]
+- [[mailto:security-alert@nokia.com|Nokia Networks]]
 - [NoPass](https://cobalt.io/nopass)
-- [NZRS](mailto:security@nzrs.net.nz)
-- [Offensive Security](mailto:security@offensive-security.com)
+- [[mailto:security@nzrs.net.nz|NZRS]]
+- [[mailto:security@offensive-security.com|Offensive Security]]
 - [ok.ru](https://hackerone.com/ok)
 - [OKCoin](https://cobalt.io/okcoin)
 - [OkCupid](https://hackerone.com/okcupid)
-- [Olark](mailto:security@olark.com)
+- [[mailto:security@olark.com|Olark]]
 - [OneSpan Mobile](https://go.intigriti.com/vascomobileproducts)
 - [OneSpan Server Products](https://go.intigriti.com/vascoserver-sideproducts)
 - [Opal Cryptocurrency](https://cobalt.io/opal-cryptocurrency)
 - [Openfolio](https://hackerone.com/openfolio)
 - [OpenSSL](https://hackerone.com/ibb-openssl)
-- [OpenStack](https://security.openstack.org/#how-to-report-security-issues-to-openstack)
-- [OpenText](mailto:otst@opentext.com)
+- [[https://security.openstack.org/#how-to-report-security-issues-to-openstack]]
+- [[mailto:otst@opentext.com|OpenText]]
 - [Opera](https://bugs.opera.com/wizarddesktop)
 - [Optimizely](https://cobalt.io/optimizely)
-- [Oracle](mailto:secalert_us@oracle.com)
+- [[mailto:secalert_us@oracle.com|Oracle]]
 - [ownCloud](https://hackerone.com/owncloud)
-- [PagerDuty](mailto:security@pagerduty.com)
+- [[mailto:security@pagerduty.com|PagerDuty]]
 - [Panasonic Avionics](https://hackerone.com/panasonic-aero)
 - [Pantheon](https://bugcrowd.com/pantheon)
-- [Panzura](mailto:security@panzura.com)
+- [[mailto:security@panzura.com|Panzura]]
 - [Paragon Initiative Enterprises](https://hackerone.com/paragonie)
-- [Paychoice](mailto:security@paychoice.com.au)
-- [PayMill](mailto:security@paymill.com)
-- [PayPal](mailto:https://www.paypal.com/bugbounty/register)
+- [[mailto:security@paychoice.com.au|Paychoice]]
+- [[mailto:security@paymill.com|PayMill]]
+- [[mailto:https://www.paypal.com/bugbounty/register|PayPal]]
 - [Paytm](https://bugbounty.paytm.com/)
 - [Perl](https://hackerone.com/ibb-perl)
 - [Phabricator](https://hackerone.com/phabricator)
 - [PHP](https://bugs.php.net/report.php)
-- [Pidgin](mailto:security@pidgin.im)
-- [PikaPay](mailto:security@pikapay.com)
-- [PinoyHackNews](mailto:admin@pinoyhacknews.com)
+- [[mailto:security@pidgin.im|Pidgin]]
+- [[mailto:security@pikapay.com|PikaPay]]
+- [[mailto:admin@pinoyhacknews.com|PinoyHackNews]]
 - [Pinterest](https://bugcrowd.com/pinterest)
 - [Piwik Open Source Analytics](https://cobalt.io/piwik-open-source-analytics)
-- [Plone](mailto:security@plone.org)
-- [Pocket](mailto:security@getpocket.com)
+- [[mailto:security@plone.org|Plone]]
+- [[mailto:security@getpocket.com|Pocket]]
 - [Poloniex](https://cobalt.io/poloniex)
 - [Postmark](https://wildbit.wufoo.com/forms/wildbit-security-response)
-- [Prezi](mailto:security-bug-bounty@prezi.com)
+- [[mailto:security-bug-bounty@prezi.com|Prezi]]
 - [Projectplace](https://hackerone.com/projectplace)
-- [PullReview](mailto:security@pullreview.com)
-- [Puppet labs](mailto:security@puppetlabs.com)
+- [[mailto:security@pullreview.com|PullReview]]
+- [[mailto:security@puppetlabs.com|Puppet labs]]
 - [PureVPN](https://bugcrowd.com/purevpn)
-- [Python](mailto:security@python.org)
+- [[mailto:security@python.org|Python]]
 - [QIWI](https://hackerone.com/qiwi)
 - [Quadriga CX](https://cobalt.io/quadriga-cx)
 - [QuickBT](https://cobalt.io/quickbt)
 - [Quora](https://hackerone.com/quora)
-- [Rackspace](mailto:security@rackspace.com)
+- [[mailto:security@rackspace.com|Rackspace]]
 - [Rdbhost_service](https://cobalt.io/rdbhost-service)
-- [Red Hat](mailto:site-security@redhat.com)
-- [Reddit](mailto:security@reddit.com)
-- [Relaso](mailto:security@relaso.com)
-- [RelateIQ](mailto:security@relateiq.com)
+- [[mailto:site-security@redhat.com|Red Hat]]
+- [[mailto:security@reddit.com|Reddit]]
+- [[mailto:security@relaso.com|Relaso]]
+- [[mailto:security@relateiq.com|RelateIQ]]
 - [Release Wire](http://www.releasewire.com/about/contact)
 - [Respondly](https://hackerone.com/respondly)
 - [Revive Adserver](https://hackerone.com/revive_adserver)
 - [Ribose](https://www.ribose.com/feedbacks/security)
 - [Ripio](https://cobalt.io/ripio)
-- [Ripple](mailto:bugs@ripple.com)
-- [Riskalyze](mailto:security@riskalyze.com)
+- [[mailto:bugs@ripple.com|Ripple]]
+- [[mailto:security@riskalyze.com|Riskalyze]]
 - [Romit](https://hackerone.com/romit)
-- [Ruby](mailto:security@ruby-lang.org)
+- [[mailto:security@ruby-lang.org|Ruby]]
 - [Ruby on Rails](https://hackerone.com/rails)
-- [Salesforce](mailto:security@salesforce.com)
+- [[mailto:security@salesforce.com|Salesforce]]
 - [Samsung TV](https://samsungtvbounty.com/ReportBug.aspx)
 - [Sandbox Escape](https://hackerone.com/sandbox)
-- [SAP](mailto:secure@sap.com)
-- [Schuberg Philis](mailto:abuse@schubergphilis.com)
-- [Scorpion Software](mailto:security@scorpionsoft.com)
+- [[mailto:secure@sap.com|SAP]]
+- [[mailto:abuse@schubergphilis.com|Schuberg Philis]]
+- [[mailto:security@scorpionsoft.com|Scorpion Software]]
 - [Secret](https://hackerone.com/secret)
-- [Secure Works](mailto:security@secureworks.com)
+- [[mailto:security@secureworks.com|Secure Works]]
 - [Sellfy](http://docs.sellfy.com/contact)
 - [Sentiance](https://go.intigriti.com/sentiance)
 - [ServiceRocket](https://bugcrowd.com/servicerocket)
-- [ShareLaTeX](mailto:team@sharelatex.com)
+- [[mailto:team@sharelatex.com|ShareLaTeX]]
 - [Sherpany](https://cobalt.io/sherpany)
 - [Shopify](https://hackerone.com/shopify)
-- [Sifter](mailto:security@sifterapp.com?subject=%27Security%20Vulnerability%20Report%27)
+- [[mailto:security@sifterapp.com?subject='Security Vulnerability Report'|Sifter]]
 - [Silent Circle](https://bugcrowd.com/silentcircle)
 - [Simple](https://bugcrowd.com/simple)
-- [SiteGround](mailto:responsible-disclosure@siteground.com)
-- [Skoodat](mailto:security@skoodat.com)
+- [[mailto:responsible-disclosure@siteground.com|SiteGround]]
+- [[mailto:security@skoodat.com|Skoodat]]
 - [Skrill](https://cobalt.io/skrill)
 - [Skyscanner](https://bugcrowd.com/skyscanner)
 - [Slack](https://hackerone.com/slack)
 - [Snapchat](https://hackerone.com/snapchat)
-- [Snappy](mailto:security@userscape.com)
-- [Sonatype](mailto:security@sonatype.com)
+- [[mailto:security@userscape.com|Snappy]]
+- [[mailto:security@sonatype.com|Sonatype]]
 - [Sony](https://secure.sony.net/form)
 - [SoundCloud](https://scsecurity.freshdesk.com/support/tickets/new)
 - [Spaargids](https://go.intigriti.com/spaargids)
 - [SpectroCoin](https://cobalt.io/spectrocoin)
 - [Spendbitcoins](https://cobalt.io/spendbitcoins)
 - [SplashID](https://bugcrowd.com/splashid)
-- [Splitwise](mailto:security@splitwise.com)
-- [Spotify](mailto:security@spotify.com)
-- [Sprout Social](mailto:security@sproutsocial.com)
+- [[mailto:security@splitwise.com|Splitwise]]
+- [[mailto:security@spotify.com|Spotify]]
+- [[mailto:security@sproutsocial.com|Sprout Social]]
 - [Square](https://hackerone.com/square)
 - [Square Open Source](https://hackerone.com/square-open-source)
 - [StatusPage](https://bugcrowd.com/sunrise)
@@ -830,13 +830,13 @@ Include additional reading for the client to further backup the issues explained
 - [Subrosa](https://cobalt.io/subrosa)
 - [Sucuri](https://hackerone.com/sucuri)
 - [Suivo](https://go.intigriti.com/suivoweb)
-- [Symantec](mailto:secure@symantec.com)
+- [[mailto:secure@symantec.com|Symantec]]
 - [Taptalk](https://hackerone.com/taptalk)
-- [Tarsnap](mailto:cperciva@tarsnap.com)
+- [[mailto:cperciva@tarsnap.com|Tarsnap]]
 - [Tata Play](https://www.tataplay.com/bug-bounty-hunter)
-- [TeamUnify](mailto:security@teamunify.com)
-- [Tele2](mailto:beveiligingsmeldpunt@tele2.com)
-- [Telekom](mailto:cert@telekom.de?subject=bug_bounty)
+- [[mailto:security@teamunify.com|TeamUnify]]
+- [[mailto:beveiligingsmeldpunt@tele2.com|Tele2]]
+- [[mailto:cert@telekom.de?subject=bug_bounty|Telekom]]
 - [Telenet](https://go.intigriti.com/telenet)
 - [Test-Aankoop](https://go.intigriti.com/testaankoop)
 - [The Internet](https://hackerone.com/internet)
@@ -848,55 +848,55 @@ Include additional reading for the client to further backup the issues explained
 - [Tuenti](http://corporate.tuenti.com/en/contact/security)
 - [Tweakers](https://go.intigriti.com/tweakers)
 - [Twilio](https://bugcrowd.com/twilio)
-- [Twitch](mailto:security@twitch.tv)
+- [[mailto:security@twitch.tv|Twitch]]
 - [Twitter](https://hackerone.com/twitter)
-- [Uber](mailto:security-abuse@uber.com)
+- [[mailto:security-abuse@uber.com|Uber]]
 - [Ubiquiti Networks](https://hackerone.com/ubnt)
-- [Unitag](mailto:security@unitag.io)
+- [[mailto:security@unitag.io|Unitag]]
 - [Urban Dictionary](https://hackerone.com/urbandictionary)
 - [Uzbey](https://hackerone.com/uzbey)
-- [Valve Software](mailto:security@valvesoftware.com)
+- [[mailto:security@valvesoftware.com|Valve Software]]
 - [VeChainThor](https://hackenproof.com/vechain/vechainthor)
 - [VeChainThor Wallet](https://hackenproof.com/vechain/vechainthor-wallet)
-- [VCE](mailto:security-alerts@vce.com)
-- [Venmo](mailto:security@venmo.com)
+- [[mailto:security-alerts@vce.com|VCE]]
+- [[mailto:security@venmo.com|Venmo]]
 - [Version Cake](https://hackerone.com/versioncake)
-- [Viadeo](mailto:security@viadeo.com)
+- [[mailto:security@viadeo.com|Viadeo]]
 - [Vimeo](https://hackerone.com/vimeo)
 - [VK.com](https://hackerone.com/vkcom)
 - [Volusion](https://bugcrowd.com/volusion)
 - [VPNSox](https://cobalt.io/vpnsox)
 - [vulners.com](https://hackerone.com/vulnerscom)
 - [Vultr](https://www.vultr.com/bug-bounty/)
-- [Webconverger](mailto:security@webconverger.com)
-- [Websecurify](http://campaigns.websecurify.com/money-for-bugs/#contact)
+- [[mailto:security@webconverger.com|Webconverger]]
+- [[http://campaigns.websecurify.com/money-for-bugs/#contact]]
 - [Weebly](https://cobalt.io/weebly)
 - [WePay](https://hackerone.com/wepay)
 - [Whisper](https://hackerone.com/whisper)
 - [WHMCS](https://bugcrowd.com/whmcs)
 - [Windthorst ISD](http://www.windthorstisd.net/BugReport.cfm)
 - [withinsecurity](https://hackerone.com/withinsecurity)
-- [WizeHive](mailto:security@wizehive.com)
+- [[mailto:security@wizehive.com|WizeHive]]
 - [Woorank](https://go.intigriti.com/woorank)
 - [WordPoints](https://hackerone.com/wordpoints)
 - [Wordware](https://cobalt.io/wordware)
 - [WP API](https://hackerone.com/wp-api)
-- [Xen Project](mailto:security@xenproject.org)
-- [Xmarks](mailto:security@lastpass.com)
+- [[mailto:security@xenproject.org|Xen Project]]
+- [[mailto:security@lastpass.com|Xmarks]]
 - [Yahoo](https://hackerone.com/yahoo)
 - [Yandex](https://yandex.com/bugbounty/report)
-- [Yanomo](mailto:support@yanomo.com)
+- [[mailto:support@yanomo.com|Yanomo]]
 - [Yatra](https://www.yatra.com/online/bug-bounty)
-- [Yesware](mailto:security@yesware.com)
-- [Zapier](mailto:security@zapier.com)
+- [[mailto:security@yesware.com|Yesware]]
+- [[mailto:security@zapier.com|Zapier]]
 - [Zaption](https://hackerone.com/zaption)
-- [ZenCash](mailto:security@zencash.com)
+- [[mailto:security@zencash.com|ZenCash]]
 - [Zendesk](https://hackerone.com/zendesk)
-- [Zetetic](mailto:support@zetetic.net)
-- [Ziggo](mailto:security@ziggo.nl)
-- [Zimbra](mailto:security@zimbra.com)
+- [[mailto:support@zetetic.net|Zetetic]]
+- [[mailto:security@ziggo.nl|Ziggo]]
+- [[mailto:security@zimbra.com|Zimbra]]
 - [Zoho](https://bugbounty.zoho.com/bb/info)
 - [Zomato](https://hackerone.com/zomato)
 - [Zopim](https://hackerone.com/zopim)
-- [Zynga](mailto:whitehat@zynga.com)
+- [[mailto:whitehat@zynga.com|Zynga]]
 - [Coding Ninjas](https://www.codingninjas.com/bug-bounty)

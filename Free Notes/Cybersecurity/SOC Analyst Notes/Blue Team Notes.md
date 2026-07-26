@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/SOC%20Analyst%20Notes/Blue%20Team%20Notes.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/SOC Analyst Notes/Blue Team Notes.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -795,7 +795,7 @@ The registry is both a configuration store and a forensic artefact. Timestamps o
 
 ### Query the Run Keys (Persistence)
 
-See the [Run and RunOnce section above](https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#run-and-runonce-registry-keys) for the full query.
+See the [[https://claude.ai/chat/9a3cadc5-7310-4a92-896f-0b16344ffaa3#run-and-runonce-registry-keys]] for the full query.
 
 ### Query All Values Under a Key
 

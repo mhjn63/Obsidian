@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/SOC%20Analyst%20Notes/Operating%20Systems%20Security/MacOs/MacOS%20Security.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -442,6 +442,6 @@ security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates
 ```
 
 - Manually **Never Trust** specific CAs via **Keychain Access > System Roots** if required
-- Risk of MITM via rogue CA is low but [historically precedented](https://en.wikipedia.org/wiki/DigiNotar#Issuance_of_fraudulent_certificates) (DigiNotar)
+- Risk of MITM via rogue CA is low but [[https://en.wikipedia.org/wiki/DigiNotar#Issuance_of_fraudulent_certificates]] (DigiNotar)
 
 ---

@@ -1,34 +1,34 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/Bash%20Programming%20Notes.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Bash Programming Notes.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [The Command Center of the Linux World](#The%20Command%20Center%20of%20the%20Linux%20World)
-- [Variables, Syntax, and the Nuance of Whitespace](#Variables,%20Syntax,%20and%20the%20Nuance%20of%20Whitespace)
-- [Arrays and Iteration](#Arrays%20and%20Iteration)
-- [Logic, Conditionals, and Built-ins](#Logic,%20Conditionals,%20and%20Built-ins)
-- [Navigating the Filesystem and Job Control](#Navigating%20the%20Filesystem%20and%20Job%20Control)
-- [Redirection, Pipes, and Streams](#Redirection,%20Pipes,%20and%20Streams)
-- [Functions and Text Processing Utilities](#Functions%20and%20Text%20Processing%20Utilities)
-- [SHORTCUTS and HISTORY](#SHORTCUTS%20and%20HISTORY)
-- [FILE COMMANDS](#FILE%20COMMANDS)
-- [DIRECTORY COMMANDS](#DIRECTORY%20COMMANDS)
-- [Sys Admin](#Sys%20Admin)
-- [VARIABLES](#VARIABLES)
-- [FUNCTIONS](#FUNCTIONS)
-- [FLOW CONTROLS](#FLOW%20CONTROLS)
-- [STRINGS](#STRINGS)
-- [FILES](#FILES)
-- [NUMBERS](#NUMBERS)
-- [COMMAND-LINE PROCESSING CYCLE](#COMMAND-LINE%20PROCESSING%20CYCLE)
-- [INPUT/OUTPUT REDIRECTORS](#INPUT/OUTPUT%20REDIRECTORS)
-- [PROCESS HANDLING](#PROCESS%20HANDLING)
-- [TIPS & TRICKS](#TIPS%20&%20TRICKS)
-- [set an alias](#set%20an%20alias)
-- [](#set%20an%20alias#set%20an%20alias#DEBUGGING%20SHELL%20PROGRAMS|DEBUGGING%20SHELL%20PROGRAMS)
-- [](#set%20an%20alias#set%20an%20alias#COLORS%20AND%20BACKGROUNDS|COLORS%20AND%20BACKGROUNDS)
+- [[#The Command Center of the Linux World|The Command Center of the Linux World]]
+- [[#Variables, Syntax, and the Nuance of Whitespace|Variables, Syntax, and the Nuance of Whitespace]]
+- [[#Arrays and Iteration|Arrays and Iteration]]
+- [[#Logic, Conditionals, and Built-ins|Logic, Conditionals, and Built-ins]]
+- [[#Navigating the Filesystem and Job Control|Navigating the Filesystem and Job Control]]
+- [[#Redirection, Pipes, and Streams|Redirection, Pipes, and Streams]]
+- [[#Functions and Text Processing Utilities|Functions and Text Processing Utilities]]
+- [[#SHORTCUTS and HISTORY|SHORTCUTS and HISTORY]]
+- [[#FILE COMMANDS|FILE COMMANDS]]
+- [[#DIRECTORY COMMANDS|DIRECTORY COMMANDS]]
+- [[#Sys Admin|Sys Admin]]
+- [[#VARIABLES|VARIABLES]]
+- [[#FUNCTIONS|FUNCTIONS]]
+- [[#FLOW CONTROLS|FLOW CONTROLS]]
+- [[#STRINGS|STRINGS]]
+- [[#FILES|FILES]]
+- [[#NUMBERS|NUMBERS]]
+- [[#COMMAND-LINE PROCESSING CYCLE|COMMAND-LINE PROCESSING CYCLE]]
+- [[#INPUT/OUTPUT REDIRECTORS|INPUT/OUTPUT REDIRECTORS]]
+- [[#PROCESS HANDLING|PROCESS HANDLING]]
+- [[#TIPS & TRICKS|TIPS & TRICKS]]
+- [[#set an alias|set an alias]]
+- [[#set an alias#set an alias#set an alias#set an alias#DEBUGGING SHELL PROGRAMS|DEBUGGING SHELL PROGRAMS]]
+- [[#set an alias#set an alias#set an alias#set an alias#COLORS AND BACKGROUNDS|COLORS AND BACKGROUNDS]]
 
 ### The Command Center of the Linux World
 Bash (Bourne Again SHell) is not merely a terminal interface; it is the beating heart of the GNU operating system and the default command interpreter for the vast majority of Linux distributions. 
@@ -128,7 +128,7 @@ echo {a..z} # => a b c d e f g h i j k l m n o p q r s t u v w x y z
 ```
 
 ### Logic, Conditionals, and Built-ins
-Bash scripts are rarely linear; they need to make decisions. The `if` statement in Bash relies on the `test` command, often abbreviated as `[ ... ](%20...%20)`. These double brackets are an enhanced version of the traditional single brackets, allowing for more intuitive pattern matching and logical operators like `&&` (AND) and `||` (OR). 
+Bash scripts are rarely linear; they need to make decisions. The `if` statement in Bash relies on the `test` command, often abbreviated as `[[ ... ]]`. These double brackets are an enhanced version of the traditional single brackets, allowing for more intuitive pattern matching and logical operators like `&&` (AND) and `||` (OR). 
 
 Whether you are checking if a user is root, validating an email address with Regex, or ensuring a file exists before attempting to read it, these conditionals are the logic gates of your script. Additionally, Bash provides "built-in" variables that offer immediate context about the running process, such as the Process ID (`$$`) or the exit status of the last command (`$?`), which is crucial for error handling.
 
@@ -146,7 +146,7 @@ read name
 echo "Hello, $name!"
 
 # Condition is true if the value of $name is not equal to the current user's login username:
-if [ "$name" != "$USER" ](%20"$name"%20!=%20"$USER"%20); then
+if [[ "$name" != "$USER" ]]; then
     echo "Your name isn't your username"
 else
     echo "Your name is your username"
@@ -154,13 +154,13 @@ fi
 
 # To use && and || with if statements:
 read age
-if [ "$name" == "Steve" ](%20"$name"%20==%20"Steve"%20) && [ "$age" -eq 15 ](%20"$age"%20-eq%2015%20); then
+if [[ "$name" == "Steve" ]] && [[ "$age" -eq 15 ]]; then
     echo "This will run if $name is Steve AND $age is 15."
 fi
 
 # Regex matching with =~
 email=me@example.com
-if [net|org) ](%20"$email"%20=~%20[a-z)
+if [[ "$email" =~ [a-z|net|org) ]]
 then
     echo "Valid email!"
 fi
@@ -640,9 +640,9 @@ Are you comparing the _value_ of two numbers, or the _textual content_ of two st
     
 - `-n` : Is not null (Checks if a string has content)
     
-- `<` / `>` : ASCII alphabetical order comparison (Requires `[ ](%20)`)
+- `<` / `>` : ASCII alphabetical order comparison (Requires `[[ ]]`)
     
-- `-e` : Check file exists (e.g., `[ -e config.conf ](%20-e%20config.conf%20)`)
+- `-e` : Check file exists (e.g., `[[ -e config.conf ]]`)
     
 
 **Boolean Operators**
@@ -653,7 +653,7 @@ Are you comparing the _value_ of two numbers, or the _textual content_ of two st
 
 **Expert Insight:**
 
-> "Always prefer the double bracket syntax `[ ... ](%20...%20)` over single brackets `[ ... ]` when writing modern Bash scripts. Single brackets are the old, POSIX-compliant standard, but they are finicky. They trip over variables with spaces and don't support advanced string operators natively. Double brackets are a Bash extension that handles spaces safely and allows for more intuitive logic like `&&` and `||` directly inside the condition."
+> "Always prefer the double bracket syntax `[[ ... ]]` over single brackets `[ ... ]` when writing modern Bash scripts. Single brackets are the old, POSIX-compliant standard, but they are finicky. They trip over variables with spaces and don't support advanced string operators natively. Double brackets are a Bash extension that handles spaces safely and allows for more intuitive logic like `&&` and `||` directly inside the condition."
 
 **Phase 2: If Statements**
 The `if` statement is the fundamental building block of logic. It allows your script to branch into different paths. Bash syntax here is strict about spacing—you must leave a space after the opening bracket and before the closing bracket. Below is a classic structure that handles multiple conditions (`elif`) and a default fallback (`else`).
@@ -661,12 +661,12 @@ The `if` statement is the fundamental building block of logic. It allows your sc
 ```bash
 #!/bin/bash
 
-# Note the spaces inside the brackets: [ $foo ... ](%20$foo%20...%20)
-if [ $foo = 'bar' ](%20$foo%20=%20'bar'%20); then
+# Note the spaces inside the brackets: [[ $foo ... ]]
+if [[ $foo = 'bar' ]]; then
   echo 'one'
-elif [ $foo = 'bar' ](%20$foo%20=%20'bar'%20) || [ $foo = 'baz' ](%20$foo%20=%20'baz'%20); then
+elif [[ $foo = 'bar' ]] || [[ $foo = 'baz' ]]; then
   echo 'two'
-elif [ $foo = 'ban' ](%20$foo%20=%20'ban'%20) && [ $USER = 'bat' ](%20$USER%20=%20'bat'%20); then
+elif [[ $foo = 'ban' ]] && [[ $USER = 'bat' ]]; then
   echo 'three'
 else
   echo 'four'
@@ -681,7 +681,7 @@ This "short-circuit" logic is beautiful in its brevity: the second command runs 
 #!/bin/bash
 
 # If user is rehan, print yes; otherwise, print no.
-[ $USER = 'rehan' ](%20$USER%20=%20'rehan'%20) && echo 'yes' || echo 'no'
+[[ $USER = 'rehan' ]] && echo 'yes' || echo 'no'
 ```
 
 **Phase 3: Loops**

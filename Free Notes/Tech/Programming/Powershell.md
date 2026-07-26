@@ -1,320 +1,706 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/Powershell.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Powershell.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Definition](#Definition)
-- [Setup](#Setup)
-	- [Install PowerShell](#Install%20PowerShell)
-	- [Launch PowerShell](#Launch%20PowerShell)
-	- [Verify the Execution Policy](#Verify%20the%20Execution%20Policy)
-	- [Possible Execution Policy Values](#Possible%20Execution%20Policy%20Values)
-	- [Modifying the Execution Policy](#Modifying%20the%20Execution%20Policy)
-- [Basics of cmdlets and modules](#Basics%20of%20cmdlets%20and%20modules)
-	- [Basic Syntax: Verb-Noun](#Basic%20Syntax:%20Verb-Noun)
-	- [Basic Cmdlets](#Basic%20Cmdlets)
-	- [Downloading External Cmdlets](#Downloading%20External%20Cmdlets)
-- [Data Types in Powershell](#Data%20Types%20in%20Powershell)
-	- [Common Data Types in PowerShell](#Common%20Data%20Types%20in%20PowerShell)
-- [Variables in Powershell](#Variables%20in%20Powershell)
-	- [Key Features of PowerShell Variables:](#Key%20Features%20of%20PowerShell%20Variables:)
-	- [Assigning Values to Variables](#Assigning%20Values%20to%20Variables)
-			- [Examples:](#Examples:)
-- [Pipes](#Pipes)
-	- [Examples:](#Examples:)
-	- [Example: Filtering and Formatting Service Names](#Example:%20Filtering%20and%20Formatting%20Service%20Names)
-	- [Explanation:](#Explanation:)
-	- [Result:](#Result:)
-- [File System Navigation](#File%20System%20Navigation)
-- [Working with Date and Time](#Working%20with%20Date%20and%20Time)
-	- [Examples:](#Examples:)
-- [Filtering and Sorting](#Filtering%20and%20Sorting)
-- [Interacting with The Web](#Interacting%20with%20The%20Web)
-	- [Send HTTP GET Requests](#Send%20HTTP%20GET%20Requests)
-	- [Send HTTP POST Requests](#Send%20HTTP%20POST%20Requests)
-	- [Download a File from the Web](#Download%20a%20File%20from%20the%20Web)
-	- [Work with JSON APIs](#Work%20with%20JSON%20APIs)
-	- [Scrape Web Page Data](#Scrape%20Web%20Page%20Data)
-	- [Interact with REST APIs](#Interact%20with%20REST%20APIs)
-	- [Send Custom HTTP Headers](#Send%20Custom%20HTTP%20Headers)
-	- [Work with HTML Content](#Work%20with%20HTML%20Content)
-	- [Test Website Availability](#Test%20Website%20Availability)
-	- [Upload a File to a Web Server](#Upload%20a%20File%20to%20a%20Web%20Server)
-- [System Management](#System%20Management)
-	- [System Info & User Management](#System%20Info%20&%20User%20Management)
-	- [Networking](#Networking)
-	- [Processes and Services](#Processes%20and%20Services)
-	- [Software and Package Management](#Software%20and%20Package%20Management)
-		- [Installing and Configuring Software](#Installing%20and%20Configuring%20Software)
-	- [Scheduled Tasks](#Scheduled%20Tasks)
-	- [Remote Systems](#Remote%20Systems)
-	- [Backup and Restore Configuration](#Backup%20and%20Restore%20Configuration)
-	- [Monitoring and Reporting](#Monitoring%20and%20Reporting)
-	- [Active Directory](#Active%20Directory)
-- [Powershell Remoting](#Powershell%20Remoting)
-	- [Key Features of PowerShell Remoting](#Key%20Features%20of%20PowerShell%20Remoting)
-	- [Enabling PowerShell Remoting](#Enabling%20PowerShell%20Remoting)
-		- [Enable Remoting on a System](#Enable%20Remoting%20on%20a%20System)
-	- [PowerShell Remoting Modes](#PowerShell%20Remoting%20Modes)
-		- [1. Interactive Remoting](#1.%20Interactive%20Remoting)
-		- [2. Non-Interactive Remoting](#2.%20Non-Interactive%20Remoting)
-		- [3. Remoting with Multiple Computers](#3.%20Remoting%20with%20Multiple%20Computers)
-		- [4. Persistent Sessions](#4.%20Persistent%20Sessions)
-	- [Authentication Methods](#Authentication%20Methods)
-	- [Firewall Configuration](#Firewall%20Configuration)
-	- [Common Cmdlets for PowerShell Remoting](#Common%20Cmdlets%20for%20PowerShell%20Remoting)
-	- [Examples](#Examples)
-		- [Run Commands on a Single Computer](#Run%20Commands%20on%20a%20Single%20Computer)
-	- [Advanced Scenarios](#Advanced%20Scenarios)
-		- [1. Use HTTPS for Secure Communication](#1.%20Use%20HTTPS%20for%20Secure%20Communication)
-		- [2. Implicit Remoting](#2.%20Implicit%20Remoting)
-		- [3. Throttling](#3.%20Throttling)
-	- [Common Issues](#Common%20Issues)
-	- [Best Practices](#Best%20Practices)
-- [PS Providers](#PS%20Providers)
-		- [Common PSProviders](#Common%20PSProviders)
-			- [FileSystem](#FileSystem)
-			- [Registry](#Registry)
-			- [Environment](#Environment)
-			- [Function](#Function)
-			- [Variable](#Variable)
-			- [Certificate](#Certificate)
-			- [Alias](#Alias)
-			- [WSMan](#WSMan)
-	- [List Available PSProviders](#List%20Available%20PSProviders)
-	- [Output Example of `Get-PSProvider`](#Output%20Example%20of%20%60Get-PSProvider%60)
-	- [Using a PSProvider](#Using%20a%20PSProvider)
-		- [Example: Navigating the Registry](#Example:%20Navigating%20the%20Registry)
-	- [Custom PSProviders](#Custom%20PSProviders)
-- [PSDrives in Powershell](#PSDrives%20in%20Powershell)
-	- [Key Features of PSDrives](#Key%20Features%20of%20PSDrives)
-	- [Viewing Available PSDrives](#Viewing%20Available%20PSDrives)
-	- [Example Output of `Get-PSDrive`:](#Example%20Output%20of%20%60Get-PSDrive%60:)
-	- [Common PSDrives](#Common%20PSDrives)
-	- [Interacting with PSDrives](#Interacting%20with%20PSDrives)
-		- [1. Navigating a PSDrive](#1.%20Navigating%20a%20PSDrive)
-		- [2. Access Environment Variables](#2.%20Access%20Environment%20Variables)
-		- [3. Explore the Certificate Store](#3.%20Explore%20the%20Certificate%20Store)
-	- [Creating a New PSDrive](#Creating%20a%20New%20PSDrive)
-		- [Syntax:](#Syntax:)
-	- [Removing a PSDrive](#Removing%20a%20PSDrive)
-	- [Default vs Custom PSDrives](#Default%20vs%20Custom%20PSDrives)
-	- [Listing Drives for a Specific PSProvider](#Listing%20Drives%20for%20a%20Specific%20PSProvider)
-	- [Practical Applications](#Practical%20Applications)
-- [WMI and CIM in PowerShell](#WMI%20and%20CIM%20in%20PowerShell)
-	- [What are WMI and CIM?](#What%20are%20WMI%20and%20CIM?)
-		- [WMI (Windows Management Instrumentation)](#WMI%20(Windows%20Management%20Instrumentation))
-		- [CIM (Common Information Model)](#CIM%20(Common%20Information%20Model))
-	- [WMI vs CIM in PowerShell](#WMI%20vs%20CIM%20in%20PowerShell)
-	- [PowerShell Cmdlets](#PowerShell%20Cmdlets)
-		- [WMI Cmdlets:](#WMI%20Cmdlets:)
-		- [CIM Cmdlets:](#CIM%20Cmdlets:)
-	- [Examples of WMI and CIM in Action](#Examples%20of%20WMI%20and%20CIM%20in%20Action)
-		- [1. Retrieve System Information](#1.%20Retrieve%20System%20Information)
-		- [2. Query Processes](#2.%20Query%20Processes)
-		- [3. Restart a Service](#3.%20Restart%20a%20Service)
-		- [4. Query Remote Systems](#4.%20Query%20Remote%20Systems)
-		- [5. Get Disk Information](#5.%20Get%20Disk%20Information)
-		- [6. Create a CIM Session](#6.%20Create%20a%20CIM%20Session)
-	- [Best Practices](#Best%20Practices)
-	- [WMI and CIM Namespaces](#WMI%20and%20CIM%20Namespaces)
-	- [Listing Available WMI Classes](#Listing%20Available%20WMI%20Classes)
-- [Error Handling in Powershell](#Error%20Handling%20in%20Powershell)
-	- [Types of Errors](#Types%20of%20Errors)
-	- [Error Action Preferences](#Error%20Action%20Preferences)
-	- [Cmdlet-Specific Error Handling](#Cmdlet-Specific%20Error%20Handling)
-	- [Try, Catch, and Finally Blocks](#Try,%20Catch,%20and%20Finally%20Blocks)
-		- [Syntax:](#Syntax:)
-	- [Accessing Error Details](#Accessing%20Error%20Details)
-	- [Error Handling with Specific Exceptions](#Error%20Handling%20with%20Specific%20Exceptions)
-	- [Using the `Throw` Statement](#Using%20the%20%60Throw%60%20Statement)
-	- [Using `$ErrorVariable`](#Using%20%60$ErrorVariable%60)
-	- [Trap Statement](#Trap%20Statement)
-	- [Common Scenarios for Error Handling](#Common%20Scenarios%20for%20Error%20Handling)
-		- [1. Handle Missing Files](#1.%20Handle%20Missing%20Files)
-	- [Best Practices](#Best%20Practices)
-- [Configuration Management with Powershell](#Configuration%20Management%20with%20Powershell)
-	- [Core Concepts](#Core%20Concepts)
-		- [2. Script-Based Configuration](#2.%20Script-Based%20Configuration)
-		- [3. Using Desired State Configuration (DSC)](#3.%20Using%20Desired%20State%20Configuration%20(DSC))
-	- [PowerShell Tools for Configuration Management](#PowerShell%20Tools%20for%20Configuration%20Management)
-	- [Examples](#Examples)
-		- [Scenario 1: Configure a Batch of Servers](#Scenario%201:%20Configure%20a%20Batch%20of%20Servers)
-		- [Scenario 2: Enforce Desired Configuration](#Scenario%202:%20Enforce%20Desired%20Configuration)
-- [Background Jobs in PowerShell](#Background%20Jobs%20in%20PowerShell)
-	- [Key Cmdlets for Background Jobs](#Key%20Cmdlets%20for%20Background%20Jobs)
-	- [1. Starting a Background Job](#1.%20Starting%20a%20Background%20Job)
-		- [1.1 Using `Start-Job`](#1.1%20Using%20%60Start-Job%60)
-	- [2. Monitoring Background Jobs](#2.%20Monitoring%20Background%20Jobs)
-		- [2.1 Check Job Status](#2.1%20Check%20Job%20Status)
-	- [3. Retrieving Job Results](#3.%20Retrieving%20Job%20Results)
-		- [3.1 Get Output from a Job](#3.1%20Get%20Output%20from%20a%20Job)
-		- [3.2 Retrieve Output Without Removing Job](#3.2%20Retrieve%20Output%20Without%20Removing%20Job)
-	- [4. Removing Background Jobs](#4.%20Removing%20Background%20Jobs)
-	- [5. Running Remote Jobs](#5.%20Running%20Remote%20Jobs)
-		- [Example: Run a Remote Job](#Example:%20Run%20a%20Remote%20Job)
-	- [6. Nested Jobs](#6.%20Nested%20Jobs)
-		- [Example: Start a Job Within Another Job](#Example:%20Start%20a%20Job%20Within%20Another%20Job)
-	- [7. Tracking Multiple Jobs](#7.%20Tracking%20Multiple%20Jobs)
-		- [Example: Wait for All Jobs to Complete](#Example:%20Wait%20for%20All%20Jobs%20to%20Complete)
-	- [8. Handling Errors in Jobs](#8.%20Handling%20Errors%20in%20Jobs)
-		- [Example: Handle Job Errors](#Example:%20Handle%20Job%20Errors)
-	- [9. Scheduled Jobs](#9.%20Scheduled%20Jobs)
-		- [Install Scheduled Jobs Module](#Install%20Scheduled%20Jobs%20Module)
-	- [10. Best Practices](#10.%20Best%20Practices)
-	- [Sample Script: Automate Background Jobs](#Sample%20Script:%20Automate%20Background%20Jobs)
-- [Scripting](#Scripting)
-	- [PowerShell Integrated Scripting Environment (ISE)](#PowerShell%20Integrated%20Scripting%20Environment%20(ISE))
-		- [Key Features of PowerShell ISE:](#Key%20Features%20of%20PowerShell%20ISE:)
-		- [Menu Items and Shortcuts:](#Menu%20Items%20and%20Shortcuts:)
-		- [Benefits](#Benefits)
-		- [Launching PowerShell ISE:](#Launching%20PowerShell%20ISE:)
-		- [Menu Bar](#Menu%20Bar)
-		- [Toolbar](#Toolbar)
-		- [Scripting Tab](#Scripting%20Tab)
-		- [Status Bar](#Status%20Bar)
-		- [Commands Pane](#Commands%20Pane)
-		- [Text-Size Slide](#Text-Size%20Slide)
-	- [Basics of Writing Powershell Scripts](#Basics%20of%20Writing%20Powershell%20Scripts)
-		- [Comments](#Comments)
-			- [Single-Line Comments](#Single-Line%20Comments)
-			- [Block Comments](#Block%20Comments)
-		- [Brackets, parentheses and braces](#Brackets,%20parentheses%20and%20braces)
-			- [Parentheses `()`](#Parentheses%20%60()%60)
-			- [Brackets `[]`](#Brackets%20%60%5B%5D%60)
-		- [Curly Braces `{}`](#Curly%20Braces%20%60%7B%7D%60)
-			- [Comma `,`](#Comma%20%60,%60)
-		- [Semicolon `;`](#Semicolon%20%60;%60)
-		- [Pipe `|`](#Pipe%20%60%7C%60)
-		- [Backtick <code>`</code>](#Backtick%20%3Ccode%3E%60%3C/code%3E)
-		- [Double Quotation Marks `"`](#Double%20Quotation%20Marks%20%60%22%60)
-		- [Single Quotation Marks `'`](#Single%20Quotation%20Marks%20%60'%60)
-		- [Dollar Sign `$`](#Dollar%20Sign%20%60$%60)
-	- [Loops](#Loops)
-		- [`For` Loop](#%60For%60%20Loop)
-		- [`Foreach` Loop](#%60Foreach%60%20Loop)
-		- [`While` Loop](#%60While%60%20Loop)
-		- [`Do-While` Loop](#%60Do-While%60%20Loop)
-		- [`Do-Until` Loop](#%60Do-Until%60%20Loop)
-		- [`Foreach-Object` Loop](#%60Foreach-Object%60%20Loop)
-		- [Choosing the Right Loop](#Choosing%20the%20Right%20Loop)
-	- [Conditions in Powershell](#Conditions%20in%20Powershell)
-		- [`If` Statement](#%60If%60%20Statement)
-		- [`If-Else` Statement](#%60If-Else%60%20Statement)
-		- [`If-ElseIf-Else` Statement](#%60If-ElseIf-Else%60%20Statement)
-		- [`Switch` Statement](#%60Switch%60%20Statement)
-		- [Comparison Operators in Conditions](#Comparison%20Operators%20in%20Conditions)
-		- [Logical Operators](#Logical%20Operators)
-	- [Scripting Constructs in PowerShell](#Scripting%20Constructs%20in%20PowerShell)
-		- [1. Conditional Statements](#1.%20Conditional%20Statements)
-		- [1.1. If-Else](#1.1.%20If-Else)
-		- [1.2. Switch](#1.2.%20Switch)
-		- [2. Loops](#2.%20Loops)
-		- [2.1. For Loop](#2.1.%20For%20Loop)
-		- [2.2. Foreach Loop](#2.2.%20Foreach%20Loop)
-		- [2.3. While Loop](#2.3.%20While%20Loop)
-		- [2.4. Do-While Loop](#2.4.%20Do-While%20Loop)
-		- [2.5. Do-Until Loop](#2.5.%20Do-Until%20Loop)
-		- [3. Functions](#3.%20Functions)
-		- [Defining a Function](#Defining%20a%20Function)
-		- [4. Arrays and HashTables](#4.%20Arrays%20and%20HashTables)
-		- [4.1. Arrays](#4.1.%20Arrays)
-		- [5. Pipelines](#5.%20Pipelines)
-		- [6. Try-Catch-Finally](#6.%20Try-Catch-Finally)
-		- [7. Script Blocks](#7.%20Script%20Blocks)
-		- [8. Workflow](#8.%20Workflow)
-		- [9. Error Variables](#9.%20Error%20Variables)
-		- [10. Dot Sourcing](#10.%20Dot%20Sourcing)
-		- [11. Comments](#11.%20Comments)
-		- [**Best Practices**](#**Best%20Practices**)
-	- [Provisioning a New Server Core Instance with PowerShell](#Provisioning%20a%20New%20Server%20Core%20Instance%20with%20PowerShell)
-		- [1. Initial Configuration](#1.%20Initial%20Configuration)
-		- [1.1 Set Administrator Password](#1.1%20Set%20Administrator%20Password)
-		- [1.2 Rename the Server](#1.2%20Rename%20the%20Server)
-		- [1.3 Configure Networking](#1.3%20Configure%20Networking)
-		- [2. Update the Server](#2.%20Update%20the%20Server)
-		- [2.1 Check for Updates](#2.1%20Check%20for%20Updates)
-		- [3. Install Roles and Features](#3.%20Install%20Roles%20and%20Features)
-		- [3.1 View Available Features](#3.1%20View%20Available%20Features)
-		- [3.2 Install a Role or Feature](#3.2%20Install%20a%20Role%20or%20Feature)
-		- [4. Join a Domain](#4.%20Join%20a%20Domain)
-		- [4.1 Join the Server to a Domain](#4.1%20Join%20the%20Server%20to%20a%20Domain)
-		- [5. Configure Remote Management](#5.%20Configure%20Remote%20Management)
-		- [5.1 Enable PowerShell Remoting](#5.1%20Enable%20PowerShell%20Remoting)
-		- [6. Configure Firewall](#6.%20Configure%20Firewall)
-		- [6.1 View Firewall Rules](#6.1%20View%20Firewall%20Rules)
-		- [6.2 Enable Specific Rules](#6.2%20Enable%20Specific%20Rules)
-		- [6.3 Disable Specific Rules](#6.3%20Disable%20Specific%20Rules)
-		- [7. Configure Server Time](#7.%20Configure%20Server%20Time)
-		- [7.1 View Current Time Zone](#7.1%20View%20Current%20Time%20Zone)
-		- [8. Configure Scheduled Tasks](#8.%20Configure%20Scheduled%20Tasks)
-		- [8.1 Create a Task](#8.1%20Create%20a%20Task)
-		- [9. Security Hardening](#9.%20Security%20Hardening)
-		- [9.1 Disable SMBv1](#9.1%20Disable%20SMBv1)
-		- [10. Backup Configuration](#10.%20Backup%20Configuration)
-		- [10.1 Install Windows Server Backup](#10.1%20Install%20Windows%20Server%20Backup)
-	- [Sample Script for Full Automation](#Sample%20Script%20for%20Full%20Automation)
-		- [Verification Checklist](#Verification%20Checklist)
-	- [Example Scripts for IT Professionals](#Example%20Scripts%20for%20IT%20Professionals)
-		- [Enforcing Desired State Configuration (DSC) Script](#Enforcing%20Desired%20State%20Configuration%20(DSC)%20Script)
-			- [Core Concepts of Desired State Configuration](#Core%20Concepts%20of%20Desired%20State%20Configuration)
-			- [Workflow of DSC](#Workflow%20of%20DSC)
-			- [DSC in Action](#DSC%20in%20Action)
-			- [Example DSC Script](#Example%20DSC%20Script)
-		- [Monitor a Web Page for Changes](#Monitor%20a%20Web%20Page%20for%20Changes)
-		- [Check Disk Space](#Check%20Disk%20Space)
-		- [Automate User Creation in Active Directory](#Automate%20User%20Creation%20in%20Active%20Directory)
-		- [Backup Event Logs](#Backup%20Event%20Logs)
-		- [Monitor Service Status](#Monitor%20Service%20Status)
-		- [Clear Old Files](#Clear%20Old%20Files)
-		- [Export Installed Software List](#Export%20Installed%20Software%20List)
-		- [Reset User Password](#Reset%20User%20Password)
-		- [Check for Pending Windows Updates](#Check%20for%20Pending%20Windows%20Updates)
-		- [Schedule a Task](#Schedule%20a%20Task)
-	- [Example Scripts for Cyber Security](#Example%20Scripts%20for%20Cyber%20Security)
-		- [Scan for Open Ports on a Machine](#Scan%20for%20Open%20Ports%20on%20a%20Machine)
-		- [Check File Integrity](#Check%20File%20Integrity)
-		- [Search for Malicious Processes](#Search%20for%20Malicious%20Processes)
-		- [Monitor Unauthorized Login Attempts](#Monitor%20Unauthorized%20Login%20Attempts)
-		- [Block Malicious IP Addresses](#Block%20Malicious%20IP%20Addresses)
-		- [Detect Hidden Files](#Detect%20Hidden%20Files)
-		- [Retrieve Suspicious Network Connections](#Retrieve%20Suspicious%20Network%20Connections)
-		- [Audit Installed Software](#Audit%20Installed%20Software)
-		- [Export Security Logs](#Export%20Security%20Logs)
-		- [Check for Privilege Escalation Attempts](#Check%20for%20Privilege%20Escalation%20Attempts)
-		- [Detect Anomalous Scheduled Tasks](#Detect%20Anomalous%20Scheduled%20Tasks)
-		- [Find Recent PowerShell Command History](#Find%20Recent%20PowerShell%20Command%20History)
-	- [Common Powershell Tools in Cyber Security](#Common%20Powershell%20Tools%20in%20Cyber%20Security)
-		- [Powersploit](#Powersploit)
-		- [Modules in PowerSploit](#Modules%20in%20PowerSploit)
-			- [1. CodeExecution](#1.%20CodeExecution)
-			- [2. Persistence](#2.%20Persistence)
-			- [3. Privesc (Privilege Escalation)](#3.%20Privesc%20(Privilege%20Escalation))
-			- [4. Recon](#4.%20Recon)
-			- [5. AntivirusBypass](#5.%20AntivirusBypass)
-			- [6. Exfiltration](#6.%20Exfiltration)
-			- [7. Post-Exploitation](#7.%20Post-Exploitation)
-		- [How PowerSploit Works](#How%20PowerSploit%20Works)
-		- [Example Usage of PowerSploit](#Example%20Usage%20of%20PowerSploit)
-			- [1. Shellcode Execution](#1.%20Shellcode%20Execution)
-			- [2. Privilege Escalation with PowerUp](#2.%20Privilege%20Escalation%20with%20PowerUp)
-			- [3. Extracting Credentials with Invoke-Mimikatz](#3.%20Extracting%20Credentials%20with%20Invoke-Mimikatz)
-			- [4. Persistent Backdoor](#4.%20Persistent%20Backdoor)
-			- [5. Reconnaissance](#5.%20Reconnaissance)
-		- [Invoke-Mimikatz](#Invoke-Mimikatz)
-			- [What is Mimikatz?](#What%20is%20Mimikatz?)
-			- [Capabilities of Invoke-Mimikatz](#Capabilities%20of%20Invoke-Mimikatz)
-			- [Using Invoke-Mimikatz](#Using%20Invoke-Mimikatz)
-			- [Understanding the Output](#Understanding%20the%20Output)
-			- [Examples](#Examples)
-			- [Execution Methods](#Execution%20Methods)
-		- [Nishang](#Nishang)
-			- [Features of Nishang](#Features%20of%20Nishang)
-			- [Modules in Nishang](#Modules%20in%20Nishang)
-			- [How Nishang Works](#How%20Nishang%20Works)
-			- [Common Use Cases](#Common%20Use%20Cases)
+- [[#Definition|Definition]]
+- [[#Setup|Setup]]
+	- [[#Install PowerShell|Install PowerShell]]
+	- [[#Launch PowerShell|Launch PowerShell]]
+	- [[#Verify the Execution Policy|Verify the Execution Policy]]
+	- [[#Possible Execution Policy Values|Possible Execution Policy Values]]
+	- [[#Modifying the Execution Policy|Modifying the Execution Policy]]
+- [[#Basics of cmdlets and modules|Basics of cmdlets and modules]]
+	- [[#Basic Syntax: Verb-Noun|Basic Syntax: Verb-Noun]]
+	- [[#Basic Cmdlets|Basic Cmdlets]]
+	- [[#Downloading External Cmdlets|Downloading External Cmdlets]]
+- [[#Data Types in Powershell|Data Types in Powershell]]
+	- [[#Common Data Types in PowerShell|Common Data Types in PowerShell]]
+- [[#Variables in Powershell|Variables in Powershell]]
+	- [[#Key Features of PowerShell Variables:|Key Features of PowerShell Variables:]]
+	- [[#Assigning Values to Variables|Assigning Values to Variables]]
+			- [[#Examples:|Examples:]]
+- [[#Pipes|Pipes]]
+	- [[#Examples:|Examples:]]
+	- [[#Example: Filtering and Formatting Service Names|Example: Filtering and Formatting Service Names]]
+	- [[#Explanation:|Explanation:]]
+	- [[#Result:|Result:]]
+- [[#File System Navigation|File System Navigation]]
+- [[#Working with Date and Time|Working with Date and Time]]
+	- [[#Examples:|Examples:]]
+- [[#Filtering and Sorting|Filtering and Sorting]]
+- [[#Interacting with The Web|Interacting with The Web]]
+	- [[#Send HTTP GET Requests|Send HTTP GET Requests]]
+	- [[#Send HTTP POST Requests|Send HTTP POST Requests]]
+	- [[#Download a File from the Web|Download a File from the Web]]
+	- [[#Work with JSON APIs|Work with JSON APIs]]
+	- [[#Scrape Web Page Data|Scrape Web Page Data]]
+	- [[#Interact with REST APIs|Interact with REST APIs]]
+	- [[#Send Custom HTTP Headers|Send Custom HTTP Headers]]
+	- [[#Work with HTML Content|Work with HTML Content]]
+	- [[#Test Website Availability|Test Website Availability]]
+	- [[#Upload a File to a Web Server|Upload a File to a Web Server]]
+- [[#System Management|System Management]]
+	- [[#System Info & User Management|System Info & User Management]]
+	- [[#Networking|Networking]]
+	- [[#Processes and Services|Processes and Services]]
+	- [[#Software and Package Management|Software and Package Management]]
+		- [[#Installing and Configuring Software|Installing and Configuring Software]]
+	- [[#Scheduled Tasks|Scheduled Tasks]]
+	- [[#Remote Systems|Remote Systems]]
+	- [[#Backup and Restore Configuration|Backup and Restore Configuration]]
+	- [[#Monitoring and Reporting|Monitoring and Reporting]]
+	- [[#Active Directory|Active Directory]]
+- [[#Powershell Remoting|Powershell Remoting]]
+	- [[#Key Features of PowerShell Remoting|Key Features of PowerShell Remoting]]
+	- [[#Enabling PowerShell Remoting|Enabling PowerShell Remoting]]
+		- [[#Enable Remoting on a System|Enable Remoting on a System]]
+	- [[#PowerShell Remoting Modes|PowerShell Remoting Modes]]
+		- [[#1. Interactive Remoting|1. Interactive Remoting]]
+		- [[#2. Non-Interactive Remoting|2. Non-Interactive Remoting]]
+		- [[#3. Remoting with Multiple Computers|3. Remoting with Multiple Computers]]
+		- [[#4. Persistent Sessions|4. Persistent Sessions]]
+	- [[#Authentication Methods|Authentication Methods]]
+	- [[#Firewall Configuration|Firewall Configuration]]
+	- [[#Common Cmdlets for PowerShell Remoting|Common Cmdlets for PowerShell Remoting]]
+	- [[#Examples|Examples]]
+		- [[#Run Commands on a Single Computer|Run Commands on a Single Computer]]
+	- [[#Advanced Scenarios|Advanced Scenarios]]
+		- [[#1. Use HTTPS for Secure Communication|1. Use HTTPS for Secure Communication]]
+		- [[#2. Implicit Remoting|2. Implicit Remoting]]
+		- [[#3. Throttling|3. Throttling]]
+	- [[#Common Issues|Common Issues]]
+	- [[#Best Practices|Best Practices]]
+- [[#PS Providers|PS Providers]]
+		- [[#Common PSProviders|Common PSProviders]]
+			- [[#FileSystem|FileSystem]]
+			- [[#Registry|Registry]]
+			- [[#Environment|Environment]]
+			- [[#Function|Function]]
+			- [[#Variable|Variable]]
+			- [[#Certificate|Certificate]]
+			- [[#Alias|Alias]]
+			- [[#WSMan|WSMan]]
+	- [[#List Available PSProviders|List Available PSProviders]]
+	- [[#Output Example of `Get-PSProvider`|Output Example of `Get-PSProvider`]]
+	- [[#Using a PSProvider|Using a PSProvider]]
+		- [[#Example: Navigating the Registry|Example: Navigating the Registry]]
+	- [[#Custom PSProviders|Custom PSProviders]]
+- [[#PSDrives in Powershell|PSDrives in Powershell]]
+	- [[#Key Features of PSDrives|Key Features of PSDrives]]
+	- [[#Viewing Available PSDrives|Viewing Available PSDrives]]
+	- [[#Example Output of `Get-PSDrive`:|Example Output of `Get-PSDrive`:]]
+	- [[#Common PSDrives|Common PSDrives]]
+	- [[#Interacting with PSDrives|Interacting with PSDrives]]
+		- [[#1. Navigating a PSDrive|1. Navigating a PSDrive]]
+		- [[#2. Access Environment Variables|2. Access Environment Variables]]
+		- [[#3. Explore the Certificate Store|3. Explore the Certificate Store]]
+	- [[#Creating a New PSDrive|Creating a New PSDrive]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Removing a PSDrive|Removing a PSDrive]]
+	- [[#Default vs Custom PSDrives|Default vs Custom PSDrives]]
+	- [[#Listing Drives for a Specific PSProvider|Listing Drives for a Specific PSProvider]]
+	- [[#Practical Applications|Practical Applications]]
+- [[#WMI and CIM in PowerShell|WMI and CIM in PowerShell]]
+	- [[#What are WMI and CIM?|What are WMI and CIM?]]
+		- [[Windows Management Instrumentation)](#WMI (Windows Management Instrumentation|WMI (Windows Management Instrumentation)]])
+		- [[Common Information Model)](#CIM (Common Information Model|CIM (Common Information Model)]])
+	- [[#WMI vs CIM in PowerShell|WMI vs CIM in PowerShell]]
+	- [[#PowerShell Cmdlets|PowerShell Cmdlets]]
+		- [[#WMI Cmdlets:|WMI Cmdlets:]]
+		- [[#CIM Cmdlets:|CIM Cmdlets:]]
+	- [[#Examples of WMI and CIM in Action|Examples of WMI and CIM in Action]]
+		- [[#1. Retrieve System Information|1. Retrieve System Information]]
+		- [[#2. Query Processes|2. Query Processes]]
+		- [[#3. Restart a Service|3. Restart a Service]]
+		- [[#4. Query Remote Systems|4. Query Remote Systems]]
+		- [[#5. Get Disk Information|5. Get Disk Information]]
+		- [[#6. Create a CIM Session|6. Create a CIM Session]]
+	- [[#Best Practices|Best Practices]]
+	- [[#WMI and CIM Namespaces|WMI and CIM Namespaces]]
+	- [[#Listing Available WMI Classes|Listing Available WMI Classes]]
+- [[#Error Handling in Powershell|Error Handling in Powershell]]
+	- [[#Types of Errors|Types of Errors]]
+	- [[#Error Action Preferences|Error Action Preferences]]
+	- [[#Cmdlet-Specific Error Handling|Cmdlet-Specific Error Handling]]
+	- [[#Try, Catch, and Finally Blocks|Try, Catch, and Finally Blocks]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Accessing Error Details|Accessing Error Details]]
+	- [[#Error Handling with Specific Exceptions|Error Handling with Specific Exceptions]]
+	- [[#Using the `Throw` Statement|Using the `Throw` Statement]]
+	- [[#Using `$ErrorVariable`|Using `$ErrorVariable`]]
+	- [[#Trap Statement|Trap Statement]]
+	- [[#Common Scenarios for Error Handling|Common Scenarios for Error Handling]]
+		- [[#1. Handle Missing Files|1. Handle Missing Files]]
+	- [[#Best Practices|Best Practices]]
+- [[#Configuration Management with Powershell|Configuration Management with Powershell]]
+	- [[#Core Concepts|Core Concepts]]
+		- [[#2. Script-Based Configuration|2. Script-Based Configuration]]
+		- [[DSC)](#3. Using Desired State Configuration (DSC|3. Using Desired State Configuration (DSC)]])
+	- [[#PowerShell Tools for Configuration Management|PowerShell Tools for Configuration Management]]
+	- [[#Examples|Examples]]
+		- [[#Scenario 1: Configure a Batch of Servers|Scenario 1: Configure a Batch of Servers]]
+		- [[#Scenario 2: Enforce Desired Configuration|Scenario 2: Enforce Desired Configuration]]
+- [[#Background Jobs in PowerShell|Background Jobs in PowerShell]]
+	- [[#Key Cmdlets for Background Jobs|Key Cmdlets for Background Jobs]]
+	- [[#1. Starting a Background Job|1. Starting a Background Job]]
+		- [[#1.1 Using `Start-Job`|1.1 Using `Start-Job`]]
+	- [[#2. Monitoring Background Jobs|2. Monitoring Background Jobs]]
+		- [[#2.1 Check Job Status|2.1 Check Job Status]]
+	- [[#3. Retrieving Job Results|3. Retrieving Job Results]]
+		- [[#3.1 Get Output from a Job|3.1 Get Output from a Job]]
+		- [[#3.2 Retrieve Output Without Removing Job|3.2 Retrieve Output Without Removing Job]]
+	- [[#4. Removing Background Jobs|4. Removing Background Jobs]]
+	- [[#5. Running Remote Jobs|5. Running Remote Jobs]]
+		- [[#Example: Run a Remote Job|Example: Run a Remote Job]]
+	- [[#6. Nested Jobs|6. Nested Jobs]]
+		- [[#Example: Start a Job Within Another Job|Example: Start a Job Within Another Job]]
+	- [[#7. Tracking Multiple Jobs|7. Tracking Multiple Jobs]]
+		- [[#Example: Wait for All Jobs to Complete|Example: Wait for All Jobs to Complete]]
+	- [[#8. Handling Errors in Jobs|8. Handling Errors in Jobs]]
+		- [[#Example: Handle Job Errors|Example: Handle Job Errors]]
+	- [[#9. Scheduled Jobs|9. Scheduled Jobs]]
+		- [[#Install Scheduled Jobs Module|Install Scheduled Jobs Module]]
+	- [[#10. Best Practices|10. Best Practices]]
+	- [[#Sample Script: Automate Background Jobs|Sample Script: Automate Background Jobs]]
+- [[#Scripting|Scripting]]
+	- [[ISE)](#PowerShell Integrated Scripting Environment (ISE|PowerShell Integrated Scripting Environment (ISE)]])
+		- [[#Key Features of PowerShell ISE:|Key Features of PowerShell ISE:]]
+		- [[#Menu Items and Shortcuts:|Menu Items and Shortcuts:]]
+		- [[#Benefits|Benefits]]
+		- [[#Launching PowerShell ISE:|Launching PowerShell ISE:]]
+		- [[#Menu Bar|Menu Bar]]
+		- [[#Toolbar|Toolbar]]
+		- [[#Scripting Tab|Scripting Tab]]
+		- [[#Status Bar|Status Bar]]
+		- [[#Commands Pane|Commands Pane]]
+		- [[#Text-Size Slide|Text-Size Slide]]
+	- [[#Basics of Writing Powershell Scripts|Basics of Writing Powershell Scripts]]
+		- [[#Comments|Comments]]
+			- [[#Single-Line Comments|Single-Line Comments]]
+			- [[#Block Comments|Block Comments]]
+		- [[#Brackets, parentheses and braces|Brackets, parentheses and braces]]
+			- [[)`](#Parentheses `(|Parentheses `()`]]%60)
+			- [[#Brackets `[]`|Brackets `[]]
+		- [[#Curly Braces `{}`|Curly Braces `{}`]]
+			- [[#Comma `,`|Comma `,`]]
+		- [[#Semicolon `;`|Semicolon `;`]]
+		- [[#Pipe `|`|Pipe `|`]]
+		- [[#Backtick <code>`</code>|Backtick <code>`</code>]]
+		- [[#Double Quotation Marks `"`|Double Quotation Marks `"`]]
+		- [[#Single Quotation Marks `'`|Single Quotation Marks `'`]]
+		- [[#Dollar Sign `> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Powershell.html|Open HTML Page]]
+
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
+
+**Table of Contents**
+- [[#Definition|Definition]]
+- [[#Setup|Setup]]
+	- [[#Install PowerShell|Install PowerShell]]
+	- [[#Launch PowerShell|Launch PowerShell]]
+	- [[#Verify the Execution Policy|Verify the Execution Policy]]
+	- [[#Possible Execution Policy Values|Possible Execution Policy Values]]
+	- [[#Modifying the Execution Policy|Modifying the Execution Policy]]
+- [[#Basics of cmdlets and modules|Basics of cmdlets and modules]]
+	- [[#Basic Syntax: Verb-Noun|Basic Syntax: Verb-Noun]]
+	- [[#Basic Cmdlets|Basic Cmdlets]]
+	- [[#Downloading External Cmdlets|Downloading External Cmdlets]]
+- [[#Data Types in Powershell|Data Types in Powershell]]
+	- [[#Common Data Types in PowerShell|Common Data Types in PowerShell]]
+- [[#Variables in Powershell|Variables in Powershell]]
+	- [[#Key Features of PowerShell Variables:|Key Features of PowerShell Variables:]]
+	- [[#Assigning Values to Variables|Assigning Values to Variables]]
+			- [[#Examples:|Examples:]]
+- [[#Pipes|Pipes]]
+	- [[#Examples:|Examples:]]
+	- [[#Example: Filtering and Formatting Service Names|Example: Filtering and Formatting Service Names]]
+	- [[#Explanation:|Explanation:]]
+	- [[#Result:|Result:]]
+- [[#File System Navigation|File System Navigation]]
+- [[#Working with Date and Time|Working with Date and Time]]
+	- [[#Examples:|Examples:]]
+- [[#Filtering and Sorting|Filtering and Sorting]]
+- [[#Interacting with The Web|Interacting with The Web]]
+	- [[#Send HTTP GET Requests|Send HTTP GET Requests]]
+	- [[#Send HTTP POST Requests|Send HTTP POST Requests]]
+	- [[#Download a File from the Web|Download a File from the Web]]
+	- [[#Work with JSON APIs|Work with JSON APIs]]
+	- [[#Scrape Web Page Data|Scrape Web Page Data]]
+	- [[#Interact with REST APIs|Interact with REST APIs]]
+	- [[#Send Custom HTTP Headers|Send Custom HTTP Headers]]
+	- [[#Work with HTML Content|Work with HTML Content]]
+	- [[#Test Website Availability|Test Website Availability]]
+	- [[#Upload a File to a Web Server|Upload a File to a Web Server]]
+- [[#System Management|System Management]]
+	- [[#System Info & User Management|System Info & User Management]]
+	- [[#Networking|Networking]]
+	- [[#Processes and Services|Processes and Services]]
+	- [[#Software and Package Management|Software and Package Management]]
+		- [[#Installing and Configuring Software|Installing and Configuring Software]]
+	- [[#Scheduled Tasks|Scheduled Tasks]]
+	- [[#Remote Systems|Remote Systems]]
+	- [[#Backup and Restore Configuration|Backup and Restore Configuration]]
+	- [[#Monitoring and Reporting|Monitoring and Reporting]]
+	- [[#Active Directory|Active Directory]]
+- [[#Powershell Remoting|Powershell Remoting]]
+	- [[#Key Features of PowerShell Remoting|Key Features of PowerShell Remoting]]
+	- [[#Enabling PowerShell Remoting|Enabling PowerShell Remoting]]
+		- [[#Enable Remoting on a System|Enable Remoting on a System]]
+	- [[#PowerShell Remoting Modes|PowerShell Remoting Modes]]
+		- [[#1. Interactive Remoting|1. Interactive Remoting]]
+		- [[#2. Non-Interactive Remoting|2. Non-Interactive Remoting]]
+		- [[#3. Remoting with Multiple Computers|3. Remoting with Multiple Computers]]
+		- [[#4. Persistent Sessions|4. Persistent Sessions]]
+	- [[#Authentication Methods|Authentication Methods]]
+	- [[#Firewall Configuration|Firewall Configuration]]
+	- [[#Common Cmdlets for PowerShell Remoting|Common Cmdlets for PowerShell Remoting]]
+	- [[#Examples|Examples]]
+		- [[#Run Commands on a Single Computer|Run Commands on a Single Computer]]
+	- [[#Advanced Scenarios|Advanced Scenarios]]
+		- [[#1. Use HTTPS for Secure Communication|1. Use HTTPS for Secure Communication]]
+		- [[#2. Implicit Remoting|2. Implicit Remoting]]
+		- [[#3. Throttling|3. Throttling]]
+	- [[#Common Issues|Common Issues]]
+	- [[#Best Practices|Best Practices]]
+- [[#PS Providers|PS Providers]]
+		- [[#Common PSProviders|Common PSProviders]]
+			- [[#FileSystem|FileSystem]]
+			- [[#Registry|Registry]]
+			- [[#Environment|Environment]]
+			- [[#Function|Function]]
+			- [[#Variable|Variable]]
+			- [[#Certificate|Certificate]]
+			- [[#Alias|Alias]]
+			- [[#WSMan|WSMan]]
+	- [[#List Available PSProviders|List Available PSProviders]]
+	- [[#Output Example of `Get-PSProvider`|Output Example of `Get-PSProvider`]]
+	- [[#Using a PSProvider|Using a PSProvider]]
+		- [[#Example: Navigating the Registry|Example: Navigating the Registry]]
+	- [[#Custom PSProviders|Custom PSProviders]]
+- [[#PSDrives in Powershell|PSDrives in Powershell]]
+	- [[#Key Features of PSDrives|Key Features of PSDrives]]
+	- [[#Viewing Available PSDrives|Viewing Available PSDrives]]
+	- [[#Example Output of `Get-PSDrive`:|Example Output of `Get-PSDrive`:]]
+	- [[#Common PSDrives|Common PSDrives]]
+	- [[#Interacting with PSDrives|Interacting with PSDrives]]
+		- [[#1. Navigating a PSDrive|1. Navigating a PSDrive]]
+		- [[#2. Access Environment Variables|2. Access Environment Variables]]
+		- [[#3. Explore the Certificate Store|3. Explore the Certificate Store]]
+	- [[#Creating a New PSDrive|Creating a New PSDrive]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Removing a PSDrive|Removing a PSDrive]]
+	- [[#Default vs Custom PSDrives|Default vs Custom PSDrives]]
+	- [[#Listing Drives for a Specific PSProvider|Listing Drives for a Specific PSProvider]]
+	- [[#Practical Applications|Practical Applications]]
+- [[#WMI and CIM in PowerShell|WMI and CIM in PowerShell]]
+	- [[#What are WMI and CIM?|What are WMI and CIM?]]
+		- [[Windows Management Instrumentation)](#WMI (Windows Management Instrumentation|WMI (Windows Management Instrumentation)]])
+		- [[Common Information Model)](#CIM (Common Information Model|CIM (Common Information Model)]])
+	- [[#WMI vs CIM in PowerShell|WMI vs CIM in PowerShell]]
+	- [[#PowerShell Cmdlets|PowerShell Cmdlets]]
+		- [[#WMI Cmdlets:|WMI Cmdlets:]]
+		- [[#CIM Cmdlets:|CIM Cmdlets:]]
+	- [[#Examples of WMI and CIM in Action|Examples of WMI and CIM in Action]]
+		- [[#1. Retrieve System Information|1. Retrieve System Information]]
+		- [[#2. Query Processes|2. Query Processes]]
+		- [[#3. Restart a Service|3. Restart a Service]]
+		- [[#4. Query Remote Systems|4. Query Remote Systems]]
+		- [[#5. Get Disk Information|5. Get Disk Information]]
+		- [[#6. Create a CIM Session|6. Create a CIM Session]]
+	- [[#Best Practices|Best Practices]]
+	- [[#WMI and CIM Namespaces|WMI and CIM Namespaces]]
+	- [[#Listing Available WMI Classes|Listing Available WMI Classes]]
+- [[#Error Handling in Powershell|Error Handling in Powershell]]
+	- [[#Types of Errors|Types of Errors]]
+	- [[#Error Action Preferences|Error Action Preferences]]
+	- [[#Cmdlet-Specific Error Handling|Cmdlet-Specific Error Handling]]
+	- [[#Try, Catch, and Finally Blocks|Try, Catch, and Finally Blocks]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Accessing Error Details|Accessing Error Details]]
+	- [[#Error Handling with Specific Exceptions|Error Handling with Specific Exceptions]]
+	- [[#Using the `Throw` Statement|Using the `Throw` Statement]]
+	- [[#Using `$ErrorVariable`|Using `$ErrorVariable`]]
+	- [[#Trap Statement|Trap Statement]]
+	- [[#Common Scenarios for Error Handling|Common Scenarios for Error Handling]]
+		- [[#1. Handle Missing Files|1. Handle Missing Files]]
+	- [[#Best Practices|Best Practices]]
+- [[#Configuration Management with Powershell|Configuration Management with Powershell]]
+	- [[#Core Concepts|Core Concepts]]
+		- [[#2. Script-Based Configuration|2. Script-Based Configuration]]
+		- [[DSC)](#3. Using Desired State Configuration (DSC|3. Using Desired State Configuration (DSC)]])
+	- [[#PowerShell Tools for Configuration Management|PowerShell Tools for Configuration Management]]
+	- [[#Examples|Examples]]
+		- [[#Scenario 1: Configure a Batch of Servers|Scenario 1: Configure a Batch of Servers]]
+		- [[#Scenario 2: Enforce Desired Configuration|Scenario 2: Enforce Desired Configuration]]
+- [[#Background Jobs in PowerShell|Background Jobs in PowerShell]]
+	- [[#Key Cmdlets for Background Jobs|Key Cmdlets for Background Jobs]]
+	- [[#1. Starting a Background Job|1. Starting a Background Job]]
+		- [[#1.1 Using `Start-Job`|1.1 Using `Start-Job`]]
+	- [[#2. Monitoring Background Jobs|2. Monitoring Background Jobs]]
+		- [[#2.1 Check Job Status|2.1 Check Job Status]]
+	- [[#3. Retrieving Job Results|3. Retrieving Job Results]]
+		- [[#3.1 Get Output from a Job|3.1 Get Output from a Job]]
+		- [[#3.2 Retrieve Output Without Removing Job|3.2 Retrieve Output Without Removing Job]]
+	- [[#4. Removing Background Jobs|4. Removing Background Jobs]]
+	- [[#5. Running Remote Jobs|5. Running Remote Jobs]]
+		- [[#Example: Run a Remote Job|Example: Run a Remote Job]]
+	- [[#6. Nested Jobs|6. Nested Jobs]]
+		- [[#Example: Start a Job Within Another Job|Example: Start a Job Within Another Job]]
+	- [[#7. Tracking Multiple Jobs|7. Tracking Multiple Jobs]]
+		- [[#Example: Wait for All Jobs to Complete|Example: Wait for All Jobs to Complete]]
+	- [[#8. Handling Errors in Jobs|8. Handling Errors in Jobs]]
+		- [[#Example: Handle Job Errors|Example: Handle Job Errors]]
+	- [[#9. Scheduled Jobs|9. Scheduled Jobs]]
+		- [[#Install Scheduled Jobs Module|Install Scheduled Jobs Module]]
+	- [[#10. Best Practices|10. Best Practices]]
+	- [[#Sample Script: Automate Background Jobs|Sample Script: Automate Background Jobs]]
+- [[#Scripting|Scripting]]
+	- [[ISE)](#PowerShell Integrated Scripting Environment (ISE|PowerShell Integrated Scripting Environment (ISE)]])
+		- [[#Key Features of PowerShell ISE:|Key Features of PowerShell ISE:]]
+		- [[#Menu Items and Shortcuts:|Menu Items and Shortcuts:]]
+		- [[#Benefits|Benefits]]
+		- [[#Launching PowerShell ISE:|Launching PowerShell ISE:]]
+		- [[#Menu Bar|Menu Bar]]
+		- [[#Toolbar|Toolbar]]
+		- [[#Scripting Tab|Scripting Tab]]
+		- [[#Status Bar|Status Bar]]
+		- [[#Commands Pane|Commands Pane]]
+		- [[#Text-Size Slide|Text-Size Slide]]
+	- [[#Basics of Writing Powershell Scripts|Basics of Writing Powershell Scripts]]
+		- [[#Comments|Comments]]
+			- [[#Single-Line Comments|Single-Line Comments]]
+			- [[#Block Comments|Block Comments]]
+		- [[#Brackets, parentheses and braces|Brackets, parentheses and braces]]
+			- [[)`](#Parentheses `(|Parentheses `()`]]%60)
+			- [[#Brackets `[]`|Brackets `[]]
+		- [[#Curly Braces `{}`|Curly Braces `{}`]]
+			- [[#Comma `,`|Comma `,`]]
+		- [[#Semicolon `;`|Semicolon `;`]]
+		- [[#Pipe `|`|Pipe `|`]]
+		- [[#Backtick <code>`</code>|Backtick <code>`</code>]]
+		- [[#Double Quotation Marks `"`|Double Quotation Marks `"`]]
+		- [[#Single Quotation Marks `'`|Single Quotation Marks `'`]]
+		- |Dollar Sign `> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Powershell.html|Open HTML Page]]
+
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
+
+**Table of Contents**
+- [[#Definition|Definition]]
+- [[#Setup|Setup]]
+	- [[#Install PowerShell|Install PowerShell]]
+	- [[#Launch PowerShell|Launch PowerShell]]
+	- [[#Verify the Execution Policy|Verify the Execution Policy]]
+	- [[#Possible Execution Policy Values|Possible Execution Policy Values]]
+	- [[#Modifying the Execution Policy|Modifying the Execution Policy]]
+- [[#Basics of cmdlets and modules|Basics of cmdlets and modules]]
+	- [[#Basic Syntax: Verb-Noun|Basic Syntax: Verb-Noun]]
+	- [[#Basic Cmdlets|Basic Cmdlets]]
+	- [[#Downloading External Cmdlets|Downloading External Cmdlets]]
+- [[#Data Types in Powershell|Data Types in Powershell]]
+	- [[#Common Data Types in PowerShell|Common Data Types in PowerShell]]
+- [[#Variables in Powershell|Variables in Powershell]]
+	- [[#Key Features of PowerShell Variables:|Key Features of PowerShell Variables:]]
+	- [[#Assigning Values to Variables|Assigning Values to Variables]]
+			- [[#Examples:|Examples:]]
+- [[#Pipes|Pipes]]
+	- [[#Examples:|Examples:]]
+	- [[#Example: Filtering and Formatting Service Names|Example: Filtering and Formatting Service Names]]
+	- [[#Explanation:|Explanation:]]
+	- [[#Result:|Result:]]
+- [[#File System Navigation|File System Navigation]]
+- [[#Working with Date and Time|Working with Date and Time]]
+	- [[#Examples:|Examples:]]
+- [[#Filtering and Sorting|Filtering and Sorting]]
+- [[#Interacting with The Web|Interacting with The Web]]
+	- [[#Send HTTP GET Requests|Send HTTP GET Requests]]
+	- [[#Send HTTP POST Requests|Send HTTP POST Requests]]
+	- [[#Download a File from the Web|Download a File from the Web]]
+	- [[#Work with JSON APIs|Work with JSON APIs]]
+	- [[#Scrape Web Page Data|Scrape Web Page Data]]
+	- [[#Interact with REST APIs|Interact with REST APIs]]
+	- [[#Send Custom HTTP Headers|Send Custom HTTP Headers]]
+	- [[#Work with HTML Content|Work with HTML Content]]
+	- [[#Test Website Availability|Test Website Availability]]
+	- [[#Upload a File to a Web Server|Upload a File to a Web Server]]
+- [[#System Management|System Management]]
+	- [[#System Info & User Management|System Info & User Management]]
+	- [[#Networking|Networking]]
+	- [[#Processes and Services|Processes and Services]]
+	- [[#Software and Package Management|Software and Package Management]]
+		- [[#Installing and Configuring Software|Installing and Configuring Software]]
+	- [[#Scheduled Tasks|Scheduled Tasks]]
+	- [[#Remote Systems|Remote Systems]]
+	- [[#Backup and Restore Configuration|Backup and Restore Configuration]]
+	- [[#Monitoring and Reporting|Monitoring and Reporting]]
+	- [[#Active Directory|Active Directory]]
+- [[#Powershell Remoting|Powershell Remoting]]
+	- [[#Key Features of PowerShell Remoting|Key Features of PowerShell Remoting]]
+	- [[#Enabling PowerShell Remoting|Enabling PowerShell Remoting]]
+		- [[#Enable Remoting on a System|Enable Remoting on a System]]
+	- [[#PowerShell Remoting Modes|PowerShell Remoting Modes]]
+		- [[#1. Interactive Remoting|1. Interactive Remoting]]
+		- [[#2. Non-Interactive Remoting|2. Non-Interactive Remoting]]
+		- [[#3. Remoting with Multiple Computers|3. Remoting with Multiple Computers]]
+		- [[#4. Persistent Sessions|4. Persistent Sessions]]
+	- [[#Authentication Methods|Authentication Methods]]
+	- [[#Firewall Configuration|Firewall Configuration]]
+	- [[#Common Cmdlets for PowerShell Remoting|Common Cmdlets for PowerShell Remoting]]
+	- [[#Examples|Examples]]
+		- [[#Run Commands on a Single Computer|Run Commands on a Single Computer]]
+	- [[#Advanced Scenarios|Advanced Scenarios]]
+		- [[#1. Use HTTPS for Secure Communication|1. Use HTTPS for Secure Communication]]
+		- [[#2. Implicit Remoting|2. Implicit Remoting]]
+		- [[#3. Throttling|3. Throttling]]
+	- [[#Common Issues|Common Issues]]
+	- [[#Best Practices|Best Practices]]
+- [[#PS Providers|PS Providers]]
+		- [[#Common PSProviders|Common PSProviders]]
+			- [[#FileSystem|FileSystem]]
+			- [[#Registry|Registry]]
+			- [[#Environment|Environment]]
+			- [[#Function|Function]]
+			- [[#Variable|Variable]]
+			- [[#Certificate|Certificate]]
+			- [[#Alias|Alias]]
+			- [[#WSMan|WSMan]]
+	- [[#List Available PSProviders|List Available PSProviders]]
+	- [[#Output Example of `Get-PSProvider`|Output Example of `Get-PSProvider`]]
+	- [[#Using a PSProvider|Using a PSProvider]]
+		- [[#Example: Navigating the Registry|Example: Navigating the Registry]]
+	- [[#Custom PSProviders|Custom PSProviders]]
+- [[#PSDrives in Powershell|PSDrives in Powershell]]
+	- [[#Key Features of PSDrives|Key Features of PSDrives]]
+	- [[#Viewing Available PSDrives|Viewing Available PSDrives]]
+	- [[#Example Output of `Get-PSDrive`:|Example Output of `Get-PSDrive`:]]
+	- [[#Common PSDrives|Common PSDrives]]
+	- [[#Interacting with PSDrives|Interacting with PSDrives]]
+		- [[#1. Navigating a PSDrive|1. Navigating a PSDrive]]
+		- [[#2. Access Environment Variables|2. Access Environment Variables]]
+		- [[#3. Explore the Certificate Store|3. Explore the Certificate Store]]
+	- [[#Creating a New PSDrive|Creating a New PSDrive]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Removing a PSDrive|Removing a PSDrive]]
+	- [[#Default vs Custom PSDrives|Default vs Custom PSDrives]]
+	- [[#Listing Drives for a Specific PSProvider|Listing Drives for a Specific PSProvider]]
+	- [[#Practical Applications|Practical Applications]]
+- [[#WMI and CIM in PowerShell|WMI and CIM in PowerShell]]
+	- [[#What are WMI and CIM?|What are WMI and CIM?]]
+		- [[Windows Management Instrumentation)](#WMI (Windows Management Instrumentation|WMI (Windows Management Instrumentation)]])
+		- [[Common Information Model)](#CIM (Common Information Model|CIM (Common Information Model)]])
+	- [[#WMI vs CIM in PowerShell|WMI vs CIM in PowerShell]]
+	- [[#PowerShell Cmdlets|PowerShell Cmdlets]]
+		- [[#WMI Cmdlets:|WMI Cmdlets:]]
+		- [[#CIM Cmdlets:|CIM Cmdlets:]]
+	- [[#Examples of WMI and CIM in Action|Examples of WMI and CIM in Action]]
+		- [[#1. Retrieve System Information|1. Retrieve System Information]]
+		- [[#2. Query Processes|2. Query Processes]]
+		- [[#3. Restart a Service|3. Restart a Service]]
+		- [[#4. Query Remote Systems|4. Query Remote Systems]]
+		- [[#5. Get Disk Information|5. Get Disk Information]]
+		- [[#6. Create a CIM Session|6. Create a CIM Session]]
+	- [[#Best Practices|Best Practices]]
+	- [[#WMI and CIM Namespaces|WMI and CIM Namespaces]]
+	- [[#Listing Available WMI Classes|Listing Available WMI Classes]]
+- [[#Error Handling in Powershell|Error Handling in Powershell]]
+	- [[#Types of Errors|Types of Errors]]
+	- [[#Error Action Preferences|Error Action Preferences]]
+	- [[#Cmdlet-Specific Error Handling|Cmdlet-Specific Error Handling]]
+	- [[#Try, Catch, and Finally Blocks|Try, Catch, and Finally Blocks]]
+		- [[#Syntax:|Syntax:]]
+	- [[#Accessing Error Details|Accessing Error Details]]
+	- [[#Error Handling with Specific Exceptions|Error Handling with Specific Exceptions]]
+	- [[#Using the `Throw` Statement|Using the `Throw` Statement]]
+	- [[#Using `$ErrorVariable`|Using `$ErrorVariable`]]
+	- [[#Trap Statement|Trap Statement]]
+	- [[#Common Scenarios for Error Handling|Common Scenarios for Error Handling]]
+		- [[#1. Handle Missing Files|1. Handle Missing Files]]
+	- [[#Best Practices|Best Practices]]
+- [[#Configuration Management with Powershell|Configuration Management with Powershell]]
+	- [[#Core Concepts|Core Concepts]]
+		- [[#2. Script-Based Configuration|2. Script-Based Configuration]]
+		- [[DSC)](#3. Using Desired State Configuration (DSC|3. Using Desired State Configuration (DSC)]])
+	- [[#PowerShell Tools for Configuration Management|PowerShell Tools for Configuration Management]]
+	- [[#Examples|Examples]]
+		- [[#Scenario 1: Configure a Batch of Servers|Scenario 1: Configure a Batch of Servers]]
+		- [[#Scenario 2: Enforce Desired Configuration|Scenario 2: Enforce Desired Configuration]]
+- [[#Background Jobs in PowerShell|Background Jobs in PowerShell]]
+	- [[#Key Cmdlets for Background Jobs|Key Cmdlets for Background Jobs]]
+	- [[#1. Starting a Background Job|1. Starting a Background Job]]
+		- [[#1.1 Using `Start-Job`|1.1 Using `Start-Job`]]
+	- [[#2. Monitoring Background Jobs|2. Monitoring Background Jobs]]
+		- [[#2.1 Check Job Status|2.1 Check Job Status]]
+	- [[#3. Retrieving Job Results|3. Retrieving Job Results]]
+		- [[#3.1 Get Output from a Job|3.1 Get Output from a Job]]
+		- [[#3.2 Retrieve Output Without Removing Job|3.2 Retrieve Output Without Removing Job]]
+	- [[#4. Removing Background Jobs|4. Removing Background Jobs]]
+	- [[#5. Running Remote Jobs|5. Running Remote Jobs]]
+		- [[#Example: Run a Remote Job|Example: Run a Remote Job]]
+	- [[#6. Nested Jobs|6. Nested Jobs]]
+		- [[#Example: Start a Job Within Another Job|Example: Start a Job Within Another Job]]
+	- [[#7. Tracking Multiple Jobs|7. Tracking Multiple Jobs]]
+		- [[#Example: Wait for All Jobs to Complete|Example: Wait for All Jobs to Complete]]
+	- [[#8. Handling Errors in Jobs|8. Handling Errors in Jobs]]
+		- [[#Example: Handle Job Errors|Example: Handle Job Errors]]
+	- [[#9. Scheduled Jobs|9. Scheduled Jobs]]
+		- [[#Install Scheduled Jobs Module|Install Scheduled Jobs Module]]
+	- [[#10. Best Practices|10. Best Practices]]
+	- [[#Sample Script: Automate Background Jobs|Sample Script: Automate Background Jobs]]
+- [[#Scripting|Scripting]]
+	- [[ISE)](#PowerShell Integrated Scripting Environment (ISE|PowerShell Integrated Scripting Environment (ISE)]])
+		- [[#Key Features of PowerShell ISE:|Key Features of PowerShell ISE:]]
+		- [[#Menu Items and Shortcuts:|Menu Items and Shortcuts:]]
+		- [[#Benefits|Benefits]]
+		- [[#Launching PowerShell ISE:|Launching PowerShell ISE:]]
+		- [[#Menu Bar|Menu Bar]]
+		- [[#Toolbar|Toolbar]]
+		- [[#Scripting Tab|Scripting Tab]]
+		- [[#Status Bar|Status Bar]]
+		- [[#Commands Pane|Commands Pane]]
+		- [[#Text-Size Slide|Text-Size Slide]]
+	- [[#Basics of Writing Powershell Scripts|Basics of Writing Powershell Scripts]]
+		- [[#Comments|Comments]]
+			- [[#Single-Line Comments|Single-Line Comments]]
+			- [[#Block Comments|Block Comments]]
+		- [[#Brackets, parentheses and braces|Brackets, parentheses and braces]]
+			- [[)`](#Parentheses `(|Parentheses `()`]]%60)
+			- [[#Brackets `[]`|Brackets `[]]
+		- [[#Curly Braces `{}`|Curly Braces `{}`]]
+			- [[#Comma `,`|Comma `,`]]
+		- [[#Semicolon `;`|Semicolon `;`]]
+		- [[#Pipe `|`|Pipe `|`]]
+		- [[#Backtick <code>`</code>|Backtick <code>`</code>]]
+		- [[#Double Quotation Marks `"`|Double Quotation Marks `"`]]
+		- [[#Single Quotation Marks `'`|Single Quotation Marks `'`]]
+		- ]]
+	- [[#Loops|Loops]]
+		- [[#`For` Loop|`For` Loop]]
+		- [[#`Foreach` Loop|`Foreach` Loop]]
+		- [[#`While` Loop|`While` Loop]]
+		- [[#`Do-While` Loop|`Do-While` Loop]]
+		- [[#`Do-Until` Loop|`Do-Until` Loop]]
+		- [[#`Foreach-Object` Loop|`Foreach-Object` Loop]]
+		- [[#Choosing the Right Loop|Choosing the Right Loop]]
+	- [[#Conditions in Powershell|Conditions in Powershell]]
+		- [[#`If` Statement|`If` Statement]]
+		- [[#`If-Else` Statement|`If-Else` Statement]]
+		- [[#`If-ElseIf-Else` Statement|`If-ElseIf-Else` Statement]]
+		- [[#`Switch` Statement|`Switch` Statement]]
+		- [[#Comparison Operators in Conditions|Comparison Operators in Conditions]]
+		- [[#Logical Operators|Logical Operators]]
+	- [[#Scripting Constructs in PowerShell|Scripting Constructs in PowerShell]]
+		- [[#1. Conditional Statements|1. Conditional Statements]]
+		- [[#1.1. If-Else|1.1. If-Else]]
+		- [[#1.2. Switch|1.2. Switch]]
+		- [[#2. Loops|2. Loops]]
+		- [[#2.1. For Loop|2.1. For Loop]]
+		- [[#2.2. Foreach Loop|2.2. Foreach Loop]]
+		- [[#2.3. While Loop|2.3. While Loop]]
+		- [[#2.4. Do-While Loop|2.4. Do-While Loop]]
+		- [[#2.5. Do-Until Loop|2.5. Do-Until Loop]]
+		- [[#3. Functions|3. Functions]]
+		- [[#Defining a Function|Defining a Function]]
+		- [[#4. Arrays and HashTables|4. Arrays and HashTables]]
+		- [[#4.1. Arrays|4.1. Arrays]]
+		- [[#5. Pipelines|5. Pipelines]]
+		- [[#6. Try-Catch-Finally|6. Try-Catch-Finally]]
+		- [[#7. Script Blocks|7. Script Blocks]]
+		- [[#8. Workflow|8. Workflow]]
+		- [[#9. Error Variables|9. Error Variables]]
+		- [[#10. Dot Sourcing|10. Dot Sourcing]]
+		- [[#11. Comments|11. Comments]]
+		- [[#**Best Practices**|**Best Practices**]]
+	- [[#Provisioning a New Server Core Instance with PowerShell|Provisioning a New Server Core Instance with PowerShell]]
+		- [[#1. Initial Configuration|1. Initial Configuration]]
+		- [[#1.1 Set Administrator Password|1.1 Set Administrator Password]]
+		- [[#1.2 Rename the Server|1.2 Rename the Server]]
+		- [[#1.3 Configure Networking|1.3 Configure Networking]]
+		- [[#2. Update the Server|2. Update the Server]]
+		- [[#2.1 Check for Updates|2.1 Check for Updates]]
+		- [[#3. Install Roles and Features|3. Install Roles and Features]]
+		- [[#3.1 View Available Features|3.1 View Available Features]]
+		- [[#3.2 Install a Role or Feature|3.2 Install a Role or Feature]]
+		- [[#4. Join a Domain|4. Join a Domain]]
+		- [[#4.1 Join the Server to a Domain|4.1 Join the Server to a Domain]]
+		- [[#5. Configure Remote Management|5. Configure Remote Management]]
+		- [[#5.1 Enable PowerShell Remoting|5.1 Enable PowerShell Remoting]]
+		- [[#6. Configure Firewall|6. Configure Firewall]]
+		- [[#6.1 View Firewall Rules|6.1 View Firewall Rules]]
+		- [[#6.2 Enable Specific Rules|6.2 Enable Specific Rules]]
+		- [[#6.3 Disable Specific Rules|6.3 Disable Specific Rules]]
+		- [[#7. Configure Server Time|7. Configure Server Time]]
+		- [[#7.1 View Current Time Zone|7.1 View Current Time Zone]]
+		- [[#8. Configure Scheduled Tasks|8. Configure Scheduled Tasks]]
+		- [[#8.1 Create a Task|8.1 Create a Task]]
+		- [[#9. Security Hardening|9. Security Hardening]]
+		- [[#9.1 Disable SMBv1|9.1 Disable SMBv1]]
+		- [[#10. Backup Configuration|10. Backup Configuration]]
+		- [[#10.1 Install Windows Server Backup|10.1 Install Windows Server Backup]]
+	- [[#Sample Script for Full Automation|Sample Script for Full Automation]]
+		- [[#Verification Checklist|Verification Checklist]]
+	- [[#Example Scripts for IT Professionals|Example Scripts for IT Professionals]]
+		- [[DSC) Script](#Enforcing Desired State Configuration (DSC|Enforcing Desired State Configuration (DSC) Script]]%20Script)
+			- [[#Core Concepts of Desired State Configuration|Core Concepts of Desired State Configuration]]
+			- [[#Workflow of DSC|Workflow of DSC]]
+			- [[#DSC in Action|DSC in Action]]
+			- [[#Example DSC Script|Example DSC Script]]
+		- [[#Monitor a Web Page for Changes|Monitor a Web Page for Changes]]
+		- [[#Check Disk Space|Check Disk Space]]
+		- [[#Automate User Creation in Active Directory|Automate User Creation in Active Directory]]
+		- [[#Backup Event Logs|Backup Event Logs]]
+		- [[#Monitor Service Status|Monitor Service Status]]
+		- [[#Clear Old Files|Clear Old Files]]
+		- [[#Export Installed Software List|Export Installed Software List]]
+		- [[#Reset User Password|Reset User Password]]
+		- [[#Check for Pending Windows Updates|Check for Pending Windows Updates]]
+		- [[#Schedule a Task|Schedule a Task]]
+	- [[#Example Scripts for Cyber Security|Example Scripts for Cyber Security]]
+		- [[#Scan for Open Ports on a Machine|Scan for Open Ports on a Machine]]
+		- [[#Check File Integrity|Check File Integrity]]
+		- [[#Search for Malicious Processes|Search for Malicious Processes]]
+		- [[#Monitor Unauthorized Login Attempts|Monitor Unauthorized Login Attempts]]
+		- [[#Block Malicious IP Addresses|Block Malicious IP Addresses]]
+		- [[#Detect Hidden Files|Detect Hidden Files]]
+		- [[#Retrieve Suspicious Network Connections|Retrieve Suspicious Network Connections]]
+		- [[#Audit Installed Software|Audit Installed Software]]
+		- [[#Export Security Logs|Export Security Logs]]
+		- [[#Check for Privilege Escalation Attempts|Check for Privilege Escalation Attempts]]
+		- [[#Detect Anomalous Scheduled Tasks|Detect Anomalous Scheduled Tasks]]
+		- [[#Find Recent PowerShell Command History|Find Recent PowerShell Command History]]
+	- [[#Common Powershell Tools in Cyber Security|Common Powershell Tools in Cyber Security]]
+		- [[#Powersploit|Powersploit]]
+		- [[#Modules in PowerSploit|Modules in PowerSploit]]
+			- [[#1. CodeExecution|1. CodeExecution]]
+			- [[#2. Persistence|2. Persistence]]
+			- [[Privilege Escalation)](#3. Privesc (Privilege Escalation|3. Privesc (Privilege Escalation)]])
+			- [[#4. Recon|4. Recon]]
+			- [[#5. AntivirusBypass|5. AntivirusBypass]]
+			- [[#6. Exfiltration|6. Exfiltration]]
+			- [[#7. Post-Exploitation|7. Post-Exploitation]]
+		- [[#How PowerSploit Works|How PowerSploit Works]]
+		- [[#Example Usage of PowerSploit|Example Usage of PowerSploit]]
+			- [[#1. Shellcode Execution|1. Shellcode Execution]]
+			- [[#2. Privilege Escalation with PowerUp|2. Privilege Escalation with PowerUp]]
+			- [[#3. Extracting Credentials with Invoke-Mimikatz|3. Extracting Credentials with Invoke-Mimikatz]]
+			- [[#4. Persistent Backdoor|4. Persistent Backdoor]]
+			- [[#5. Reconnaissance|5. Reconnaissance]]
+		- [[#Invoke-Mimikatz|Invoke-Mimikatz]]
+			- [[#What is Mimikatz?|What is Mimikatz?]]
+			- [[#Capabilities of Invoke-Mimikatz|Capabilities of Invoke-Mimikatz]]
+			- [[#Using Invoke-Mimikatz|Using Invoke-Mimikatz]]
+			- [[#Understanding the Output|Understanding the Output]]
+			- [[#Examples|Examples]]
+			- [[#Execution Methods|Execution Methods]]
+		- [[#Nishang|Nishang]]
+			- [[#Features of Nishang|Features of Nishang]]
+			- [[#Modules in Nishang|Modules in Nishang]]
+			- [[#How Nishang Works|How Nishang Works]]
+			- [[#Common Use Cases|Common Use Cases]]
 
 ## Definition
 PowerShell, developed by Microsoft, is a robust tool for automating tasks and managing configurations. It integrates a command-line interface with a scripting language based on the .NET framework. Unlike traditional text-based command-line tools, PowerShell is object-oriented, enabling it to manage complex data types and interact more efficiently with system components. While it was initially designed exclusively for Windows, it has since been extended to support macOS and Linux, making it a flexible solution for IT professionals working across multiple operating systems.
@@ -1923,7 +2309,7 @@ Alternatively, you can run the following command in the PowerShell console:
 ise
 ```
 The PowerShell ISE is an essential tool for anyone working with scripts, offering a balance of simplicity and advanced functionality.
-![Notes Cataloge/IT & System Admin Notes/Powershell/1.png](Notes%20Cataloge/IT%20&%20System%20Admin%20Notes/Powershell/1.png)
+![[Notes Cataloge/IT & System Admin Notes/Powershell/1.png]]
 The PowerShell Integrated Scripting Environment (ISE) includes a user-friendly interface with several key components to enhance the scripting experience:
 #### Menu Bar
 The **Menu Bar** provides drop-down menus with options for various tasks:

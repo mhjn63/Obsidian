@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Career%20Guidance/Cyber%20Security%20Career%20Notes.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Career Guidance/Cyber Security Career Notes.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -6,27 +6,27 @@
 
 The below notes encompasses career-related notes, management and operational notes in Cyber security.
 
-- [Cyber Security RoadMap](#Cyber%20Security%20RoadMap)
-- [Before You Get Hired](#Before%20You%20Get%20Hired)
-	- [Jobs to seek before you get into cybersecurity](#Jobs%20to%20seek%20before%20you%20get%20into%20cybersecurity)
-	- [Recommended Certifications](#Recommended%20Certifications)
-	- [Cyber Security Roles](#Cyber%20Security%20Roles)
-		- [SOC Analyst](#SOC%20Analyst)
-		- [Security Engineer](#Security%20Engineer)
-			- [Roles](#Roles)
-			- [Required Qualifications](#Required%20Qualifications)
-	- [FAQs](#FAQs)
-- [After You Get Hired](#After%20You%20Get%20Hired)
-	- [FAQs](#FAQs)
-- [Learning Resources](#Learning%20Resources)
-	- [VMs and CTFs](#VMs%20and%20CTFs)
-	- [Podcasts](#Podcasts)
-	- [Courses Platforms](#Courses%20Platforms)
-	- [Tutorials](#Tutorials)
-	- [Books](#Books)
-	- [Articles and News](#Articles%20and%20News)
-	- [Webinars and Podcasts](#Webinars%20and%20Podcasts)
-	- [Forums](#Forums)
+- [[#Cyber Security RoadMap|Cyber Security RoadMap]]
+- [[#Before You Get Hired|Before You Get Hired]]
+	- [[#Jobs to seek before you get into cybersecurity|Jobs to seek before you get into cybersecurity]]
+	- [[#Recommended Certifications|Recommended Certifications]]
+	- [[#Cyber Security Roles|Cyber Security Roles]]
+		- [[#SOC Analyst|SOC Analyst]]
+		- [[#Security Engineer|Security Engineer]]
+			- [[#Roles|Roles]]
+			- [[#Required Qualifications|Required Qualifications]]
+	- [[#FAQs|FAQs]]
+- [[#After You Get Hired|After You Get Hired]]
+	- [[#FAQs|FAQs]]
+- [[#Learning Resources|Learning Resources]]
+	- [[#VMs and CTFs|VMs and CTFs]]
+	- [[#Podcasts|Podcasts]]
+	- [[#Courses Platforms|Courses Platforms]]
+	- [[#Tutorials|Tutorials]]
+	- [[#Books|Books]]
+	- [[#Articles and News|Articles and News]]
+	- [[#Webinars and Podcasts|Webinars and Podcasts]]
+	- [[#Forums|Forums]]
 
 # Career 
 ## Cyber Security RoadMap

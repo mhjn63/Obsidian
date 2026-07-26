@@ -1,3 +1,6 @@
+- 2026-07-26T1453 · [[Bug Bounty Tools]]
+- 2026-07-26T1453 · [[Bug Bounty Methodology]]
+- 2026-07-26T1453 · [[Bug Bounty Cheat Sheet]]
 - 2026-07-26T1452 · [[README]]
 - 2026-07-26T1452 · [[Welcome]]
 - 2026-07-26T1452 · [[Browse]]
@@ -20,6 +23,3 @@
 - 2026-07-26T1452 · [[Javascript Notes]]
 - 2026-07-26T1452 · [[Java]]
 - 2026-07-26T1452 · [[HTML]]
-- 2026-07-26T1452 · [[Django]]
-- 2026-07-26T1452 · [[Bash Programming Notes]]
-- 2026-07-26T1452 · [[C Programming]]

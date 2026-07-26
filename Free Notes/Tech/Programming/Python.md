@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/Python.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Python.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -6,44 +6,44 @@
 
 
 **Table of Contents**
-- [Basics](#Basics)
-- [Math Operators](#Math%20Operators)
-	- [](#Math%20Operators#Math%20Operators#Example:|Example:)
-- [Comparison Operators](#Comparison%20Operators)
-	- [](#Comparison%20Operators#Comparison%20Operators#Common%20Comparison%20Operators%20in%20Python|Common%20Comparison%20Operators%20in%20Python)
-- [Variables and Data Types](#Variables%20and%20Data%20Types)
-- [Boolean Operators](#Boolean%20Operators)
-	- [](#Boolean%20Operators#Boolean%20Operators#1.%20Comparison%20Operators|1.%20Comparison%20Operators)
-	- [](#Boolean%20Operators#Boolean%20Operators#2.%20Logical%20Operators|2.%20Logical%20Operators)
-	- [](#Boolean%20Operators#Boolean%20Operators#3.%20Membership%20Operators|3.%20Membership%20Operators)
-- [If Statements](#If%20Statements)
-- [Loops](#Loops)
-	- [](#Loops#Loops#1.%20For%20Loop|1.%20For%20Loop)
-	- [](#Loops#Loops#2.%20While%20Loop|2.%20While%20Loop)
-	- [](#Loops#Loops#Key%20Differences:|Key%20Differences:)
-- [Functions](#Functions)
-	- [](#Functions#Functions#Example%20Use%20Cases:|Example%20Use%20Cases:)
-	- [](#Functions#Functions#Calling%20the%20Function:|Calling%20the%20Function:)
-- [File Operations in Python](#File%20Operations%20in%20Python)
-	- [](#File%20Operations%20in%20Python#File%20Operations%20in%20Python#Reading%20from%20a%20File|Reading%20from%20a%20File)
-	- [](#File%20Operations%20in%20Python#File%20Operations%20in%20Python#Writing%20to%20a%20File|Writing%20to%20a%20File)
-	- [](#File%20Operations%20in%20Python#File%20Operations%20in%20Python#Appending%20to%20a%20File|Appending%20to%20a%20File)
-	- [](#File%20Operations%20in%20Python#File%20Operations%20in%20Python#Reading%20and%20Writing%20Binary%20Files|Reading%20and%20Writing%20Binary%20Files)
-- [Imports](#Imports)
-	- [](#Imports#Imports#How%20to%20Import%20a%20Library|How%20to%20Import%20a%20Library)
-	- [](#Imports#Imports#Import%20Specific%20Functions%20or%20Classes|Import%20Specific%20Functions%20or%20Classes)
-	- [](#Imports#Imports#Using%20an%20Alias%20for%20Convenience|Using%20an%20Alias%20for%20Convenience)
-	- [](#Imports#Imports#Example%20Libraries|Example%20Libraries)
-- [File Downloading](#File%20Downloading)
-- [Security & Pentesting](#Security%20&%20Pentesting)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Subdomain%20Enumeration|Subdomain%20Enumeration)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Directory%20Enumeration|Directory%20Enumeration)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Network%20Scanning|Network%20Scanning)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Port%20Scanning|Port%20Scanning)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Hash%20Cracking|Hash%20Cracking)
-		- [](#Hash%20Cracking#Hash%20Cracking#Variation%201|Variation%201)
-		- [](#Hash%20Cracking#Hash%20Cracking#Variation%202|Variation%202)
-	- [](#Security%20&%20Pentesting#Security%20&%20Pentesting#Keylogging|Keylogging)
+- [[#Basics|Basics]]
+- [[#Math Operators|Math Operators]]
+	- [[#Math Operators#Math Operators#Math Operators#Math Operators#Example:|Example:]]
+- [[#Comparison Operators|Comparison Operators]]
+	- [[#Comparison Operators#Comparison Operators#Comparison Operators#Comparison Operators#Common Comparison Operators in Python|Common Comparison Operators in Python]]
+- [[#Variables and Data Types|Variables and Data Types]]
+- [[#Boolean Operators|Boolean Operators]]
+	- [[#Boolean Operators#Boolean Operators#Boolean Operators#Boolean Operators#1. Comparison Operators|1. Comparison Operators]]
+	- [[#Boolean Operators#Boolean Operators#Boolean Operators#Boolean Operators#2. Logical Operators|2. Logical Operators]]
+	- [[#Boolean Operators#Boolean Operators#Boolean Operators#Boolean Operators#3. Membership Operators|3. Membership Operators]]
+- [[#If Statements|If Statements]]
+- [[#Loops|Loops]]
+	- [[#Loops#Loops#Loops#Loops#1. For Loop|1. For Loop]]
+	- [[#Loops#Loops#Loops#Loops#2. While Loop|2. While Loop]]
+	- [[#Loops#Loops#Loops#Loops#Key Differences:|Key Differences:]]
+- [[#Functions|Functions]]
+	- [[#Functions#Functions#Functions#Functions#Example Use Cases:|Example Use Cases:]]
+	- [[#Functions#Functions#Functions#Functions#Calling the Function:|Calling the Function:]]
+- [[#File Operations in Python|File Operations in Python]]
+	- [[#File Operations in Python#File Operations in Python#File Operations in Python#File Operations in Python#Reading from a File|Reading from a File]]
+	- [[#File Operations in Python#File Operations in Python#File Operations in Python#File Operations in Python#Writing to a File|Writing to a File]]
+	- [[#File Operations in Python#File Operations in Python#File Operations in Python#File Operations in Python#Appending to a File|Appending to a File]]
+	- [[#File Operations in Python#File Operations in Python#File Operations in Python#File Operations in Python#Reading and Writing Binary Files|Reading and Writing Binary Files]]
+- [[#Imports|Imports]]
+	- [[#Imports#Imports#Imports#Imports#How to Import a Library|How to Import a Library]]
+	- [[#Imports#Imports#Imports#Imports#Import Specific Functions or Classes|Import Specific Functions or Classes]]
+	- [[#Imports#Imports#Imports#Imports#Using an Alias for Convenience|Using an Alias for Convenience]]
+	- [[#Imports#Imports#Imports#Imports#Example Libraries|Example Libraries]]
+- [[#File Downloading|File Downloading]]
+- [[#Security & Pentesting|Security & Pentesting]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Subdomain Enumeration|Subdomain Enumeration]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Directory Enumeration|Directory Enumeration]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Network Scanning|Network Scanning]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Port Scanning|Port Scanning]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Hash Cracking|Hash Cracking]]
+		- [[#Hash Cracking#Hash Cracking#Hash Cracking#Hash Cracking#Variation 1|Variation 1]]
+		- [[#Hash Cracking#Hash Cracking#Hash Cracking#Hash Cracking#Variation 2|Variation 2]]
+	- [[#Security & Pentesting#Security & Pentesting#Security & Pentesting#Security & Pentesting#Keylogging|Keylogging]]
 
 ## Basics
 The example code block below demonstrates a single line of code (on line 2) that, when executed, outputs the text _Hello World_. 

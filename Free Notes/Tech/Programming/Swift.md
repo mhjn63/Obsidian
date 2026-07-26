@@ -1,57 +1,57 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Programming/Swift.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Programming/Swift.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Comments](#Comments)
-- [1. Comment Syntax](#1.%20Comment%20Syntax)
-- [2. MARK : Code Organization](#2.%20MARK%20:%20Code%20Organization)
-- [3. FIXME — Broken Code Reminders](#3.%20FIXME%20—%20Broken%20Code%20Reminders)
-- [4. TODO — Incomplete Code Reminders](#4.%20TODO%20—%20Incomplete%20Code%20Reminders)
-- [Quick Reference Summary](#Quick%20Reference%20Summary)
-- [Swift Data Types & Type Casting](#Swift%20Data%20Types%20&%20Type%20Casting)
-- [1. Data Type Sizing (32-bit vs 64-bit)](#1.%20Data%20Type%20Sizing%20(32-bit%20vs%2064-bit))
-- [2. C Primitives → Swift Aliases](#2.%20C%20Primitives%20→%20Swift%20Aliases)
-- [3. Integers](#3.%20Integers)
-- [4. Floating Point](#4.%20Floating%20Point)
-- [5. Boolean](#5.%20Boolean)
-- [6. Primitives](#6.%20Primitives)
-- [7. Enums & Bitmasks](#7.%20Enums%20&%20Bitmasks)
-- [8. Type Casting](#8.%20Type%20Casting)
-- [Quick Reference Summary](#Quick%20Reference%20Summary)
-- [I. Safety-First Design & Logic Protections](#I.%20Safety-First%20Design%20&%20Logic%20Protections)
-- [II. Overflow & Underflow Operators](#II.%20Overflow%20&%20Underflow%20Operators)
-- [III. Comparison & Identity Operators](#III.%20Comparison%20&%20Identity%20Operators)
-- [IV. Optional Handling & Memory Safety](#IV.%20Optional%20Handling%20&%20Memory%20Safety)
-- [V. Operator Overloading & Custom Types](#V.%20Operator%20Overloading%20&%20Custom%20Types)
-- [VI. Bitwise & Logical Operations](#VI.%20Bitwise%20&%20Logical%20Operations)
-- [Summary Checklist for Secure Code Review](#Summary%20Checklist%20for%20Secure%20Code%20Review)
-- [I. Access Control: The Principle of Least Privilege](#I.%20Access%20Control:%20The%20Principle%20of%20Least%20Privilege)
-- [II. Class Architecture & Lifecycle](#II.%20Class%20Architecture%20&%20Lifecycle)
-- [III. Memory Safety: References & Modifiers](#III.%20Memory%20Safety:%20References%20&%20Modifiers)
-- [IV. Safe Data Handling: Optionals & Literals](#IV.%20Safe%20Data%20Handling:%20Optionals%20&%20Literals)
-- [V. Preprocessor & Build Configurations](#V.%20Preprocessor%20&%20Build%20Configurations)
-- [VI. Collection Access: Arrays & Dictionaries](#VI.%20Collection%20Access:%20Arrays%20&%20Dictionaries)
-- [I. Function Declaration & Static Analysis](#I.%20Function%20Declaration%20&%20Static%20Analysis)
-- [II. Parameter Handling & Pointer Safety](#II.%20Parameter%20Handling%20&%20Pointer%20Safety)
-- [III. Property Observers: Automated Security Triggers](#III.%20Property%20Observers:%20Automated%20Security%20Triggers)
-- [IV. Computed Properties: Getters & Setters](#IV.%20Computed%20Properties:%20Getters%20&%20Setters)
-- [V. Access Levels & Scope Management](#V.%20Access%20Levels%20&%20Scope%20Management)
-- [VI. Constant (`let`) vs. Variable (`var`)](#VI.%20Constant%20(`let`)%20vs.%20Variable%20(`var`))
-- [I. Naming Conventions & Code Auditability](#I.%20Naming%20Conventions%20&%20Code%20Auditability)
-- [II. Closures: Functional Sinks and Callbacks](#II.%20Closures:%20Functional%20Sinks%20and%20Callbacks)
-- [III. Value Capturing & Contextual Persistence](#III.%20Value%20Capturing%20&%20Contextual%20Persistence)
-- [IV. Memory Management: Avoiding Retain Cycles](#IV.%20Memory%20Management:%20Avoiding%20Retain%20Cycles)
-- [V. Summary for the Analyst](#V.%20Summary%20for%20the%20Analyst)
-- [I. Conditional Logic & Truthiness](#I.%20Conditional%20Logic%20&%20Truthiness)
-- [II. The Nil Coalescing Operator (`??`)](#II.%20The%20Nil%20Coalescing%20Operator%20(`??`))
-- [III. Advanced Iteration: For-In & Ranges](#III.%20Advanced%20Iteration:%20For-In%20&%20Ranges)
-- [IV. Safety-Enhanced Switch Statements](#IV.%20Safety-Enhanced%20Switch%20Statements)
-- [V. Loop Stability: While & Repeat-While](#V.%20Loop%20Stability:%20While%20&%20Repeat-While)
-- [VI. Exit Strategies: Return vs. Break](#VI.%20Exit%20Strategies:%20Return%20vs.%20Break)
-- [Summary Checklist for Analysts](#Summary%20Checklist%20for%20Analysts)
+- [[#Comments|Comments]]
+- [[#1. Comment Syntax|1. Comment Syntax]]
+- [[#2. MARK : Code Organization|2. MARK : Code Organization]]
+- [[#3. FIXME — Broken Code Reminders|3. FIXME — Broken Code Reminders]]
+- [[#4. TODO — Incomplete Code Reminders|4. TODO — Incomplete Code Reminders]]
+- [[#Quick Reference Summary|Quick Reference Summary]]
+- [[#Swift Data Types & Type Casting|Swift Data Types & Type Casting]]
+- [[32-bit vs 64-bit)](#1. Data Type Sizing (32-bit vs 64-bit|1. Data Type Sizing (32-bit vs 64-bit)]])
+- [[#2. C Primitives → Swift Aliases|2. C Primitives → Swift Aliases]]
+- [[#3. Integers|3. Integers]]
+- [[#4. Floating Point|4. Floating Point]]
+- [[#5. Boolean|5. Boolean]]
+- [[#6. Primitives|6. Primitives]]
+- [[#7. Enums & Bitmasks|7. Enums & Bitmasks]]
+- [[#8. Type Casting|8. Type Casting]]
+- [[#Quick Reference Summary|Quick Reference Summary]]
+- [[#I. Safety-First Design & Logic Protections|I. Safety-First Design & Logic Protections]]
+- [[#II. Overflow & Underflow Operators|II. Overflow & Underflow Operators]]
+- [[#III. Comparison & Identity Operators|III. Comparison & Identity Operators]]
+- [[#IV. Optional Handling & Memory Safety|IV. Optional Handling & Memory Safety]]
+- [[#V. Operator Overloading & Custom Types|V. Operator Overloading & Custom Types]]
+- [[#VI. Bitwise & Logical Operations|VI. Bitwise & Logical Operations]]
+- [[#Summary Checklist for Secure Code Review|Summary Checklist for Secure Code Review]]
+- [[#I. Access Control: The Principle of Least Privilege|I. Access Control: The Principle of Least Privilege]]
+- [[#II. Class Architecture & Lifecycle|II. Class Architecture & Lifecycle]]
+- [[#III. Memory Safety: References & Modifiers|III. Memory Safety: References & Modifiers]]
+- [[#IV. Safe Data Handling: Optionals & Literals|IV. Safe Data Handling: Optionals & Literals]]
+- [[#V. Preprocessor & Build Configurations|V. Preprocessor & Build Configurations]]
+- [[#VI. Collection Access: Arrays & Dictionaries|VI. Collection Access: Arrays & Dictionaries]]
+- [[#I. Function Declaration & Static Analysis|I. Function Declaration & Static Analysis]]
+- [[#II. Parameter Handling & Pointer Safety|II. Parameter Handling & Pointer Safety]]
+- [[#III. Property Observers: Automated Security Triggers|III. Property Observers: Automated Security Triggers]]
+- [[#IV. Computed Properties: Getters & Setters|IV. Computed Properties: Getters & Setters]]
+- [[#V. Access Levels & Scope Management|V. Access Levels & Scope Management]]
+- [[`let`) vs. Variable (`var`)](#VI. Constant (`let`|VI. Constant (`let`) vs. Variable (`var`)]]%20vs.%20Variable%20(`var`))
+- [[#I. Naming Conventions & Code Auditability|I. Naming Conventions & Code Auditability]]
+- [[#II. Closures: Functional Sinks and Callbacks|II. Closures: Functional Sinks and Callbacks]]
+- [[#III. Value Capturing & Contextual Persistence|III. Value Capturing & Contextual Persistence]]
+- [[#IV. Memory Management: Avoiding Retain Cycles|IV. Memory Management: Avoiding Retain Cycles]]
+- [[#V. Summary for the Analyst|V. Summary for the Analyst]]
+- [[#I. Conditional Logic & Truthiness|I. Conditional Logic & Truthiness]]
+- [[`??`)](#II. The Nil Coalescing Operator (`??`|II. The Nil Coalescing Operator (`??`)]])
+- [[#III. Advanced Iteration: For-In & Ranges|III. Advanced Iteration: For-In & Ranges]]
+- [[#IV. Safety-Enhanced Switch Statements|IV. Safety-Enhanced Switch Statements]]
+- [[#V. Loop Stability: While & Repeat-While|V. Loop Stability: While & Repeat-While]]
+- [[#VI. Exit Strategies: Return vs. Break|VI. Exit Strategies: Return vs. Break]]
+- [[#Summary Checklist for Analysts|Summary Checklist for Analysts]]
 
 ### Comments
 
@@ -300,7 +300,7 @@ for movie in someObjects as! [Movie] {
 
 **Switch-based casting over `Any` arrays:**
 ```swift
-var things = [Any]()
+var things = [[|Any]]
 
 for thing in things {
     switch thing {

@@ -1,62 +1,62 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Operating%20Systems/Linux%20OS/Setup%20Guides/Postfix%20Incoming%20Mail%20Setup.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Operating Systems/Linux OS/Setup Guides/Postfix Incoming Mail Setup.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Purpose of This Setup](#Purpose%20of%20This%20Setup)
-- [Protocol Roles](#Protocol%20Roles)
-- [Typical Data Flow](#Typical%20Data%20Flow)
-- [Objective](#Objective)
-- [Required Ports](#Required%20Ports)
-- [Analyst Relevance](#Analyst%20Relevance)
-- [Install Postfix](#Install%20Postfix)
-	- [](#Install%20Postfix#Install%20Postfix#Configuration%20Choice|Configuration%20Choice)
-- [Install Mail Utilities](#Install%20Mail%20Utilities)
-- [Purpose](#Purpose)
-- [Commands](#Commands)
-- [Analyst Notes](#Analyst%20Notes)
-- [Test SMTP Connectivity](#Test%20SMTP%20Connectivity)
-- [If Connection Fails](#If%20Connection%20Fails)
-- [Send Manual Test Email](#Send%20Manual%20Test%20Email)
-- [Verify Mail Delivery](#Verify%20Mail%20Delivery)
-- [Why Maildir Matters](#Why%20Maildir%20Matters)
-- [Configure Maildir](#Configure%20Maildir)
-- [Test Maildir Access](#Test%20Maildir%20Access)
-- [Troubleshooting Maildir Error](#Troubleshooting%20Maildir%20Error)
-- [Install Courier IMAP](#Install%20Courier%20IMAP)
-- [Enable Authentication Service](#Enable%20Authentication%20Service)
-- [Analyst Relevance](#Analyst%20Relevance)
-- [Set Local Domains](#Set%20Local%20Domains)
-- [Define Trusted Networks](#Define%20Trusted%20Networks)
-- [Enable External Interfaces](#Enable%20External%20Interfaces)
-- [Configure Address Delimiter](#Configure%20Address%20Delimiter)
-- [Restart Postfix](#Restart%20Postfix)
-- [Connect to Server](#Connect%20to%20Server)
-- [Send External Test Email](#Send%20External%20Test%20Email)
-- [Verify Delivery](#Verify%20Delivery)
-- [Connect to IMAP](#Connect%20to%20IMAP)
-- [Login Test](#Login%20Test)
-- [SMTP Failures](#SMTP%20Failures)
-	- [](#SMTP%20Failures#SMTP%20Failures#Symptom|Symptom)
-- [Recipient Lookup Failure](#Recipient%20Lookup%20Failure)
-	- [](#Recipient%20Lookup%20Failure#Recipient%20Lookup%20Failure#Symptom|Symptom)
-- [IMAP Authentication Failure](#IMAP%20Authentication%20Failure)
-	- [](#IMAP%20Authentication%20Failure#IMAP%20Authentication%20Failure#Symptom|Symptom)
-- [Open Relay Prevention](#Open%20Relay%20Prevention)
-- [Mail Routing Risks](#Mail%20Routing%20Risks)
-- [Local Mail Handling Risks](#Local%20Mail%20Handling%20Risks)
-- [Key Log Events](#Key%20Log%20Events)
-- [SOC Notification Pipeline](#SOC%20Notification%20Pipeline)
-- [Malware Sandbox Alerts](#Malware%20Sandbox%20Alerts)
-- [Incident Ticket Automation](#Incident%20Ticket%20Automation)
-- [Package Installation](#Package%20Installation)
-- [User Setup](#User%20Setup)
-- [SMTP Testing](#SMTP%20Testing)
-- [Service Management](#Service%20Management)
-- [Maildir Configuration](#Maildir%20Configuration)
-- [Network Configuration](#Network%20Configuration)
+- [[#Purpose of This Setup|Purpose of This Setup]]
+- [[#Protocol Roles|Protocol Roles]]
+- [[#Typical Data Flow|Typical Data Flow]]
+- [[#Objective|Objective]]
+- [[#Required Ports|Required Ports]]
+- [[#Analyst Relevance|Analyst Relevance]]
+- [[#Install Postfix|Install Postfix]]
+	- [[#Install Postfix#Install Postfix#Install Postfix#Install Postfix#Configuration Choice|Configuration Choice]]
+- [[#Install Mail Utilities|Install Mail Utilities]]
+- [[#Purpose|Purpose]]
+- [[#Commands|Commands]]
+- [[#Analyst Notes|Analyst Notes]]
+- [[#Test SMTP Connectivity|Test SMTP Connectivity]]
+- [[#If Connection Fails|If Connection Fails]]
+- [[#Send Manual Test Email|Send Manual Test Email]]
+- [[#Verify Mail Delivery|Verify Mail Delivery]]
+- [[#Why Maildir Matters|Why Maildir Matters]]
+- [[#Configure Maildir|Configure Maildir]]
+- [[#Test Maildir Access|Test Maildir Access]]
+- [[#Troubleshooting Maildir Error|Troubleshooting Maildir Error]]
+- [[#Install Courier IMAP|Install Courier IMAP]]
+- [[#Enable Authentication Service|Enable Authentication Service]]
+- [[#Analyst Relevance|Analyst Relevance]]
+- [[#Set Local Domains|Set Local Domains]]
+- [[#Define Trusted Networks|Define Trusted Networks]]
+- [[#Enable External Interfaces|Enable External Interfaces]]
+- [[#Configure Address Delimiter|Configure Address Delimiter]]
+- [[#Restart Postfix|Restart Postfix]]
+- [[#Connect to Server|Connect to Server]]
+- [[#Send External Test Email|Send External Test Email]]
+- [[#Verify Delivery|Verify Delivery]]
+- [[#Connect to IMAP|Connect to IMAP]]
+- [[#Login Test|Login Test]]
+- [[#SMTP Failures|SMTP Failures]]
+	- [[#SMTP Failures#SMTP Failures#SMTP Failures#SMTP Failures#Symptom|Symptom]]
+- [[#Recipient Lookup Failure|Recipient Lookup Failure]]
+	- [[#Recipient Lookup Failure#Recipient Lookup Failure#Recipient Lookup Failure#Recipient Lookup Failure#Symptom|Symptom]]
+- [[#IMAP Authentication Failure|IMAP Authentication Failure]]
+	- [[#IMAP Authentication Failure#IMAP Authentication Failure#IMAP Authentication Failure#IMAP Authentication Failure#Symptom|Symptom]]
+- [[#Open Relay Prevention|Open Relay Prevention]]
+- [[#Mail Routing Risks|Mail Routing Risks]]
+- [[#Local Mail Handling Risks|Local Mail Handling Risks]]
+- [[#Key Log Events|Key Log Events]]
+- [[#SOC Notification Pipeline|SOC Notification Pipeline]]
+- [[#Malware Sandbox Alerts|Malware Sandbox Alerts]]
+- [[#Incident Ticket Automation|Incident Ticket Automation]]
+- [[#Package Installation|Package Installation]]
+- [[#User Setup|User Setup]]
+- [[#SMTP Testing|SMTP Testing]]
+- [[#Service Management|Service Management]]
+- [[#Maildir Configuration|Maildir Configuration]]
+- [[#Network Configuration|Network Configuration]]
 
 # Linux Email Infrastructure : Postfix Incoming Mail Setup
 

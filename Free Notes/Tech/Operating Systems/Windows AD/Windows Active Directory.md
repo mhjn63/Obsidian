@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Operating%20Systems/Windows%20AD/Windows%20Active%20Directory.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Operating Systems/Windows AD/Windows Active Directory.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 

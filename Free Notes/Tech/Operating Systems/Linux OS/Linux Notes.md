@@ -1,238 +1,238 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Operating%20Systems/Linux%20OS/Linux%20Notes.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Operating Systems/Linux OS/Linux Notes.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Description of Common Directories in Linux](#Description%20of%20Common%20Directories%20in%20Linux)
-- [System and Server Configurations](#System%20and%20Server%20Configurations)
-	- [Config Files Locations](#Config%20Files%20Locations)
-		- [Apache Configs](#Apache%20Configs)
-		- [Exim Configs](#Exim%20Configs)
-		- [MySQL Configs](#MySQL%20Configs)
-		- [httpd](#httpd)
-	- [Sys Info](#Sys%20Info)
-		- [Drivers Installed](#Drivers%20Installed)
-		- [System Type and Version](#System%20Type%20and%20Version)
-		- [Processor Info](#Processor%20Info)
-		- [RAM Usage](#RAM%20Usage)
-		- [Disk Usage](#Disk%20Usage)
-		- [File and Directory Sizes](#File%20and%20Directory%20Sizes)
-		- [Mounted file systems](#Mounted%20file%20systems)
-- [Security and Hardening](#Security%20and%20Hardening)
-	- [Firewalls](#Firewalls)
-		- [Netfilter](#Netfilter)
-		- [IPtables](#IPtables)
-			- [Basics](#Basics)
-			- [Basic Rules Commands](#Basic%20Rules%20Commands)
-			- [Rules Examples](#Rules%20Examples)
-		- [ufw firewall](#ufw%20firewall)
-- [File Processing](#File%20Processing)
-	- [WC command](#WC%20command)
-	- [less command](#less%20command)
-	- [Opening a dashed file](#Opening%20a%20dashed%20file)
-	- [Sorting and removing duplicates](#Sorting%20and%20removing%20duplicates)
-	- [Grep](#Grep)
-		- [Scenarios](#Scenarios)
-			- [Searching for a specific string](#Searching%20for%20a%20specific%20string)
-			- [Searching for a string case-sensitive](#Searching%20for%20a%20string%20case-sensitive)
-			- [searching to match only specific string](#searching%20to%20match%20only%20specific%20string)
-			- [searching for lines that don't contain a given word](#searching%20for%20lines%20that%20don't%20contain%20a%20given%20word)
-			- [saving the output to a text file](#saving%20the%20output%20to%20a%20text%20file)
-			- [Searching recursively](#Searching%20recursively)
-			- [counting the number of times a word is mentioned](#counting%20the%20number%20of%20times%20a%20word%20is%20mentioned)
-			- [grepping all lines that start with a specific pattern](#grepping%20all%20lines%20that%20start%20with%20a%20specific%20pattern)
-	- [The find command](#The%20find%20command)
-		- [Search by Name](#Search%20by%20Name)
-			- [find the file.txt in the current directory](#find%20the%20file.txt%20in%20the%20current%20directory)
-			- [Search all directories  and find directory named [config]](#Search%20all%20directories%20%20and%20find%20directory%20named%20%5Bconfig%5D)
-		- [Search by permissions](#Search%20by%20permissions)
-			- [search in all directories for files have '777' permissions](#search%20in%20all%20directories%20for%20files%20have%20'777'%20permissions)
-			- [find executable files](#find%20executable%20files)
-		- [Search by user](#Search%20by%20user)
-			- [find all files under admin in home directory](#find%20all%20files%20under%20admin%20in%20home%20directory)
-		- [Search by last modified/accessed time](#Search%20by%20last%20modified/accessed%20time)
-			- [find files modified in the last 10 days](#find%20files%20modified%20in%20the%20last%2010%20days)
-			- [find files accessed in the last 10 days](#find%20files%20accessed%20in%20the%20last%2010%20days)
-			- [find files accessed in the last 30 minutes](#find%20files%20accessed%20in%20the%20last%2030%20minutes)
-			- [find files accessed more than 30 minutes ago](#find%20files%20accessed%20more%20than%2030%20minutes%20ago)
-			- [find files modified in the last 24 hours](#find%20files%20modified%20in%20the%20last%2024%20hours)
-			- [search for a file modified with exact or after time given in yyyy-mm-dd](#search%20for%20a%20file%20modified%20with%20exact%20or%20after%20time%20given%20in%20yyyy-mm-dd)
-		- [Handling input and output](#Handling%20input%20and%20output)
-			- [Saving the search to an output file](#Saving%20the%20search%20to%20an%20output%20file)
-			- [Supperssing errors](#Supperssing%20errors)
-		- [Search by size](#Search%20by%20size)
-			- [find files with 50MB size](#find%20files%20with%2050MB%20size)
-			- [find files less than 50MB size](#find%20files%20less%20than%2050MB%20size)
-		- [Search by file type](#Search%20by%20file%20type)
-			- [find executable files](#find%20executable%20files)
-			- [Search for base64 content in php files](#Search%20for%20base64%20content%20in%20php%20files)
-	- [Cut Command](#Cut%20Command)
-	- [File Transfer with SSH](#File%20Transfer%20with%20SSH)
-	- [File Transfer with Netcat](#File%20Transfer%20with%20Netcat)
-	- [Working with Tar Command](#Working%20with%20Tar%20Command)
-		- [Compressing a directory](#Compressing%20a%20directory)
-		- [Compressing files](#Compressing%20files)
-		- [Appending files to a tarball](#Appending%20files%20to%20a%20tarball)
-		- [Listing files included in the tarball](#Listing%20files%20included%20in%20the%20tarball)
-		- [Extracting Files](#Extracting%20Files)
-		- [Extracting single file](#Extracting%20single%20file)
-	- [Zipping a file](#Zipping%20a%20file)
-	- [Creating hex dump of any file](#Creating%20hex%20dump%20of%20any%20file)
-	- [Compiling a shared object for MYSQL server with gcc: from C/C++ file to shared object.](#Compiling%20a%20shared%20object%20for%20MYSQL%20server%20with%20gcc:%20from%20C/C++%20file%20to%20shared%20object.)
-	- [Compiling a shared object for MariaDB server with gcc: from C/C++ file to shared object.](#Compiling%20a%20shared%20object%20for%20MariaDB%20server%20with%20gcc:%20from%20C/C++%20file%20to%20shared%20object.)
-	- [Replacing words in a file](#Replacing%20words%20in%20a%20file)
-	- [Cross Compile a file on  Linux](#Cross%20Compile%20a%20file%20on%20%20Linux)
-	- [Convert base64 zip file into its original form](#Convert%20base64%20zip%20file%20into%20its%20original%20form)
-	- [File Transfer with Netcat](#File%20Transfer%20with%20Netcat)
-	- [Counting words,lines and characters](#Counting%20words,lines%20and%20characters)
-	- [Sharing files with other machines](#Sharing%20files%20with%20other%20machines)
-		- [smbserver.py](#smbserver.py)
-	- [Deleting files with specific extension](#Deleting%20files%20with%20specific%20extension)
-- [Processes, services and Network Management](#Processes,%20services%20and%20Network%20Management)
-	- [Display running services](#Display%20running%20services)
-	- [Starting and stopping common services](#Starting%20and%20stopping%20common%20services)
-	- [Checking Services Status](#Checking%20Services%20Status)
-	- [Adding/Removing Service From Startup](#Adding/Removing%20Service%20From%20Startup)
-	- [Displaying running processes](#Displaying%20running%20processes)
-	- [Killing a process](#Killing%20a%20process)
-	- [Finding a PID of a process](#Finding%20a%20PID%20of%20a%20process)
-	- [Finding the opened files of a process](#Finding%20the%20opened%20files%20of%20a%20process)
-	- [Finding the process PID listening on specific port](#Finding%20the%20process%20PID%20listening%20on%20specific%20port)
-	- [Retrieving IP Info](#Retrieving%20IP%20Info)
-	- [DNS Mapped Addresses](#DNS%20Mapped%20Addresses)
-	- [Auditing Network Connections](#Auditing%20Network%20Connections)
-	- [Displaying the default routing table](#Displaying%20the%20default%20routing%20table)
-	- [Adding a static route in Linux](#Adding%20a%20static%20route%20in%20Linux)
-	- [Adding a DNS server manually to a machine](#Adding%20a%20DNS%20server%20manually%20to%20a%20machine)
-	- [Manually assigning an IP address and default route to a machine](#Manually%20assigning%20an%20IP%20address%20and%20default%20route%20to%20a%20machine)
-	- [Adding entry to the host file](#Adding%20entry%20to%20the%20host%20file)
-	- [Adding a static IP address permanently](#Adding%20a%20static%20IP%20address%20permanently)
-	- [Assigning a dynamic IP via DHCP](#Assigning%20a%20dynamic%20IP%20via%20DHCP)
-	- [Restarting all network interfaces](#Restarting%20all%20network%20interfaces)
-	- [Enable Network Manager](#Enable%20Network%20Manager)
-	- [Configure network services to use proxy](#Configure%20network%20services%20to%20use%20proxy)
-	- [Changing smb password](#Changing%20smb%20password)
-	- [Logging in to a RDP-enabled windows server given the credentials](#Logging%20in%20to%20a%20RDP-enabled%20windows%20server%20given%20the%20credentials)
-	- [Logging in via RDP with out supplementing domain name](#Logging%20in%20via%20RDP%20with%20out%20supplementing%20domain%20name)
-	- [Managing Services](#Managing%20Services)
-	- [Creating SMB Share](#Creating%20SMB%20Share)
-	- [Change MAC address](#Change%20MAC%20address)
-- [Package Management](#Package%20Management)
-	- [Installing a Package](#Installing%20a%20Package)
-	- [Installing kept-packages](#Installing%20kept-packages)
-	- [Removing a package](#Removing%20a%20package)
-	- [Removing libraries not used by packages](#Removing%20libraries%20not%20used%20by%20packages)
-	- [Updating available packages](#Updating%20available%20packages)
-	- [Upgrading the core system and available packages to latest version](#Upgrading%20the%20core%20system%20and%20available%20packages%20to%20latest%20version)
-	- [Source based Installs](#Source%20based%20Installs)
-- [Directory operations](#Directory%20operations)
-	- [Creating a directory and multiple sub-directories at once](#Creating%20a%20directory%20and%20multiple%20sub-directories%20at%20once)
-	- [Returning the full path of a file or a directory](#Returning%20the%20full%20path%20of%20a%20file%20or%20a%20directory)
-- [Web Operations](#Web%20Operations)
-	- [Installing Free SSL](#Installing%20Free%20SSL)
-	- [Starting python http server](#Starting%20python%20http%20server)
-	- [Tuning Apache2 for performance using mpm-prefork](#Tuning%20Apache2%20for%20performance%20using%20mpm-prefork)
-	- [Updating Apache](#Updating%20Apache)
-	- [Creating an HTTPS web server with python](#Creating%20an%20HTTPS%20web%20server%20with%20python)
-- [Disk Management](#Disk%20Management)
-	- [List the disks and their drives](#List%20the%20disks%20and%20their%20drives)
-	- [Formatting a Drive](#Formatting%20a%20Drive)
-	- [Mounting a drive](#Mounting%20a%20drive)
-	- [Resize Disk](#Resize%20Disk)
-		- [Check Disk Size](#Check%20Disk%20Size)
-		- [Check Partition](#Check%20Partition)
-		- [Grow Partition](#Grow%20Partition)
-		- [Resize File System](#Resize%20File%20System)
-		- [Resize another way](#Resize%20another%20way)
-		- [Mount the resized partition](#Mount%20the%20resized%20partition)
-	- [Shredding a file](#Shredding%20a%20file)
-	- [Copy an Entire Drive](#Copy%20an%20Entire%20Drive)
-	- [Disk Stats](#Disk%20Stats)
-- [Users Operations](#Users%20Operations)
-	- [Adding a user](#Adding%20a%20user)
-	- [Adding a user to the sudoers group](#Adding%20a%20user%20to%20the%20sudoers%20group)
-	- [Adding a user without shell or home directory](#Adding%20a%20user%20without%20shell%20or%20home%20directory)
-	- [Disable shell for existing user](#Disable%20shell%20for%20existing%20user)
-	- [Remove a user](#Remove%20a%20user)
-	- [Adding privileged user to /etc/passwd/](#Adding%20privileged%20user%20to%20/etc/passwd/)
-	- [Changing password](#Changing%20password)
-- [Cron Jobs](#Cron%20Jobs)
-	- [Viewing cron jobs](#Viewing%20cron%20jobs)
-	- [Viewing cron tab](#Viewing%20cron%20tab)
-	- [Adding cronjob to restart apache and the OS every day at midnight:](#Adding%20cronjob%20to%20restart%20apache%20and%20the%20OS%20every%20day%20at%20midnight:)
-- [Resource Management](#Resource%20Management)
-	- [Viewing real time consumption of resources in Linux](#Viewing%20real%20time%20consumption%20of%20resources%20in%20Linux)
-- [SSH operations](#SSH%20operations)
-	- [Logging in with private key](#Logging%20in%20with%20private%20key)
-	- [Logging in when .bashrc doesn't allow ssh](#Logging%20in%20when%20.bashrc%20doesn't%20allow%20ssh)
-	- [Preventing ssh from attempting to add the host key and to accept it](#Preventing%20ssh%20from%20attempting%20to%20add%20the%20host%20key%20and%20to%20accept%20it)
-	- [Generating SSH public and private key](#Generating%20SSH%20public%20and%20private%20key)
-	- [Establishing ssh connection from client to server without executing any commands and sending the connection to the background.](#Establishing%20ssh%20connection%20from%20client%20to%20server%20without%20executing%20any%20commands%20and%20sending%20the%20connection%20to%20the%20background.)
-	- [Copying or uploading a file from local system to another host](#Copying%20or%20uploading%20a%20file%20from%20local%20system%20to%20another%20host)
-	- [Copying or downloading a file from remote system to local host](#Copying%20or%20downloading%20a%20file%20from%20remote%20system%20to%20local%20host)
-	- [SSH Tunnels](#SSH%20Tunnels)
-		- [SSH Local port forwarding](#SSH%20Local%20port%20forwarding)
-			- [Scenario 1](#Scenario%201)
-		- [SSH Remote Port Forwarding](#SSH%20Remote%20Port%20Forwarding)
-			- [Scenario 1](#Scenario%201)
-		- [SSH Dynamic Port Forwarding](#SSH%20Dynamic%20Port%20Forwarding)
-- [Backup and Recovery](#Backup%20and%20Recovery)
-	- [Copy an entire disk to another](#Copy%20an%20entire%20disk%20to%20another)
-	- [backup a Partition](#backup%20a%20Partition)
-	- [create an image of a Hard Disk](#create%20an%20image%20of%20a%20Hard%20Disk)
-	- [restore using the Hard Disk Image](#restore%20using%20the%20Hard%20Disk%20Image)
-	- [File Recovery Using Test Disk](#File%20Recovery%20Using%20Test%20Disk)
-		- [Install the utility](#Install%20the%20utility)
-- [Logs](#Logs)
-	- [Auditing authentication logs](#Auditing%20authentication%20logs)
-	- [Auditing User login logs in Ubuntu](#Auditing%20User%20login%20logs%20in%20Ubuntu)
-	- [Auditing samba activity](#Auditing%20samba%20activity)
-	- [Auditing cron job logs](#Auditing%20cron%20job%20logs)
-	- [Auditing sudo logs](#Auditing%20sudo%20logs)
-	- [Filtering 404 logs in Apache](#Filtering%20404%20logs%20in%20Apache)
-	- [Auditing files requested in Apache](#Auditing%20files%20requested%20in%20Apache)
-	- [View root user command history](#View%20root%20user%20command%20history)
-	- [View last logins](#View%20last%20logins)
-- [Troubleshooting](#Troubleshooting)
-	- [Fixing No space left on device](#Fixing%20No%20space%20left%20on%20device)
-		- [solution 1](#solution%201)
-		- [solution 2](#solution%202)
-	- [Fixing black screen before login](#Fixing%20black%20screen%20before%20login)
-		- [solution 1](#solution%201)
-		- [solution 2](#solution%202)
-		- [solution 3](#solution%203)
-		- [solution 4](#solution%204)
-		- [solution 5](#solution%205)
-	- [Fixing Debian Stretch Sources Problem](#Fixing%20Debian%20Stretch%20Sources%20Problem)
-	- [Network Manager Not Starting](#Network%20Manager%20Not%20Starting)
-	- [Fixing System Failures](#Fixing%20System%20Failures)
-		- [Live Bootable Tools](#Live%20Bootable%20Tools)
-			- [SystemRescue](#SystemRescue)
-- [PHP operations](#PHP%20operations)
-	- [Upgrade php](#Upgrade%20php)
-	- [Install PhpMyAdmin](#Install%20PhpMyAdmin)
-	- [Installing Zlib Extension](#Installing%20Zlib%20Extension)
-	- [Upgrade to 8.0](#Upgrade%20to%208.0)
-	- [Installing mysql](#Installing%20mysql)
-	- [Installing intl extension](#Installing%20intl%20extension)
-- [Python operations](#Python%20operations)
-- [The Curl command](#The%20Curl%20command)
-	- [Downloading files](#Downloading%20files)
-	- [Performing uploads to a webserver](#Performing%20uploads%20to%20a%20webserver)
-		- [Authentication is required with username and password](#Authentication%20is%20required%20with%20username%20and%20password)
-		- [Authentication is required with a Cookie and CSRF Token](#Authentication%20is%20required%20with%20a%20Cookie%20and%20CSRF%20Token)
-	- [Performing POST requests](#Performing%20POST%20requests)
-	- [Changing user agent](#Changing%20user%20agent)
-- [Working with GIT Repos](#Working%20with%20GIT%20Repos)
-	- [Cloning a repo](#Cloning%20a%20repo)
-	- [Viewing history of commits](#Viewing%20history%20of%20commits)
-	- [Viewing the repo branches](#Viewing%20the%20repo%20branches)
-	- [choosing a branch](#choosing%20a%20branch)
-	- [Viewing tagged history items](#Viewing%20tagged%20history%20items)
-	- [pushing files to a repo](#pushing%20files%20to%20a%20repo)
-- [Useful One-Liners](#Useful%20One-Liners)
+- [[#Description of Common Directories in Linux|Description of Common Directories in Linux]]
+- [[#System and Server Configurations|System and Server Configurations]]
+	- [[#Config Files Locations|Config Files Locations]]
+		- [[#Apache Configs|Apache Configs]]
+		- [[#Exim Configs|Exim Configs]]
+		- [[#MySQL Configs|MySQL Configs]]
+		- [[#httpd|httpd]]
+	- [[#Sys Info|Sys Info]]
+		- [[#Drivers Installed|Drivers Installed]]
+		- [[#System Type and Version|System Type and Version]]
+		- [[#Processor Info|Processor Info]]
+		- [[#RAM Usage|RAM Usage]]
+		- [[#Disk Usage|Disk Usage]]
+		- [[#File and Directory Sizes|File and Directory Sizes]]
+		- [[#Mounted file systems|Mounted file systems]]
+- [[#Security and Hardening|Security and Hardening]]
+	- [[#Firewalls|Firewalls]]
+		- [[#Netfilter|Netfilter]]
+		- [[#IPtables|IPtables]]
+			- [[#Basics|Basics]]
+			- [[#Basic Rules Commands|Basic Rules Commands]]
+			- [[#Rules Examples|Rules Examples]]
+		- [[#ufw firewall|ufw firewall]]
+- [[#File Processing|File Processing]]
+	- [[#WC command|WC command]]
+	- [[#less command|less command]]
+	- [[#Opening a dashed file|Opening a dashed file]]
+	- [[#Sorting and removing duplicates|Sorting and removing duplicates]]
+	- [[#Grep|Grep]]
+		- [[#Scenarios|Scenarios]]
+			- [[#Searching for a specific string|Searching for a specific string]]
+			- [[#Searching for a string case-sensitive|Searching for a string case-sensitive]]
+			- [[#searching to match only specific string|searching to match only specific string]]
+			- [[#searching for lines that don't contain a given word|searching for lines that don't contain a given word]]
+			- [[#saving the output to a text file|saving the output to a text file]]
+			- [[#Searching recursively|Searching recursively]]
+			- [[#counting the number of times a word is mentioned|counting the number of times a word is mentioned]]
+			- [[#grepping all lines that start with a specific pattern|grepping all lines that start with a specific pattern]]
+	- [[#The find command|The find command]]
+		- [[#Search by Name|Search by Name]]
+			- [[#find the file.txt in the current directory|find the file.txt in the current directory]]
+			- [[#Search all directories  and find directory named [config]|Search all directories  and find directory named [config]]
+		- [[#Search by permissions|Search by permissions]]
+			- [[#search in all directories for files have '777' permissions|search in all directories for files have '777' permissions]]
+			- [[#find executable files|find executable files]]
+		- [[#Search by user|Search by user]]
+			- [[#find all files under admin in home directory|find all files under admin in home directory]]
+		- [[#Search by last modified/accessed time|Search by last modified/accessed time]]
+			- [[#find files modified in the last 10 days|find files modified in the last 10 days]]
+			- [[#find files accessed in the last 10 days|find files accessed in the last 10 days]]
+			- [[#find files accessed in the last 30 minutes|find files accessed in the last 30 minutes]]
+			- [[#find files accessed more than 30 minutes ago|find files accessed more than 30 minutes ago]]
+			- [[#find files modified in the last 24 hours|find files modified in the last 24 hours]]
+			- [[#search for a file modified with exact or after time given in yyyy-mm-dd|search for a file modified with exact or after time given in yyyy-mm-dd]]
+		- [[#Handling input and output|Handling input and output]]
+			- [[#Saving the search to an output file|Saving the search to an output file]]
+			- [[#Supperssing errors|Supperssing errors]]
+		- [[#Search by size|Search by size]]
+			- [[#find files with 50MB size|find files with 50MB size]]
+			- [[#find files less than 50MB size|find files less than 50MB size]]
+		- [[#Search by file type|Search by file type]]
+			- [[#find executable files|find executable files]]
+			- [[#Search for base64 content in php files|Search for base64 content in php files]]
+	- [[#Cut Command|Cut Command]]
+	- [[#File Transfer with SSH|File Transfer with SSH]]
+	- [[#File Transfer with Netcat|File Transfer with Netcat]]
+	- [[#Working with Tar Command|Working with Tar Command]]
+		- [[#Compressing a directory|Compressing a directory]]
+		- [[#Compressing files|Compressing files]]
+		- [[#Appending files to a tarball|Appending files to a tarball]]
+		- [[#Listing files included in the tarball|Listing files included in the tarball]]
+		- [[#Extracting Files|Extracting Files]]
+		- [[#Extracting single file|Extracting single file]]
+	- [[#Zipping a file|Zipping a file]]
+	- [[#Creating hex dump of any file|Creating hex dump of any file]]
+	- [[#Compiling a shared object for MYSQL server with gcc: from C/C++ file to shared object.|Compiling a shared object for MYSQL server with gcc: from C/C++ file to shared object.]]
+	- [[#Compiling a shared object for MariaDB server with gcc: from C/C++ file to shared object.|Compiling a shared object for MariaDB server with gcc: from C/C++ file to shared object.]]
+	- [[#Replacing words in a file|Replacing words in a file]]
+	- [[#Cross Compile a file on  Linux|Cross Compile a file on  Linux]]
+	- [[#Convert base64 zip file into its original form|Convert base64 zip file into its original form]]
+	- [[#File Transfer with Netcat|File Transfer with Netcat]]
+	- [[#Counting words,lines and characters|Counting words,lines and characters]]
+	- [[#Sharing files with other machines|Sharing files with other machines]]
+		- [[#smbserver.py|smbserver.py]]
+	- [[#Deleting files with specific extension|Deleting files with specific extension]]
+- [[#Processes, services and Network Management|Processes, services and Network Management]]
+	- [[#Display running services|Display running services]]
+	- [[#Starting and stopping common services|Starting and stopping common services]]
+	- [[#Checking Services Status|Checking Services Status]]
+	- [[#Adding/Removing Service From Startup|Adding/Removing Service From Startup]]
+	- [[#Displaying running processes|Displaying running processes]]
+	- [[#Killing a process|Killing a process]]
+	- [[#Finding a PID of a process|Finding a PID of a process]]
+	- [[#Finding the opened files of a process|Finding the opened files of a process]]
+	- [[#Finding the process PID listening on specific port|Finding the process PID listening on specific port]]
+	- [[#Retrieving IP Info|Retrieving IP Info]]
+	- [[#DNS Mapped Addresses|DNS Mapped Addresses]]
+	- [[#Auditing Network Connections|Auditing Network Connections]]
+	- [[#Displaying the default routing table|Displaying the default routing table]]
+	- [[#Adding a static route in Linux|Adding a static route in Linux]]
+	- [[#Adding a DNS server manually to a machine|Adding a DNS server manually to a machine]]
+	- [[#Manually assigning an IP address and default route to a machine|Manually assigning an IP address and default route to a machine]]
+	- [[#Adding entry to the host file|Adding entry to the host file]]
+	- [[#Adding a static IP address permanently|Adding a static IP address permanently]]
+	- [[#Assigning a dynamic IP via DHCP|Assigning a dynamic IP via DHCP]]
+	- [[#Restarting all network interfaces|Restarting all network interfaces]]
+	- [[#Enable Network Manager|Enable Network Manager]]
+	- [[#Configure network services to use proxy|Configure network services to use proxy]]
+	- [[#Changing smb password|Changing smb password]]
+	- [[#Logging in to a RDP-enabled windows server given the credentials|Logging in to a RDP-enabled windows server given the credentials]]
+	- [[#Logging in via RDP with out supplementing domain name|Logging in via RDP with out supplementing domain name]]
+	- [[#Managing Services|Managing Services]]
+	- [[#Creating SMB Share|Creating SMB Share]]
+	- [[#Change MAC address|Change MAC address]]
+- [[#Package Management|Package Management]]
+	- [[#Installing a Package|Installing a Package]]
+	- [[#Installing kept-packages|Installing kept-packages]]
+	- [[#Removing a package|Removing a package]]
+	- [[#Removing libraries not used by packages|Removing libraries not used by packages]]
+	- [[#Updating available packages|Updating available packages]]
+	- [[#Upgrading the core system and available packages to latest version|Upgrading the core system and available packages to latest version]]
+	- [[#Source based Installs|Source based Installs]]
+- [[#Directory operations|Directory operations]]
+	- [[#Creating a directory and multiple sub-directories at once|Creating a directory and multiple sub-directories at once]]
+	- [[#Returning the full path of a file or a directory|Returning the full path of a file or a directory]]
+- [[#Web Operations|Web Operations]]
+	- [[#Installing Free SSL|Installing Free SSL]]
+	- [[#Starting python http server|Starting python http server]]
+	- [[#Tuning Apache2 for performance using mpm-prefork|Tuning Apache2 for performance using mpm-prefork]]
+	- [[#Updating Apache|Updating Apache]]
+	- [[#Creating an HTTPS web server with python|Creating an HTTPS web server with python]]
+- [[#Disk Management|Disk Management]]
+	- [[#List the disks and their drives|List the disks and their drives]]
+	- [[#Formatting a Drive|Formatting a Drive]]
+	- [[#Mounting a drive|Mounting a drive]]
+	- [[#Resize Disk|Resize Disk]]
+		- [[#Check Disk Size|Check Disk Size]]
+		- [[#Check Partition|Check Partition]]
+		- [[#Grow Partition|Grow Partition]]
+		- [[#Resize File System|Resize File System]]
+		- [[#Resize another way|Resize another way]]
+		- [[#Mount the resized partition|Mount the resized partition]]
+	- [[#Shredding a file|Shredding a file]]
+	- [[#Copy an Entire Drive|Copy an Entire Drive]]
+	- [[#Disk Stats|Disk Stats]]
+- [[#Users Operations|Users Operations]]
+	- [[#Adding a user|Adding a user]]
+	- [[#Adding a user to the sudoers group|Adding a user to the sudoers group]]
+	- [[#Adding a user without shell or home directory|Adding a user without shell or home directory]]
+	- [[#Disable shell for existing user|Disable shell for existing user]]
+	- [[#Remove a user|Remove a user]]
+	- [[#Adding privileged user to /etc/passwd/|Adding privileged user to /etc/passwd/]]
+	- [[#Changing password|Changing password]]
+- [[#Cron Jobs|Cron Jobs]]
+	- [[#Viewing cron jobs|Viewing cron jobs]]
+	- [[#Viewing cron tab|Viewing cron tab]]
+	- [[#Adding cronjob to restart apache and the OS every day at midnight:|Adding cronjob to restart apache and the OS every day at midnight:]]
+- [[#Resource Management|Resource Management]]
+	- [[#Viewing real time consumption of resources in Linux|Viewing real time consumption of resources in Linux]]
+- [[#SSH operations|SSH operations]]
+	- [[#Logging in with private key|Logging in with private key]]
+	- [[#Logging in when .bashrc doesn't allow ssh|Logging in when .bashrc doesn't allow ssh]]
+	- [[#Preventing ssh from attempting to add the host key and to accept it|Preventing ssh from attempting to add the host key and to accept it]]
+	- [[#Generating SSH public and private key|Generating SSH public and private key]]
+	- [[#Establishing ssh connection from client to server without executing any commands and sending the connection to the background.|Establishing ssh connection from client to server without executing any commands and sending the connection to the background.]]
+	- [[#Copying or uploading a file from local system to another host|Copying or uploading a file from local system to another host]]
+	- [[#Copying or downloading a file from remote system to local host|Copying or downloading a file from remote system to local host]]
+	- [[#SSH Tunnels|SSH Tunnels]]
+		- [[#SSH Local port forwarding|SSH Local port forwarding]]
+			- [[#Scenario 1|Scenario 1]]
+		- [[#SSH Remote Port Forwarding|SSH Remote Port Forwarding]]
+			- [[#Scenario 1|Scenario 1]]
+		- [[#SSH Dynamic Port Forwarding|SSH Dynamic Port Forwarding]]
+- [[#Backup and Recovery|Backup and Recovery]]
+	- [[#Copy an entire disk to another|Copy an entire disk to another]]
+	- [[#backup a Partition|backup a Partition]]
+	- [[#create an image of a Hard Disk|create an image of a Hard Disk]]
+	- [[#restore using the Hard Disk Image|restore using the Hard Disk Image]]
+	- [[#File Recovery Using Test Disk|File Recovery Using Test Disk]]
+		- [[#Install the utility|Install the utility]]
+- [[#Logs|Logs]]
+	- [[#Auditing authentication logs|Auditing authentication logs]]
+	- [[#Auditing User login logs in Ubuntu|Auditing User login logs in Ubuntu]]
+	- [[#Auditing samba activity|Auditing samba activity]]
+	- [[#Auditing cron job logs|Auditing cron job logs]]
+	- [[#Auditing sudo logs|Auditing sudo logs]]
+	- [[#Filtering 404 logs in Apache|Filtering 404 logs in Apache]]
+	- [[#Auditing files requested in Apache|Auditing files requested in Apache]]
+	- [[#View root user command history|View root user command history]]
+	- [[#View last logins|View last logins]]
+- [[#Troubleshooting|Troubleshooting]]
+	- [[#Fixing No space left on device|Fixing No space left on device]]
+		- [[#solution 1|solution 1]]
+		- [[#solution 2|solution 2]]
+	- [[#Fixing black screen before login|Fixing black screen before login]]
+		- [[#solution 1|solution 1]]
+		- [[#solution 2|solution 2]]
+		- [[#solution 3|solution 3]]
+		- [[#solution 4|solution 4]]
+		- [[#solution 5|solution 5]]
+	- [[#Fixing Debian Stretch Sources Problem|Fixing Debian Stretch Sources Problem]]
+	- [[#Network Manager Not Starting|Network Manager Not Starting]]
+	- [[#Fixing System Failures|Fixing System Failures]]
+		- [[#Live Bootable Tools|Live Bootable Tools]]
+			- [[#SystemRescue|SystemRescue]]
+- [[#PHP operations|PHP operations]]
+	- [[#Upgrade php|Upgrade php]]
+	- [[#Install PhpMyAdmin|Install PhpMyAdmin]]
+	- [[#Installing Zlib Extension|Installing Zlib Extension]]
+	- [[#Upgrade to 8.0|Upgrade to 8.0]]
+	- [[#Installing mysql|Installing mysql]]
+	- [[#Installing intl extension|Installing intl extension]]
+- [[#Python operations|Python operations]]
+- [[#The Curl command|The Curl command]]
+	- [[#Downloading files|Downloading files]]
+	- [[#Performing uploads to a webserver|Performing uploads to a webserver]]
+		- [[#Authentication is required with username and password|Authentication is required with username and password]]
+		- [[#Authentication is required with a Cookie and CSRF Token|Authentication is required with a Cookie and CSRF Token]]
+	- [[#Performing POST requests|Performing POST requests]]
+	- [[#Changing user agent|Changing user agent]]
+- [[#Working with GIT Repos|Working with GIT Repos]]
+	- [[#Cloning a repo|Cloning a repo]]
+	- [[#Viewing history of commits|Viewing history of commits]]
+	- [[#Viewing the repo branches|Viewing the repo branches]]
+	- [[#choosing a branch|choosing a branch]]
+	- [[#Viewing tagged history items|Viewing tagged history items]]
+	- [[#pushing files to a repo|pushing files to a repo]]
+- [[#Useful One-Liners|Useful One-Liners]]
 
 ## Description of Common Directories in Linux
 **Root Directory**

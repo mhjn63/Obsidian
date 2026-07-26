@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Cyber%20Security%20101/Cyber%20Security%20Notes%20101.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Cyber Security 101/Cyber Security Notes 101.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -7,109 +7,109 @@
 You can also get this in PDF format for [FREE](https://buymeacoffee.com/notescatalog/e/290985)
 
 **Table of Contents**
-- [Introduction](#Introduction)
-- [Cyber Security Basics](#Cyber%20Security%20Basics)
-	- [CIA Triad](#CIA%20Triad)
-		- [Confidentiality](#Confidentiality)
-		- [Integrity](#Integrity)
-		- [Availability](#Availability)
-		- [DAD, Overprotection, Authenticity, Nonrepudiation, and AAA Services](#DAD,%20Overprotection,%20Authenticity,%20Nonrepudiation,%20and%20AAA%20Services)
-	- [Access Control](#Access%20Control)
-		- [Core Components of Access Control](#Core%20Components%20of%20Access%20Control)
-		- [Types of Access Control Models](#Types%20of%20Access%20Control%20Models)
-		- [Key Principles and Mechanisms](#Key%20Principles%20and%20Mechanisms)
-		- [Challenges Addressed by Access Control](#Challenges%20Addressed%20by%20Access%20Control)
-		- [Implications of Strong Access Control](#Implications%20of%20Strong%20Access%20Control)
-		- [Advantages of Robust Access Control](#Advantages%20of%20Robust%20Access%20Control)
-		- [Common Vulnerabilities & Exploits](#Common%20Vulnerabilities%20&%20Exploits)
-		- [Defense Mechanisms Against Unauthorized Access](#Defense%20Mechanisms%20Against%20Unauthorized%20Access)
-		- [Popular Access Control Tools & Solutions](#Popular%20Access%20Control%20Tools%20&%20Solutions)
-		- [Due Diligence & Due Care](#Due%20Diligence%20&%20Due%20Care)
-		- [Defense in Depth](#Defense%20in%20Depth)
-	- [Authentication Mechanisms](#Authentication%20Mechanisms)
-		- [How It Works](#How%20It%20Works)
-	- [Authentication Protocols](#Authentication%20Protocols)
-	- [Authorization Models](#Authorization%20Models)
-	- [Understanding What is A Security Policy](#Understanding%20What%20is%20A%20Security%20Policy)
-	- [Understanding Security Standards, Baselines, Guidelines and Procedures](#Understanding%20Security%20Standards,%20Baselines,%20Guidelines%20and%20Procedures)
-- [Security Controls](#Security%20Controls)
-	- [Types of Security Controls](#Types%20of%20Security%20Controls)
-	- [Applicable Types of Security Controls](#Applicable%20Types%20of%20Security%20Controls)
-	- [Critical Security Controls (CSCs)](#Critical%20Security%20Controls%20(CSCs))
-		- [Categories of Critical Security Controls](#Categories%20of%20Critical%20Security%20Controls)
-		- [Key Critical Security Controls and Exploitation Techniques](#Key%20Critical%20Security%20Controls%20and%20Exploitation%20Techniques)
-	- [Types of Data and Data Classifications](#Types%20of%20Data%20and%20Data%20Classifications)
-		- [Personally Identifiable Information](#Personally%20Identifiable%20Information)
-		- [Protected Health Information](#Protected%20Health%20Information)
-		- [Proprietary Data](#Proprietary%20Data)
-		- [Data Classifications](#Data%20Classifications)
-		- [Understanding Data States](#Understanding%20Data%20States)
-	- [Data Loss Prevention](#Data%20Loss%20Prevention)
-	- [Data Destruction](#Data%20Destruction)
-	- [Penetration Testing](#Penetration%20Testing)
-- [Social Engineering](#Social%20Engineering)
-	- [Premise](#Premise)
-	- [Social Engineering Principles](#Social%20Engineering%20Principles)
-	- [Social Engineering Techniques](#Social%20Engineering%20Techniques)
-- [Implementing Information Security Programs](#Implementing%20Information%20Security%20Programs)
-	- [Using Cybersecurity Frameworks](#Using%20Cybersecurity%20Frameworks)
-	- [Metrics to use to measure the success of the information security program](#Metrics%20to%20use%20to%20measure%20the%20success%20of%20the%20information%20security%20program)
-- [Implementing an Incident Response Program](#Implementing%20an%20Incident%20Response%20Program)
-	- [Important Factors and Elements](#Important%20Factors%20and%20Elements)
-- [Data Governance](#Data%20Governance)
-	- [Laws and Frameworks for Data Governance](#Laws%20and%20Frameworks%20for%20Data%20Governance)
-	- [Information Security Governance](#Information%20Security%20Governance)
-- [Risk Management](#Risk%20Management)
-	- [Definitions](#Definitions)
-	- [Risk Management Components](#Risk%20Management%20Components)
-	- [Risk Assessment Steps](#Risk%20Assessment%20Steps)
-	- [Risk Assessment Frameworks](#Risk%20Assessment%20Frameworks)
-		- [NIST SP 800-30](#NIST%C2%A0SP%20800-30)
-			- [Frame Risks](#Frame%20Risks)
-			- [Assess risk](#Assess%20risk)
-			- [Risk Analysis](#Risk%20Analysis)
-			- [Respond to risk](#Respond%20to%20risk)
-			- [Monitor risk](#Monitor%20risk)
-		- [Facilitated Risk Analysis Process (FRAP)](#Facilitated%20Risk%20Analysis%20Process%20(FRAP))
-		- [Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE)](#Operationally%20Critical%20Threat,%20Asset,%20and%20Vulnerability%20Evaluation%20(OCTAVE))
-		- [Failure Modes and Effect Analysis (FMEA)](#Failure%20Modes%20and%20Effect%20Analysis%20(FMEA))
-	- [Supply Chain Risk Management](#Supply%20Chain%20Risk%20Management)
-- [Vulnerability Management](#Vulnerability%20Management)
-	- [Definition](#Definition)
-	- [Vulnerability Scanning](#Vulnerability%20Scanning)
-	- [Vulnerability Remediation](#Vulnerability%20Remediation)
-	- [Vulnerability Classification](#Vulnerability%20Classification)
-	- [Vulnerability Management Life Cycle](#Vulnerability%20Management%20Life%20Cycle)
-	- [Vulnerability Management Frameworks](#Vulnerability%20Management%20Frameworks)
-	- [Relevant Regulatory Standards for Vulnerability Management](#Relevant%20Regulatory%20Standards%20for%20Vulnerability%20Management)
-		- [PCI-DSS](#PCI-DSS)
-		- [Federal Information Security Management Act (FISMA)](#Federal%20Information%20Security%20Management%20Act%20(FISMA))
-- [Business Continuity](#Business%20Continuity)
-- [Auditing](#Auditing)
-	- [What is Auditing](#What%20is%20Auditing)
-	- [Audit Management](#Audit%20Management)
-	- [Auditing Process Steps](#Auditing%20Process%20Steps)
-	- [Why Auditing is Required?](#Why%20Auditing%20is%20Required?)
-	- [Conducting an Audit Process](#Conducting%20an%20Audit%20Process)
-	- [Cybersecurity Auditing Frameworks](#Cybersecurity%20Auditing%20Frameworks)
-		- [COBIT (Control Objectives for Information and Related Technologies)](#COBIT%20(Control%20Objectives%20for%20Information%20and%20Related%20Technologies))
-		- [ISO/IEC 27001](#ISO/IEC%2027001)
-	- [IT Auditing Frameworks](#IT%20Auditing%20Frameworks)
-		- [ITIL (Information Technology Infrastructure Library)](#ITIL%20(Information%20Technology%20Infrastructure%20Library))
-- [Information Security Regulations](#Information%20Security%20Regulations)
-- [Information Security Frameworks](#Information%20Security%20Frameworks)
-	- [ISO27001](#ISO27001)
-	- [ISO/IEC 27017](#ISO/IEC%2027017)
-	- [ISO/IEC 27000](#ISO/IEC%2027000)
-	- [NIST SP 800-53](#NIST%20SP%20800-53)
-	- [Governance and Risk Compliance (GRC) framework](#Governance%20and%20Risk%20Compliance%20(GRC)%20framework)
-	- [Service Organization Control (SOC) 2](#Service%20Organization%20Control%20(SOC)%202)
-	- [Control Objectives for Information and Related Technologies (COBIT)](#Control%20Objectives%20for%20Information%20and%20Related%20Technologies%20(COBIT))
-	- [Sherwood Applied Business Security Architecture (SABSA)](#Sherwood%20Applied%20Business%20Security%20Architecture%20(SABSA))
-	- [Payment Card Industry Data Security Standard (PCI DSS)](#Payment%20Card%20Industry%20Data%20Security%20Standard%20(PCI%20DSS))
-	- [Federal Risk and Authorization Management Program (FedRAMP)](#Federal%20Risk%20and%20Authorization%20Management%20Program%20(FedRAMP))
-	- [Information Technology Infrastructure Library (ITIL)](#Information%20Technology%20Infrastructure%20Library%20(ITIL))
-- [Conclusion](#Conclusion)
+- [[#Introduction|Introduction]]
+- [[#Cyber Security Basics|Cyber Security Basics]]
+	- [[#CIA Triad|CIA Triad]]
+		- [[#Confidentiality|Confidentiality]]
+		- [[#Integrity|Integrity]]
+		- [[#Availability|Availability]]
+		- [[#DAD, Overprotection, Authenticity, Nonrepudiation, and AAA Services|DAD, Overprotection, Authenticity, Nonrepudiation, and AAA Services]]
+	- [[#Access Control|Access Control]]
+		- [[#Core Components of Access Control|Core Components of Access Control]]
+		- [[#Types of Access Control Models|Types of Access Control Models]]
+		- [[#Key Principles and Mechanisms|Key Principles and Mechanisms]]
+		- [[#Challenges Addressed by Access Control|Challenges Addressed by Access Control]]
+		- [[#Implications of Strong Access Control|Implications of Strong Access Control]]
+		- [[#Advantages of Robust Access Control|Advantages of Robust Access Control]]
+		- [[#Common Vulnerabilities & Exploits|Common Vulnerabilities & Exploits]]
+		- [[#Defense Mechanisms Against Unauthorized Access|Defense Mechanisms Against Unauthorized Access]]
+		- [[#Popular Access Control Tools & Solutions|Popular Access Control Tools & Solutions]]
+		- [[#Due Diligence & Due Care|Due Diligence & Due Care]]
+		- [[#Defense in Depth|Defense in Depth]]
+	- [[#Authentication Mechanisms|Authentication Mechanisms]]
+		- [[#How It Works|How It Works]]
+	- [[#Authentication Protocols|Authentication Protocols]]
+	- [[#Authorization Models|Authorization Models]]
+	- [[#Understanding What is A Security Policy|Understanding What is A Security Policy]]
+	- [[#Understanding Security Standards, Baselines, Guidelines and Procedures|Understanding Security Standards, Baselines, Guidelines and Procedures]]
+- [[#Security Controls|Security Controls]]
+	- [[#Types of Security Controls|Types of Security Controls]]
+	- [[#Applicable Types of Security Controls|Applicable Types of Security Controls]]
+	- [[CSCs)](#Critical Security Controls (CSCs|Critical Security Controls (CSCs)]])
+		- [[#Categories of Critical Security Controls|Categories of Critical Security Controls]]
+		- [[#Key Critical Security Controls and Exploitation Techniques|Key Critical Security Controls and Exploitation Techniques]]
+	- [[#Types of Data and Data Classifications|Types of Data and Data Classifications]]
+		- [[#Personally Identifiable Information|Personally Identifiable Information]]
+		- [[#Protected Health Information|Protected Health Information]]
+		- [[#Proprietary Data|Proprietary Data]]
+		- [[#Data Classifications|Data Classifications]]
+		- [[#Understanding Data States|Understanding Data States]]
+	- [[#Data Loss Prevention|Data Loss Prevention]]
+	- [[#Data Destruction|Data Destruction]]
+	- [[#Penetration Testing|Penetration Testing]]
+- [[#Social Engineering|Social Engineering]]
+	- [[#Premise|Premise]]
+	- [[#Social Engineering Principles|Social Engineering Principles]]
+	- [[#Social Engineering Techniques|Social Engineering Techniques]]
+- [[#Implementing Information Security Programs|Implementing Information Security Programs]]
+	- [[#Using Cybersecurity Frameworks|Using Cybersecurity Frameworks]]
+	- [[#Metrics to use to measure the success of the information security program|Metrics to use to measure the success of the information security program]]
+- [[#Implementing an Incident Response Program|Implementing an Incident Response Program]]
+	- [[#Important Factors and Elements|Important Factors and Elements]]
+- [[#Data Governance|Data Governance]]
+	- [[#Laws and Frameworks for Data Governance|Laws and Frameworks for Data Governance]]
+	- [[#Information Security Governance|Information Security Governance]]
+- [[#Risk Management|Risk Management]]
+	- [[#Definitions|Definitions]]
+	- [[#Risk Management Components|Risk Management Components]]
+	- [[#Risk Assessment Steps|Risk Assessment Steps]]
+	- [[#Risk Assessment Frameworks|Risk Assessment Frameworks]]
+		- [[#NIST SP 800-30|NIST SP 800-30]]
+			- [[#Frame Risks|Frame Risks]]
+			- [[#Assess risk|Assess risk]]
+			- [[#Risk Analysis|Risk Analysis]]
+			- [[#Respond to risk|Respond to risk]]
+			- [[#Monitor risk|Monitor risk]]
+		- [[FRAP)](#Facilitated Risk Analysis Process (FRAP|Facilitated Risk Analysis Process (FRAP)]])
+		- [[OCTAVE)](#Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE|Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE)]])
+		- [[FMEA)](#Failure Modes and Effect Analysis (FMEA|Failure Modes and Effect Analysis (FMEA)]])
+	- [[#Supply Chain Risk Management|Supply Chain Risk Management]]
+- [[#Vulnerability Management|Vulnerability Management]]
+	- [[#Definition|Definition]]
+	- [[#Vulnerability Scanning|Vulnerability Scanning]]
+	- [[#Vulnerability Remediation|Vulnerability Remediation]]
+	- [[#Vulnerability Classification|Vulnerability Classification]]
+	- [[#Vulnerability Management Life Cycle|Vulnerability Management Life Cycle]]
+	- [[#Vulnerability Management Frameworks|Vulnerability Management Frameworks]]
+	- [[#Relevant Regulatory Standards for Vulnerability Management|Relevant Regulatory Standards for Vulnerability Management]]
+		- [[#PCI-DSS|PCI-DSS]]
+		- [[FISMA)](#Federal Information Security Management Act (FISMA|Federal Information Security Management Act (FISMA)]])
+- [[#Business Continuity|Business Continuity]]
+- [[#Auditing|Auditing]]
+	- [[#What is Auditing|What is Auditing]]
+	- [[#Audit Management|Audit Management]]
+	- [[#Auditing Process Steps|Auditing Process Steps]]
+	- [[#Why Auditing is Required?|Why Auditing is Required?]]
+	- [[#Conducting an Audit Process|Conducting an Audit Process]]
+	- [[#Cybersecurity Auditing Frameworks|Cybersecurity Auditing Frameworks]]
+		- [[Control Objectives for Information and Related Technologies)](#COBIT (Control Objectives for Information and Related Technologies|COBIT (Control Objectives for Information and Related Technologies)]])
+		- [[#ISO/IEC 27001|ISO/IEC 27001]]
+	- [[#IT Auditing Frameworks|IT Auditing Frameworks]]
+		- [[Information Technology Infrastructure Library)](#ITIL (Information Technology Infrastructure Library|ITIL (Information Technology Infrastructure Library)]])
+- [[#Information Security Regulations|Information Security Regulations]]
+- [[#Information Security Frameworks|Information Security Frameworks]]
+	- [[#ISO27001|ISO27001]]
+	- [[#ISO/IEC 27017|ISO/IEC 27017]]
+	- [[#ISO/IEC 27000|ISO/IEC 27000]]
+	- [[#NIST SP 800-53|NIST SP 800-53]]
+	- [[GRC) framework](#Governance and Risk Compliance (GRC|Governance and Risk Compliance (GRC) framework]]%20framework)
+	- [[SOC) 2](#Service Organization Control (SOC|Service Organization Control (SOC) 2]]%202)
+	- [[COBIT)](#Control Objectives for Information and Related Technologies (COBIT|Control Objectives for Information and Related Technologies (COBIT)]])
+	- [[SABSA)](#Sherwood Applied Business Security Architecture (SABSA|Sherwood Applied Business Security Architecture (SABSA)]])
+	- [[PCI DSS)](#Payment Card Industry Data Security Standard (PCI DSS|Payment Card Industry Data Security Standard (PCI DSS)]])
+	- [[FedRAMP)](#Federal Risk and Authorization Management Program (FedRAMP|Federal Risk and Authorization Management Program (FedRAMP)]])
+	- [[ITIL)](#Information Technology Infrastructure Library (ITIL|Information Technology Infrastructure Library (ITIL)]])
+- [[#Conclusion|Conclusion]]
 
 ## Introduction
 This E-book is intended to introduce you to the world of Cyber security by providing brief introduction of key information security concepts & definitions for the purpose of equipping you with the basics if you wish to take this knowledge further and learn more advanced and more specialized knowledge in the domain of information security.
@@ -710,7 +710,7 @@ Risk can be analyzed using two approaches, namely
 - **Qualitative Risk Analysis**, where we assign ratings to risks. The ratings can be a qualitative adjective, such as high, medium, and low. Alternatively, it can be something symbolic, such as red, yellow, and green. 
 
 The below is the risk assessment matrix using in qualitative risk analysis
-![Cyber/Cyber Security Study Notes/Information Security 101/risk assessment framework.webp](Cyber/Cyber%20Security%20Study%20Notes/Information%20Security%20101/risk%20assessment%20framework.webp)
+![[Cyber/Cyber Security Study Notes/Information Security 101/risk assessment framework.webp]]
 
 - **Quantitative Risk Analysis**, where we assign monetary values and use that as a basis for decision-making. In conducting the quantitative risk analysis, we aim to calculate the values defined below 
 - `Single Loss Expectancy (SLE)` is the loss incurred due to the realization of a threat represented as a monetary value.
@@ -821,7 +821,7 @@ eight sections correspond to each of the eight CVSS metrics below:
 ■■ Availability: None (score: 0.00)
 ```
 **Mapping qualitative and numeric scores**
-![cvss](cvss.png)
+![[cvss.png]]
 **Base Metrics**
 These are constant factors of the vulnerability that do not change over time or across environments.
 

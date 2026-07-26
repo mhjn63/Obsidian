@@ -1,28 +1,28 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/AI/AI%20and%20LLMs.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/AI/AI and LLMs.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [What Exactly Is Generative AI?](#What%20Exactly%20Is%20Generative%20AI?)
-- [GenAI VERSUS VIRTUAL ASSISTANTS](#GenAI%20VERSUS%20VIRTUAL%20ASSISTANTS)
-- [Who’s who in the GenAI market](#Who’s%20who%20in%20the%20GenAI%20market)
-- [Prompt Engineering](#Prompt%20Engineering)
-	- [](#Prompt%20Engineering#Prompt%20Engineering#What%20Is%20a%20Prompt?|What%20Is%20a%20Prompt?)
-	- [](#Prompt%20Engineering#Prompt%20Engineering#What%20does%20prompt%20engineering%20entail|What%20does%20prompt%20engineering%20entail)
-		- [](#What%20does%20prompt%20engineering%20entail#What%20does%20prompt%20engineering%20entail#Core%20Elements%20of%20Prompt%20Engineering|Core%20Elements%20of%20Prompt%20Engineering)
-		- [](#What%20does%20prompt%20engineering%20entail#What%20does%20prompt%20engineering%20entail#Common%20Prompt%20Engineering%20Techniques|Common%20Prompt%20Engineering%20Techniques)
-- [How can AI potentially misinterpret communications](#How%20can%20AI%20potentially%20misinterpret%20communications)
-	- [](#How%20can%20AI%20potentially%20misinterpret%20communications#How%20can%20AI%20potentially%20misinterpret%20communications#Common%20Ways%20AI%20Misinterprets%20Communication|Common%20Ways%20AI%20Misinterprets%20Communication)
-	- [](#How%20can%20AI%20potentially%20misinterpret%20communications#How%20can%20AI%20potentially%20misinterpret%20communications#Why%20These%20Misinterpretations%20Matter|Why%20These%20Misinterpretations%20Matter)
-- [What is necessary to mitigate risks of using AI tools](#What%20is%20necessary%20to%20mitigate%20risks%20of%20using%20AI%20tools)
-	- [](#What%20is%20necessary%20to%20mitigate%20risks%20of%20using%20AI%20tools#What%20is%20necessary%20to%20mitigate%20risks%20of%20using%20AI%20tools#Core%20Strategies%20for%20Reducing%20AI%20Risks|Core%20Strategies%20for%20Reducing%20AI%20Risks)
-- [Iterative prompting](#Iterative%20prompting)
-- [Chaining Prompts](#Chaining%20Prompts)
-- [What Is Output Stitching?](#What%20Is%20Output%20Stitching?)
-	- [](#What%20Is%20Output%20Stitching?#What%20Is%20Output%20Stitching?#How%20to%20Use%20Output%20Stitching|How%20to%20Use%20Output%20Stitching)
-- [Ultimate AI Tools Cheatsheet (2026 Edition)](#Ultimate%20AI%20Tools%20Cheatsheet%20(2026%20Edition))
+- [[#What Exactly Is Generative AI?|What Exactly Is Generative AI?]]
+- [[#GenAI VERSUS VIRTUAL ASSISTANTS|GenAI VERSUS VIRTUAL ASSISTANTS]]
+- [[#Who’s who in the GenAI market|Who’s who in the GenAI market]]
+- [[#Prompt Engineering|Prompt Engineering]]
+	- [[#Prompt Engineering#Prompt Engineering#Prompt Engineering#Prompt Engineering#What Is a Prompt?|What Is a Prompt?]]
+	- [[#Prompt Engineering#Prompt Engineering#Prompt Engineering#Prompt Engineering#What does prompt engineering entail|What does prompt engineering entail]]
+		- [[#What does prompt engineering entail#What does prompt engineering entail#What does prompt engineering entail#What does prompt engineering entail#Core Elements of Prompt Engineering|Core Elements of Prompt Engineering]]
+		- [[#What does prompt engineering entail#What does prompt engineering entail#What does prompt engineering entail#What does prompt engineering entail#Common Prompt Engineering Techniques|Common Prompt Engineering Techniques]]
+- [[#How can AI potentially misinterpret communications|How can AI potentially misinterpret communications]]
+	- [[#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#Common Ways AI Misinterprets Communication|Common Ways AI Misinterprets Communication]]
+	- [[#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#How can AI potentially misinterpret communications#Why These Misinterpretations Matter|Why These Misinterpretations Matter]]
+- [[#What is necessary to mitigate risks of using AI tools|What is necessary to mitigate risks of using AI tools]]
+	- [[#What is necessary to mitigate risks of using AI tools#What is necessary to mitigate risks of using AI tools#What is necessary to mitigate risks of using AI tools#What is necessary to mitigate risks of using AI tools#Core Strategies for Reducing AI Risks|Core Strategies for Reducing AI Risks]]
+- [[#Iterative prompting|Iterative prompting]]
+- [[#Chaining Prompts|Chaining Prompts]]
+- [[#What Is Output Stitching?|What Is Output Stitching?]]
+	- [[#What Is Output Stitching?#What Is Output Stitching?#What Is Output Stitching?#What Is Output Stitching?#How to Use Output Stitching|How to Use Output Stitching]]
+- [[2026 Edition)](#Ultimate AI Tools Cheatsheet (2026 Edition|Ultimate AI Tools Cheatsheet (2026 Edition)]])
 
 ### What Exactly Is Generative AI?
 You can think of AI (short for artificial intelligence) as incredibly sophisticated

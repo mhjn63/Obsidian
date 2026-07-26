@@ -1,162 +1,162 @@
-> HTML Page: [Open HTML Page](HTML%20Pages/Free%20Notes/Tech/Hosting/Apache%20Tomcat.html)
+> HTML Page: [[HTML Pages/Free Notes/Tech/Hosting/Apache Tomcat.html|Open HTML Page]]
 
 [🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-- [Definition](#Definition)
-- [Key Purpose](#Key%20Purpose)
-- [Catalina — Servlet Container](#Catalina%20—%20Servlet%20Container)
-- [Coyote — HTTP Connector](#Coyote%20—%20HTTP%20Connector)
-- [Jasper — JSP Engine](#Jasper%20—%20JSP%20Engine)
-- [Base Directory Layout](#Base%20Directory%20Layout)
-- [Critical Directories](#Critical%20Directories)
-	- [](#Critical%20Directories#Critical%20Directories#bin/|bin/)
-	- [](#Critical%20Directories#Critical%20Directories#conf/|conf/)
-	- [](#Critical%20Directories#Critical%20Directories#logs/|logs/)
-	- [](#Critical%20Directories#Critical%20Directories#webapps/|webapps/)
-	- [](#Critical%20Directories#Critical%20Directories#work/|work/)
-	- [](#Critical%20Directories#Critical%20Directories#temp/|temp/)
-- [Default Ports](#Default%20Ports)
-- [Security Implications](#Security%20Implications)
-	- [](#Security%20Implications#Security%20Implications#Port%208009%20—%20AJP|Port%208009%20—%20AJP)
-	- [](#Security%20Implications#Security%20Implications#Port%208005%20—%20Shutdown%20Port|Port%208005%20—%20Shutdown%20Port)
-- [WAR File Deployment](#WAR%20File%20Deployment)
-- [Security Relevance](#Security%20Relevance)
-- [Start Server](#Start%20Server)
-- [Stop Server](#Stop%20Server)
-- [Using catalina.sh](#Using%20catalina.sh)
-- [Service-Based Management](#Service-Based%20Management)
-- [server.xml](#server.xml)
-- [web.xml](#web.xml)
-- [tomcat-users.xml](#tomcat-users.xml)
-- [context.xml](#context.xml)
-- [Manager Interface](#Manager%20Interface)
-- [Host Manager](#Host%20Manager)
-- [Log Directory](#Log%20Directory)
-- [Key Log Files](#Key%20Log%20Files)
-	- [](#Key%20Log%20Files#Key%20Log%20Files#catalina.out|catalina.out)
-	- [](#Key%20Log%20Files#Key%20Log%20Files#localhost.log|localhost.log)
-	- [](#Key%20Log%20Files#Key%20Log%20Files#access_log.*|access_log.*)
-- [Common Attack Vectors](#Common%20Attack%20Vectors)
-	- [](#Common%20Attack%20Vectors#Common%20Attack%20Vectors#Default%20Credentials|Default%20Credentials)
-	- [](#Common%20Attack%20Vectors#Common%20Attack%20Vectors#WAR%20Upload%20Exploitation|WAR%20Upload%20Exploitation)
-	- [](#Common%20Attack%20Vectors#Common%20Attack%20Vectors#AJP%20Exploitation|AJP%20Exploitation)
-	- [](#Common%20Attack%20Vectors#Common%20Attack%20Vectors#Directory%20Traversal|Directory%20Traversal)
-- [Suspicious Indicators](#Suspicious%20Indicators)
-- [Suspicious Files](#Suspicious%20Files)
-- [Suspicious Logs](#Suspicious%20Logs)
-- [File Integrity Monitoring](#File%20Integrity%20Monitoring)
-- [Log Monitoring](#Log%20Monitoring)
-- [Network Monitoring](#Network%20Monitoring)
-- [Disable Default Accounts](#Disable%20Default%20Accounts)
-- [Restrict Manager Access](#Restrict%20Manager%20Access)
-- [Disable Unused Ports](#Disable%20Unused%20Ports)
-- [Use HTTPS](#Use%20HTTPS)
-- [SOC Workflow Example](#SOC%20Workflow%20Example)
-- [Service Control](#Service%20Control)
-- [System Service Control](#System%20Service%20Control)
-- [Directory Navigation](#Directory%20Navigation)
-- [Definition](#Definition)
-- [Purpose](#Purpose)
-- [Security Relevance](#Security%20Relevance)
-- [What Is a Virtual Host](#What%20Is%20a%20Virtual%20Host)
-- [Default Virtual Host](#Default%20Virtual%20Host)
-- [Custom Virtual Hosts](#Custom%20Virtual%20Hosts)
-- [Authentication Roles](#Authentication%20Roles)
-- [Example User Configuration](#Example%20User%20Configuration)
-- [Security Risk](#Security%20Risk)
-- [URL Path](#URL%20Path)
-- [Typical Workflow](#Typical%20Workflow)
-- [Security Implications](#Security%20Implications)
-- [Purpose](#Purpose)
-- [Required Parameters](#Required%20Parameters)
-- [Host Directory Creation](#Host%20Directory%20Creation)
-- [Security Relevance](#Security%20Relevance)
-- [Purpose](#Purpose)
-- [Security Implication](#Security%20Implication)
-- [Purpose](#Purpose)
-- [Analyst Use Case](#Analyst%20Use%20Case)
-- [Security Relevance](#Security%20Relevance)
-- [Deployment Workflow](#Deployment%20Workflow)
-- [Deployment Location](#Deployment%20Location)
-- [Security Risk](#Security%20Risk)
-- [Suspicious Artifacts](#Suspicious%20Artifacts)
-- [Detection Indicator](#Detection%20Indicator)
-- [Suspicious Log Entries](#Suspicious%20Log%20Entries)
-- [Example Access Log Entry](#Example%20Access%20Log%20Entry)
-- [High-Risk Exposure](#High-Risk%20Exposure)
-- [Typical Attack Chain](#Typical%20Attack%20Chain)
-- [Attack Goals](#Attack%20Goals)
-- [File-Based Indicators](#File-Based%20Indicators)
-- [Authentication Indicators](#Authentication%20Indicators)
-- [Network Indicators](#Network%20Indicators)
-- [Directory Monitoring](#Directory%20Monitoring)
-- [Log Monitoring](#Log%20Monitoring)
-- [Credential Monitoring](#Credential%20Monitoring)
-- [Restrict Access to Host Manager](#Restrict%20Access%20to%20Host%20Manager)
-- [Use Strong Authentication](#Use%20Strong%20Authentication)
-- [Disable Unused Interfaces](#Disable%20Unused%20Interfaces)
-- [Apply Role-Based Access Control](#Apply%20Role-Based%20Access%20Control)
-- [Suspicious WAR Deployment](#Suspicious%20WAR%20Deployment)
-- [Unauthorized Host Creation](#Unauthorized%20Host%20Creation)
-- [Typical Red Team Workflow](#Typical%20Red%20Team%20Workflow)
-- [Directory Monitoring](#Directory%20Monitoring)
-- [Log Review](#Log%20Review)
-- [Configuration Review](#Configuration%20Review)
-- [Search for Suspicious Files](#Search%20for%20Suspicious%20Files)
-- [Apache Tomcat — Manager App How-To](#Apache%20Tomcat%20—%20Manager%20App%20How-To)
-	- [](#Apache%20Tomcat%20—%20Manager%20App%20How-To#Apache%20Tomcat%20—%20Manager%20App%20How-To#Core%20Capabilities|Core%20Capabilities)
-	- [](#Apache%20Tomcat%20—%20Manager%20App%20How-To#Apache%20Tomcat%20—%20Manager%20App%20How-To#Three%20Interfaces%20Available|Three%20Interfaces%20Available)
-	- [](#Apache%20Tomcat%20—%20Manager%20App%20How-To#Apache%20Tomcat%20—%20Manager%20App%20How-To#Adding%20Manager%20to%20a%20New%20Virtual%20Host|Adding%20Manager%20to%20a%20New%20Virtual%20Host)
-- [02 · Configuring Manager Application Access](#02%20·%20Configuring%20Manager%20Application%20Access)
-	- [](#02%20·%20Configuring%20Manager%20Application%20Access#02%20·%20Configuring%20Manager%20Application%20Access#Why%20Access%20is%20Disabled%20by%20Default|Why%20Access%20is%20Disabled%20by%20Default)
-	- [](#02%20·%20Configuring%20Manager%20Application%20Access#02%20·%20Configuring%20Manager%20Application%20Access#Available%20Manager%20Roles|Available%20Manager%20Roles)
-	- [](#02%20·%20Configuring%20Manager%20Application%20Access#02%20·%20Configuring%20Manager%20Application%20Access#Configuring%20Users%20—%20tomcat-users.xml|Configuring%20Users%20—%20tomcat-users.xml)
-	- [](#02%20·%20Configuring%20Manager%20Application%20Access#02%20·%20Configuring%20Manager%20Application%20Access#Configuring%20Users%20—%20Other%20Realm%20Types|Configuring%20Users%20—%20Other%20Realm%20Types)
-	- [](#02%20·%20Configuring%20Manager%20Application%20Access#02%20·%20Configuring%20Manager%20Application%20Access#Restricting%20Access%20by%20IP%20Address|Restricting%20Access%20by%20IP%20Address)
-- [03 · HTML User-Friendly Interface](#03%20·%20HTML%20User-Friendly%20Interface)
-- [04 · Text Interface — Supported Manager Commands](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Command%20URI%20Structure|Command%20URI%20Structure)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Authentication%20with%20curl|Authentication%20with%20curl)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Common%20Parameters|Common%20Parameters)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Deploy%20a%20New%20WAR%20Remotely%20(HTTP%20PUT)|Deploy%20a%20New%20WAR%20Remotely%20(HTTP%20PUT))
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)|Deploy%20from%20a%20Local%20Path%20(HTTP%20GET))
-		- [](#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20a%20Directory%20or%20WAR%20by%20URL|Deploy%20a%20Directory%20or%20WAR%20by%20URL)
-		- [](#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20from%20the%20Host%20appBase|Deploy%20from%20the%20Host%20appBase)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Deploy%20a%20Previously%20Tagged%20Webapp|Deploy%20a%20Previously%20Tagged%20Webapp)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Deploy%20via%20Context%20Configuration%20.xml%20File|Deploy%20via%20Context%20Configuration%20.xml%20File)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Deployment%20Notes%20&%20Error%20Reference|Deployment%20Notes%20&%20Error%20Reference)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#List%20Currently%20Deployed%20Applications|List%20Currently%20Deployed%20Applications)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Reload%20an%20Existing%20Application|Reload%20an%20Existing%20Application)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#List%20OS%20and%20JVM%20Properties|List%20OS%20and%20JVM%20Properties)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Session%20Statistics|Session%20Statistics)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Expire%20Sessions|Expire%20Sessions)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Start%20an%20Existing%20Application|Start%20an%20Existing%20Application)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Stop%20an%20Existing%20Application|Stop%20an%20Existing%20Application)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Undeploy%20an%20Existing%20Application|Undeploy%20an%20Existing%20Application)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Find%20Memory%20Leaks|Find%20Memory%20Leaks)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#SSL/TLS%20Diagnostics|SSL/TLS%20Diagnostics)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Thread%20Dump|Thread%20Dump)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#VM%20Info|VM%20Info)
-	- [](#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#04%20·%20Text%20Interface%20—%20Supported%20Manager%20Commands#Save%20Configuration|Save%20Configuration)
-- [05 · Server Status](#05%20·%20Server%20Status)
-	- [](#05%20·%20Server%20Status#05%20·%20Server%20Status#Information%20Returned|Information%20Returned)
-- [06 · JMX Proxy Servlet](#06%20·%20JMX%20Proxy%20Servlet)
-	- [](#06%20·%20JMX%20Proxy%20Servlet#06%20·%20JMX%20Proxy%20Servlet#What%20is%20the%20JMX%20Proxy%20Servlet?|What%20is%20the%20JMX%20Proxy%20Servlet?)
-	- [](#06%20·%20JMX%20Proxy%20Servlet#06%20·%20JMX%20Proxy%20Servlet#JMX%20Query%20Command|JMX%20Query%20Command)
-	- [](#06%20·%20JMX%20Proxy%20Servlet#06%20·%20JMX%20Proxy%20Servlet#JMX%20Get%20Command|JMX%20Get%20Command)
-	- [](#06%20·%20JMX%20Proxy%20Servlet#06%20·%20JMX%20Proxy%20Servlet#JMX%20Set%20Command|JMX%20Set%20Command)
-	- [](#06%20·%20JMX%20Proxy%20Servlet#06%20·%20JMX%20Proxy%20Servlet#JMX%20Invoke%20Command|JMX%20Invoke%20Command)
-- [07 · Executing Manager Commands with Ant](#07%20·%20Executing%20Manager%20Commands%20with%20Ant)
-	- [](#07%20·%20Executing%20Manager%20Commands%20with%20Ant#07%20·%20Executing%20Manager%20Commands%20with%20Ant#Setup%20—%20build.xml|Setup%20—%20build.xml)
-	- [](#07%20·%20Executing%20Manager%20Commands%20with%20Ant#07%20·%20Executing%20Manager%20Commands%20with%20Ant#Common%20Ant%20Tasks|Common%20Ant%20Tasks)
-	- [](#07%20·%20Executing%20Manager%20Commands%20with%20Ant#07%20·%20Executing%20Manager%20Commands%20with%20Ant#Capturing%20Task%20Output|Capturing%20Task%20Output)
-- [Quick Reference Cheatsheet](#Quick%20Reference%20Cheatsheet)
-	- [](#Quick%20Reference%20Cheatsheet#Quick%20Reference%20Cheatsheet#Text%20Interface%20Commands|Text%20Interface%20Commands)
-	- [](#Quick%20Reference%20Cheatsheet#Quick%20Reference%20Cheatsheet#Server%20Status%20URLs|Server%20Status%20URLs)
-	- [](#Quick%20Reference%20Cheatsheet#Quick%20Reference%20Cheatsheet#JMX%20Proxy%20URLs|JMX%20Proxy%20URLs)
-	- [](#Quick%20Reference%20Cheatsheet#Quick%20Reference%20Cheatsheet#Manager%20Role%20Summary|Manager%20Role%20Summary)
+- [[#Definition|Definition]]
+- [[#Key Purpose|Key Purpose]]
+- [[#Catalina — Servlet Container|Catalina — Servlet Container]]
+- [[#Coyote — HTTP Connector|Coyote — HTTP Connector]]
+- [[#Jasper — JSP Engine|Jasper — JSP Engine]]
+- [[#Base Directory Layout|Base Directory Layout]]
+- [[#Critical Directories|Critical Directories]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#bin/|bin/]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#conf/|conf/]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#logs/|logs/]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#webapps/|webapps/]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#work/|work/]]
+	- [[#Critical Directories#Critical Directories#Critical Directories#Critical Directories#temp/|temp/]]
+- [[#Default Ports|Default Ports]]
+- [[#Security Implications|Security Implications]]
+	- [[#Security Implications#Security Implications#Security Implications#Security Implications#Port 8009 — AJP|Port 8009 — AJP]]
+	- [[#Security Implications#Security Implications#Security Implications#Security Implications#Port 8005 — Shutdown Port|Port 8005 — Shutdown Port]]
+- [[#WAR File Deployment|WAR File Deployment]]
+- [[#Security Relevance|Security Relevance]]
+- [[#Start Server|Start Server]]
+- [[#Stop Server|Stop Server]]
+- [[#Using catalina.sh|Using catalina.sh]]
+- [[#Service-Based Management|Service-Based Management]]
+- [[#server.xml|server.xml]]
+- [[#web.xml|web.xml]]
+- [[#tomcat-users.xml|tomcat-users.xml]]
+- [[#context.xml|context.xml]]
+- [[#Manager Interface|Manager Interface]]
+- [[#Host Manager|Host Manager]]
+- [[#Log Directory|Log Directory]]
+- [[#Key Log Files|Key Log Files]]
+	- [[#Key Log Files#Key Log Files#Key Log Files#Key Log Files#catalina.out|catalina.out]]
+	- [[#Key Log Files#Key Log Files#Key Log Files#Key Log Files#localhost.log|localhost.log]]
+	- [[#Key Log Files#Key Log Files#Key Log Files#Key Log Files#access_log.*|access_log.*]]
+- [[#Common Attack Vectors|Common Attack Vectors]]
+	- [[#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Default Credentials|Default Credentials]]
+	- [[#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#WAR Upload Exploitation|WAR Upload Exploitation]]
+	- [[#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#AJP Exploitation|AJP Exploitation]]
+	- [[#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Common Attack Vectors#Directory Traversal|Directory Traversal]]
+- [[#Suspicious Indicators|Suspicious Indicators]]
+- [[#Suspicious Files|Suspicious Files]]
+- [[#Suspicious Logs|Suspicious Logs]]
+- [[#File Integrity Monitoring|File Integrity Monitoring]]
+- [[#Log Monitoring|Log Monitoring]]
+- [[#Network Monitoring|Network Monitoring]]
+- [[#Disable Default Accounts|Disable Default Accounts]]
+- [[#Restrict Manager Access|Restrict Manager Access]]
+- [[#Disable Unused Ports|Disable Unused Ports]]
+- [[#Use HTTPS|Use HTTPS]]
+- [[#SOC Workflow Example|SOC Workflow Example]]
+- [[#Service Control|Service Control]]
+- [[#System Service Control|System Service Control]]
+- [[#Directory Navigation|Directory Navigation]]
+- [[#Definition|Definition]]
+- [[#Purpose|Purpose]]
+- [[#Security Relevance|Security Relevance]]
+- [[#What Is a Virtual Host|What Is a Virtual Host]]
+- [[#Default Virtual Host|Default Virtual Host]]
+- [[#Custom Virtual Hosts|Custom Virtual Hosts]]
+- [[#Authentication Roles|Authentication Roles]]
+- [[#Example User Configuration|Example User Configuration]]
+- [[#Security Risk|Security Risk]]
+- [[#URL Path|URL Path]]
+- [[#Typical Workflow|Typical Workflow]]
+- [[#Security Implications|Security Implications]]
+- [[#Purpose|Purpose]]
+- [[#Required Parameters|Required Parameters]]
+- [[#Host Directory Creation|Host Directory Creation]]
+- [[#Security Relevance|Security Relevance]]
+- [[#Purpose|Purpose]]
+- [[#Security Implication|Security Implication]]
+- [[#Purpose|Purpose]]
+- [[#Analyst Use Case|Analyst Use Case]]
+- [[#Security Relevance|Security Relevance]]
+- [[#Deployment Workflow|Deployment Workflow]]
+- [[#Deployment Location|Deployment Location]]
+- [[#Security Risk|Security Risk]]
+- [[#Suspicious Artifacts|Suspicious Artifacts]]
+- [[#Detection Indicator|Detection Indicator]]
+- [[#Suspicious Log Entries|Suspicious Log Entries]]
+- [[#Example Access Log Entry|Example Access Log Entry]]
+- [[#High-Risk Exposure|High-Risk Exposure]]
+- [[#Typical Attack Chain|Typical Attack Chain]]
+- [[#Attack Goals|Attack Goals]]
+- [[#File-Based Indicators|File-Based Indicators]]
+- [[#Authentication Indicators|Authentication Indicators]]
+- [[#Network Indicators|Network Indicators]]
+- [[#Directory Monitoring|Directory Monitoring]]
+- [[#Log Monitoring|Log Monitoring]]
+- [[#Credential Monitoring|Credential Monitoring]]
+- [[#Restrict Access to Host Manager|Restrict Access to Host Manager]]
+- [[#Use Strong Authentication|Use Strong Authentication]]
+- [[#Disable Unused Interfaces|Disable Unused Interfaces]]
+- [[#Apply Role-Based Access Control|Apply Role-Based Access Control]]
+- [[#Suspicious WAR Deployment|Suspicious WAR Deployment]]
+- [[#Unauthorized Host Creation|Unauthorized Host Creation]]
+- [[#Typical Red Team Workflow|Typical Red Team Workflow]]
+- [[#Directory Monitoring|Directory Monitoring]]
+- [[#Log Review|Log Review]]
+- [[#Configuration Review|Configuration Review]]
+- [[#Search for Suspicious Files|Search for Suspicious Files]]
+- [[#Apache Tomcat — Manager App How-To|Apache Tomcat — Manager App How-To]]
+	- [[#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Core Capabilities|Core Capabilities]]
+	- [[#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Three Interfaces Available|Three Interfaces Available]]
+	- [[#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Apache Tomcat — Manager App How-To#Adding Manager to a New Virtual Host|Adding Manager to a New Virtual Host]]
+- [[#02 · Configuring Manager Application Access|02 · Configuring Manager Application Access]]
+	- [[#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#Why Access is Disabled by Default|Why Access is Disabled by Default]]
+	- [[#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#Available Manager Roles|Available Manager Roles]]
+	- [[#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#Configuring Users — tomcat-users.xml|Configuring Users — tomcat-users.xml]]
+	- [[#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#Configuring Users — Other Realm Types|Configuring Users — Other Realm Types]]
+	- [[#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#02 · Configuring Manager Application Access#Restricting Access by IP Address|Restricting Access by IP Address]]
+- [[#03 · HTML User-Friendly Interface|03 · HTML User-Friendly Interface]]
+- [[#04 · Text Interface — Supported Manager Commands|04 · Text Interface — Supported Manager Commands]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Command URI Structure|Command URI Structure]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Authentication with curl|Authentication with curl]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Common Parameters|Common Parameters]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Deploy a New WAR Remotely (HTTP PUT]]|Deploy%20a%20New%20WAR%20Remotely%20(HTTP%20PUT))
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Deploy from a Local Path (HTTP GET]]|Deploy%20from%20a%20Local%20Path%20(HTTP%20GET))
+		- [[#Deploy from a Local Path (HTTP GET]]#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20a%20Directory%20or%20WAR%20by%20URL|Deploy%20a%20Directory%20or%20WAR%20by%20URL)
+		- [[#Deploy from a Local Path (HTTP GET]]#Deploy%20from%20a%20Local%20Path%20(HTTP%20GET)#Deploy%20from%20the%20Host%20appBase|Deploy%20from%20the%20Host%20appBase)
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Deploy a Previously Tagged Webapp|Deploy a Previously Tagged Webapp]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Deploy via Context Configuration .xml File|Deploy via Context Configuration .xml File]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Deployment Notes & Error Reference|Deployment Notes & Error Reference]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#List Currently Deployed Applications|List Currently Deployed Applications]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Reload an Existing Application|Reload an Existing Application]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#List OS and JVM Properties|List OS and JVM Properties]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Session Statistics|Session Statistics]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Expire Sessions|Expire Sessions]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Start an Existing Application|Start an Existing Application]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Stop an Existing Application|Stop an Existing Application]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Undeploy an Existing Application|Undeploy an Existing Application]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Find Memory Leaks|Find Memory Leaks]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#SSL/TLS Diagnostics|SSL/TLS Diagnostics]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Thread Dump|Thread Dump]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#VM Info|VM Info]]
+	- [[#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#04 · Text Interface — Supported Manager Commands#Save Configuration|Save Configuration]]
+- [[#05 · Server Status|05 · Server Status]]
+	- [[#05 · Server Status#05 · Server Status#05 · Server Status#05 · Server Status#Information Returned|Information Returned]]
+- [[#06 · JMX Proxy Servlet|06 · JMX Proxy Servlet]]
+	- [[#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#What is the JMX Proxy Servlet?|What is the JMX Proxy Servlet?]]
+	- [[#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#JMX Query Command|JMX Query Command]]
+	- [[#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#JMX Get Command|JMX Get Command]]
+	- [[#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#JMX Set Command|JMX Set Command]]
+	- [[#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#06 · JMX Proxy Servlet#JMX Invoke Command|JMX Invoke Command]]
+- [[#07 · Executing Manager Commands with Ant|07 · Executing Manager Commands with Ant]]
+	- [[#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#Setup — build.xml|Setup — build.xml]]
+	- [[#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#Common Ant Tasks|Common Ant Tasks]]
+	- [[#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#07 · Executing Manager Commands with Ant#Capturing Task Output|Capturing Task Output]]
+- [[#Quick Reference Cheatsheet|Quick Reference Cheatsheet]]
+	- [[#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Text Interface Commands|Text Interface Commands]]
+	- [[#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Server Status URLs|Server Status URLs]]
+	- [[#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#JMX Proxy URLs|JMX Proxy URLs]]
+	- [[#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Quick Reference Cheatsheet#Manager Role Summary|Manager Role Summary]]
 
 # 1. Core Concept : What Apache Tomcat Is
 
