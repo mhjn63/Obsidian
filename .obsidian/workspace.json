@@ -183,7 +183,6 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "publish:Publish changes...": false,
       "obsidian-git:Open Git source control": false
     }
   },
