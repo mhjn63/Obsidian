@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSINT.md",
+                "file": "Career Guidance/Cyber Security Career Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OSINT"
+              "title": "Cyber Security Career Notes"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "OSINT.md",
     "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
     "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
     "SOC Analyst Notes/Phishing Detection.md",
@@ -210,7 +211,6 @@
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
     "README.md",
     "New Text Document.txt",
-    "OSINT.md",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
     "docs.json",
