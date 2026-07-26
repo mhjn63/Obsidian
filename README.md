@@ -150,8 +150,8 @@ Each edition distills complex security, tech, and risk developments into clear i
 ![](5.png)
 ![](6.png)
 ![](7.png)
-
-![[9.png]]
+![](8.png)
+![](9.png)
 ## FAQ
 
 <details> <summary><strong>Are the notes beginner-friendly?</strong></summary>
