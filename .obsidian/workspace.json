@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Career Guidance/Templates/SOC Analyst Interview Templates.md",
+                "file": "Premium Notes and Courses/Browse.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SOC Analyst Interview Templates"
+              "title": "Browse"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Career Guidance/Templates/SOC Analyst Interview Templates.md",
     "Career Guidance/Becoming a Pentester.md",
     "Career Guidance/Cyber Security Career Notes.md",
     "OSINT.md",
@@ -207,7 +208,6 @@
     "GRC/Cyber Security Management.md",
     "Certifications/OSCP Certification Cheat Sheet 2026.md",
     "Cyber Security 101/Cyber Security Notes 101.md",
-    "Career Guidance/Templates/SOC Analyst Interview Templates.md",
     "Bug Bounty/Bug Bounty Tools.md",
     "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
