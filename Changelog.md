@@ -1,3 +1,5 @@
+- 2026-07-26T1625 · [[Bug Bounty Methodology]]
+- 2026-07-26T1625 · [[Bug Bounty Cheat Sheet]]
 - 2026-07-26T1611 · [[README]]
 - 2026-07-26T1611 · [[Browse]]
 - 2026-07-26T1500 · [[Cyber Security Management]]
@@ -21,5 +23,3 @@
 - 2026-07-26T1454 · [[Windows Active Directory]]
 - 2026-07-26T1454 · [[Linux Notes]]
 - 2026-07-26T1454 · [[Vim]]
-- 2026-07-26T1454 · [[cURL]]
-- 2026-07-26T1454 · [[Postfix Incoming Mail Setup]]

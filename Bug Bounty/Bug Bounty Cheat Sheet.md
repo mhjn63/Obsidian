@@ -6,12 +6,12 @@
 
 **Table of Contents**
 - [[#01 · Setup & Initial Tips|01 · Setup & Initial Tips]]
-	- [[#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#Burp Suite Scope Regex|Burp Suite Scope Regex]]
-	- [[#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#Pull Root Subdomains from a Final Subdomain List|Pull Root Subdomains from a Final Subdomain List]]
-	- [[#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#Port Scanning IP Ranges|Port Scanning IP Ranges]]
-	- [[#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#01 · Setup & Initial Tips#Automation Frameworks|Automation Frameworks]]
+	- [[#01 · Setup & Initial Tips#Burp Suite Scope Regex|Burp Suite Scope Regex]]
+	- [[#01 · Setup & Initial Tips#Pull Root Subdomains from a Final Subdomain List|Pull Root Subdomains from a Final Subdomain List]]
+	- [[#01 · Setup & Initial Tips#Port Scanning IP Ranges|Port Scanning IP Ranges]]
+	- [[#01 · Setup & Initial Tips#Automation Frameworks|Automation Frameworks]]
 - [[#02 · Subdomain Enumeration|02 · Subdomain Enumeration]]
-	- [[#02 · Subdomain Enumeration#02 · Subdomain Enumeration#02 · Subdomain Enumeration#02 · Subdomain Enumeration#Subfinder (Passive Enumeration]]|Subfinder%20(Passive%20Enumeration))
+	- [[#02 · Subdomain Enumeration#Subfinder (Passive Enumeration)|Subfinder (Passive Enumeration)]]
 
 
 > A methodology-driven cheatsheet covering subdomain enumeration, ASN recon, content discovery, JavaScript analysis, fingerprinting, sensitive loot hunting, and exploitation techniques for web application bug bounty programs.
