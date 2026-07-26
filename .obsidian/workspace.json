@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Premium Notes and Courses/Browse.md",
+                "file": "Free Notes/Cybersecurity/Cyber Security 101/Cyber Security Notes 101.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Browse"
+              "title": "Cyber Security Notes 101"
             }
           }
         ],
@@ -204,6 +204,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Premium Notes and Courses/Browse.md",
     "Free Notes/Tech/Blockchain and Crypto.md",
     "Free Notes/Tech/Programming/XML.md",
     "Free Notes/Tech/Programming/Typescript.md",
@@ -229,7 +230,6 @@
     "Free Notes/Tech/Hosting/Apache Tomcat.md",
     "Free Notes/Tech/Databases/MySQL Server Deployment with Docker.md",
     "Free Notes/Tech/Databases/Basics and Foundations.md",
-    "Free Notes/Tech/Cloud/Terraform.md",
     "New Text Document.txt",
     "wiki",
     "2.png",

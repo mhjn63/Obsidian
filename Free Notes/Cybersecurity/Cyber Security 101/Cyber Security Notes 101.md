@@ -710,7 +710,7 @@ Risk can be analyzed using two approaches, namely
 - **Qualitative Risk Analysis**, where we assign ratings to risks. The ratings can be a qualitative adjective, such as high, medium, and low. Alternatively, it can be something symbolic, such as red, yellow, and green. 
 
 The below is the risk assessment matrix using in qualitative risk analysis
-![[Cyber/Cyber Security Study Notes/Information Security 101/risk assessment framework.webp]]
+![](risk%20assessment%20framework.webp)
 
 - **Quantitative Risk Analysis**, where we assign monetary values and use that as a basis for decision-making. In conducting the quantitative risk analysis, we aim to calculate the values defined below 
 - `Single Loss Expectancy (SLE)` is the loss incurred due to the realization of a threat represented as a monetary value.
@@ -821,7 +821,7 @@ eight sections correspond to each of the eight CVSS metrics below:
 ■■ Availability: None (score: 0.00)
 ```
 **Mapping qualitative and numeric scores**
-![[cvss.png]]
+![](cvss.png)
 **Base Metrics**
 These are constant factors of the vulnerability that do not change over time or across environments.
 
