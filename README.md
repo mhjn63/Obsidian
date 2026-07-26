@@ -6,7 +6,7 @@
 
 Field-ready notes, methodology breakdowns, and certification cheat sheets built by a practitioner, for practitioners. 
 
-**→ [Browse Free Notes](https://publish.obsidian.md/cybersecuritycheatsheets/)** | **→ [Unlock Premium](https://buymeacoffee.com/notescatalog/membership)**
+| **→ [Unlock Premium](https://buymeacoffee.com/notescatalog/membership)**
 ## By the Numbers
 
 |||
@@ -93,7 +93,6 @@ Skip the hours lost searching fragmented resources. One membership gives you the
 - ✓ YouTube companion write-ups
 - ✓ Tool overview guides
 
-**[Start Reading →](https://publish.obsidian.md/cybersecuritycheatsheets/)/)**
 
 ---
 
