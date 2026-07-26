@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
+              "title": "README"
             }
           }
         ]
@@ -186,11 +186,11 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "21a2888db70fbef7",
+  "active": "425de4328e145f90",
   "lastOpenFiles": [
     "test/README.md",
     "test/Changelog.md",
-    "Welcome.md",
+    "README.md",
     "wiki/Welcome.md",
     "New Text Document.txt",
     "wiki/SUMMARY.md",
