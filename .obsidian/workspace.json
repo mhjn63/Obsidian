@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC Analyst Notes/Phishing Detection.md",
+                "file": "OSINT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Phishing Detection"
+              "title": "OSINT"
             }
           }
         ]
@@ -188,6 +188,9 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
+    "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
+    "SOC Analyst Notes/Phishing Detection.md",
     "SOC Analyst Notes/Blue Team Notes.md",
     "SOC Analyst Notes/Azure Security Center.md",
     "SOC Analyst Notes/Firewalls/Basics.md",
@@ -215,9 +218,6 @@
     "Tech/Programming/XML.md",
     "Tech/Programming/Typescript.md",
     "Tech/Programming/Swift.md",
-    "Tech/Programming/Python.md",
-    "Tech/Programming/Powershell.md",
-    "Tech/Programming/PHP Programming.md",
     "Premium Notes and Courses/images",
     "Certifications/thm sal2 vs btl2 vs cdsa.html",
     "HTB Writeups/HTB Sorcery.html",
