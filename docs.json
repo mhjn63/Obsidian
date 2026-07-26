@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "My Project Docs",
+  "name": "The Mastermind Notes",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/Premium Notes and Courses/images/logo v2 transparent.png",
+    "dark": "/Premium Notes and Courses/images/logo v2 transparent.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/Premium Notes and Courses/images/logo v2 transparent.png",
   "colors": {
     "primary": "#0D9488",
     "light": "#14B8A6",
