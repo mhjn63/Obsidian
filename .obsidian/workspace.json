@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Career Guidance/Cyber Security Career Notes.md",
+                "file": "Penetration Testing/Windows AD Pentesting/Active Directory Pentesting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Cyber Security Career Notes"
+              "title": "Active Directory Pentesting"
             }
           }
         ]
@@ -189,6 +189,20 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Penetration Testing/Web Hacking/API Pentesting.md",
+    "Penetration Testing/Mobile Pentesting/Mobile Pentesting Tools Reference.md",
+    "Penetration Testing/Mobile Pentesting/Android Pentesting.md",
+    "Penetration Testing/Kali Linux/Pentesting with Kali Linux.md",
+    "Penetration Testing/Cloud/Azure Pentesting.md",
+    "HTB Writeups/HTB Abducted.md",
+    "GRC/Cyber Security Management.md",
+    "Cyber Security 101/Cyber Security Notes 101.md",
+    "Certifications/THM SAL2 vs BTL2 vs HTB CDSA.md",
+    "Certifications/thm sal2 vs btl2 vs cdsa.html",
+    "Certifications/Podcast Episode I Passed CPTS in 24 Hour - Lessons From a Real Candidate Who's Been There.md",
+    "Certifications/OSCP Certification Cheat Sheet 2026.md",
+    "Certifications/Am I Ready for the OSCP Here iss the Answer Nobody Wants to Hear.md",
+    "Career Guidance/Cyber Security Career Notes.md",
     "Career Guidance/Becoming a Pentester.md",
     "Career Guidance/Templates/SOC Analyst Interview Templates.md",
     "Bug Bounty/Bug Bounty Tools.md",
@@ -204,21 +218,7 @@
     "HTB Writeups/HTB Pterodactyl.md",
     "HTB Writeups/HTB Overwatch.md",
     "HTB Writeups/HTB Orion.md",
-    "HTB Writeups/HTB MonitorsFour.md",
-    "HTB Writeups/HTB Logging.md",
-    "HTB Writeups/HTB Interpreter.md",
-    "HTB Writeups/HTB Guardian.md",
-    "HTB Writeups/HTB Facts.md",
-    "HTB Writeups/HTB CCTV.md",
-    "HTB Writeups/HTB Browsed Writeup.md",
-    "HTB Writeups/HTB Abducted.md",
-    "THM Writeups/THM Wazuh CVE-2026-25769.md",
-    "THM Writeups/THM Understanding Vulnerability Databases.md",
-    "THM Writeups/THM Spring AI CVE-2026–22738.md",
-    "THM Writeups/THM Simple CTF.md",
-    "THM Writeups/THM Introduction to the World of OT-ICS.md",
     "THM Writeups/Elastic Stack The Basics.html",
-    "Certifications/thm sal2 vs btl2 vs cdsa.html",
     "Certifications",
     "THM Writeups/TryHackMe Eradication & Remediation Walkthrough.html",
     "THM Writeups/THM Wazuh CVE-2026-25769 .html",

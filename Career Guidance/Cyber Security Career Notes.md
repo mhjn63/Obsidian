@@ -5,32 +5,6 @@
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
 The below notes encompasses career-related notes, management and operational notes in Cyber security.
-
-- [[#Cyber Security RoadMap|Cyber Security RoadMap]]
-- [[#Before You Get Hired|Before You Get Hired]]
-	- [[#Before You Get Hired#Jobs to seek before you get into cybersecurity|Jobs to seek before you get into cybersecurity]]
-	- [[#Before You Get Hired#Recommended Certifications|Recommended Certifications]]
-	- [[#Before You Get Hired#Cyber Security Roles|Cyber Security Roles]]
-		- [[#Cyber Security Roles#SOC Analyst|SOC Analyst]]
-		- [[#Cyber Security Roles#Security Engineer|Security Engineer]]
-			- [[#Security Engineer#Roles|Roles]]
-			- [[#Security Engineer#Required Qualifications|Required Qualifications]]
-		- [[#Cyber Security Roles#Cybersecurity Engineer|Cybersecurity Engineer]]
-		- [[#Cyber Security Roles#Penetration Tester|Penetration Tester]]
-		- [[#Cyber Security Roles#Cybercrime Analyst|Cybercrime Analyst]]
-	- [[#Before You Get Hired#FAQs|FAQs]]
-- [[#After You Get Hired|After You Get Hired]]
-	- [[#After You Get Hired#FAQs|FAQs]]
-- [[#Learning Resources|Learning Resources]]
-	- [[#Learning Resources#VMs and CTFs|VMs and CTFs]]
-	- [[#Learning Resources#Podcasts|Podcasts]]
-	- [[#Learning Resources#Courses Platforms|Courses Platforms]]
-	- [[#Learning Resources#Tutorials|Tutorials]]
-	- [[#Learning Resources#Books|Books]]
-	- [[#Learning Resources#Articles and News|Articles and News]]
-	- [[#Learning Resources#Webinars and Podcasts|Webinars and Podcasts]]
-	- [[#Learning Resources#Forums|Forums]]
-
 # Career 
 ## Cyber Security RoadMap
 Below are the basics to get started in Cyber security

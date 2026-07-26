@@ -4,48 +4,6 @@
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 
-- [[#Why Security Is Far More Than Technology|Why Security Is Far More Than Technology]]
-- [[#The Real Goal of Cyber Security|The Real Goal of Cyber Security]]
-- [[#Three Security Principles Behind Most Controls|Three Security Principles Behind Most Controls]]
-	- [[#Three Security Principles Behind Most Controls#Least Privilege|Least Privilege]]
-	- [[#Three Security Principles Behind Most Controls#Separation of Duties|Separation of Duties]]
-	- [[#Three Security Principles Behind Most Controls#Defense in Depth|Defense in Depth]]
-- [[#What Is a Security Control?|What Is a Security Control?]]
-	- [[#What Is a Security Control?#Control Quality Test|Control Quality Test]]
-- [[#Understanding Risk Before Building Controls|Understanding Risk Before Building Controls]]
-- [[#Why Asset Ownership Matters|Why Asset Ownership Matters]]
-- [[#Security Management Is Never Finished|Security Management Is Never Finished]]
-- [[#Does Every Security Professional Need Deep Technical Expertise?|Does Every Security Professional Need Deep Technical Expertise?]]
-- [[#Standards|Standards]]
-- [[#The Documentation Debate|The Documentation Debate]]
-- [[#Understanding Threats, Risks, and Controls|Understanding Threats, Risks, and Controls]]
-- [[#Beyond the CIA Triad|Beyond the CIA Triad]]
-- [[#Security Culture Is the Hidden Control|Security Culture Is the Hidden Control]]
-- [[#Security Is Ultimately About People|Security Is Ultimately About People]]
-- [[#Security Management, Risk, and the Human Side of Cybersecurity|Security Management, Risk, and the Human Side of Cybersecurity]]
-- [[#Security Frameworks Are Different Tools for Different Organizations|Security Frameworks Are Different Tools for Different Organizations]]
-- [[#Security Policies Must Support Business Goals|Security Policies Must Support Business Goals]]
-- [[#Understanding ISO 27001 and ISO 27002|Understanding ISO 27001 and ISO 27002]]
-- [[#The Difference Between ISO and NIST Philosophies|The Difference Between ISO and NIST Philosophies]]
-- [[#Certification Is More Than Passing an Audit|Certification Is More Than Passing an Audit]]
-- [[#Risk Management Is the Foundation of Security|Risk Management Is the Foundation of Security]]
-- [[#The Organization Boundary No Longer Exists|The Organization Boundary No Longer Exists]]
-- [[#Risk Assessments Are About Consistency|Risk Assessments Are About Consistency]]
-- [[#Significant Changes Require New Risk Assessments|Significant Changes Require New Risk Assessments]]
-- [[#Risk Treatment Is More Complicated Than It Looks|Risk Treatment Is More Complicated Than It Looks]]
-- [[#The Problem With Numerical Risk Scores|The Problem With Numerical Risk Scores]]
-- [[#Security Is a Socio-Technical System|Security Is a Socio-Technical System]]
-- [[#Positive Security vs. Negative Security|Positive Security vs. Negative Security]]
-- [[#Security Controls Must Be Designed Around People|Security Controls Must Be Designed Around People]]
-- [[#Trust Is a Security Control|Trust Is a Security Control]]
-- [[#IT Governance|IT Governance]]
-- [[#Information Audit and Control|Information Audit and Control]]
-	- [[#Information Audit and Control#Reasons for Conducting an Audit|Reasons for Conducting an Audit]]
-	- [[#Information Audit and Control#Conducting an Audit|Conducting an Audit]]
-	- [[#Information Audit and Control#Auditing Process Steps|Auditing Process Steps]]
-	- [[#Information Audit and Control#Information Security Governance|Information Security Governance]]
-
-
 ## Why Security Is Far More Than Technology
 When people first enter the cybersecurity field, they often imagine security as a technical discipline centered around firewalls, intrusion detection systems, encryption, and vulnerability management. Those technologies certainly matter, but they represent only one part of the picture.
 
