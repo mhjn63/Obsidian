@@ -6,6 +6,12 @@
 
 - [[#Why Security Is Far More Than Technology|Why Security Is Far More Than Technology]]
 - [[#The Real Goal of Cyber Security|The Real Goal of Cyber Security]]
+- [[#Three Security Principles Behind Most Controls|Three Security Principles Behind Most Controls]]
+	- [[#Three Security Principles Behind Most Controls#Least Privilege|Least Privilege]]
+	- [[#Three Security Principles Behind Most Controls#Separation of Duties|Separation of Duties]]
+	- [[#Three Security Principles Behind Most Controls#Defense in Depth|Defense in Depth]]
+- [[#What Is a Security Control?|What Is a Security Control?]]
+	- [[#What Is a Security Control?#Control Quality Test|Control Quality Test]]
 - [[#Understanding Risk Before Building Controls|Understanding Risk Before Building Controls]]
 - [[#Why Asset Ownership Matters|Why Asset Ownership Matters]]
 - [[#Security Management Is Never Finished|Security Management Is Never Finished]]
@@ -34,6 +40,11 @@
 - [[#Trust Is a Security Control|Trust Is a Security Control]]
 - [[#IT Governance|IT Governance]]
 - [[#Information Audit and Control|Information Audit and Control]]
+	- [[#Information Audit and Control#Reasons for Conducting an Audit|Reasons for Conducting an Audit]]
+	- [[#Information Audit and Control#Conducting an Audit|Conducting an Audit]]
+	- [[#Information Audit and Control#Auditing Process Steps|Auditing Process Steps]]
+	- [[#Information Audit and Control#Information Security Governance|Information Security Governance]]
+
 
 ## Why Security Is Far More Than Technology
 When people first enter the cybersecurity field, they often imagine security as a technical discipline centered around firewalls, intrusion detection systems, encryption, and vulnerability management. Those technologies certainly matter, but they represent only one part of the picture.
