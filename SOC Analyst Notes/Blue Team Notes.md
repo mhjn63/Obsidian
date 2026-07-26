@@ -11,6 +11,7 @@
 
 ## Table of Contents
 
+
 ## 01 · Shell Style & Timestamps
 
 During incident response, every shell session should carry a visible timestamp. When you're capturing screenshots, writing up a timeline, or correlating actions across machines, having the date and time baked into your prompt removes ambiguity and makes your evidence more defensible. The three common shells on a responder's toolkit each require a slightly different approach.

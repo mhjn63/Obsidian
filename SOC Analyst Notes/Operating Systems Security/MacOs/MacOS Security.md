@@ -6,6 +6,42 @@
 
 **The full macOS security guide can be unlocked by subscribing to the membership**
 
+- [[#01 · Basics|01 · Basics]]
+- [[#02 · Threat Modeling|02 · Threat Modeling]]
+	- [[#02 · Threat Modeling#Process: Four Questions|Process: Four Questions]]
+	- [[#02 · Threat Modeling#Threat Matrix Example|Threat Matrix Example]]
+- [[#03 · Hardware|03 · Hardware]]
+- [[#04 · Installing macOS|04 · Installing macOS]]
+	- [[#04 · Installing macOS#System Activation|System Activation]]
+	- [[#04 · Installing macOS#Apple Account|Apple Account]]
+	- [[#04 · Installing macOS#App Store|App Store]]
+	- [[#04 · Installing macOS#Virtualization (Apple Silicon)|Virtualization (Apple Silicon)]]
+- [[#05 · First Boot|05 · First Boot]]
+- [[#06 · Admin and User Accounts|06 · Admin and User Accounts]]
+	- [[#06 · Admin and User Accounts#Key Concepts|Key Concepts]]
+	- [[#06 · Admin and User Accounts#How It Works in Practice|How It Works in Practice]]
+	- [[#06 · Admin and User Accounts#Caveats|Caveats]]
+	- [[#06 · Admin and User Accounts#Setup Commands|Setup Commands]]
+- [[#07 · Firmware|07 · Firmware]]
+- [[#08 · FileVault|08 · FileVault]]
+	- [[#08 · FileVault#What FileVault Also Does|What FileVault Also Does]]
+	- [[#08 · FileVault#Recovery Key|Recovery Key]]
+- [[#09 · Lockdown Mode|09 · Lockdown Mode]]
+- [[#10 · Firewall|10 · Firewall]]
+	- [[#10 · Firewall#Application Layer Firewall (Built-in)|Application Layer Firewall (Built-in)]]
+	- [[#10 · Firewall#Third-Party Firewalls (Incoming + Outgoing)|Third-Party Firewalls (Incoming + Outgoing)]]
+	- [[#10 · Firewall#Kernel Packet Filtering (pf)|Kernel Packet Filtering (pf)]]
+- [[#11 · Services (launchd)|11 · Services (launchd)]]
+- [[#12 · Siri Suggestions and Spotlight|12 · Siri Suggestions and Spotlight]]
+- [[#13 · Homebrew|13 · Homebrew]]
+- [[#14 · DNS|14 · DNS]]
+	- [[#14 · DNS#DNS Profiles (macOS 11+)|DNS Profiles (macOS 11+)]]
+	- [[#14 · DNS#Hosts File|Hosts File]]
+	- [[#14 · DNS#DNSCrypt|DNSCrypt]]
+	- [[#14 · DNS#Dnsmasq|Dnsmasq]]
+- [[#15 · Certificate Authorities|15 · Certificate Authorities]]
+
+
 # macOS Security and Privacy Guide
 
 **Scope:** Apple silicon Macs running a currently supported version of macOS. Targeted at power users adopting enterprise-standard security, and privacy-conscious novice users.
