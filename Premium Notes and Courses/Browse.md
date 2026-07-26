@@ -12,9 +12,9 @@
 
 ---
 
-![[2.png]]
-![[4.png]]
-![[8.png]]
+![](../2.png)
+![](../3%20.png)
+![](../6.png)
 
 ## 🗂️ Full Notes Catalogue
 

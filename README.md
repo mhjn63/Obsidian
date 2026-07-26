@@ -144,13 +144,13 @@ Each edition distills complex security, tech, and risk developments into clear i
 ---
 
 ## Reviews
-![[2.png]]
-![[3 .png]]
-![[4.png]]
-![[5.png]]
-![[6.png]]
-![[7.png]]
-![[8.png]]
+![](2.png)
+![](3%20.png)
+![](4.png)
+![](5.png)
+![](6.png)
+![](7.png)
+
 ![[9.png]]
 ## FAQ
 
