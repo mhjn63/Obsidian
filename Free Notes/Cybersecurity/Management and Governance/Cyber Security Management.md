@@ -608,7 +608,7 @@ It is a novel concept in the well-established world of enterprise governance, in
 However, with the increasing impact of cyber-crime and computers in general, and the overall reliance of business on effective IT functioning information governance, has taken its place as a separate but integral part of the strategic management process (Ponemon Institute Research Report, 2013). This presupposes that the information control function must meet the same expectations and criteria for quality, fiduciary, and operational integrity as every other aspect of the business. It also assumes that the business’s information and related technology processes must support its larger goals in an explicit and traceable way.
 Information technology governance accomplishes its aims by building a comprehensive structure of rational procedures and relationships, which can be employed to direct and control information assets. As a result, IT governance establishes a tangible link between the company’s IT resources and its information and business strategy. Ideally, it does this in such a way that it adds value to the enterprise’s purposes.
 
-![[1.png]]
+![](1.png)
 
 It should be noted that information governance is not the same as enterprise governance. Enterprise governance assures stakeholders that the business will be profitable and productive. It embodies the strategic and tactical means to monitor that issues vital to business success will be effectively identified and dealt with. 
 
@@ -742,7 +742,7 @@ Depending on the information that is obtained, it is possible to target the rele
 17. 
 The first 10 items are primarily oriented toward process understanding and determining ownership. 
 
-![[3.png]]
+![](3.png)
 
 The general principles of control can also supply additional insight on how to conduct a pepper audit. These principles are primarily focused on process and control responsibilities, control standards, and control information flows. Control, from a management point-of-view, is defined as determining what is being accomplished. That is, evaluating the performance and if necessary applying corrective measures so that the performance takes place according to plan.
 

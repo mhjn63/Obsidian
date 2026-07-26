@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Free Notes/Cybersecurity/Cyber Security 101/Cyber Security Notes 101.md",
+                "file": "Free Notes/Cybersecurity/Management and Governance/Cyber Security Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Cyber Security Notes 101"
+              "title": "Cyber Security Management"
             }
           }
         ],
@@ -204,6 +204,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Free Notes/Cybersecurity/Cyber Security 101/Cyber Security Notes 101.md",
     "Premium Notes and Courses/Browse.md",
     "Free Notes/Tech/Blockchain and Crypto.md",
     "Free Notes/Tech/Programming/XML.md",
@@ -229,7 +230,6 @@
     "Free Notes/Tech/Hosting/LAMP Stack.md",
     "Free Notes/Tech/Hosting/Apache Tomcat.md",
     "Free Notes/Tech/Databases/MySQL Server Deployment with Docker.md",
-    "Free Notes/Tech/Databases/Basics and Foundations.md",
     "New Text Document.txt",
     "wiki",
     "2.png",
