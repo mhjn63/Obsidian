@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Welcome.md",
+                "file": "Welcome.md",
                 "mode": "source",
                 "source": false
               },
@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Welcome.md",
+                "file": "Welcome.md",
                 "mode": "source",
                 "source": false
               },
@@ -204,6 +204,8 @@
   },
   "active": "21a2888db70fbef7",
   "lastOpenFiles": [
+    "Welcome.html",
+    "HTML Pages",
     "README.md",
     "docs/CNAME",
     "docs",
@@ -231,7 +233,6 @@
     "Free Notes/Tech/Operating Systems/Linux OS/Linux Notes.md",
     "Free Notes/Tech/Operating Systems/Linux OS/Tools/Vim.md",
     "Free Notes/Tech/Operating Systems/Linux OS/Tools/cURL.md",
-    "Free Notes/Tech/Operating Systems/Linux OS/Setup Guides/Postfix Incoming Mail Setup.md",
     "New Text Document.txt",
     "wiki",
     "2.png",
@@ -241,7 +242,6 @@
     "malware-analysis-and-reverse-engineering",
     "cyber-security-notes",
     "cyber-security-and-it-certification-practice-tests",
-    "cyber-security-and-it-certification-notes",
     "8.png",
     "7.png",
     "6.png",
