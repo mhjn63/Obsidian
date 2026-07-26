@@ -1,3 +1,6 @@
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
 # HTB: Overwatch Walkthrough
 
 >  **Difficulty:** Medium | **OS:** Windows (Server 2022) | **Released:** 24 Jan 2026 | **Retired:** 09 May 2026 **Creator:** xct | **Hostname:** S200401 | **Domain:** overwatch.htb

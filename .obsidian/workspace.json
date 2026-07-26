@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTB Writeups/HTB Browsed Writeup.md",
+                "file": "HTB Writeups/HTB-DevArea.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HTB Browsed Writeup"
+              "title": "HTB-DevArea"
             }
           }
         ]
@@ -189,6 +189,22 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "HTB Writeups/HTB ZeroDark.md",
+    "HTB Writeups/HTB VariaType.md",
+    "HTB Writeups/HTB Sorcery.md",
+    "HTB Writeups/HTB Sorcery.html",
+    "HTB Writeups/HTB Snapped .html",
+    "HTB Writeups/HTB Snapped.md",
+    "HTB Writeups/HTB Pterodactyl.md",
+    "HTB Writeups/HTB Overwatch.md",
+    "HTB Writeups/HTB Orion.md",
+    "HTB Writeups/HTB MonitorsFour.md",
+    "HTB Writeups/HTB Logging.md",
+    "HTB Writeups/HTB Interpreter.md",
+    "HTB Writeups/HTB Guardian.md",
+    "HTB Writeups/HTB Facts.md",
+    "HTB Writeups/HTB CCTV.md",
+    "HTB Writeups/HTB Browsed Writeup.md",
     "HTB Writeups/HTB Abducted.md",
     "THM Writeups/THM Wazuh CVE-2026-25769.md",
     "THM Writeups/THM Understanding Vulnerability Databases.md",
@@ -201,21 +217,7 @@
     "THM Writeups/THM Elastic Defend.md",
     "THM Writeups/THM Dirty Frag.md",
     "THM Writeups/THM Building SOC with Elastic.md",
-    "THM Writeups/THM Basic Vulnerability Identification Techniques.md",
-    "THM Writeups/SOC-Level-2-Workflow.md",
-    "THM Writeups/Senior-Security-Analyst-Intro.md",
     "THM Writeups/Elastic Stack The Basics.html",
-    "THM Writeups/CTI-for-Alert-Triage.md",
-    "THM Writeups/AI-Automation-in-Detection-Engineering.md",
-    "Tech/Blockchain and Crypto.md",
-    "Tech/Programming/XML.md",
-    "Tech/Programming/Typescript.md",
-    "Tech/Programming/Swift.md",
-    "Tech/Programming/Python.md",
-    "Tech/Programming/Powershell.md",
-    "Tech/Programming/PHP Programming.md",
-    "Tech/Programming/Laravel.md",
-    "Tech/Programming/Javascript Notes.md",
     "Certifications/thm sal2 vs btl2 vs cdsa.html",
     "Certifications",
     "THM Writeups/TryHackMe Eradication & Remediation Walkthrough.html",
@@ -223,8 +225,6 @@
     "THM Writeups/THM Spring AI CVE.html",
     "THM Writeups/thm extending your network .html",
     "THM Writeups/THM Elastic Defend.html",
-    "THM Writeups",
-    "HTB Writeups (2)/TryHackMe Eradication & Remediation Walkthrough.html",
     "Premium Notes and Courses/2.png",
     "Premium Notes and Courses/3 .png",
     "Premium Notes and Courses/8.png",

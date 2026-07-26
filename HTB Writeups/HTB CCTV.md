@@ -1,3 +1,7 @@
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
+
 ### Recon
 
 The full-port nmap sweep finds only two open TCP ports — SSH on 22 and HTTP on 80, both with TTL 63 (Linux, one hop). Version detection confirms OpenSSH 9.6p1 and Apache 2.4.58, which together fingerprint the OS as Ubuntu 24.04 Noble LTS. The HTTP service redirects to `cctv.htb`, so the host is added to `/etc/hosts` before a subdomain brute-force is attempted with `ffuf`, which returns no additional vhosts:

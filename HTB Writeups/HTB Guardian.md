@@ -1,3 +1,7 @@
+[🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
+
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](https://shop.motasem-notes.net)
+
 ### Quick Machine Overview:
 
 **1. Recon & Enumeration** : nmap two-phase methodology, TTL fingerprinting, vhost fuzzing, feroxbuster with `-x php`, ExifTool metadata hunting, and tech stack fingerprinting signals.
