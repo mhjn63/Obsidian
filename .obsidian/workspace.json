@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tech/Programming/Swift.md",
+                "file": "Tech/Programming/XML.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Swift"
+              "title": "XML"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Tech/Programming/Typescript.md",
+    "Tech/Programming/Swift.md",
     "Tech/Programming/Python.md",
     "Tech/Programming/Powershell.md",
     "Tech/Programming/PHP Programming.md",
@@ -212,8 +214,6 @@
     "Tech/AI/ChatGPT Cheatsheet.md",
     "Tech/AI/AI and LLMs.md",
     "OSINT.md",
-    "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
-    "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
