@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bug Bounty/Bug Bounty Cheat Sheet.md",
+                "file": "Bug Bounty/Bug Bounty Methodology.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bug Bounty Cheat Sheet"
+              "title": "Bug Bounty Methodology"
             }
           }
         ]
@@ -188,8 +188,8 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
-    "Career Guidance/Cyber Security Career Notes.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
+    "Career Guidance/Cyber Security Career Notes.md",
     "THM Writeups/THM Writeups.md",
     "HTB Writeups/HTB Writeups.md",
     "Tech/Operating Systems/Windows OS/Windows Notes.md",
