@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Career Guidance/Templates/SOC Analyst Interview Templates.md",
+                "file": "Career Guidance/Becoming a Pentester.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SOC Analyst Interview Templates"
+              "title": "Becoming a Pentester"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Career Guidance/Templates/SOC Analyst Interview Templates.md",
     "Bug Bounty/Bug Bounty Tools.md",
     "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
@@ -205,7 +206,6 @@
     "Tech/AI/ChatGPT Cheatsheet.md",
     "Tech/AI/AI and LLMs.md",
     "Premium Notes and Courses/Browse.md",
-    "Career Guidance/Templates/SOC Analyst Interview Templates.md",
     "Career Guidance/Becoming a Pentester.md",
     "OSINT.md",
     "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
