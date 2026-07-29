@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bug Bounty/Bug Bounty Methodology.md",
+                "file": "Career Guidance/Templates/SOC Analyst Interview Templates.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bug Bounty Methodology"
+              "title": "SOC Analyst Interview Templates"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Bug Bounty/Bug Bounty Tools.md",
+    "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
     "Career Guidance/Cyber Security Career Notes.md",
     "THM Writeups/THM Writeups.md",
@@ -212,8 +214,6 @@
     "SOC Analyst Notes/Blue Team Notes.md",
     "SOC Analyst Notes/Azure Security Center.md",
     "SOC Analyst Notes/Firewalls/Basics.md",
-    "Penetration Testing/Windows AD Pentesting/Kerberos Cheat Sheet.md",
-    "Penetration Testing/Windows AD Pentesting/Active Directory Pentesting.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
