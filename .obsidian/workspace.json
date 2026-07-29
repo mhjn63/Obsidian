@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
+                "file": "Tech/AI/AI and LLMs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MacOS Security"
+              "title": "AI and LLMs"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "OSINT.md",
+    "SOC Analyst Notes/Operating Systems Security/MacOs/MacOS Security.md",
     "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
     "SOC Analyst Notes/Phishing Detection.md",
     "SOC Analyst Notes/Blue Team Notes.md",
@@ -212,8 +214,6 @@
     "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
     "THM Writeups/THM Writeups.md",
-    "HTB Writeups/HTB Writeups.md",
-    "Tech/Operating Systems/Windows OS/Windows Notes.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
