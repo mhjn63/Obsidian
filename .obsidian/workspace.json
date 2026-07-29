@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tech/Programming/PHP Programming.md",
+                "file": "Tech/Programming/Powershell.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PHP Programming"
+              "title": "Powershell"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Tech/Programming/PHP Programming.md",
     "Tech/Programming/Laravel.md",
     "Tech/Programming/Javascript Notes.md",
     "Tech/Programming/Java.md",
@@ -213,7 +214,6 @@
     "SOC Analyst Notes/Operating Systems Security/Linux/Linux Security.md",
     "SOC Analyst Notes/Phishing Detection.md",
     "SOC Analyst Notes/Blue Team Notes.md",
-    "SOC Analyst Notes/Azure Security Center.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
