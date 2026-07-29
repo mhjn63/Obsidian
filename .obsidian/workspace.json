@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Penetration Testing/Windows AD Pentesting/Active Directory Pentesting.md",
+                "file": "Penetration Testing/Windows AD Pentesting/Kerberos Cheat Sheet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Active Directory Pentesting"
+              "title": "Kerberos Cheat Sheet"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Penetration Testing/Windows AD Pentesting/Active Directory Pentesting.md",
     "Penetration Testing/Web Hacking/API Pentesting.md",
     "Penetration Testing/Mobile Pentesting/Mobile Pentesting Tools Reference.md",
     "Penetration Testing/Mobile Pentesting/Android Pentesting.md",
@@ -213,7 +214,6 @@
     "Tech/Hosting/Apache Tomcat.md",
     "Tech/Databases/MySQL Server Deployment with Docker.md",
     "Tech/Databases/Basics and Foundations.md",
-    "Tech/Cloud/Terraform.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
