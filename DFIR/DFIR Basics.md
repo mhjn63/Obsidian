@@ -638,7 +638,6 @@ In addition, failures can and do occur, so you should learn how to use several a
 | MD5 output | Supports later validation and integrity checks. |
 
 ### Remember:
-
 - Forensics data acquisitions are stored in three different formats: raw, proprietary, and
 AFF. Most proprietary formats and AFF store metadata about the acquired data in
 the image file.
@@ -646,10 +645,23 @@ the image file.
 disk copy, logical disk-to-disk or disk-to-data file, or sparse data copy of a folder or file.
 - Large disks might require using tape backup devices. With enough tapes, any size
 drive or RAID drive can be backed up. Tape backups run more slowly but are a reliable method for forensics acquisitions.
-- Lossless compression for forensics acquisitions doesn’t alter the data when it’s
-restored, unlike lossy compression. Lossless compression can compress up to 50% for
-
----
+- Lossless compression for forensics acquisitions doesn’t alter the data when it’s restored, unlike lossy compression. Lossless compression can compress up to 50% for most data. If data is already compressed on a drive, lossless compression might not save much more space.
+- If there are time restrictions or too much data to acquire from large drives or RAID drives, a logical or sparse acquisition might be necessary. Consult with your lead attorney or supervisor first to let them know that collecting all the data might not be possible.
+- You should have a contingency plan to ensure that you have a forensically sound acquisition and make two acquisitions if you have enough data storage. The first acquisition should be compressed, and the second should be uncompressed. If one acquisition becomes corrupt, the other one is available for analysis.
+- Write-blocking devices or utilities must be used with GUI acquisition tools in both Windows and Linux. Practice with a test drive rather than suspect drive, and use a hashing tool on the test drive to verify that no data was altered.
+- Always validate your acquisition with built-in tools from a forensics acquisition program, a hexadecimal editor with MD5 or SHA-1 hashing functions, or the Linux md5sum or sha1sum commands.
+- A Linux Live CD provides many useful tools for computer forensics acquisitions.
+- The preferred Linux acquisition tool is dcfldd instead of dd because it was designed for forensics acquisition. Always validate the acquisition with the hashing features of dcfldd and md5sum or sha1sum.
+■ When using the Linux dd or dcfldd commands, remember that reversing the output
+field (of=) and input field (if=) of suspect and target drives could write data to the
+wrong drive, thus destroying your evidence. If available, you should always use a
+physical write-blocker device for acquisitions.
+■ To acquire RAID disks, you need to determine the type of RAID and then which
+acquisition tool to use. With a firmware-hardware RAID, acquiring data directly from
+the RAID server might be necessary.
+■ Remote network acquisition tools require installing a remote agent on the suspect’s
+computer. The remote agent can be detected if suspects install their own security
+programs, such as a firewall.
 
 ## 16. Analysis Workflow with ProDiscover Basic
 
@@ -947,4 +959,3 @@ CLOSURE
 
 ---
 
-  
