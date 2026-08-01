@@ -637,6 +637,18 @@ In addition, failures can and do occur, so you should learn how to use several a
 | Log file | Shows acquisition activity and errors. |
 | MD5 output | Supports later validation and integrity checks. |
 
+### Remember:
+
+- Forensics data acquisitions are stored in three different formats: raw, proprietary, and
+AFF. Most proprietary formats and AFF store metadata about the acquired data in
+the image file.
+- The four methods of acquiring data for forensics analysis are disk-to-image file, diskto-
+disk copy, logical disk-to-disk or disk-to-data file, or sparse data copy of a folder or file.
+- Large disks might require using tape backup devices. With enough tapes, any size
+drive or RAID drive can be backed up. Tape backups run more slowly but are a reliable method for forensics acquisitions.
+- Lossless compression for forensics acquisitions doesn’t alter the data when it’s
+restored, unlike lossy compression. Lossless compression can compress up to 50% for
+
 ---
 
 ## 16. Analysis Workflow with ProDiscover Basic
@@ -935,3 +947,4 @@ CLOSURE
 
 ---
 
+  
