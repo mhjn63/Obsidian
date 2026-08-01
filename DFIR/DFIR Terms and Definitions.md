@@ -296,88 +296,88 @@ The file system Microsoft created to replace FAT.
 NTFS uses security features, allows smaller cluster sizes, and uses Unicode, which makes it a  
 more versatile system. NTFS is used mainly on newer OSs, starting with Windows NT.
 
-## NTBootdd.sys
+#### NTBootdd.sys
 
 A device driver that allows the OS to communicate with SCSI or ATA drives
 
 that aren’t related to the BIOS.
 
-## NTDetect.com
+#### NTDetect.com
 
 A 16-bit program that identifies hardware components during startup and
 
 sends the information to Ntldr.
 
-## NT Loader (Ntldr)
+#### NT Loader (Ntldr)
 
 A program located in the root folder of the system partition that loads the
 
 OS. See also Bootsect.dos.
 
-## Ntoskrnl.exe
+#### Ntoskrnl.exe
 
 The kernel for the Windows XP OS.
 
-## one-time passphrase
+#### one-time passphrase
 
 A password used to access special accounts or programs requiring a
 
 high level of security, such as a decryption utility for an encrypted drive. This passphrase  
 can be used only once, and then it expires.
 
-## Pagefile.sys
+#### Pagefile.sys
 
 At startup, data and instruction code are moved in and out of this file to
 
 optimize the amount of physical RAM available during startup.
 
-## partition
+#### partition
 
 A logical drive on a disk. It can be the entire disk or part of the disk.
 
-## Partition Boot Sector
+#### Partition Boot Sector
 
 The first data set of an NTFS disk. It starts at sector [0] of the disk
 
 drive and can expand up to 16 sectors.
 
-## partition gap
+#### partition gap
 
 Unused space or void between the primary partition and the first logical
 
 partition.
 
-## personal identity information (PII)
+#### personal identity information (PII)
 
 Any information that can be used to create bank or
 
 credit card accounts, such as name, home address, Social Security number, and driver’s  
 license number.
 
-## physical addresses
+#### physical addresses
 
 The actual sectors in which files are located. Sectors reside at the
 
 hardware and firmware level.
 
-## private key
+#### private key
 
 In encryption, the key used to decrypt the file. The file owner keeps the
 
 private key.
 
-## protected-mode GUI
+#### protected-mode GUI
 
 Provides the same functional startup process for Windows that
 
-## Config.sys
+#### Config.sys
 
 provided for DOS. It loads all the device drivers.
 
 public key In encryption, the key used to encrypt a file; it’s held by a certificate authority,  
 such as a global registry, network server, or company such as VeriSign.
 
-## RAM slack
+#### RAM slack
 
 The unused space between the end of the file (EOF) and the end of the last sector
 
@@ -385,63 +385,63 @@ used by the active file in the cluster. Any data residing in RAM at the time the
 such as logon IDs and passwords, can appear in this area, whether the information was  
 saved or not. RAM slack is found primarily in older Microsoft OSs.
 
-## recovery certificate
+#### recovery certificate
 
 A method NTFS uses so that a network administrator can recover
 
 encrypted files if the file’s user/creator loses the private key encryption code.
 
-## Registry
+#### Registry
 
 A Windows database containing information about hardware and software configurations,
 
 network connections, user preferences, setup information, and other critical information.
 
-## sector
+#### sector
 
 A section on a track, typically made up of 512 bytes.
 
-## track density
+#### track density
 
 The space between tracks on a disk. The smaller the space between tracks, the
 
 more tracks on a disk. Older drives with wider track densities allowed the heads to wander.
 
-## tracks
+#### tracks
 
 Concentric circles on a disk platter where data is stored.
 
-## Trusted Computing Group (TCG)
+#### Trusted Computing Group (TCG)
 
 A nonprofit organization that develops support standards
 
 for trusted computer access across multiple platforms.
 
-## Trusted Platform Module (TPM)
+#### Trusted Platform Module (TPM)
 
 A microchip that stores encryption key data used to encrypt
 
 and decrypt drive data.
 
-## unallocated disk space
+#### unallocated disk space
 
 Partition disk space that isn’t allocated to a file. This space might
 
 contain data from files that have been deleted previously.
 
-## Unicode A
+#### Unicode A
 
 character code representation that’s replacing ASCII. It’s capable of representing
 
 more than 64,000 characters and non-European-based languages.
 
-## UTF-8 (Unicode Transformation Format)
+#### UTF-8 (Unicode Transformation Format)
 
 One of three formats Unicode uses to translate
 
 languages for digital representation.
 
-## virtual cluster number (VCN)
+#### virtual cluster number (VCN)
 
 When a large file is saved in NTFS, it’s assigned a logical
 
@@ -450,7 +450,7 @@ files. If the disk is highly fragmented, VCNs are assigned and list the addition
 to store the file. The LCN is a physical location on the NTFS partition; VCNs are the offset  
 from the previous LCN data run. See also logical cluster numbers (LCNs) and data runs.
 
-## virtual machines
+#### virtual machines
 
 Emulated computer environments that simulate hardware and can be used for
 
@@ -459,7 +459,7 @@ Windows Vista could have a virtualWindows 98 OS, allowing the user to switch bet
 volume Any storage media, such as a floppy disk, a partition on a hard drive, the entire  
 drive, or several drives. On Intel systems, a volume is any partitioned disk.
 
-## zoned bit recording (ZBR)
+#### zoned bit recording (ZBR)
 
 The method most manufacturers use to deal with a platter’s inner
 
