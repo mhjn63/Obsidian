@@ -1,3 +1,4 @@
+- 2026-08-01T0924 · [[DFIR Basics]]
 - 2026-07-29T2107 · [[THM Writeups]]
 - 2026-07-28T1258 · [[HTB Writeups]]
 - 2026-07-26T2117 · [[Apache Tomcat]]
@@ -22,4 +23,3 @@
 - 2026-07-26T1636 · [[Android Pentesting]]
 - 2026-07-26T1636 · [[Pentesting with Kali Linux]]
 - 2026-07-26T1636 · [[Cyber Security Management]]
-- 2026-07-26T1636 · [[Cyber Security Notes 101]]
