@@ -207,11 +207,11 @@ searches of computers, the plain view doctrine’s limitations are less clear.
 arrest, conduct a personal or property search, or obtain a warrant for arrest.
 `professional curiosity` : The motivation for law enforcement and other professional personnel
 to examine an incident or crime scene to see what happened.
-Scientific Working Group on Digital Evidence (SWGDE) A group that sets standards for
+`Scientific Working Group on Digital Evidence (SWGDE)` : A group that sets standards for
 recovering, preserving, and examining digital evidence.
-Secure Hash Algorithm version 1 (SHA-1) A forensic hashing algorithm created by NIST to
+`Secure Hash Algorithm version 1 (SHA-1)` : A forensic hashing algorithm created by NIST to
 determine whether data in a file or on storage media has been altered.
-sniffing Detecting data transmissions to and from a suspect’s computer and a network
+`sniffing` : Detecting data transmissions to and from a suspect’s computer and a network
 server to determine the type of data being transmitted over a network.
 
 ---
