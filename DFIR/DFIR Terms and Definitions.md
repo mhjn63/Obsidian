@@ -138,30 +138,30 @@ the file, the remaining space is slack space and can contain passwords, logon ID
 fragments, and deleted e-mails.
 `file system` : The way files are stored on a disk; gives an OS a road map to data on a disk.
 geometry A disk drive’s internal organization of platters, tracks, and sectors.
-Hal.dll The Hardware Abstraction Layer dynamic link library allows the OS kernel to
+`Hal.dll` : The Hardware Abstraction Layer dynamic link library allows the OS kernel to
 communicate with hardware.
-head The device that reads and writes data to a disk drive.
-head and cylinder skew A method manufacturers use to minimize lag time. The starting
+`head` : The device that reads and writes data to a disk drive.
+`head and cylinder skew` : A method manufacturers use to minimize lag time. The starting
 sectors of tracks are slightly offset from each other to move the read-write head.
-High Performance File System (HPFS) The file system IBM uses for its OS/2 operating
+`High Performance File System (HPFS)` : The file system IBM uses for its OS/2 operating
 system.
-Info2 file In Windows NT through Vista, the control file for the Recycle Bin. It contains
+`Info2` : file In Windows NT through Vista, the control file for the Recycle Bin. It contains
 ASCII data, Unicode data, and date and time of deletion.
-Io.sys This MS-DOS file communicates between a computer’s BIOS, the hardware, and the
+`Io.sys` : This MS-DOS file communicates between a computer’s BIOS, the hardware, and the
 OS kernel.
-logical addresses When files are saved, they are assigned to clusters, which the OS numbers
+`logical addresses` : When files are saved, they are assigned to clusters, which the OS numbers
 sequentially starting at 2. Logical addresses point to relative cluster positions, using these
 assigned cluster numbers.
-logical cluster numbers (LCNs) The numbers sequentially assigned to each cluster when an
+`logical cluster numbers (LCNs)` : The numbers sequentially assigned to each cluster when an
 NTFS disk partition is created and formatted. The first cluster on an NTFS partition starts
 at count 0. LCNs become the addresses that allow the MFT to read and write data to the
 disk’s nonresident attribute area. See also virtual cluster number (VCN) and data runs.
-Master Boot Record (MBR) On Windows and DOS computers, this boot disk file contains
+`Master Boot Record (MBR)` : On Windows and DOS computers, this boot disk file contains
 information about partitions on a disk and their locations, size, and other important items.
-Master File Table (MFT) NTFS uses this database to store and link to files. It contains
+`Master File Table (MFT)` : NTFS uses this database to store and link to files. It contains
 information about access rights, date and time stamps, system attributes, and other
 information about files.
-metadata In NTFS, this term refers to information stored in the MFT. See also Master File
+`metadata In NTFS`: this term refers to information stored in the MFT. See also Master File
 Table (MFT).
 Msdos.sys A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
 and earlier, it was an actual OS executable.
