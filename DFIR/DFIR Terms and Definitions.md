@@ -744,10 +744,62 @@ A type of e-mail scam that’s typically sent as spam soliciting personal identi
 
 A protocol for retrieving e-mail messages from an e-mail server.
 
-## Simple Mail Transfer Protocol (SMTP)
+#### Simple Mail Transfer Protocol (SMTP)
 
 A protocol for sending e-mail messages between servers.
 
-## Spoofing
+#### Spoofing
 
 Transmitting an e-mail message with its header information altered so that its point of origin appears to be from a different sender. Spoofed e-mails are also referred to as forged e-mail. Spoofing is typically used in phishing and spamming to hide the sender’s identity.
+
+#### Code Division Multiple Access (CDMA)
+
+A widely used digital cell phone technology that makes use of spread-spectrum modulation to spread the signal across a wide range of frequencies.
+
+#### Electronically Erasable Programmable Read-Only Memory (EEPROM)
+
+A type of nonvolatile memory that can be reprogrammed electrically, without having to physically access or remove the chip.
+
+#### Enhanced Data GSM Environment (EDGE)
+
+An improvement to GSM technology that enables it to deliver higher data rates. See also Global System for Mobile Communications (GSM).
+
+#### Fourth-Generation (4G)
+
+The next generation of mobile phone standards and technologies promises higher speeds and improved accuracy. Sprint Nextel introduced 4G in 2009, and other major carriers intend to follow suit between now and 2012.
+
+#### Global System for Mobile Communications (GSM)
+
+A second-generation cellular network standard; currently the most popular cellular network type in the world.
+
+#### International Telecommunication Union (ITU)
+
+An international organization dedicated to creating telecommunications standards.
+
+## Orthogonal Frequency Division Multiplexing (OFDM)
+
+A 4G technology that uses radio waves broadcast over different frequencies; it’s considered to use power more efficiently and be more immune to interference.
+
+## Personal Digital Assistants (PDAs)
+
+Handheld electronic devices that typically contain personal productivity applications used for calendaring, contact management, and note taking. Unlike smartphones, PDAs don’t have telephony capabilities.
+
+## Smartphones
+
+Mobile telephones with more features than in a traditional phone, including a camera, an e-mail client, a Web browser, a calendar, contact management software, an instant-messaging program, and more.
+
+## Subscriber Identity Module (SIM) Cards
+
+Removable cards in GSM phones that contain information for identifying subscribers. They can also store other information, such as messages and call history.
+
+## Telecommunications Industry Association (TIA)
+
+A U.S. trade association representing hundreds of telecommunications companies that works to establish and maintain telecommunications standards.
+
+## Third-Generation (3G)
+
+The most recent generation of mobile phone standards and technology; provides for more advanced features and higher data rates than the older analog and personal communications service (PCS) technologies.
+
+## Time Division Multiple Access (TDMA)
+
+The technique of dividing a radio frequency into time slots, used by GSM networks; also refers to a specific cellular network standard covered by Interim Standard (IS) 136. See also Global System for Mobile Communications (GSM).
