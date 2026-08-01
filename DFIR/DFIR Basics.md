@@ -2,7 +2,6 @@
 
 > Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](shop.motasem-notes.net)
 
-
 - [[#Full DFIR Study Notes|Full DFIR Study Notes]]
 - [[#1. Cheatsheet Purpose|1. Cheatsheet Purpose]]
 - [[#2. The Golden Rule of Computer Investigations|2. The Golden Rule of Computer Investigations]]
@@ -43,8 +42,11 @@
 	- [[#14. Bit-Stream Copy and Image Concepts#Backup vs. Forensic Image|Backup vs. Forensic Image]]
 	- [[#14. Bit-Stream Copy and Image Concepts#Visual Model|Visual Model]]
 - [[#15. Acquisition Workflow with ProDiscover Basic|15. Acquisition Workflow with ProDiscover Basic]]
+	- [[#15. Acquisition Workflow with ProDiscover Basic#Data Acquistion|Data Acquistion]]
 	- [[#15. Acquisition Workflow with ProDiscover Basic#USB Acquisition Flow|USB Acquisition Flow]]
 	- [[#15. Acquisition Workflow with ProDiscover Basic#Key Acquisition Outputs|Key Acquisition Outputs]]
+	- [[#15. Acquisition Workflow with ProDiscover Basic#Key Acquisition Terms|Key Acquisition Terms]]
+	- [[#15. Acquisition Workflow with ProDiscover Basic#Remember:|Remember:]]
 - [[#16. Analysis Workflow with ProDiscover Basic|16. Analysis Workflow with ProDiscover Basic]]
 	- [[#16. Analysis Workflow with ProDiscover Basic#Load Evidence Image|Load Evidence Image]]
 	- [[#16. Analysis Workflow with ProDiscover Basic#Search for Evidence|Search for Evidence]]
@@ -58,10 +60,11 @@
 - [[#20. Investigator Journal|20. Investigator Journal]]
 - [[#21. Completing the Case|21. Completing the Case]]
 - [[#22. Case Critique Checklist|22. Case Critique Checklist]]
-- [[#23. Chapter 2 Key Terms|23. Chapter 2 Key Terms]]
+- [[#Key Terms|Key Terms]]
 - [[#24. Fast Investigation Memory Aid|24. Fast Investigation Memory Aid]]
 - [[#25. Practical Mistakes to Avoid|25. Practical Mistakes to Avoid]]
 - [[#26. One-Page Field Checklist|26. One-Page Field Checklist]]
+
 
 ## Full DFIR Study Notes
 
@@ -149,6 +152,68 @@ Key points:
 - Employees may have reduced privacy expectations only if policies and banners are clear.
 - Policy violations can still become civil or criminal matters.
 - Chain of custody still matters, even for internal HR investigations.
+
+
+Chapter Summary
+■ Digital evidence is anything stored or transmitted on electronic or optical media. It’s
+extremely fragile and easily altered.
+■ In the private sector, an incident scene is often a place of work, such as a contained
+office or manufacturing area. Because everything from the computers used to violate a
+company policy to the surrounding facility is under a controlled authority, investigating
+and controlling the scene are easier than at a crime scene.
+■ Companies should publish policies stating that they reserve the right to inspect computing
+assets at will; otherwise, employees’ expectation of privacy prevents an
+employer from legally conducting an intrusive investigation or covert surveillance. A
+well-defined corporate policy states that an employer has the right to examine,
+inspect, or access any company-owned computing asset.
+■ Proper procedure needs to be followed even in private-sector investigations because
+civil cases can easily become criminal cases. If an internal corporate case is turned
+over to law enforcement because of criminal activity, the corporate investigator must
+avoid becoming an agent of law enforcement.
+■ Criminal cases require a properly executed and well-defined search warrant. A specific
+crime and location must be spelled out in the warrant. For all criminal investigations
+in the United States, the Fourth Amendment specifies that a law enforcement officer can search for and seize criminal evidence only with probable cause, which is facts or
+circumstances that lead a reasonable person to believe a crime has been committed or
+is about to be committed.
+■ The plain view doctrine applies when investigators find evidentiary items that aren’t
+specified in a warrant or under probable cause.
+■ When preparing for a case, describe the nature of the case, identify the type of OS,
+determine whether you can seize the computer, and obtain a description of the
+location.
+■ When dealing with a hazardous materials (HAZMAT) situation, you might need to
+obtain HAZMAT certification or have someone else with that certification collect the
+evidence.
+■ Always take pictures or use a video camera to document the scene. Prevent professional
+curiosity from contaminating evidence by limiting who enters the scene.
+■ As you collect digital evidence, guard against physically destroying or contaminating
+it. Take precautions to prevent static electricity discharge to electronic devices. If possible,
+bag or box digital evidence and any hardware you collect from the scene. As
+you collect hardware, sketch the equipment, including exact markings of where components
+are located. Tag and number each cable, port, and other connection and
+record its number and description in a log.
+■ Selecting a medium for storing digital evidence usually depends on how long you need
+to keep the evidence. The ideal storage media are CD-Rs or DVDs. You can also use
+magnetic tape, such as 4-mm DAT and DLT magnetic tapes.
+■ Forensic hash values are used to verify that data or storage media have not been
+altered. The two most common hashing algorithms for forensics purposes are currently
+MD5 and SHA-1, although both are being replaced slowly as more research is
+done. A forensic hash can’t be predicted, no two files can have the same hash value,
+and if the file changes, the hash value must change.
+■ To analyze computer forensics data, learn to use more than one vendor tool. Different
+vendors offer varying methods for recovering data from magnetic media. AccessData
+FTK is a Windows GUI tool for recovering data from FAT, NTFS, and Ext2 file systems
+and has a unique method of cataloging and indexing data that speeds up the
+examination process.
+■ You must handle all evidence the same way every time you handle it. Apply the same
+security and accountability controls for evidence in a civil lawsuit as for evidence from
+a crime scene to comply with state or federal rules of evidence.
+■ After you determine that an incident scene has digital evidence, identify the digital
+information or artifacts that can be used as evidence. Next, catalog or document the
+evidence you find. Your goal is to preserve evidence integrity, which means you must
+not modify the evidence as you collect and catalog it. An incident scene should be
+photographed and sketched, and then each item labeled and put in an evidence bag.
+Collect, preserve, document, analyze, identify, and organize the evidence. Then rebuild
+evidence or repeat a situation to verify that you get the same results every time.
 
 ---
 
