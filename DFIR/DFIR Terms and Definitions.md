@@ -776,30 +776,30 @@ A second-generation cellular network standard; currently the most popular cellul
 
 An international organization dedicated to creating telecommunications standards.
 
-## Orthogonal Frequency Division Multiplexing (OFDM)
+#### Orthogonal Frequency Division Multiplexing (OFDM)
 
 A 4G technology that uses radio waves broadcast over different frequencies; it’s considered to use power more efficiently and be more immune to interference.
 
-## Personal Digital Assistants (PDAs)
+#### Personal Digital Assistants (PDAs)
 
 Handheld electronic devices that typically contain personal productivity applications used for calendaring, contact management, and note taking. Unlike smartphones, PDAs don’t have telephony capabilities.
 
-## Smartphones
+#### Smartphones
 
 Mobile telephones with more features than in a traditional phone, including a camera, an e-mail client, a Web browser, a calendar, contact management software, an instant-messaging program, and more.
 
-## Subscriber Identity Module (SIM) Cards
+#### Subscriber Identity Module (SIM) Cards
 
 Removable cards in GSM phones that contain information for identifying subscribers. They can also store other information, such as messages and call history.
 
-## Telecommunications Industry Association (TIA)
+#### Telecommunications Industry Association (TIA)
 
 A U.S. trade association representing hundreds of telecommunications companies that works to establish and maintain telecommunications standards.
 
-## Third-Generation (3G)
+#### Third-Generation (3G)
 
 The most recent generation of mobile phone standards and technology; provides for more advanced features and higher data rates than the older analog and personal communications service (PCS) technologies.
 
-## Time Division Multiple Access (TDMA)
+#### Time Division Multiple Access (TDMA)
 
 The technique of dividing a radio frequency into time slots, used by GSM networks; also refers to a specific cellular network standard covered by Interim Standard (IS) 136. See also Global System for Mobile Communications (GSM).
