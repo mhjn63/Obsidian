@@ -650,3 +650,68 @@ A Macintosh application used to track blocks that are in use and blocks that are
 #### Volume Control Block (VCB)
 
 An area of the Macintosh file system that contains information from the MDB and is used by File Manager. See also Master Directory Block (MDB).
+
+### Other DFIR Terms
+#### Defense in Depth (DiD)
+
+The NSA’s approach to implementing a layered network defense strategy. It focuses on three modes of protection: people, technology, and operations.
+
+---
+
+#### Distributed Denial-of-Service (DDoS) Attacks
+
+A type of DoS attack in which other online machines are used, without the owners’ knowledge, to launch an attack.
+
+---
+
+#### Honeypot
+
+A computer or network set up to lure an attacker.
+
+---
+
+#### Honeystick
+
+A honeypot and honeywall combined on a bootable memory stick.
+
+---
+
+#### Honeywalls
+
+Intrusion prevention and monitoring systems that track what attackers do on honeypots.
+
+---
+
+#### Layered Network Defense Strategy
+
+An approach to network hardening that sets up several network layers to place the most valuable data at the innermost part of the network.
+
+---
+
+#### Network Forensics
+
+The process of collecting and analyzing raw network data and systematically tracking network traffic to determine how security incidents occur.
+
+---
+
+#### Order of Volatility (OOV)
+
+A term that refers to how long an item on a network lasts. RAM and running processes might last only milliseconds; items stored on hard drives can last for years.
+
+---
+
+#### Packet Sniffers
+
+Devices and software used to examine network traffic. On TCP/IP networks, they examine packets, hence the name.
+
+---
+
+#### Zero-Day Attacks
+
+Attacks launched before vendors or network administrators have discovered vulnerabilities and patches for them have been released.
+
+---
+
+## Zombies
+
+Computers used without the owners’ knowledge in a DDoS attack.
