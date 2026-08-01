@@ -592,27 +592,25 @@ This model matters because the original should remain preserved while analysis h
 Data acquisition is the process of copying data. For computer forensics, it’s the task of
 collecting digital evidence from electronic media. 
 
-There are two types of data acquisition:Static acquisitions and live acquisitions. I
+There are two types of data acquisition: `Static acquisitions and live acquisitions`. 
+
 The future of data acquisitions is shifting toward live acquisitions because of the use of disk
-encryption with newer operating systems (OSs). In addition to encryption concerns, collecting
-any data that’s active in a suspect’s computer RAM is becoming more important to digital
-investigations. Techniques for acquiring live disk and RAM data are covered in Chapter 11.
+encryption with newer operating systems (OSs). 
+
+In addition to encryption concerns, collecting any data that’s active in a suspect’s computer RAM is becoming more important to digital investigations. 
+
 The processes and data integrity requirements for static and live acquisitions are the same.
 The only shortcoming with live acquisitions is not being able to perform repeatable processes,
-which are critical for collecting digital evidence. With static acquisitions, if you have preserved
-the original media, making a second static acquisition should produce the same results. The
-data on the original disk is not altered, no matter how many times an acquisition is done.
-Making a second live acquisition while a computer is running collects new data because of
-dynamic changes in the OS.
+which are critical for collecting digital evidence. 
+
+With static acquisitions, if you have preserved the original media, making a second static acquisition should produce the same results. The data on the original disk is not altered, no matter how many times an acquisition is done. Making a second live acquisition while a computer is running collects new data because of dynamic changes in the OS.
+
 Your goal when acquiring data for a static acquisition is to preserve the digital evidence.
 Many times, you have only one chance to create a reliable copy of disk evidence with a data
 acquisition tool. Although these tools are generally dependable, you should still take steps to
-make sure you acquire an image that can be verified. In addition, failures can and do occur,
-so you should learn how to use several acquisition tools and methods; you work with a few
-different tools in this chapter. Other data acquisition tools that work in Windows, MS-DOS
-6.22, and Linux are described briefly in the last section, but the list of vendors and methods
-is by no means conclusive. You should always search for newer and better tools to ensure
-the integrity of your forensics acquisitions.
+make sure you acquire an image that can be verified.
+
+In addition, failures can and do occur, so you should learn how to use several acquisition tools and methods; you work with a few different tools in this chapter. Other data acquisition tools that work in Windows, MS-DOS 6.22, and Linux are described briefly in the last section, but the list of vendors and methods is by no means conclusive. You should always search for newer and better tools to ensure the integrity of your forensics acquisitions.
 
 ### USB Acquisition Flow
 
