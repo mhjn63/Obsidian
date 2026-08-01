@@ -223,11 +223,11 @@ cluster number specifying a location on the partition. Large files are referred 
 files. If the disk is highly fragmented, VCNs are assigned and list the additional space needed
 to store the file. The LCN is a physical location on the NTFS partition; VCNs are the offset
 from the previous LCN data run. See also logical cluster numbers (LCNs) and data runs.
-virtual machines Emulated computer environments that simulate hardware and can be used for
+`virtual machines` : Emulated computer environments that simulate hardware and can be used for
 running OSs separate from the physical (host) computer. For example, a computer running
 Windows Vista could have a virtualWindows 98 OS, allowing the user to switch between OSs.
 volume Any storage media, such as a floppy disk, a partition on a hard drive, the entire
 drive, or several drives. On Intel systems, a volume is any partitioned disk.
-zoned bit recording (ZBR) The method most manufacturers use to deal with a platter’s inner
+`zoned bit recording (ZBR)` : The method most manufacturers use to deal with a platter’s inner
 tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks
 hold the same amount of data.
