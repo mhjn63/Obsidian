@@ -91,69 +91,69 @@ In addition, failures can and do occur, so you should learn how to use several a
 `Whole disk encryption`: An encryption technique that performs a sector-by-sector encryption of an entire drive. Each sector is encrypted in its entirety, making it unreadable when copied with a static acquisition method.
 
 ### Windows and DOS Systems
-## American Standard Code for Information Interchange (ASCII)
+#### American Standard Code for Information Interchange (ASCII)
 
 An 8-bit coding scheme that assigns numeric values to up to 256 characters, including letters, numerals, punctuation marks, control characters, and other symbols.
 
-## areal density
+#### areal density
 
 The number of bits per square inch of a disk platter.
 
-## attribute ID In NTFS
+#### attribute ID In NTFS
 
 an MFT record field containing metadata about the file or folder and
 
 the file’s data or links to the file’s data.
 
-## Autoexec.bat
+#### Autoexec.bat
 
 A batch file containing customized settings for MS-DOS that runs
 
 automatically. It includes the default path and environmental variables, such as temporary  
 directories.
 
-## Boot.ini
+#### Boot.ini
 
 A file that specifies the Windows path installation and a variety of other startup
 
 options.
 
-## BootSect.dos
+#### BootSect.dos
 
 If a machine has multiple booting OSs, NTLDR reads BootSect.dos, which is a
 
 hidden file, to determine the address (boot sector location) of each OS. See also NT Loader  
 (Ntldr).
 
-## bootstrap process
+#### bootstrap process
 
 Information contained in ROM that a computer accesses during startup;
 
 this information tells the computer how to access the OS and hard drive.
 
-## clusters
+#### clusters
 
 Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
 
 2048, or 4096 bytes each.
 
-## Command.com
+#### Command.com
 
 This system file provides a command prompt when booting to MS-DOS
 
 mode.
 
-## Config.sys
+#### Config.sys
 
 A text file containing commands that typically run only at system startup to
 
 enhance the computer’s DOS configuration.
 
-## cylinder
+#### cylinder
 
 A column of tracks on two or more disk platters.
 
-## data runs
+#### data runs
 
 Cluster addresses where files are stored on a drive’s partition outside the MFT
 
@@ -161,40 +161,40 @@ record. Data runs are used for nonresident MFT file records. A data run record f
 of three components; the first component defines the size in bytes needed to store the second  
 and third components’ content.
 
-## data streams
+#### data streams
 
 Ways in which data can be appended to a file (intentionally or not). In NTFS,
 
 data streams become an additional file attribute.
 
-## device drivers
+#### device drivers
 
 Files containing instructions for the OS for hardware devices, such as the
 
 keyboard, mouse, and video card.
 
-## DOS protected-mode interface (DPMI)
+#### DOS protected-mode interface (DPMI)
 
 Used by many computer forensics tools that don’t
 
 operate in the Windows environment. It allows DOS programs to access extended memory  
 while protecting the system.
 
-## drive slack
+#### drive slack
 
 Unused space in a cluster between the end of an active file and the end of the
 
 cluster. It can contain deleted files, deleted e-mail, or file fragments. Drive slack is made up  
 of both file slack and RAM slack. See also file slack and RAM slack.
 
-## Encrypting File System (EFS)
+#### Encrypting File System (EFS)
 
 A public/private key encryption first used in Windows 2000 on
 
 NTFS-formatted disks. The file is encrypted with a symmetric key, and then a public/private  
 key is used to encrypt the symmetric key.
 
-## File Allocation Table (FAT)
+#### File Allocation Table (FAT)
 
 The original Microsoft file structure database. It’s written to the
 
@@ -202,61 +202,61 @@ outermost track of a disk and contains information about each file stored on the
 use the FAT to organize files on a disk so that the OS can find the files it needs. The  
 variations are FAT12, FAT16, FAT32, and FATX.
 
-## file slack
+#### file slack
 
 The unused space created when a file is saved. If the allocated space is larger than
 
 the file, the remaining space is slack space and can contain passwords, logon IDs, file  
 fragments, and deleted e-mails.
 
-## file system
+#### file system
 
 The way files are stored on a disk; gives an OS a road map to data on a disk.
 
 geometry A disk drive’s internal organization of platters, tracks, and sectors.
 
-## Hal.dll
+#### Hal.dll
 
 The Hardware Abstraction Layer dynamic link library allows the OS kernel to
 
 communicate with hardware.
 
-## head
+#### head
 
 The device that reads and writes data to a disk drive.
 
-## head and cylinder skew
+#### head and cylinder skew
 
 A method manufacturers use to minimize lag time. The starting
 
 sectors of tracks are slightly offset from each other to move the read-write head.
 
-## High Performance File System (HPFS)
+#### High Performance File System (HPFS)
 
 The file system IBM uses for its OS/2 operating
 
 system.
 
-## Info2
+#### Info2
 
 file In Windows NT through Vista, the control file for the Recycle Bin. It contains
 
 ASCII data, Unicode data, and date and time of deletion.
 
-## Io.sys
+#### Io.sys
 
 This MS-DOS file communicates between a computer’s BIOS, the hardware, and the
 
 OS kernel.
 
-## logical addresses
+#### logical addresses
 
 When files are saved, they are assigned to clusters, which the OS numbers
 
 sequentially starting at 2. Logical addresses point to relative cluster positions, using these  
 assigned cluster numbers.
 
-## logical cluster numbers (LCNs)
+#### logical cluster numbers (LCNs)
 
 The numbers sequentially assigned to each cluster when an
 
@@ -264,32 +264,32 @@ NTFS disk partition is created and formatted. The first cluster on an NTFS parti
 at count 0. LCNs become the addresses that allow the MFT to read and write data to the  
 disk’s nonresident attribute area. See also virtual cluster number (VCN) and data runs.
 
-## Master Boot Record (MBR)
+#### Master Boot Record (MBR)
 
 On Windows and DOS computers, this boot disk file contains
 
 information about partitions on a disk and their locations, size, and other important items.
 
-## Master File Table (MFT)
+#### Master File Table (MFT)
 
 NTFS uses this database to store and link to files. It contains
 
 information about access rights, date and time stamps, system attributes, and other  
 information about files.
 
-## metadata In NTFS
+#### metadata In NTFS
 
 this term refers to information stored in the MFT. See also Master File
 
 Table (MFT).
 
-## Msdos.sys
+#### Msdos.sys
 
 A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
 
 and earlier, it was an actual OS executable.
 
-## New Technology File System (NTFS)
+#### New Technology File System (NTFS)
 
 The file system Microsoft created to replace FAT.
 
