@@ -163,37 +163,37 @@ information about access rights, date and time stamps, system attributes, and ot
 information about files.
 `metadata In NTFS`: this term refers to information stored in the MFT. See also Master File
 Table (MFT).
-Msdos.sys A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
+`Msdos.sys` : A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
 and earlier, it was an actual OS executable.
-New Technology File System (NTFS) The file system Microsoft created to replace FAT.
+`New Technology File System (NTFS)` : The file system Microsoft created to replace FAT.
 NTFS uses security features, allows smaller cluster sizes, and uses Unicode, which makes it a
 more versatile system. NTFS is used mainly on newer OSs, starting with Windows NT.
-NTBootdd.sys A device driver that allows the OS to communicate with SCSI or ATA drives
+`NTBootdd.sys` : A device driver that allows the OS to communicate with SCSI or ATA drives
 that aren’t related to the BIOS.
-NTDetect.com A 16-bit program that identifies hardware components during startup and
+`NTDetect.com` : A 16-bit program that identifies hardware components during startup and
 sends the information to Ntldr.
-NT Loader (Ntldr) A program located in the root folder of the system partition that loads the
+`NT Loader (Ntldr)` : A program located in the root folder of the system partition that loads the
 OS. See also Bootsect.dos.
-Ntoskrnl.exe The kernel for the Windows XP OS.
-one-time passphrase A password used to access special accounts or programs requiring a
+`Ntoskrnl.exe` : The kernel for the Windows XP OS.
+`one-time passphrase` : A password used to access special accounts or programs requiring a
 high level of security, such as a decryption utility for an encrypted drive. This passphrase
 can be used only once, and then it expires.
-Pagefile.sys At startup, data and instruction code are moved in and out of this file to
+`Pagefile.sys` : At startup, data and instruction code are moved in and out of this file to
 optimize the amount of physical RAM available during startup.
-partition A logical drive on a disk. It can be the entire disk or part of the disk.
-Partition Boot Sector The first data set of an NTFS disk. It starts at sector [0] of the disk
+`partition` : A logical drive on a disk. It can be the entire disk or part of the disk.
+`Partition Boot Sector` : The first data set of an NTFS disk. It starts at sector [0] of the disk
 drive and can expand up to 16 sectors.
-partition gap Unused space or void between the primary partition and the first logical
+`partition gap` : Unused space or void between the primary partition and the first logical
 partition.
-personal identity information (PII) Any information that can be used to create bank or
+`personal identity information (PII)` : Any information that can be used to create bank or
 credit card accounts, such as name, home address, Social Security number, and driver’s
 license number.
-physical addresses The actual sectors in which files are located. Sectors reside at the
+`physical addresses` : The actual sectors in which files are located. Sectors reside at the
 hardware and firmware level.
-private key In encryption, the key used to decrypt the file. The file owner keeps the
+`private key` : In encryption, the key used to decrypt the file. The file owner keeps the
 private key.
-protected-mode GUI Provides the same functional startup process for Windows that
-Config.sys provided for DOS. It loads all the device drivers.
+`protected-mode GUI`: Provides the same functional startup process for Windows that
+`Config.sys provided for DOS. It loads all the device drivers.
 public key In encryption, the key used to encrypt a file; it’s held by a certificate authority,
 such as a global registry, network server, or company such as VeriSign.
 RAM slack The unused space between the end of the file (EOF) and the end of the last sector
@@ -230,4 +230,4 @@ volume Any storage media, such as a floppy disk, a partition on a hard drive, th
 drive, or several drives. On Intel systems, a volume is any partitioned disk.
 zoned bit recording (ZBR) The method most manufacturers use to deal with a platter’s inner
 tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks
-hold the same amount of data.
+hold the same amount of data
