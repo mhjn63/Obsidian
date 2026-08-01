@@ -105,38 +105,38 @@ hidden file, to determine the address (boot sector location) of each OS. See als
 (Ntldr).
 `bootstrap process` :Information contained in ROM that a computer accesses during startup;
 this information tells the computer how to access the OS and hard drive.
-clusters Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
+`clusters` : Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
 2048, or 4096 bytes each.
-Command.com This system file provides a command prompt when booting to MS-DOS
+`Command.com` : This system file provides a command prompt when booting to MS-DOS
 mode.
-Config.sys A text file containing commands that typically run only at system startup to
+`Config.sys` : A text file containing commands that typically run only at system startup to
 enhance the computer’s DOS configuration.
-cylinder A column of tracks on two or more disk platters.
-data runs Cluster addresses where files are stored on a drive’s partition outside the MFT
+`cylinder` : A column of tracks on two or more disk platters.
+`data runs` : Cluster addresses where files are stored on a drive’s partition outside the MFT
 record. Data runs are used for nonresident MFT file records. A data run record field consists
 of three components; the first component defines the size in bytes needed to store the second
 and third components’ content.
-data streams Ways in which data can be appended to a file (intentionally or not). In NTFS,
+`data streams` : Ways in which data can be appended to a file (intentionally or not). In NTFS,
 data streams become an additional file attribute.
-device drivers Files containing instructions for the OS for hardware devices, such as the
+`device drivers` : Files containing instructions for the OS for hardware devices, such as the
 keyboard, mouse, and video card.
-DOS protected-mode interface (DPMI) Used by many computer forensics tools that don’t
+`DOS protected-mode interface (DPMI)`: Used by many computer forensics tools that don’t
 operate in the Windows environment. It allows DOS programs to access extended memory
 while protecting the system.
-drive slack Unused space in a cluster between the end of an active file and the end of the
+`drive slack` : Unused space in a cluster between the end of an active file and the end of the
 cluster. It can contain deleted files, deleted e-mail, or file fragments. Drive slack is made up
 of both file slack and RAM slack. See also file slack and RAM slack.
-Encrypting File System (EFS) A public/private key encryption first used in Windows 2000 on
+`Encrypting File System (EFS)` : A public/private key encryption first used in Windows 2000 on
 NTFS-formatted disks. The file is encrypted with a symmetric key, and then a public/private
 key is used to encrypt the symmetric key.
-File Allocation Table (FAT) The original Microsoft file structure database. It’s written to the
+`File Allocation Table (FAT)` : The original Microsoft file structure database. It’s written to the
 outermost track of a disk and contains information about each file stored on the drive. PCs
 use the FAT to organize files on a disk so that the OS can find the files it needs. The
 variations are FAT12, FAT16, FAT32, and FATX.
-file slack The unused space created when a file is saved. If the allocated space is larger than
+`file slack` : The unused space created when a file is saved. If the allocated space is larger than
 the file, the remaining space is slack space and can contain passwords, logon IDs, file
 fragments, and deleted e-mails.
-file system The way files are stored on a disk; gives an OS a road map to data on a disk.
+`file system` : The way files are stored on a disk; gives an OS a road map to data on a disk.
 geometry A disk drive’s internal organization of platters, tracks, and sectors.
 Hal.dll The Hardware Abstraction Layer dynamic link library allows the OS kernel to
 communicate with hardware.
