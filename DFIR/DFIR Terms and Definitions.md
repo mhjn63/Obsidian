@@ -231,3 +231,168 @@ drive, or several drives. On Intel systems, a volume is any partitioned disk.
 `zoned bit recording (ZBR)` : The method most manufacturers use to deal with a platter’s inner
 tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks
 hold the same amount of data.
+
+### macOS and Linux Systems
+#### Advanced SCSI Programming Interface (ASPI)
+
+A component that provides several software drivers for communication between the OS and SCSI component.
+
+#### Allocation Blocks
+
+In the Macintosh file system, a group of consecutive logical blocks assembled in a volume when a file is saved.
+
+## B*-tree
+
+A Macintosh file that organizes the directory hierarchy and file block mapping for File Manager. Files are represented as nodes (objects); leaf nodes contain the actual file data.
+
+## Bad Block Inode
+
+In the Linux file system, the inode that tracks bad sectors on a drive.
+
+## Berkeley Software Distribution (BSD) UNIX
+
+A variation of UNIX created at the University of California, Berkeley.
+
+## Catalog
+
+An area of the Macintosh file system used to maintain the relationships between files and directories on a volume.
+
+## Clumps
+
+In the Macintosh file system, groups of contiguous allocation blocks used to keep file fragmentation to a minimum.
+
+## Constant Angular Velocity (CAV)
+
+The method of reading CDs in CD players that are 12X or faster.
+
+## Constant Linear Velocity (CLV)
+
+The method of reading CDs in CD players slower than or equal to 12X.
+
+## Continuation Inode
+
+An inode containing more detailed information, such as the mode and file type, the quantity of links in the file or directory, the file’s or directory’s access control list (ACL), the least and most significant bytes of the ACL UID and GID, and the file or directory status flag.
+
+## Data Fork
+
+The part of a Macintosh file containing the file’s actual data, both user-created data and data written by applications. The data fork also contains the resource map and header information, window locations, and icons, as does the resource fork. See also resource fork.
+
+## Disk Arbitration
+
+The Mac OS X feature for disabling and enabling automatic mounting when a drive is connected via a USB or FireWire device.
+
+## Disk Images
+
+The format Mac OS X uses for image files (.dmg extension). If the image file has additional segments, these segments must have a .dmgpart extension.
+
+## Double-Indirect Pointers
+
+The inode pointers in the second layer or group of an OS. See also inodes.
+
+## Extended Format File System (HFS+)
+
+File system used by Mac OS 8.1 and later; the primary difference between HFS and HFS+ is that HFS is limited to 65,536 blocks per volume, and HFS+ raised this number to more than 4 billion. HFS+ supports smaller file sizes on larger volumes, resulting in more efficient disk use.
+
+## Extents Overflow File
+
+A file in HFS and HFS+ that’s used by the catalog to coordinate all file allocations to the volume. File Manager uses this file when the list of a file’s contiguous blocks becomes too long for the catalog. The list’s overflow is placed in the extents overflow file. Any file extents not in the MDB or a VCB are also contained in this file. See also catalog, Master Directory Block (MDB), and Volume Control Block (VCB).
+
+## File Manager
+
+A Macintosh utility that handles reading, writing, and storing data to physical media. It also collects data to maintain the HFS and is used to manipulate files, folders, and volumes.
+
+## Finder
+
+A Macintosh utility for keeping track of files and maintaining users’ desktops.
+
+## GNU General Public License (GPL)
+
+An agreement that defines Linux as open-source software, meaning that anyone can use, change, and distribute the software without owing royalties or licensing fees to another party.
+
+## Header Node
+
+A node that stores information about the B*-tree file. See also B*-tree.
+
+## Hierarchical File System (HFS)
+
+The system Mac OS uses to store files, consisting of directories and subdirectories that can be nested.
+
+## Index Node
+
+A B*-tree node that stores link information to the previous and next nodes. See also B*-tree.
+
+## Indirect Pointers
+
+The inode pointers in the first layer or group of an OS. See also inodes.
+
+## Inodes
+
+A key part of the Linux file system, these information nodes contain descriptive file or directory data, such as UIDs, GIDs, modification times, access times, creation times, and file locations.
+
+## International Organization of Standardization (ISO)
+
+An organization set up by the United Nations to ensure compatibility in a variety of fields, including engineering, electricity, and computers. The acronym ISO is the Greek word for “equal.”
+
+## Leaf Nodes
+
+The bottom-level nodes of the B*-tree that contain actual file data in the Macintosh file system. See also B*-tree.
+
+## Logical Blocks
+
+In the Macintosh file system, a collection of data that can’t exceed 512 bytes. Logical blocks are assembled in allocation blocks to store files in a volume.
+
+## Logical EOF
+
+In the Macintosh file system, the number of bytes in a file containing data.
+
+## Map Node
+
+A B*-tree node that stores a node descriptor and map record. See also B*-tree.
+
+## Master Directory Block (MDB)
+
+On older Macintosh systems, the location where all volume information is stored. A copy of the MDB is kept in the next-to-last block on the volume. Called the Volume Information Block (VIB) in HFS+.
+
+## Open Firmware
+
+The platform-independent boot firmware Macintosh systems use instead of BIOS firmware to gather information, control boot device selection, and load the OS.
+
+## Phase Change Alloy
+
+The Metal PC layer of a CD-RW that changes appearance (from noncrystalline to crystalline) depending on the temperature the laser applies. This medium allows writing to the CD several times.
+
+## Physical EOF
+
+In the Macintosh file system, the number of allocation blocks assigned to a file.
+
+## Red Hat Package Manager (RPM)
+
+A utility that automates installing and uninstalling programs on Red Hat and Fedora Linux distributions.
+
+## Resource Fork
+
+The part of a Macintosh file containing file metadata and application information, such as menus, dialog boxes, icons, executable code, and controls. The resource fork also contains the resource map and header information, window locations, and icons, as does the data fork. See also data fork.
+
+## Second Extended File System (Ext2fs)
+
+The standard Linux file system.
+
+## Small Computer System Interface (SCSI)
+
+An input/output standard protocol device that allows a computer to access devices such as hard drives, tape drives, scanners, CD/DVD-ROM drives, and printers.
+
+## Tarball
+
+A method originally designed to store data on magnetic tapes; the name stands for “tape archive.” This storage method has been used for many years in UNIX computing environments to combine files and directories. In UNIX, BSD, and Linux, tarball files have a .tar extension. The tar command creates an uncompressed continuous file of data. If a tarball file is compressed, another extension is added after .tar, such as .gz or .bz2.
+
+## Triple-Indirect Pointers
+
+The inode pointers in the third layer or group of an OS. See also inodes.
+
+## Volume Bitmap
+
+A Macintosh application used to track blocks that are in use and blocks that are available.
+
+## Volume Control Block (VCB)
+
+An area of the Macintosh file system that contains information from the MDB and is used by File Manager. See also Master Directory Block (MDB).
