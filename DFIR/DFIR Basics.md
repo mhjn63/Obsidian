@@ -154,66 +154,69 @@ Key points:
 - Chain of custody still matters, even for internal HR investigations.
 
 
-Chapter Summary
-■ Digital evidence is anything stored or transmitted on electronic or optical media. It’s
-extremely fragile and easily altered.
-■ In the private sector, an incident scene is often a place of work, such as a contained
-office or manufacturing area. Because everything from the computers used to violate a
-company policy to the surrounding facility is under a controlled authority, investigating
-and controlling the scene are easier than at a crime scene.
-■ Companies should publish policies stating that they reserve the right to inspect computing
-assets at will; otherwise, employees’ expectation of privacy prevents an
-employer from legally conducting an intrusive investigation or covert surveillance. A
-well-defined corporate policy states that an employer has the right to examine,
-inspect, or access any company-owned computing asset.
-■ Proper procedure needs to be followed even in private-sector investigations because
-civil cases can easily become criminal cases. If an internal corporate case is turned
-over to law enforcement because of criminal activity, the corporate investigator must
-avoid becoming an agent of law enforcement.
-■ Criminal cases require a properly executed and well-defined search warrant. A specific
-crime and location must be spelled out in the warrant. For all criminal investigations
-in the United States, the Fourth Amendment specifies that a law enforcement officer can search for and seize criminal evidence only with probable cause, which is facts or
-circumstances that lead a reasonable person to believe a crime has been committed or
-is about to be committed.
-■ The plain view doctrine applies when investigators find evidentiary items that aren’t
-specified in a warrant or under probable cause.
-■ When preparing for a case, describe the nature of the case, identify the type of OS,
-determine whether you can seize the computer, and obtain a description of the
-location.
-■ When dealing with a hazardous materials (HAZMAT) situation, you might need to
-obtain HAZMAT certification or have someone else with that certification collect the
-evidence.
-■ Always take pictures or use a video camera to document the scene. Prevent professional
-curiosity from contaminating evidence by limiting who enters the scene.
-■ As you collect digital evidence, guard against physically destroying or contaminating
-it. Take precautions to prevent static electricity discharge to electronic devices. If possible,
-bag or box digital evidence and any hardware you collect from the scene. As
-you collect hardware, sketch the equipment, including exact markings of where components
-are located. Tag and number each cable, port, and other connection and
-record its number and description in a log.
-■ Selecting a medium for storing digital evidence usually depends on how long you need
-to keep the evidence. The ideal storage media are CD-Rs or DVDs. You can also use
-magnetic tape, such as 4-mm DAT and DLT magnetic tapes.
-■ Forensic hash values are used to verify that data or storage media have not been
-altered. The two most common hashing algorithms for forensics purposes are currently
-MD5 and SHA-1, although both are being replaced slowly as more research is
-done. A forensic hash can’t be predicted, no two files can have the same hash value,
-and if the file changes, the hash value must change.
-■ To analyze computer forensics data, learn to use more than one vendor tool. Different
-vendors offer varying methods for recovering data from magnetic media. AccessData
-FTK is a Windows GUI tool for recovering data from FAT, NTFS, and Ext2 file systems
-and has a unique method of cataloging and indexing data that speeds up the
-examination process.
-■ You must handle all evidence the same way every time you handle it. Apply the same
-security and accountability controls for evidence in a civil lawsuit as for evidence from
-a crime scene to comply with state or federal rules of evidence.
-■ After you determine that an incident scene has digital evidence, identify the digital
-information or artifacts that can be used as evidence. Next, catalog or document the
-evidence you find. Your goal is to preserve evidence integrity, which means you must
-not modify the evidence as you collect and catalog it. An incident scene should be
-photographed and sketched, and then each item labeled and put in an evidence bag.
-Collect, preserve, document, analyze, identify, and organize the evidence. Then rebuild
-evidence or repeat a situation to verify that you get the same results every time.
+### Key Terms in Crime Scene Processing
+`probable cause`: The standard specifying whether a police officer has the right to make an
+arrest, conduct a personal or property search, or obtain a warrant for arrest.
+`professional curiosity` : The motivation for law enforcement and other professional personnel
+to examine an incident or crime scene to see what happened.
+`Scientific Working Group on Digital Evidence (SWGDE)` : A group that sets standards for
+recovering, preserving, and examining digital evidence.
+`Secure Hash Algorithm version 1 (SHA-1) A forensic hashing algorithm created by NIST to
+determine whether data in a file or on storage media has been altered.
+sniffing Detecting data transmissions to and from a suspect’s computer and a network
+server to determine the type of data being transmitted over a network.
+
+Key Terms
+4-mm DAT Magnetic tapes that store about 4 GB of data, but like CD-Rs, are slow to read
+and write data.
+Automated Fingerprint Identification Systems (AFIS) A computerized system for identifying
+fingerprints that’s connected to a central database; used to identify criminal suspects and
+review thousands of fingerprint samples at high speed.
+computer-generated records Data generated by a computer, such as system log files or
+proxy server logs.
+computer-stored records Digital files generated by a person, such as electronic spreadsheets.
+covert surveillance Observing people or places without being detected, often using
+electronic equipment, such as video cameras or key stroke/screen capture programs.
+Cyclic Redundancy Check (CRC) A mathematical algorithm that translates a file into a
+unique hexadecimal value.
+digital evidence Evidence consisting of information stored or transmitted in electronic form.
+extensive-response field kit A portable kit designed to process several computers and a variety
+of operating systems at a crime or incident scene involving computers. This kit should contain
+two or more types of software or hardware computer forensics tools, such as extra storage drives.
+hash value A unique hexadecimal value that identifies a file or drive.
+hazardous materials (HAZMAT) Chemical, biological, or radiological substances that can
+cause harm to people.
+initial-response field kit A portable kit containing only the minimum tools needed to
+perform disk acquisitions and preliminary forensics analysis in the field.
+innocent information Data that doesn’t contribute to evidence of a crime or violation.
+International Organization on Computer Evidence (IOCE) A group that sets standards for
+recovering, preserving, and examining digital evidence.
+keyed hash set A value created by an encryption utility’s secret key.
+limiting phrase Wording in a search warrant that limits the scope of a search for evidence.
+low-level investigations Corporate cases that require less effort than a major criminal case.
+Message Digest 5 (MD5) An algorithm that produces a hexadecimal value of a file or
+storage media. Used to determine whether data has been changed.
+National Institute of Standards and Technology (NIST) One of the governing bodies
+responsible for setting standards for various U.S. industries.
+nonkeyed hash set A unique hash numbered generated by a software tool and used to
+identify files.
+person of interest Someone who might be a suspect or someone with additional knowledge
+that can provide enough evidence of probable cause for a search warrant or arrest.
+plain view doctrine When conducting a search and seizure, objects in plain view of a law
+enforcement officer, who has the right to be in position to have that view, are subject to
+seizure without a warrant and can be introduced as evidence. As applied to executing
+searches of computers, the plain view doctrine’s limitations are less clear.
+5
+probable cause The standard specifying whether a police officer has the right to make an
+arrest, conduct a personal or property search, or obtain a warrant for arrest.
+professional curiosity The motivation for law enforcement and other professional personnel
+to examine an incident or crime scene to see what happened.
+Scientific Working Group on Digital Evidence (SWGDE) A group that sets standards for
+recovering, preserving, and examining digital evidence.
+Secure Hash Algorithm version 1 (SHA-1) A forensic hashing algorithm created by NIST to
+determine whether data in a file or on storage media has been altered.
+sniffing Detecting data transmissions to and from a suspect’s computer and a network
+server to determine the type of data being transmitted over a network.
 
 ---
 
@@ -1030,5 +1033,4 @@ CLOSURE
 [ ] Update procedures if needed.
 ```
 
----
-
+--
