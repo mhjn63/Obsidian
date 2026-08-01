@@ -91,21 +91,19 @@ In addition, failures can and do occur, so you should learn how to use several a
 `Whole disk encryption`: An encryption technique that performs a sector-by-sector encryption of an entire drive. Each sector is encrypted in its entirety, making it unreadable when copied with a static acquisition method.
 
 ### Windows and DOS Systems
-American Standard Code for Information Interchange (ASCII) An 8-bit coding scheme that
-assigns numeric values to up to 256 characters, including letters, numerals, punctuation
-marks, control characters, and other symbols.
-areal density The number of bits per square inch of a disk platter.
-attribute ID In NTFS, an MFT record field containing metadata about the file or folder and
+`American Standard Code for Information Interchange (ASCII)` :An 8-bit coding scheme that assigns numeric values to up to 256 characters, including letters, numerals, punctuation marks, control characters, and other symbols.
+`areal density`:  The number of bits per square inch of a disk platter.
+`attribute ID In NTFS`: an MFT record field containing metadata about the file or folder and
 the file’s data or links to the file’s data.
-Autoexec.bat A batch file containing customized settings for MS-DOS that runs
+`Autoexec.bat` : A batch file containing customized settings for MS-DOS that runs
 automatically. It includes the default path and environmental variables, such as temporary
 directories.
-Boot.ini A file that specifies the Windows path installation and a variety of other startup
+`Boot.ini` : A file that specifies the Windows path installation and a variety of other startup
 options.
-BootSect.dos If a machine has multiple booting OSs, NTLDR reads BootSect.dos, which is a
+`BootSect.dos`: If a machine has multiple booting OSs, NTLDR reads BootSect.dos, which is a
 hidden file, to determine the address (boot sector location) of each OS. See also NT Loader
 (Ntldr).
-bootstrap process Information contained in ROM that a computer accesses during startup;
+`bootstrap process` :Information contained in ROM that a computer accesses during startup;
 this information tells the computer how to access the OS and hard drive.
 clusters Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
 2048, or 4096 bytes each.
