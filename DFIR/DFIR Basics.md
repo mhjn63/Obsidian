@@ -1,11 +1,8 @@
 🏠 Main Site](https://motasem-notes.net/) · [🛒 Store](https://shop.motasem-notes.net/) · [▶ YouTube](https://www.youtube.com/@MotasemHamdan) · [☕ Membership](https://buymeacoffee.com/notescatalog/membership)
 
-> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net]
+> Practitioner-grade cybersecurity notes, cert prep guides, and courses. All premium notes available at **[buymeacoffee.com/notescatalog/extras](https://buymeacoffee.com/notescatalog/extras)** or [shop.motasem-notes.net](shop.motasem-notes.net)
 
 ## Full DFIR Study Notes
-Members are entitled to discounts on all study guides published in our store.
-
-Always remember to check [[🛡️Member Welcome Guide]] to access the discount link if you subscribed through **Fourthwall**. If you subscribed through **BuyMeaCoffee**, the discount is applied automatically at checkout.
 
 **Fourthwall**
 ```
@@ -855,17 +852,3 @@ CLOSURE
 
 ---
 
-## Full DFIR Study Notes
-Members are entitled to discounts on all study guides published in our store.
-
-Always remember to check [[🛡️Member Welcome Guide]] to access the discount link if you subscribed through **Fourthwall**. If you subscribed through **BuyMeaCoffee**, the discount is applied automatically at checkout.
-
-**Fourthwall**
-```
-https://shop.motasem-notes.net/products/dfir-study-notes
-```
-
-**BuyMeaCoffee**
-```
-https://buymeacoffee.com/notescatalog/e/142831
-```

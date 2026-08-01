@@ -1,4 +1,4 @@
-- 2026-08-01T0924 · [[DFIR Basics]]
+- 2026-08-01T0925 · [[DFIR Basics]]
 - 2026-07-29T2107 · [[THM Writeups]]
 - 2026-07-28T1258 · [[HTB Writeups]]
 - 2026-07-26T2117 · [[Apache Tomcat]]
