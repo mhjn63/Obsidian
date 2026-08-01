@@ -193,32 +193,32 @@ hardware and firmware level.
 `private key` : In encryption, the key used to decrypt the file. The file owner keeps the
 private key.
 `protected-mode GUI`: Provides the same functional startup process for Windows that
-`Config.sys provided for DOS. It loads all the device drivers.
+`Config.sys` : provided for DOS. It loads all the device drivers.
 public key In encryption, the key used to encrypt a file; it’s held by a certificate authority,
 such as a global registry, network server, or company such as VeriSign.
-RAM slack The unused space between the end of the file (EOF) and the end of the last sector
+`RAM slack ` :The unused space between the end of the file (EOF) and the end of the last sector
 used by the active file in the cluster. Any data residing in RAM at the time the file is saved,
 such as logon IDs and passwords, can appear in this area, whether the information was
 saved or not. RAM slack is found primarily in older Microsoft OSs.
-recovery certificate A method NTFS uses so that a network administrator can recover
+`recovery certificate` : A method NTFS uses so that a network administrator can recover
 encrypted files if the file’s user/creator loses the private key encryption code.
-Registry A Windows database containing information about hardware and software configurations,
+`Registry` : A Windows database containing information about hardware and software configurations,
 network connections, user preferences, setup information, and other critical information.
-sector A section on a track, typically made up of 512 bytes.
-track density The space between tracks on a disk. The smaller the space between tracks, the
+`sector` : A section on a track, typically made up of 512 bytes.
+`track density` : The space between tracks on a disk. The smaller the space between tracks, the
 more tracks on a disk. Older drives with wider track densities allowed the heads to wander.
-tracks Concentric circles on a disk platter where data is stored.
-Trusted Computing Group (TCG) A nonprofit organization that develops support standards
+`tracks` : Concentric circles on a disk platter where data is stored.
+`Trusted Computing Group (TCG)` : A nonprofit organization that develops support standards
 for trusted computer access across multiple platforms.
-Trusted Platform Module (TPM) A microchip that stores encryption key data used to encrypt
+`Trusted Platform Module (TPM)` : A microchip that stores encryption key data used to encrypt
 and decrypt drive data.
-unallocated disk space Partition disk space that isn’t allocated to a file. This space might
+`unallocated disk space` : Partition disk space that isn’t allocated to a file. This space might
 contain data from files that have been deleted previously.
-Unicode A character code representation that’s replacing ASCII. It’s capable of representing
+`Unicode A` : character code representation that’s replacing ASCII. It’s capable of representing
 more than 64,000 characters and non-European-based languages.
-UTF-8 (Unicode Transformation Format) One of three formats Unicode uses to translate
+`UTF-8 (Unicode Transformation Format)` : One of three formats Unicode uses to translate
 languages for digital representation.
-virtual cluster number (VCN) When a large file is saved in NTFS, it’s assigned a logical
+`virtual cluster number (VCN)` : When a large file is saved in NTFS, it’s assigned a logical
 cluster number specifying a location on the partition. Large files are referred to as nonresident
 files. If the disk is highly fragmented, VCNs are assigned and list the additional space needed
 to store the file. The LCN is a physical location on the NTFS partition; VCNs are the offset
@@ -230,4 +230,4 @@ volume Any storage media, such as a floppy disk, a partition on a hard drive, th
 drive, or several drives. On Intel systems, a volume is any partitioned disk.
 zoned bit recording (ZBR) The method most manufacturers use to deal with a platter’s inner
 tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks
-hold the same amount of data
+hold the same amount of data.
