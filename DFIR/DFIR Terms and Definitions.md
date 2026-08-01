@@ -715,3 +715,39 @@ Attacks launched before vendors or network administrators have discovered vulner
 #### Zombies
 
 Computers used without the owners’ knowledge in a DDoS attack.
+
+#### Client/Server Architecture
+
+A network architecture in which each computer or process on the network is a client or server. Clients request services from a server, and a server processes requests from clients.
+
+#### Enhanced Simple Mail Transfer Protocol (ESMTP)
+
+An enhancement of SMTP for sending and receiving e-mail messages. ESMTP generates a unique, nonrepeatable number that’s added to a transmitted e-mail. No two messages transmitted from an e-mail server have the same ESMTP value. See also Simple Mail Transfer Protocol (SMTP).
+
+#### mbox
+
+A method of storing e-mail messages in a flat plaintext file.
+
+#### Messaging Application Programming Interface (MAPI)
+
+The Microsoft system that enables other e-mail applications to work with each other.
+
+#### Multipurpose Internet Mail Extensions (MIME)
+
+A specification for formatting non-ASCII messages, such as graphics, audio, and video, for transmission over the Internet.
+
+#### Phishing
+
+A type of e-mail scam that’s typically sent as spam soliciting personal identity information that fraudsters can use for identity theft.
+
+#### Post Office Protocol version 3 (POP3)
+
+A protocol for retrieving e-mail messages from an e-mail server.
+
+## Simple Mail Transfer Protocol (SMTP)
+
+A protocol for sending e-mail messages between servers.
+
+## Spoofing
+
+Transmitting an e-mail message with its header information altered so that its point of origin appears to be from a different sender. Spoofed e-mails are also referred to as forged e-mail. Spoofing is typically used in phishing and spamming to hide the sender’s identity.
