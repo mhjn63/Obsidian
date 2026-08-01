@@ -636,7 +636,14 @@ In addition, failures can and do occur, so you should learn how to use several a
 | Image file | Working forensic copy. |
 | Log file | Shows acquisition activity and errors. |
 | MD5 output | Supports later validation and integrity checks. |
+### Key Acquisition Terms
 
+`Logical acquisition`: This data acquisition method captures only specific files of interest to the case or specific types of files, such as Outlook PST files. 
+`Raw format`: A data acquisition format that creates simple sequential flat files of a suspect drive or data set. 
+`Redundant array of independent disks (RAID)`: Two or more disks combined into one large drive in several configurations for special needs. Some RAID systems are designed for redundancy to ensure continuous operations if one disk fails. Another configuration spreads data across several disks to improve access speeds for reads and writes. 
+`Sparse acquisition`: Like logical acquisitions, this data acquisition method captures only specific files of interest to the case, but it also collects fragments of unallocated (deleted) data. 
+`Static acquisitions`:  A data acquisition method used when a suspect drive is write-protected and can’t be altered. If disk evidence is preserved correctly, static acquisitions are repeatable. 
+`Whole disk encryption`: An encryption technique that performs a sector-by-sector encryption of an entire drive. Each sector is encrypted in its entirety, making it unreadable when copied with a static acquisition method.
 ### Remember:
 - Forensics data acquisitions are stored in three different formats: raw, proprietary, and
 AFF. Most proprietary formats and AFF store metadata about the acquired data in
@@ -868,14 +875,6 @@ A good forensic team treats every case as a feedback loop.
 | Password protected | Access restricted through password control. |
 | Repeatable findings | Same forensic process produces same result each time. |
 | Single-evidence form | Custody form dedicated to one evidence item. |
-
-
-`Logical acquisition`: This data acquisition method captures only specific files of interest to the case or specific types of files, such as Outlook PST files. 
-`Raw format`: A data acquisition format that creates simple sequential flat files of a suspect drive or data set. 
-`Redundant array of independent disks (RAID)`: Two or more disks combined into one large drive in several configurations for special needs. Some RAID systems are designed for redundancy to ensure continuous operations if one disk fails. Another configuration spreads data across several disks to improve access speeds for reads and writes. 
-`Sparse acquisition`: Like logical acquisitions, this data acquisition method captures only specific files of interest to the case, but it also collects fragments of unallocated (deleted) data. 
-Static acquisitions:  A data acquisition method used when a suspect drive is write-protected and can’t be altered. If disk evidence is preserved correctly, static acquisitions are repeatable. 
-Whole disk encryption: An encryption technique that performs a sector-by-sector encryption of an entire drive. Each sector is encrypted in its entirety, making it unreadable when copied with a static acquisition method.
 
 ---
 
