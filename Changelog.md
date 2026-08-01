@@ -1,4 +1,4 @@
-- 2026-08-01T1006 · [[DFIR Terms and Definitions]]
+- 2026-08-01T1010 · [[DFIR Terms and Definitions]]
 - 2026-08-01T0955 · [[DFIR Basics]]
 - 2026-07-29T2107 · [[THM Writeups]]
 - 2026-07-28T1258 · [[HTB Writeups]]

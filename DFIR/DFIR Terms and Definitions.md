@@ -91,145 +91,379 @@ In addition, failures can and do occur, so you should learn how to use several a
 `Whole disk encryption`: An encryption technique that performs a sector-by-sector encryption of an entire drive. Each sector is encrypted in its entirety, making it unreadable when copied with a static acquisition method.
 
 ### Windows and DOS Systems
-`American Standard Code for Information Interchange (ASCII)` :An 8-bit coding scheme that assigns numeric values to up to 256 characters, including letters, numerals, punctuation marks, control characters, and other symbols.
-`areal density`:  The number of bits per square inch of a disk platter.
-`attribute ID In NTFS`: an MFT record field containing metadata about the file or folder and
+## American Standard Code for Information Interchange (ASCII)
+
+An 8-bit coding scheme that assigns numeric values to up to 256 characters, including letters, numerals, punctuation marks, control characters, and other symbols.
+
+## areal density
+
+The number of bits per square inch of a disk platter.
+
+## attribute ID In NTFS
+
+an MFT record field containing metadata about the file or folder and
+
 the file’s data or links to the file’s data.
-`Autoexec.bat` : A batch file containing customized settings for MS-DOS that runs
-automatically. It includes the default path and environmental variables, such as temporary
+
+## Autoexec.bat
+
+A batch file containing customized settings for MS-DOS that runs
+
+automatically. It includes the default path and environmental variables, such as temporary  
 directories.
-`Boot.ini` : A file that specifies the Windows path installation and a variety of other startup
+
+## Boot.ini
+
+A file that specifies the Windows path installation and a variety of other startup
+
 options.
-`BootSect.dos`: If a machine has multiple booting OSs, NTLDR reads BootSect.dos, which is a
-hidden file, to determine the address (boot sector location) of each OS. See also NT Loader
+
+## BootSect.dos
+
+If a machine has multiple booting OSs, NTLDR reads BootSect.dos, which is a
+
+hidden file, to determine the address (boot sector location) of each OS. See also NT Loader  
 (Ntldr).
-`bootstrap process` :Information contained in ROM that a computer accesses during startup;
+
+## bootstrap process
+
+Information contained in ROM that a computer accesses during startup;
+
 this information tells the computer how to access the OS and hard drive.
-`clusters` : Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
+
+## clusters
+
+Storage allocation units composed of groups of sectors. Clusters are 512, 1024,
+
 2048, or 4096 bytes each.
-`Command.com` : This system file provides a command prompt when booting to MS-DOS
+
+## Command.com
+
+This system file provides a command prompt when booting to MS-DOS
+
 mode.
-`Config.sys` : A text file containing commands that typically run only at system startup to
+
+## Config.sys
+
+A text file containing commands that typically run only at system startup to
+
 enhance the computer’s DOS configuration.
-`cylinder` : A column of tracks on two or more disk platters.
-`data runs` : Cluster addresses where files are stored on a drive’s partition outside the MFT
-record. Data runs are used for nonresident MFT file records. A data run record field consists
-of three components; the first component defines the size in bytes needed to store the second
+
+## cylinder
+
+A column of tracks on two or more disk platters.
+
+## data runs
+
+Cluster addresses where files are stored on a drive’s partition outside the MFT
+
+record. Data runs are used for nonresident MFT file records. A data run record field consists  
+of three components; the first component defines the size in bytes needed to store the second  
 and third components’ content.
-`data streams` : Ways in which data can be appended to a file (intentionally or not). In NTFS,
+
+## data streams
+
+Ways in which data can be appended to a file (intentionally or not). In NTFS,
+
 data streams become an additional file attribute.
-`device drivers` : Files containing instructions for the OS for hardware devices, such as the
+
+## device drivers
+
+Files containing instructions for the OS for hardware devices, such as the
+
 keyboard, mouse, and video card.
-`DOS protected-mode interface (DPMI)`: Used by many computer forensics tools that don’t
-operate in the Windows environment. It allows DOS programs to access extended memory
+
+## DOS protected-mode interface (DPMI)
+
+Used by many computer forensics tools that don’t
+
+operate in the Windows environment. It allows DOS programs to access extended memory  
 while protecting the system.
-`drive slack` : Unused space in a cluster between the end of an active file and the end of the
-cluster. It can contain deleted files, deleted e-mail, or file fragments. Drive slack is made up
+
+## drive slack
+
+Unused space in a cluster between the end of an active file and the end of the
+
+cluster. It can contain deleted files, deleted e-mail, or file fragments. Drive slack is made up  
 of both file slack and RAM slack. See also file slack and RAM slack.
-`Encrypting File System (EFS)` : A public/private key encryption first used in Windows 2000 on
-NTFS-formatted disks. The file is encrypted with a symmetric key, and then a public/private
+
+## Encrypting File System (EFS)
+
+A public/private key encryption first used in Windows 2000 on
+
+NTFS-formatted disks. The file is encrypted with a symmetric key, and then a public/private  
 key is used to encrypt the symmetric key.
-`File Allocation Table (FAT)` : The original Microsoft file structure database. It’s written to the
-outermost track of a disk and contains information about each file stored on the drive. PCs
-use the FAT to organize files on a disk so that the OS can find the files it needs. The
+
+## File Allocation Table (FAT)
+
+The original Microsoft file structure database. It’s written to the
+
+outermost track of a disk and contains information about each file stored on the drive. PCs  
+use the FAT to organize files on a disk so that the OS can find the files it needs. The  
 variations are FAT12, FAT16, FAT32, and FATX.
-`file slack` : The unused space created when a file is saved. If the allocated space is larger than
-the file, the remaining space is slack space and can contain passwords, logon IDs, file
+
+## file slack
+
+The unused space created when a file is saved. If the allocated space is larger than
+
+the file, the remaining space is slack space and can contain passwords, logon IDs, file  
 fragments, and deleted e-mails.
-`file system` : The way files are stored on a disk; gives an OS a road map to data on a disk.
+
+## file system
+
+The way files are stored on a disk; gives an OS a road map to data on a disk.
+
 geometry A disk drive’s internal organization of platters, tracks, and sectors.
-`Hal.dll` : The Hardware Abstraction Layer dynamic link library allows the OS kernel to
+
+## Hal.dll
+
+The Hardware Abstraction Layer dynamic link library allows the OS kernel to
+
 communicate with hardware.
-`head` : The device that reads and writes data to a disk drive.
-`head and cylinder skew` : A method manufacturers use to minimize lag time. The starting
+
+## head
+
+The device that reads and writes data to a disk drive.
+
+## head and cylinder skew
+
+A method manufacturers use to minimize lag time. The starting
+
 sectors of tracks are slightly offset from each other to move the read-write head.
-`High Performance File System (HPFS)` : The file system IBM uses for its OS/2 operating
+
+## High Performance File System (HPFS)
+
+The file system IBM uses for its OS/2 operating
+
 system.
-`Info2` : file In Windows NT through Vista, the control file for the Recycle Bin. It contains
+
+## Info2
+
+file In Windows NT through Vista, the control file for the Recycle Bin. It contains
+
 ASCII data, Unicode data, and date and time of deletion.
-`Io.sys` : This MS-DOS file communicates between a computer’s BIOS, the hardware, and the
+
+## Io.sys
+
+This MS-DOS file communicates between a computer’s BIOS, the hardware, and the
+
 OS kernel.
-`logical addresses` : When files are saved, they are assigned to clusters, which the OS numbers
-sequentially starting at 2. Logical addresses point to relative cluster positions, using these
+
+## logical addresses
+
+When files are saved, they are assigned to clusters, which the OS numbers
+
+sequentially starting at 2. Logical addresses point to relative cluster positions, using these  
 assigned cluster numbers.
-`logical cluster numbers (LCNs)` : The numbers sequentially assigned to each cluster when an
-NTFS disk partition is created and formatted. The first cluster on an NTFS partition starts
-at count 0. LCNs become the addresses that allow the MFT to read and write data to the
+
+## logical cluster numbers (LCNs)
+
+The numbers sequentially assigned to each cluster when an
+
+NTFS disk partition is created and formatted. The first cluster on an NTFS partition starts  
+at count 0. LCNs become the addresses that allow the MFT to read and write data to the  
 disk’s nonresident attribute area. See also virtual cluster number (VCN) and data runs.
-`Master Boot Record (MBR)` : On Windows and DOS computers, this boot disk file contains
+
+## Master Boot Record (MBR)
+
+On Windows and DOS computers, this boot disk file contains
+
 information about partitions on a disk and their locations, size, and other important items.
-`Master File Table (MFT)` : NTFS uses this database to store and link to files. It contains
-information about access rights, date and time stamps, system attributes, and other
+
+## Master File Table (MFT)
+
+NTFS uses this database to store and link to files. It contains
+
+information about access rights, date and time stamps, system attributes, and other  
 information about files.
-`metadata In NTFS`: this term refers to information stored in the MFT. See also Master File
+
+## metadata In NTFS
+
+this term refers to information stored in the MFT. See also Master File
+
 Table (MFT).
-`Msdos.sys` : A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
+
+## Msdos.sys
+
+A hidden text file containing startup options for Windows 9x. In MS-DOS 6.22
+
 and earlier, it was an actual OS executable.
-`New Technology File System (NTFS)` : The file system Microsoft created to replace FAT.
-NTFS uses security features, allows smaller cluster sizes, and uses Unicode, which makes it a
+
+## New Technology File System (NTFS)
+
+The file system Microsoft created to replace FAT.
+
+NTFS uses security features, allows smaller cluster sizes, and uses Unicode, which makes it a  
 more versatile system. NTFS is used mainly on newer OSs, starting with Windows NT.
-`NTBootdd.sys` : A device driver that allows the OS to communicate with SCSI or ATA drives
+
+## NTBootdd.sys
+
+A device driver that allows the OS to communicate with SCSI or ATA drives
+
 that aren’t related to the BIOS.
-`NTDetect.com` : A 16-bit program that identifies hardware components during startup and
+
+## NTDetect.com
+
+A 16-bit program that identifies hardware components during startup and
+
 sends the information to Ntldr.
-`NT Loader (Ntldr)` : A program located in the root folder of the system partition that loads the
+
+## NT Loader (Ntldr)
+
+A program located in the root folder of the system partition that loads the
+
 OS. See also Bootsect.dos.
-`Ntoskrnl.exe` : The kernel for the Windows XP OS.
-`one-time passphrase` : A password used to access special accounts or programs requiring a
-high level of security, such as a decryption utility for an encrypted drive. This passphrase
+
+## Ntoskrnl.exe
+
+The kernel for the Windows XP OS.
+
+## one-time passphrase
+
+A password used to access special accounts or programs requiring a
+
+high level of security, such as a decryption utility for an encrypted drive. This passphrase  
 can be used only once, and then it expires.
-`Pagefile.sys` : At startup, data and instruction code are moved in and out of this file to
+
+## Pagefile.sys
+
+At startup, data and instruction code are moved in and out of this file to
+
 optimize the amount of physical RAM available during startup.
-`partition` : A logical drive on a disk. It can be the entire disk or part of the disk.
-`Partition Boot Sector` : The first data set of an NTFS disk. It starts at sector [0] of the disk
+
+## partition
+
+A logical drive on a disk. It can be the entire disk or part of the disk.
+
+## Partition Boot Sector
+
+The first data set of an NTFS disk. It starts at sector [0] of the disk
+
 drive and can expand up to 16 sectors.
-`partition gap` : Unused space or void between the primary partition and the first logical
+
+## partition gap
+
+Unused space or void between the primary partition and the first logical
+
 partition.
-`personal identity information (PII)` : Any information that can be used to create bank or
-credit card accounts, such as name, home address, Social Security number, and driver’s
+
+## personal identity information (PII)
+
+Any information that can be used to create bank or
+
+credit card accounts, such as name, home address, Social Security number, and driver’s  
 license number.
-`physical addresses` : The actual sectors in which files are located. Sectors reside at the
+
+## physical addresses
+
+The actual sectors in which files are located. Sectors reside at the
+
 hardware and firmware level.
-`private key` : In encryption, the key used to decrypt the file. The file owner keeps the
+
+## private key
+
+In encryption, the key used to decrypt the file. The file owner keeps the
+
 private key.
-`protected-mode GUI`: Provides the same functional startup process for Windows that
-`Config.sys` : provided for DOS. It loads all the device drivers.
-public key In encryption, the key used to encrypt a file; it’s held by a certificate authority,
+
+## protected-mode GUI
+
+Provides the same functional startup process for Windows that
+
+## Config.sys
+
+provided for DOS. It loads all the device drivers.
+
+public key In encryption, the key used to encrypt a file; it’s held by a certificate authority,  
 such as a global registry, network server, or company such as VeriSign.
-`RAM slack ` :The unused space between the end of the file (EOF) and the end of the last sector
-used by the active file in the cluster. Any data residing in RAM at the time the file is saved,
-such as logon IDs and passwords, can appear in this area, whether the information was
+
+## RAM slack
+
+The unused space between the end of the file (EOF) and the end of the last sector
+
+used by the active file in the cluster. Any data residing in RAM at the time the file is saved,  
+such as logon IDs and passwords, can appear in this area, whether the information was  
 saved or not. RAM slack is found primarily in older Microsoft OSs.
-`recovery certificate` : A method NTFS uses so that a network administrator can recover
+
+## recovery certificate
+
+A method NTFS uses so that a network administrator can recover
+
 encrypted files if the file’s user/creator loses the private key encryption code.
-`Registry` : A Windows database containing information about hardware and software configurations,
+
+## Registry
+
+A Windows database containing information about hardware and software configurations,
+
 network connections, user preferences, setup information, and other critical information.
-`sector` : A section on a track, typically made up of 512 bytes.
-`track density` : The space between tracks on a disk. The smaller the space between tracks, the
+
+## sector
+
+A section on a track, typically made up of 512 bytes.
+
+## track density
+
+The space between tracks on a disk. The smaller the space between tracks, the
+
 more tracks on a disk. Older drives with wider track densities allowed the heads to wander.
-`tracks` : Concentric circles on a disk platter where data is stored.
-`Trusted Computing Group (TCG)` : A nonprofit organization that develops support standards
+
+## tracks
+
+Concentric circles on a disk platter where data is stored.
+
+## Trusted Computing Group (TCG)
+
+A nonprofit organization that develops support standards
+
 for trusted computer access across multiple platforms.
-`Trusted Platform Module (TPM)` : A microchip that stores encryption key data used to encrypt
+
+## Trusted Platform Module (TPM)
+
+A microchip that stores encryption key data used to encrypt
+
 and decrypt drive data.
-`unallocated disk space` : Partition disk space that isn’t allocated to a file. This space might
+
+## unallocated disk space
+
+Partition disk space that isn’t allocated to a file. This space might
+
 contain data from files that have been deleted previously.
-`Unicode A` : character code representation that’s replacing ASCII. It’s capable of representing
+
+## Unicode A
+
+character code representation that’s replacing ASCII. It’s capable of representing
+
 more than 64,000 characters and non-European-based languages.
-`UTF-8 (Unicode Transformation Format)` : One of three formats Unicode uses to translate
+
+## UTF-8 (Unicode Transformation Format)
+
+One of three formats Unicode uses to translate
+
 languages for digital representation.
-`virtual cluster number (VCN)` : When a large file is saved in NTFS, it’s assigned a logical
-cluster number specifying a location on the partition. Large files are referred to as nonresident
-files. If the disk is highly fragmented, VCNs are assigned and list the additional space needed
-to store the file. The LCN is a physical location on the NTFS partition; VCNs are the offset
+
+## virtual cluster number (VCN)
+
+When a large file is saved in NTFS, it’s assigned a logical
+
+cluster number specifying a location on the partition. Large files are referred to as nonresident  
+files. If the disk is highly fragmented, VCNs are assigned and list the additional space needed  
+to store the file. The LCN is a physical location on the NTFS partition; VCNs are the offset  
 from the previous LCN data run. See also logical cluster numbers (LCNs) and data runs.
-`virtual machines` : Emulated computer environments that simulate hardware and can be used for
-running OSs separate from the physical (host) computer. For example, a computer running
-Windows Vista could have a virtualWindows 98 OS, allowing the user to switch between OSs.
-volume Any storage media, such as a floppy disk, a partition on a hard drive, the entire
+
+## virtual machines
+
+Emulated computer environments that simulate hardware and can be used for
+
+running OSs separate from the physical (host) computer. For example, a computer running  
+Windows Vista could have a virtualWindows 98 OS, allowing the user to switch between OSs.  
+volume Any storage media, such as a floppy disk, a partition on a hard drive, the entire  
 drive, or several drives. On Intel systems, a volume is any partitioned disk.
-`zoned bit recording (ZBR)` : The method most manufacturers use to deal with a platter’s inner
-tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks
+
+## zoned bit recording (ZBR)
+
+The method most manufacturers use to deal with a platter’s inner
+
+tracks being shorter than the outer tracks. Grouping tracks by zones ensures that all tracks  
 hold the same amount of data.
 
 ### macOS and Linux Systems
