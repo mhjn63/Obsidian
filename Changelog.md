@@ -1,5 +1,4 @@
 - 2026-08-04T0020 · [[README]]
-- 2026-08-04T0019 · [[conflict-files-obsidian-git]]
 - 2026-08-03T2346 · [[OSINT]]
 - 2026-08-03T2346 · [[Blue Team Notes]]
 - 2026-08-03T2346 · [[Linux Security]]
@@ -23,3 +22,4 @@
 - 2026-08-03T2343 · [[Windows Active Directory]]
 - 2026-08-03T2343 · [[cURL]]
 - 2026-08-03T2343 · [[Vim]]
+- 2026-08-03T2343 · [[Postfix Incoming Mail Setup]]
