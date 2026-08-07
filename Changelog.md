@@ -1,3 +1,4 @@
+- 2026-08-07T1727 · [[THM SAL2 vs BTL2 vs HTB CDSA]]
 - 2026-08-07T1727 · [[THM Writeups]]
 - 2026-08-07T1216 · [[Bug Bounty Methodology]]
 - 2026-08-04T0032 · [[Bug Bounty Cheat Sheet]]
@@ -22,4 +23,3 @@
 - 2026-08-03T2343 · [[C Programming]]
 - 2026-08-03T2343 · [[Bash Programming Notes]]
 - 2026-08-03T2343 · [[Windows Notes]]
-- 2026-08-03T2343 · [[CMD]]

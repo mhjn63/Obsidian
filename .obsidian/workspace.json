@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Certifications/THM SAL2 vs BTL2 vs HTB CDSA.md",
+                "file": "Penetration Testing/Web Hacking/API Pentesting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "THM SAL2 vs BTL2 vs HTB CDSA"
+              "title": "API Pentesting"
             }
           }
         ]
@@ -190,6 +190,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Certifications/THM SAL2 vs BTL2 vs HTB CDSA.md",
     "THM Writeups/THM Writeups.md",
     "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
@@ -216,7 +217,6 @@
     "Tech/Programming/HTML.md",
     "Tech/Programming/Django.md",
     "Tech/Programming/C Programming.md",
-    "Tech/Programming/Bash Programming Notes.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
