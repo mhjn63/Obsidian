@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bug Bounty/Bug Bounty Methodology.md",
+                "file": "THM Writeups/THM Writeups.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bug Bounty Methodology"
+              "title": "THM Writeups"
             }
           }
         ]
@@ -190,6 +190,7 @@
   },
   "active": "7f51b4a8d3ca4804",
   "lastOpenFiles": [
+    "Bug Bounty/Bug Bounty Methodology.md",
     "Bug Bounty/Bug Bounty Cheat Sheet.md",
     "Penetration Testing/Web Hacking/API Pentesting.md",
     "conflict-files-obsidian-git.md",
@@ -216,7 +217,6 @@
     "Tech/Programming/C Programming.md",
     "Tech/Programming/Bash Programming Notes.md",
     "Tech/Blockchain and Crypto.md",
-    "Tech/Operating Systems/Windows AD/Windows Active Directory.md",
     "New Text Document.txt",
     "Docs",
     "Premium Notes and Courses/images/logo v2 transparent.png",
